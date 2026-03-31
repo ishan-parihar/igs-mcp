@@ -9,6 +9,8 @@ import { parseUssfcfcHtml } from '../parsers/ussf_cfc.js';
 import { parseWhoJson } from '../parsers/who_dons.js';
 import { parseNewslaundryHtml } from '../parsers/newslaundry.js';
 import type { NewsItem, Source } from '../types/news.js';
+import path from 'node:path';
+import { getUserConfigDir } from '../config/loader.js';
 
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
@@ -66,8 +68,10 @@ export async function registerNewsTools(srv: McpServer) {
     outputSchema: { items: z.array(z.any()), count: z.number() }
   }, async (args: any) => {
     const settings = await loadSettings();
-    const http = new HttpClient(settings.http, settings.cache.dir);
-    const qcache = new QueryCache(settings.cache.dir, settings.cache.queryTtlMs);
+    const baseCfg = getUserConfigDir();
+    const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);
+    const http = new HttpClient(settings.http, cacheDir);
+    const qcache = new QueryCache(cacheDir, settings.cache.queryTtlMs);
     const sf = await loadSources();
     let sources = sf.sources.filter(s => s.is_active !== false);
     if (args.pools?.length) sources = sources.filter(s => s.pools.some(p => args.pools!.includes(p)));

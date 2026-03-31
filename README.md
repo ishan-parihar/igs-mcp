@@ -10,9 +10,11 @@ Quick Start
 - Build: npm run build && npm start
 
 Config (YAML)
-- config/pools.yml         # pools and default activation
-- config/sources.yml       # list of sources, their parser, and pool links
-- config/settings.yml      # concurrency, cache policy, time settings
+- Defaults (read-only, in repo): config/*.yml
+- Primary (writable, global):
+  - Linux/macOS: ~/.config/igs-mcp/*.yml (or $XDG_CONFIG_HOME/igs-mcp)
+  - Override via env: IGS_CONFIG_DIR=/custom/path
+On first run, the server bootstraps ~/.config/igs-mcp from repo defaults. All updates (pool/source changes) write only to the global config, never to repo defaults.
 
 Tools (MCP)
 - pools.list / pools.upsert / pools.delete
