@@ -1,6 +1,6 @@
 import pino from 'pino';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { registerPoolTools } from './tools/pools.js';
 import { registerSourceTools } from './tools/sources.js';
 import { registerParsersTool } from './tools/parsers.js';
