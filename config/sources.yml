@@ -1,0 +1,121 @@
+sources:
+  # POOL_A_MACRO
+  - id: reuters
+    name: Reuters
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Areuters.com&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools: [POOL_A_MACRO]
+    is_active: true
+  - id: ft
+    name: Financial Times
+    type: rss
+    url: https://www.ft.com/rss/home
+    parser: rss
+    pools: [POOL_A_MACRO]
+    is_active: true
+  - id: aljazeera
+    name: Al Jazeera
+    type: rss
+    url: https://www.aljazeera.com/xml/rss/all.xml
+    parser: rss
+    pools: [POOL_A_MACRO]
+    is_active: true
+  - id: nikkei_asia
+    name: Nikkei Asia
+    type: rss
+    url: https://asia.nikkei.com/rss/feed/nar
+    parser: rss
+    pools: [POOL_A_MACRO]
+    is_active: true
+  - id: straits_times
+    name: Straits Times
+    type: rss
+    url: https://www.straitstimes.com/news/world/rss.xml
+    parser: rss
+    pools: [POOL_A_MACRO]
+    is_active: true
+
+  # POOL_B_STRATEGY
+  - id: war_on_the_rocks
+    name: War on the Rocks
+    type: rss
+    url: https://warontherocks.com/feed/
+    parser: rss
+    pools: [POOL_B_STRATEGY]
+    is_active: true
+  - id: foreign_affairs
+    name: Foreign Affairs
+    type: rss
+    url: https://www.foreignaffairs.com/rss.xml
+    parser: rss
+    pools: [POOL_B_STRATEGY]
+    is_active: true
+  - id: ofac_recent_actions
+    name: OFAC Recent Actions
+    type: http
+    url: https://ofac.treasury.gov/recent-actions
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+      Accept: application/rss+xml
+    parser: ofac
+    pools: [POOL_B_STRATEGY]
+    is_active: true
+
+  # POOL_C_TECH
+  - id: mit_tech_review
+    name: MIT Technology Review
+    type: rss
+    url: https://www.technologyreview.com/feed/
+    parser: rss
+    pools: [POOL_C_TECH]
+    is_active: true
+  - id: cisa_alerts
+    name: US CISA Alerts
+    type: rss
+    url: https://www.cisa.gov/cybersecurity-advisories/alerts.xml
+    parser: rss
+    pools: [POOL_C_TECH]
+    is_active: true
+  - id: ussf_cfc
+    name: US Space Force CFC News
+    type: http
+    url: https://www.ussf-cfc.spaceforce.mil/News
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+      Accept: application/rss+xml
+    parser: ussf_cfc
+    pools: [POOL_C_TECH]
+    is_active: true
+
+  # POOL_D_CULTURE
+  - id: lawfare
+    name: Lawfare
+    type: rss
+    url: https://www.lawfaremedia.org/feeds/articles
+    parser: rss
+    pools: [POOL_D_CULTURE]
+    is_active: true
+  - id: aeon
+    name: Aeon.co
+    type: rss
+    url: https://aeon.co/feed.rss
+    parser: rss
+    pools: [POOL_D_CULTURE]
+    is_active: true
+
+  # POOL_E_ENV_HEALTH
+  - id: who_dons
+    name: WHO Disease Outbreak News
+    type: http
+    url: https://www.who.int/api/emergencies/diseaseoutbreaknews
+    parser: who_dons
+    pools: [POOL_E_ENV_HEALTH]
+    is_active: true
+  - id: mongabay
+    name: Mongabay
+    type: rss
+    url: https://news.mongabay.com/feed/
+    parser: rss
+    pools: [POOL_E_ENV_HEALTH]
+    is_active: true

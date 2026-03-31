@@ -1,0 +1,21 @@
+pools:
+  - id: POOL_A_MACRO
+    name: Global Macro & General News
+    description: High-volume baseline of global events
+    is_active: true
+  - id: POOL_B_STRATEGY
+    name: Deep Strategy & Geopolitics
+    description: Low-volume, high-signal analysis and official actions
+    is_active: true
+  - id: POOL_C_TECH
+    name: Tech, Science & Acceleration
+    description: Tech disruption, crypto, cyber/space
+    is_active: true
+  - id: POOL_D_CULTURE
+    name: Culture, Society & Law
+    description: Sociopolitical and legal commentary
+    is_active: true
+  - id: POOL_E_ENV_HEALTH
+    name: Environment & Health
+    description: Outbreaks and climate reporting
+    is_active: true

@@ -1,0 +1,32 @@
+{
+  "name": "igs-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Intelligence Gathering System MCP server for managing RSS/HTTP news pools and fetching normalized updates.",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "cheerio": "^1.0.0",
+    "js-yaml": "^4.1.0",
+    "p-queue": "^8.0.1",
+    "pino": "^9.1.0",
+    "rss-parser": "^3.13.0",
+    "undici": "^6.19.5",
+    "zod": "^3.23.8",
+    "date-fns": "^3.6.0",
+    "date-fns-tz": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/js-yaml": "^4.0.9",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  }
+}

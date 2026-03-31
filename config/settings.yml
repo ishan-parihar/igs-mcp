@@ -1,0 +1,19 @@
+http:
+  userAgent: IGS-MCP/0.1 (+https://example.local)
+  timeoutMs: 15000
+  retries: 2
+  backoffBaseMs: 500
+  backoffFactor: 2.0
+  concurrency: 6
+  perHost: 2
+
+cache:
+  enabled: true
+  dir: cache
+  honorEtags: true
+  ttlMs: 1800000   # 30 minutes TTL fallback when no validators
+  queryTtlMs: 600000  # 10 minutes query cache for identical timeframe requests
+  maxItemsPerSource: 300
+
+time:
+  timezone: local  # use system local timezone for input/output
