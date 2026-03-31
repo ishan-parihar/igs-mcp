@@ -11,6 +11,8 @@ import { parseNewslaundryHtml } from '../parsers/newslaundry.js';
 import type { NewsItem, Source } from '../types/news.js';
 import path from 'node:path';
 import { getUserConfigDir } from '../config/loader.js';
+import { load as loadHtml } from 'cheerio';
+import { parseWithSelectors, autoParseHtml } from '../parsers/generic_html.js';
 
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
@@ -48,9 +50,35 @@ async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefe
     items = parseWhoJson(source, res.response.bodyText);
   } else if (source.parser === 'newslaundry') {
     items = parseNewslaundryHtml(source, res.response.bodyText);
+  } else if (source.parser === 'generic_html' && source.parserConfig?.selectors) {
+    items = await parseWithSelectors(source, res.response.bodyText, source.parserConfig.selectors as any);
   } else {
-    // default RSS: treat body as XML string
-    items = await parseRss(source, res.response.bodyText, true);
+    // Auto-detect: if content-type or body indicates XML/Atom → parse as RSS.
+    const ctype = (res.response.headers['content-type'] || '').toLowerCase();
+    const body = res.response.bodyText;
+    const looksXml = ctype.includes('xml') || ctype.includes('rss') || ctype.includes('atom') || /<rss[\s>/]/i.test(body) || /<feed[\s>/]/i.test(body);
+    if (looksXml) {
+      items = await parseRss(source, body, true);
+    } else {
+      // Try to discover RSS/Atom via HTML <link rel="alternate" type="application/rss+xml">
+      try {
+        const $ = loadHtml(body);
+        const linkEl = $("link[rel='alternate'][type*='rss'], link[rel='alternate'][type*='atom']").first();
+        const href = linkEl.attr('href');
+        if (href) {
+          const rssUrl = new URL(href, source.url).toString();
+          const res2 = await http.fetch(rssUrl, headers, cacheMode);
+          if ('response' in res2) {
+            items = await parseRss(source, res2.response.bodyText, true);
+          }
+        } else {
+          const auto = await autoParseHtml(source, body);
+          items = auto.items;
+        }
+      } catch {
+        items = [];
+      }
+    }
   }
   await http.writeCache(source.url, items, (res as any).etag, (res as any).lastModified);
   return items;
@@ -118,5 +146,23 @@ export async function registerNewsTools(srv: McpServer) {
     const structuredContent = { items: filtered, count: filtered.length };
     await qcache.write(key, deps, structuredContent);
     return { content: [{ type: 'text', text: JSON.stringify(structuredContent) }], structuredContent };
+  });
+
+  // Quick single-source tester for agents
+  srv.registerTool('news.testSource', {
+    description: 'Test a single source by id and return up to 10 sample items',
+    inputSchema: { id: z.string().min(1), cacheMode: z.enum(['prefer','bypass','only']).optional() },
+    outputSchema: { items: z.array(z.any()), count: z.number() }
+  }, async (args: any) => {
+    const settings = await loadSettings();
+    const baseCfg = getUserConfigDir();
+    const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);
+    const http = new HttpClient(settings.http, cacheDir);
+    const sf = await loadSources();
+    const src = sf.sources.find(s => s.id === args.id);
+    if (!src) throw new Error(`Source not found: ${args.id}`);
+    const items = await parseBySource(src as any, http, args.cacheMode || 'bypass');
+    const structuredContent = { items: items.slice(0, 10), count: items.length };
+    return { content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], structuredContent };
   });
 }

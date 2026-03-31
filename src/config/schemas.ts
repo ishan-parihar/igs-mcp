@@ -18,6 +18,20 @@ export const SourceSchema = z.object({
   url: z.string().url(),
   headers: z.record(z.string()).optional(),
   parser: z.string().optional(),
+  parserConfig: z
+    .object({
+      listUrl: z.string().url().optional(),
+      selectors: z
+        .object({
+          item: z.string().min(1),
+          title: z.string().optional(),
+          link: z.string().optional(),
+          date: z.string().optional(),
+          desc: z.string().optional(),
+        })
+        .optional(),
+    })
+    .optional(),
   pools: z.array(z.string()).default([]),
   is_active: z.boolean().optional().default(true),
 });

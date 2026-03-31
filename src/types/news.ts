@@ -12,6 +12,16 @@ export type Source = {
   url: string;
   headers?: Record<string, string>;
   parser?: string; // 'rss' | 'ofac' | 'ussf_cfc' | 'who_dons' | 'newslaundry'
+  parserConfig?: {
+    listUrl?: string;
+    selectors?: {
+      item: string;
+      title?: string;
+      link?: string;
+      date?: string;
+      desc?: string;
+    };
+  };
   pools: string[];
   is_active?: boolean;
 };

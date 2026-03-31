@@ -5,6 +5,7 @@ import { registerPoolTools } from './tools/pools.js';
 import { registerSourceTools } from './tools/sources.js';
 import { registerParsersTool } from './tools/parsers.js';
 import { registerNewsTools } from './tools/news.js';
+import { registerAutodiscoverTools } from './tools/autodiscover.js';
 
 async function main() {
   const log = pino({ level: process.env.LOG_LEVEL || 'info' });
@@ -14,6 +15,7 @@ async function main() {
   await registerSourceTools(server);
   await registerParsersTool(server);
   await registerNewsTools(server);
+  await registerAutodiscoverTools(server);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
