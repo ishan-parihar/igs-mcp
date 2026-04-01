@@ -1,21 +1,62 @@
 pools:
-  - id: POOL_A_MACRO
-    name: Global Macro & General News
-    description: High-volume baseline of global events
+  # ─── Global ──────────────────────────────────────────────
+  - id: GLOBAL_BREAKING
+    name: Global Breaking
+    description: Fast, low-spin event detection
     is_active: true
-  - id: POOL_B_STRATEGY
-    name: Deep Strategy & Geopolitics
-    description: Low-volume, high-signal analysis and official actions
+
+  - id: GLOBAL_GEOECON
+    name: Global Geopolitics & Geoeconomics
+    description: Strategic competition, sanctions, energy, shipping, sovereign risk
     is_active: true
-  - id: POOL_C_TECH
-    name: Tech, Science & Acceleration
-    description: Tech disruption, crypto, cyber/space
+
+  - id: GLOBAL_LAW_REG
+    name: Global Law & Regulation
+    description: Sanctions, courts, regulatory actions, treaties
     is_active: true
-  - id: POOL_D_CULTURE
-    name: Culture, Society & Law
-    description: Sociopolitical and legal commentary
+
+  - id: GLOBAL_TECH_CYBER
+    name: Global Tech & Cyber
+    description: Emerging tech, cyber incidents, standards, defence tech
     is_active: true
-  - id: POOL_E_ENV_HEALTH
-    name: Environment & Health
-    description: Outbreaks and climate reporting
+
+  - id: GLOBAL_ENV_HEALTH
+    name: Global Environment & Health
+    description: Disease, climate, biodiversity, environmental disruption
+    is_active: true
+
+  - id: GLOBAL_CULT_SOC
+    name: Global Culture & Society
+    description: Ideology, social change, civilisational narratives
+    is_active: true
+
+  # ─── India ───────────────────────────────────────────────
+  - id: INDIA_NATIONAL_BASE
+    name: India National Baseline
+    description: Sober daily reporting with national breadth
+    is_active: true
+
+  - id: INDIA_WATCHDOG
+    name: India Watchdog & Investigative
+    description: Investigations, accountability, rights, media criticism
+    is_active: true
+
+  - id: INDIA_FACTCHECK_DATA
+    name: India Fact-Check & Data
+    description: Verification, misinformation checks, public-interest data
+    is_active: true
+
+  - id: INDIA_BUSINESS_REG
+    name: India Business & Regulation
+    description: Markets, filings, exchange actions, monetary/regulatory signals
+    is_active: true
+
+  - id: INDIA_REGION
+    name: India Regional
+    description: State-level and zonal reporting
+    is_active: true
+
+  - id: INDIA_CITIES
+    name: India Cities
+    description: City-level feeds (Delhi, Mumbai, Bengaluru, etc.)
     is_active: true
