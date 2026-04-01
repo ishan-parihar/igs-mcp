@@ -60,3 +60,13 @@ pools:
     name: India Cities
     description: City-level feeds (Delhi, Mumbai, Bengaluru, etc.)
     is_active: true
+  
+  # ─── Global Country & City (New) ───────────────
+  - id: GLOBAL_COUNTRIES
+    name: Global Countries
+    description: Country-specific international news feeds (Guardian, France24, etc.)
+    is_active: true
+  - id: GLOBAL_CITIES
+    name: Global Cities
+    description: City-specific feeds where available; fallback to curated or GN feeds
+    is_active: true

@@ -1,0 +1,64 @@
+countries:
+  - code: IN
+    name: India
+    guardian_slug: india
+    france24_slug: india
+    cities:
+      - Delhi
+      - Mumbai
+      - Bengaluru
+      - Chennai
+      - Hyderabad
+      - Kolkata
+  - code: US
+    name: United States
+    guardian_slug: us-news
+    france24_slug: united-states
+    cities:
+      - New York
+      - Washington DC
+      - Los Angeles
+      - San Francisco
+  - code: GB
+    name: United Kingdom
+    guardian_slug: uk-news
+    france24_slug: united-kingdom
+    cities:
+      - London
+      - Manchester
+      - Edinburgh
+  - code: FR
+    name: France
+    guardian_slug: france
+    france24_slug: france
+    cities:
+      - Paris
+      - Marseille
+  - code: DE
+    name: Germany
+    guardian_slug: germany
+    france24_slug: germany
+    cities:
+      - Berlin
+      - Munich
+  - code: JP
+    name: Japan
+    guardian_slug: japan
+    france24_slug: japan
+    cities:
+      - Tokyo
+      - Osaka
+  - code: ZA
+    name: South Africa
+    guardian_slug: southafrica
+    france24_slug: south-africa
+    cities:
+      - Johannesburg
+      - Cape Town
+  - code: BR
+    name: Brazil
+    guardian_slug: brazil
+    france24_slug: brazil
+    cities:
+      - São Paulo
+      - Rio de Janeiro
