@@ -1,6 +1,6 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-import { loadSources, loadSettings } from '../config/loader.js';
+import { loadSources, loadSettings, loadCountries } from '../config/loader.js';
 import { HttpClient } from '../http/client.js';
 import { QueryCache } from '../http/queryCache.js';
 import { parseRss } from '../parsers/rss.js';
@@ -18,8 +18,13 @@ import { parseJsonFeed } from '../parsers/json_feed.js';
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
   sources: z.array(z.string()).optional(),
+  countries: z.array(z.string()).optional(),
+  cities: z.array(z.string()).optional(),
   start: z.string().optional(),
   end: z.string().optional(),
+  keywords: z.array(z.string()).optional(),
+  excludeKeywords: z.array(z.string()).optional(),
+  matchAll: z.boolean().optional().default(false),
   limit: z.number().int().min(1).max(500).default(100),
   cacheMode: z.enum(['prefer','bypass','only']).default('prefer'),
   includeRaw: z.boolean().optional().default(false),
@@ -99,6 +104,71 @@ function buildQueryKey(kind: string, pools: string[]|undefined, sources: string[
   return [kind, (pools||[]).slice().sort().join(','), (sources||[]).slice().sort().join(','), start||'', end||'', String(limit||'')].join('|');
 }
 
+function filterByKeywords(items: NewsItem[], keywords: string[] = [], exclude: string[] = [], matchAll = false): NewsItem[] {
+  if ((!keywords || keywords.length === 0) && (!exclude || exclude.length === 0)) return items;
+  const kws = (keywords || []).map(k => k.toLowerCase());
+  const exs = (exclude || []).map(k => k.toLowerCase());
+  return items.filter(it => {
+    const text = `${it.title} ${it.content_snippet} ${it.link}`.toLowerCase();
+    if (exs.length && exs.some(e => text.includes(e))) return false;
+    if (kws.length === 0) return true;
+    return matchAll ? kws.every(k => text.includes(k)) : kws.some(k => text.includes(k));
+  });
+}
+
+const CITY_SOURCE_MAP: Record<string, string[]> = {
+  // Global cities (curated)
+  'London': ['standard_london'],
+  'New York': ['nytimes_nyregion'],
+  'Paris': ['leparisien_paris'],
+  'Singapore': ['straitstimes_singapore'],
+  'Tokyo': ['gn_tokyo'],
+  'Berlin': ['gn_berlin'],
+  'Dubai': ['gn_dubai'],
+  'Johannesburg': ['gn_johannesburg'],
+  // India
+  'Delhi': ['the_hindu_delhi','ie_delhi'],
+  'Mumbai': ['the_hindu_mumbai','ie_mumbai'],
+  'Bengaluru': ['the_hindu_bengaluru','ie_bengaluru'],
+  'Chennai': ['the_hindu_chennai','ie_chennai'],
+  'Hyderabad': ['the_hindu_hyderabad','ie_hyderabad'],
+  'Kolkata': ['the_hindu_kolkata','ie_kolkata'],
+  'Pune': ['ie_pune'],
+  'Ahmedabad': ['ie_ahmedabad'],
+  'Lucknow': ['ie_lucknow'],
+  'Chandigarh': ['ie_chandigarh'],
+};
+
+const COUNTRY_CURATED_MAP: Record<string, string[]> = {
+  'United States': ['guardian_us','npr_top'],
+  'United Kingdom': ['bbc_uk','guardian_uk'],
+  'France': ['france24_fr'],
+  'Europe': ['bbc_europe','politico_europe'],
+  'Japan': ['guardian_japan'],
+  'Australia': ['abc_au_top'],
+  'Canada': ['guardian_canada'],
+  'China': ['guardian_china'],
+  'Russia': ['moscow_times'],
+  'Africa': ['bbc_africa'],
+  'Middle East': ['france24_me'],
+  'India': ['guardian_india','france24_india'],
+};
+
+function resolveCountrySources(countriesDoc: any, requested: string[]): string[] {
+  const out: string[] = [];
+  // from registry
+  for (const name of requested) {
+    const entry = (countriesDoc.countries || []).find((c: any) => (c.name?.toLowerCase() === name.toLowerCase()) || (c.code?.toLowerCase() === name.toLowerCase()));
+    if (entry) {
+      if (entry.guardian_slug) out.push(`guardian_${entry.guardian_slug}`);
+      if (entry.france24_slug) out.push(`france24_${entry.france24_slug}`);
+    }
+    // curated additions
+    if (COUNTRY_CURATED_MAP[name]) out.push(...COUNTRY_CURATED_MAP[name]);
+  }
+  return Array.from(new Set(out));
+}
+
 export async function registerNewsTools(srv: McpServer) {
   // Using deprecated tool() for simplicity; can be migrated to registerTool later.
   srv.registerTool('news.fetch', {
@@ -113,8 +183,22 @@ export async function registerNewsTools(srv: McpServer) {
     const qcache = new QueryCache(cacheDir, settings.cache.queryTtlMs);
     const sf = await loadSources();
     let sources = sf.sources.filter(s => s.is_active !== false);
-    if (args.pools?.length) sources = sources.filter(s => s.pools.some(p => args.pools!.includes(p)));
-    if (args.sources?.length) sources = sources.filter(s => args.sources!.includes(s.id));
+    
+    // Friendly name mapping for countries and cities
+    const countriesDoc = await loadCountries();
+    const mappedCountrySources = args.countries?.length ? resolveCountrySources(countriesDoc, args.countries) : [];
+    const mappedCitySources = args.cities?.length ? args.cities.flatMap((c: string) => CITY_SOURCE_MAP[c] || []) : [];
+
+    if (args.sources?.length) {
+      sources = sources.filter(s => args.sources!.includes(s.id));
+    } else {
+      // Compose from pools + countries + cities
+      let poolFiltered = sources;
+      if (args.pools?.length) poolFiltered = poolFiltered.filter(s => s.pools.some(p => args.pools!.includes(p)));
+      const idSet = new Set<string>(poolFiltered.map(s => s.id));
+      for (const id of [...mappedCountrySources, ...mappedCitySources]) idSet.add(id);
+      sources = sources.filter(s => idSet.has(s.id));
+    }
 
     // Query-level cache: avoid any network calls if sources' feed caches haven't changed
     const key = buildQueryKey('news.fetch', args.pools, args.sources, args.start, args.end, args.limit);
@@ -144,7 +228,9 @@ export async function registerNewsTools(srv: McpServer) {
       }
     }
 
-    const filtered = filterByTime(all, args.start, args.end)
+    let filtered = filterByTime(all, args.start, args.end)
+      ;
+    filtered = filterByKeywords(filtered, args.keywords, args.excludeKeywords, args.matchAll)
       .sort((a,b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
       .slice(0, args.limit);
 
@@ -154,7 +240,19 @@ export async function registerNewsTools(srv: McpServer) {
       const fc = await http.readCache(src.url);
       if (fc) deps[src.url] = fc.fetchedAt;
     }
-    const structuredContent = { items: filtered, count: filtered.length };
+    const structuredContent = { items: filtered, count: filtered.length, meta: {
+      sourcesQueried: sources.length,
+      sourcesSucceeded: 0, // not tracked per-source here
+      sourcesFailed: 0,
+      poolIds: args.pools || [],
+      regionTags: args.regions || [],
+      cityTags: args.cities || [],
+      topicTags: [],
+      keywords: args.keywords || [],
+      excludeKeywords: args.excludeKeywords || [],
+      matchAll: args.matchAll || false,
+      timeRange: { start: args.start || '', end: args.end || '' }
+    } };
     await qcache.write(key, deps, structuredContent);
     return { content: [{ type: 'text', text: JSON.stringify(structuredContent) }], structuredContent };
   });

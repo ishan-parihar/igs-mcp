@@ -634,6 +634,71 @@ sources:
     pools:
       - INDIA_CITIES
     is_active: true
+  # ─── Global Cities (curated) ───
+  - id: standard_london
+    name: Evening Standard (London)
+    type: rss
+    url: https://www.standard.co.uk/news/rss
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: nytimes_nyregion
+    name: NYTimes (New York Region)
+    type: rss
+    url: https://rss.nytimes.com/services/xml/rss/nyt/NYRegion.xml
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: leparisien_paris
+    name: Le Parisien (Paris)
+    type: rss
+    url: https://www.leparisien.fr/actualites/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: straitstimes_singapore
+    name: Straits Times (Singapore)
+    type: rss
+    url: https://www.straitstimes.com/news/singapore/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: gn_tokyo
+    name: Google News (Tokyo)
+    type: rss
+    url: https://news.google.com/rss/search?q=Tokyo&hl=en&gl=JP&ceid=JP:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: gn_berlin
+    name: Google News (Berlin)
+    type: rss
+    url: https://news.google.com/rss/search?q=Berlin%20Germany&hl=en&gl=DE&ceid=DE:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: gn_dubai
+    name: Google News (Dubai)
+    type: rss
+    url: https://news.google.com/rss/search?q=Dubai&hl=en&gl=AE&ceid=AE:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
+  - id: gn_johannesburg
+    name: Google News (Johannesburg)
+    type: rss
+    url: https://news.google.com/rss/search?q=Johannesburg&hl=en&gl=ZA&ceid=ZA:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    is_active: true
   - id: ie_chennai
     name: Indian Express (Chennai)
     type: rss
@@ -1005,4 +1070,252 @@ sources:
     pools:
       - INDIA_REGION
       - INDIA_CITIES
+    is_active: true
+  - id: guardian_india
+    name: Guardian (India)
+    type: rss
+    url: https://www.theguardian.com/world/india/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_india
+    name: France24 (India)
+    type: rss
+    url: https://www.france24.com/en/tag/india/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_us-news
+    name: Guardian (United States)
+    type: rss
+    url: https://www.theguardian.com/world/us-news/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_united-states
+    name: France24 (United States)
+    type: rss
+    url: https://www.france24.com/en/tag/united-states/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_uk-news
+    name: Guardian (United Kingdom)
+    type: rss
+    url: https://www.theguardian.com/world/uk-news/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_united-kingdom
+    name: France24 (United Kingdom)
+    type: rss
+    url: https://www.france24.com/en/tag/united-kingdom/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_france
+    name: Guardian (France)
+    type: rss
+    url: https://www.theguardian.com/world/france/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_france
+    name: France24 (France)
+    type: rss
+    url: https://www.france24.com/en/tag/france/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_germany
+    name: Guardian (Germany)
+    type: rss
+    url: https://www.theguardian.com/world/germany/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_germany
+    name: France24 (Germany)
+    type: rss
+    url: https://www.france24.com/en/tag/germany/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_japan
+    name: Guardian (Japan)
+    type: rss
+    url: https://www.theguardian.com/world/japan/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_japan
+    name: France24 (Japan)
+    type: rss
+    url: https://www.france24.com/en/tag/japan/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_southafrica
+    name: Guardian (South Africa)
+    type: rss
+    url: https://www.theguardian.com/world/southafrica/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_south-africa
+    name: France24 (South Africa)
+    type: rss
+    url: https://www.france24.com/en/tag/south-africa/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_brazil
+    name: Guardian (Brazil)
+    type: rss
+    url: https://www.theguardian.com/world/brazil/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_brazil
+    name: France24 (Brazil)
+    type: rss
+    url: https://www.france24.com/en/tag/brazil/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_us
+    name: Guardian (US News)
+    type: rss
+    url: https://www.theguardian.com/us-news/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: npr_top
+    name: NPR Top News
+    type: rss
+    url: https://feeds.npr.org/1001/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: bbc_uk
+    name: BBC UK
+    type: rss
+    url: https://feeds.bbci.co.uk/news/uk/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_uk
+    name: Guardian (UK)
+    type: rss
+    url: https://www.theguardian.com/uk-news/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_fr
+    name: France24 (France)
+    type: rss
+    url: https://www.france24.com/en/tag/france/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: bbc_europe
+    name: BBC Europe
+    type: rss
+    url: https://feeds.bbci.co.uk/news/world/europe/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: politico_europe
+    name: Politico Europe
+    type: rss
+    url: https://www.politico.eu/feed/
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: japantimes_national
+    name: The Japan Times (National)
+    type: rss
+    url: https://www.japantimes.co.jp/news_category/national/feed/
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: abc_au_top
+    name: ABC Australia (Top Stories)
+    type: rss
+    url: https://www.abc.net.au/news/feed/51120/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: cbc_top
+    name: CBC Top Stories
+    type: rss
+    url: https://www.cbc.ca/cmlink/rss-topstories
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_china
+    name: Guardian (China)
+    type: rss
+    url: https://www.theguardian.com/world/china/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: moscow_times
+    name: The Moscow Times (News)
+    type: rss
+    url: https://www.themoscowtimes.com/rss/news
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: bbc_africa
+    name: BBC Africa
+    type: rss
+    url: https://feeds.bbci.co.uk/news/world/africa/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_me
+    name: France24 (Middle East)
+    type: rss
+    url: https://www.france24.com/en/middle-east/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_canada
+    name: Guardian (Canada)
+    type: rss
+    url: https://www.theguardian.com/world/canada/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
     is_active: true

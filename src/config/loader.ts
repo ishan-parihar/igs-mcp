@@ -87,3 +87,15 @@ export async function loadSettings(): Promise<Settings> {
   const parsed = await readYaml<Settings>(file);
   return SettingsSchema.parse(parsed);
 }
+
+// Lightweight loader for countries.yml (no zod schema; used for friendly mapping)
+export async function loadCountries(): Promise<any> {
+  await ensureBootstrapped();
+  const file = path.join(DEFAULT_DIR, 'countries.yml');
+  try {
+    const raw = await fs.readFile(file, 'utf8');
+    return yaml.load(raw) as any;
+  } catch {
+    return { countries: [] };
+  }
+}
