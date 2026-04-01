@@ -7,6 +7,7 @@ import { registerParsersTool } from './tools/parsers.js';
 import { registerNewsTools } from './tools/news.js';
 import { registerAutodiscoverTools } from './tools/autodiscover.js';
 import { registerCountryCityTools } from './tools/countries.js';
+import { registerEnrichTool } from './tools/enrich.js';
 
 async function main() {
   const log = pino({ level: process.env.LOG_LEVEL || 'info' });
@@ -18,6 +19,7 @@ async function main() {
   await registerNewsTools(server);
   await registerAutodiscoverTools(server);
   await registerCountryCityTools(server);
+  await registerEnrichTool(server);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
