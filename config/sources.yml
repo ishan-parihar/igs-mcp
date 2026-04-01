@@ -634,7 +634,6 @@ sources:
     pools:
       - INDIA_CITIES
     is_active: true
-  # ─── Global Cities (curated) ───
   - id: standard_london
     name: Evening Standard (London)
     type: rss
@@ -651,50 +650,10 @@ sources:
     pools:
       - GLOBAL_CITIES
     is_active: true
-  - id: leparisien_paris
-    name: Le Parisien (Paris)
-    type: rss
-    url: https://www.leparisien.fr/actualites/rss.xml
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
   - id: straitstimes_singapore
     name: Straits Times (Singapore)
     type: rss
     url: https://www.straitstimes.com/news/singapore/rss.xml
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: gn_tokyo
-    name: Google News (Tokyo)
-    type: rss
-    url: https://news.google.com/rss/search?q=Tokyo&hl=en&gl=JP&ceid=JP:en
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: gn_berlin
-    name: Google News (Berlin)
-    type: rss
-    url: https://news.google.com/rss/search?q=Berlin%20Germany&hl=en&gl=DE&ceid=DE:en
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: gn_dubai
-    name: Google News (Dubai)
-    type: rss
-    url: https://news.google.com/rss/search?q=Dubai&hl=en&gl=AE&ceid=AE:en
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: gn_johannesburg
-    name: Google News (Johannesburg)
-    type: rss
-    url: https://news.google.com/rss/search?q=Johannesburg&hl=en&gl=ZA&ceid=ZA:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1087,30 +1046,6 @@ sources:
     pools:
       - GLOBAL_COUNTRIES
     is_active: true
-  - id: guardian_us-news
-    name: Guardian (United States)
-    type: rss
-    url: https://www.theguardian.com/world/us-news/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_united-states
-    name: France24 (United States)
-    type: rss
-    url: https://www.france24.com/en/tag/united-states/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: guardian_uk-news
-    name: Guardian (United Kingdom)
-    type: rss
-    url: https://www.theguardian.com/world/uk-news/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
   - id: france24_united-kingdom
     name: France24 (United Kingdom)
     type: rss
@@ -1255,26 +1190,10 @@ sources:
     pools:
       - GLOBAL_COUNTRIES
     is_active: true
-  - id: japantimes_national
-    name: The Japan Times (National)
-    type: rss
-    url: https://www.japantimes.co.jp/news_category/national/feed/
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
   - id: abc_au_top
     name: ABC Australia (Top Stories)
     type: rss
     url: https://www.abc.net.au/news/feed/51120/rss.xml
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: cbc_top
-    name: CBC Top Stories
-    type: rss
-    url: https://www.cbc.ca/cmlink/rss-topstories
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
