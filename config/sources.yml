@@ -1,113 +1,121 @@
 sources:
-  # ═══════════════════════════════════════════════════════════════
-  # GLOBAL_BREAKING — fast, low-spin event detection
-  # ═══════════════════════════════════════════════════════════════
   - id: reuters
-    name: "Reuters (via Google News)"
+    name: Reuters (via Google News)
     type: rss
     url: https://news.google.com/rss/search?q=site%3Areuters.com&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
-    pools: [GLOBAL_BREAKING]
+    pools:
+      - GLOBAL_BREAKING
     is_active: true
   - id: reuters_india
-    name: "Reuters India"
+    name: Reuters India
     type: rss
     url: https://news.google.com/rss/search?q=site%3Areuters.com+india&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
-    pools: [GLOBAL_BREAKING, INDIA_NATIONAL_BASE]
+    pools:
+      - GLOBAL_BREAKING
+      - INDIA_NATIONAL_BASE
     is_active: true
   - id: bbc_world
-    name: "BBC World News"
+    name: BBC World News
     type: rss
     url: https://feeds.bbci.co.uk/news/world/rss.xml
     parser: rss
-    pools: [GLOBAL_BREAKING]
+    pools:
+      - GLOBAL_BREAKING
     is_active: true
   - id: bbc_india
-    name: "BBC News India"
+    name: BBC News India
     type: rss
     url: https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
     parser: rss
-    pools: [GLOBAL_BREAKING, INDIA_NATIONAL_BASE]
+    pools:
+      - GLOBAL_BREAKING
+      - INDIA_NATIONAL_BASE
     is_active: true
   - id: ft
-    name: "Financial Times"
+    name: Financial Times
     type: rss
     url: https://www.ft.com/rss/home
     parser: rss
-    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_BREAKING
+      - GLOBAL_GEOECON
     is_active: true
   - id: aljazeera
     name: Al Jazeera
     type: rss
     url: https://www.aljazeera.com/xml/rss/all.xml
     parser: rss
-    pools: [GLOBAL_BREAKING]
+    pools:
+      - GLOBAL_BREAKING
     is_active: true
   - id: nikkei_asia
     name: Nikkei Asia
     type: rss
     url: https://asia.nikkei.com/rss/feed/nar
     parser: rss
-    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_BREAKING
+      - GLOBAL_GEOECON
     is_active: true
   - id: straits_times
     name: Straits Times
     type: rss
     url: https://www.straitstimes.com/news/world/rss.xml
     parser: rss
-    pools: [GLOBAL_BREAKING]
+    pools:
+      - GLOBAL_BREAKING
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # GLOBAL_GEOECON — geopolitics, sanctions, strategic competition
-  # ═══════════════════════════════════════════════════════════════
   - id: war_on_the_rocks
     name: War on the Rocks
     type: rss
     url: https://warontherocks.com/feed/
     parser: rss
-    pools: [GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_GEOECON
     is_active: true
   - id: foreign_affairs
     name: Foreign Affairs
     type: rss
     url: https://www.foreignaffairs.com/rss.xml
     parser: rss
-    pools: [GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_GEOECON
     is_active: true
   - id: the_diplomat
     name: The Diplomat
     type: rss
     url: https://thediplomat.com/feed/
     parser: rss
-    pools: [GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_GEOECON
     is_active: true
   - id: project_syndicate
     name: Project Syndicate
     type: rss
     url: https://www.project-syndicate.org/rss
     parser: rss
-    pools: [GLOBAL_GEOECON, GLOBAL_LAW_REG]
+    pools:
+      - GLOBAL_GEOECON
+      - GLOBAL_LAW_REG
     is_active: true
   - id: ecfr
-    name: "European Council on Foreign Relations"
+    name: European Council on Foreign Relations
     type: rss
     url: https://ecfr.eu/feed/
     parser: rss
-    pools: [GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_GEOECON
     is_active: true
   - id: aeon
-    name: "Aeon.co"
+    name: Aeon.co
     type: rss
     url: https://aeon.co/feed.rss
     parser: rss
-    pools: [GLOBAL_CULT_SOC]
+    pools:
+      - GLOBAL_CULT_SOC
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # GLOBAL_LAW_REG — sanctions, courts, regulatory actions
-  # ═══════════════════════════════════════════════════════════════
   - id: ofac_recent_actions
     name: OFAC Recent Actions
     type: http
@@ -116,163 +124,168 @@ sources:
       User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
       Accept: application/rss+xml
     parser: ofac
-    pools: [GLOBAL_LAW_REG, GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_LAW_REG
+      - GLOBAL_GEOECON
     is_active: true
   - id: lawfare
     name: Lawfare
     type: rss
     url: https://www.lawfaremedia.org/feeds/articles
     parser: rss
-    pools: [GLOBAL_LAW_REG, GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_LAW_REG
+      - GLOBAL_GEOECON
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # GLOBAL_TECH_CYBER — tech, cyber, defence tech
-  # ═══════════════════════════════════════════════════════════════
   - id: mit_tech_review
-    name: "MIT Technology Review"
+    name: MIT Technology Review
     type: rss
     url: https://www.technologyreview.com/feed/
     parser: rss
-    pools: [GLOBAL_TECH_CYBER]
+    pools:
+      - GLOBAL_TECH_CYBER
     is_active: true
   - id: ars_technica
     name: Ars Technica
     type: rss
     url: http://feeds.arstechnica.com/arstechnica/index
     parser: rss
-    pools: [GLOBAL_TECH_CYBER]
+    pools:
+      - GLOBAL_TECH_CYBER
     is_active: true
   - id: cisa_alerts
-    name: "US CISA Alerts"
+    name: US CISA Alerts
     type: rss
     url: https://www.cisa.gov/cybersecurity-advisories/alerts.xml
     parser: rss
-    pools: [GLOBAL_TECH_CYBER]
+    pools:
+      - GLOBAL_TECH_CYBER
     is_active: true
   - id: ussf_cfc
-    name: "US Space Force CFC News"
+    name: US Space Force CFC News
     type: http
     url: https://www.ussf-cfc.spaceforce.mil/News
     headers:
       User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
       Accept: application/rss+xml
     parser: ussf_cfc
-    pools: [GLOBAL_TECH_CYBER]
+    pools:
+      - GLOBAL_TECH_CYBER
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # GLOBAL_ENV_HEALTH — disease, climate, biodiversity
-  # ═══════════════════════════════════════════════════════════════
   - id: who_dons
-    name: "WHO Disease Outbreak News"
+    name: WHO Disease Outbreak News
     type: http
     url: https://www.who.int/api/emergencies/diseaseoutbreaknews
     parser: who_dons
-    pools: [GLOBAL_ENV_HEALTH]
+    pools:
+      - GLOBAL_ENV_HEALTH
     is_active: true
   - id: mongabay
     name: Mongabay
     type: rss
     url: https://news.mongabay.com/feed/
     parser: rss
-    pools: [GLOBAL_ENV_HEALTH]
+    pools:
+      - GLOBAL_ENV_HEALTH
     is_active: true
   - id: inside_climate
     name: Inside Climate News
     type: rss
     url: https://insideclimatenews.org/feed/
     parser: rss
-    pools: [GLOBAL_ENV_HEALTH]
+    pools:
+      - GLOBAL_ENV_HEALTH
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # GLOBAL_CULT_SOC — ideology, social change, civilisational
-  # ═══════════════════════════════════════════════════════════════
   - id: unherd
     name: UnHerd
     type: rss
     url: https://unherd.com/feed
     parser: rss
-    pools: [GLOBAL_CULT_SOC]
+    pools:
+      - GLOBAL_CULT_SOC
     is_active: true
   - id: noema
     name: Noema Magazine
     type: rss
     url: https://www.noemamag.com/?feed=noemarss
     parser: rss
-    pools: [GLOBAL_CULT_SOC]
+    pools:
+      - GLOBAL_CULT_SOC
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # INDIA_NATIONAL_BASE — sober daily reporting, national breadth
-  # ═══════════════════════════════════════════════════════════════
   - id: the_hindu
-    name: "The Hindu (National)"
+    name: The Hindu (National)
     type: rss
     url: https://www.thehindu.com/news/national/feeder/default.rss
     parser: rss
-    pools: [INDIA_NATIONAL_BASE]
+    pools:
+      - INDIA_NATIONAL_BASE
     is_active: true
   - id: the_hindu_world
-    name: "The Hindu (World)"
+    name: The Hindu (World)
     type: rss
     url: https://www.thehindu.com/news/international/feeder/default.rss
     parser: rss
-    pools: [INDIA_NATIONAL_BASE]
+    pools:
+      - INDIA_NATIONAL_BASE
     is_active: true
   - id: ie_national
-    name: "Indian Express (National)"
+    name: Indian Express (National)
     type: rss
     url: https://indianexpress.com/section/india/feed/
     parser: rss
-    pools: [INDIA_NATIONAL_BASE]
+    pools:
+      - INDIA_NATIONAL_BASE
     is_active: true
   - id: ie_world
-    name: "Indian Express (World)"
+    name: Indian Express (World)
     type: rss
     url: https://indianexpress.com/section/world/feed/
     parser: rss
-    pools: [INDIA_NATIONAL_BASE]
+    pools:
+      - INDIA_NATIONAL_BASE
     is_active: true
   - id: et_india
-    name: "Economic Times India"
+    name: Economic Times India
     type: rss
     url: https://economictimes.indiatimes.com/rssfeedsdefault.cms
     parser: rss
-    pools: [INDIA_NATIONAL_BASE, INDIA_BUSINESS_REG]
+    pools:
+      - INDIA_NATIONAL_BASE
+      - INDIA_BUSINESS_REG
     is_active: true
   - id: livemint
     name: Livemint
     type: rss
     url: https://www.livemint.com/rss/news
     parser: rss
-    pools: [INDIA_NATIONAL_BASE, INDIA_BUSINESS_REG]
+    pools:
+      - INDIA_NATIONAL_BASE
+      - INDIA_BUSINESS_REG
     is_active: true
   - id: scroll_in
     name: Scroll.in
     type: rss
-    url: https://feeds.feedburner.com/ScrollinArticles.rss
+    url: https://news.google.com/rss/search?q=site:scroll.in&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools: [INDIA_NATIONAL_BASE, INDIA_WATCHDOG]
+    pools:
+      - INDIA_NATIONAL_BASE
+      - INDIA_WATCHDOG
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # INDIA_WATCHDOG — investigations, accountability, rights
-  # ═══════════════════════════════════════════════════════════════
   - id: newslaundry
     name: Newslaundry
     type: http
     url: https://www.newslaundry.com/collection/all-stories
     parser: newslaundry
-    pools: [INDIA_WATCHDOG]
+    pools:
+      - INDIA_WATCHDOG
     is_active: true
   - id: the_wire
     name: The Wire
     type: rss
-    url: https://thewire.in/feed
+    url: https://news.google.com/rss/search?q=site:thewire.in&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools: [INDIA_WATCHDOG]
+    pools:
+      - INDIA_WATCHDOG
     is_active: true
   - id: article14
     name: Article 14
@@ -282,12 +295,13 @@ sources:
     parserConfig:
       listUrl: https://article-14.com/latest
       selectors:
-        item: "article"
-        title: "h2 a"
-        link: "a"
-        date: "time"
-        desc: "p"
-    pools: [INDIA_WATCHDOG]
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools:
+      - INDIA_WATCHDOG
     is_active: true
   - id: caravan
     name: The Caravan
@@ -297,24 +311,23 @@ sources:
     parserConfig:
       listUrl: https://caravanmagazine.in/latest
       selectors:
-        item: "article"
-        title: "h2 a"
-        link: "a"
-        date: "time"
-        desc: "p"
-    pools: [INDIA_WATCHDOG]
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools:
+      - INDIA_WATCHDOG
     is_active: true
   - id: the_news_minute
     name: The News Minute
     type: rss
     url: https://www.thenewsminute.com/feeds/all.xml
     parser: rss
-    pools: [INDIA_WATCHDOG, INDIA_REGION]
+    pools:
+      - INDIA_WATCHDOG
+      - INDIA_REGION
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # INDIA_FACTCHECK_DATA — verification, misinformation checks
-  # ═══════════════════════════════════════════════════════════════
   - id: indiaspend
     name: IndiaSpend
     type: http
@@ -323,19 +336,21 @@ sources:
     parserConfig:
       listUrl: https://www.indiaspend.com/latest
       selectors:
-        item: "article"
-        title: "h2 a"
-        link: "a"
-        date: "time"
-        desc: "p"
-    pools: [INDIA_FACTCHECK_DATA]
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools:
+      - INDIA_FACTCHECK_DATA
     is_active: true
   - id: altnews
     name: Alt News
     type: rss
     url: https://www.altnews.in/feed/
     parser: rss
-    pools: [INDIA_FACTCHECK_DATA]
+    pools:
+      - INDIA_FACTCHECK_DATA
     is_active: true
   - id: boom_live
     name: BOOM Live
@@ -345,17 +360,14 @@ sources:
     parserConfig:
       listUrl: https://www.boomlive.in/fact-check
       selectors:
-        item: "article"
-        title: "h2 a"
-        link: "a"
-        date: "time"
-        desc: "p"
-    pools: [INDIA_FACTCHECK_DATA]
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools:
+      - INDIA_FACTCHECK_DATA
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # INDIA_BUSINESS_REG — markets, filings, exchange, RBI, SEBI
-  # ═══════════════════════════════════════════════════════════════
   - id: nse_circulars
     name: NSE Circulars
     type: http
@@ -366,10 +378,11 @@ sources:
     parserConfig:
       listUrl: https://www.nseindia.com/static/rss-feed
       selectors:
-        item: "ul li"
-        title: "a"
-        link: "a"
-    pools: [INDIA_BUSINESS_REG]
+        item: ul li
+        title: a
+        link: a
+    pools:
+      - INDIA_BUSINESS_REG
     is_active: true
   - id: rbi_notifications
     name: RBI Press Releases
@@ -381,11 +394,12 @@ sources:
     parserConfig:
       listUrl: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
       selectors:
-        item: "tr"
-        title: "a"
-        link: "a"
-        date: "td:nth-child(1)"
-    pools: [INDIA_BUSINESS_REG]
+        item: tr
+        title: a
+        link: a
+        date: td:nth-child(1)
+    pools:
+      - INDIA_BUSINESS_REG
     is_active: true
   - id: sebi_circulars
     name: SEBI Circulars
@@ -397,168 +411,462 @@ sources:
     parserConfig:
       listUrl: https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=1&ssid=3&smid=0
       selectors:
-        item: "tr"
-        title: "a"
-        link: "a"
-        date: "td:nth-child(1)"
-    pools: [INDIA_BUSINESS_REG]
+        item: tr
+        title: a
+        link: a
+        date: td:nth-child(1)
+    pools:
+      - INDIA_BUSINESS_REG
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # INDIA_REGION — state-level / zonal reporting
-  # ═══════════════════════════════════════════════════════════════
   - id: ie_south
-    name: "Indian Express (South)"
+    name: Indian Express (South)
     type: rss
-    url: https://indianexpress.com/section/india/south-india/feed/
+    url: https://news.google.com/rss/search?q=site:indianexpress.com+south+india&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: ie_east
-    name: "Indian Express (East)"
+    name: Indian Express (East)
     type: rss
     url: https://indianexpress.com/section/india/east-india/feed/
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: ie_northeast
-    name: "Indian Express (North East)"
+    name: Indian Express (North East)
     type: rss
     url: https://indianexpress.com/section/india/north-east-india/feed/
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: the_hindu_karnataka
-    name: "The Hindu (Karnataka)"
+    name: The Hindu (Karnataka)
     type: rss
     url: https://www.thehindu.com/news/national/karnataka/feeder/default.rss
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: the_hindu_tamil_nadu
-    name: "The Hindu (Tamil Nadu)"
+    name: The Hindu (Tamil Nadu)
     type: rss
     url: https://www.thehindu.com/news/national/tamil-nadu/feeder/default.rss
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: the_hindu_kerala
-    name: "The Hindu (Kerala)"
+    name: The Hindu (Kerala)
     type: rss
     url: https://www.thehindu.com/news/national/kerala/feeder/default.rss
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: the_hindu_andhra
-    name: "The Hindu (Andhra Pradesh)"
+    name: The Hindu (Andhra Pradesh)
     type: rss
     url: https://www.thehindu.com/news/national/andhra-pradesh/feeder/default.rss
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
   - id: the_hindu_telangana
-    name: "The Hindu (Telangana)"
+    name: The Hindu (Telangana)
     type: rss
     url: https://www.thehindu.com/news/national/telangana/feeder/default.rss
     parser: rss
-    pools: [INDIA_REGION]
+    pools:
+      - INDIA_REGION
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # INDIA_CITIES — city-level feeds
-  # ═══════════════════════════════════════════════════════════════
   - id: the_hindu_delhi
-    name: "The Hindu (Delhi)"
+    name: The Hindu (Delhi)
     type: rss
     url: https://www.thehindu.com/news/cities/Delhi/feeder/default.rss
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: the_hindu_mumbai
-    name: "The Hindu (Mumbai)"
+    name: The Hindu (Mumbai)
     type: rss
     url: https://www.thehindu.com/news/cities/Mumbai/feeder/default.rss
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: the_hindu_bengaluru
-    name: "The Hindu (Bengaluru)"
+    name: The Hindu (Bengaluru)
     type: rss
     url: https://www.thehindu.com/news/cities/bangalore/feeder/default.rss
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: the_hindu_chennai
-    name: "The Hindu (Chennai)"
+    name: The Hindu (Chennai)
     type: rss
     url: https://www.thehindu.com/news/cities/chennai/feeder/default.rss
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: the_hindu_hyderabad
-    name: "The Hindu (Hyderabad)"
+    name: The Hindu (Hyderabad)
     type: rss
     url: https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: the_hindu_kolkata
-    name: "The Hindu (Kolkata)"
+    name: The Hindu (Kolkata)
     type: rss
     url: https://www.thehindu.com/news/cities/kolkata/feeder/default.rss
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: ie_delhi
-    name: "Indian Express (Delhi)"
+    name: Indian Express (Delhi)
     type: rss
     url: https://indianexpress.com/section/cities/delhi/feed/
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: ie_mumbai
-    name: "Indian Express (Mumbai)"
+    name: Indian Express (Mumbai)
     type: rss
     url: https://indianexpress.com/section/cities/mumbai/feed/
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
   - id: ie_bengaluru
-    name: "Indian Express (Bengaluru)"
+    name: Indian Express (Bengaluru)
     type: rss
     url: https://indianexpress.com/section/cities/bengaluru/feed/
     parser: rss
-    pools: [INDIA_CITIES]
+    pools:
+      - INDIA_CITIES
     is_active: true
-
-  # ═══════════════════════════════════════════════════════════════
-  # Haaretz (Israel/Palestine coverage — Geoecon + Culture)
-  # ═══════════════════════════════════════════════════════════════
   - id: haaretz_latest
-    name: "Haaretz: Latest Headlines"
+    name: 'Haaretz: Latest Headlines'
     type: rss
     url: https://www.haaretz.com/srv/haaretz-latest-headlines
     parser: rss
-    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_BREAKING
+      - GLOBAL_GEOECON
     is_active: true
   - id: haaretz_world
-    name: "Haaretz: World News"
+    name: 'Haaretz: World News'
     type: rss
     url: https://www.haaretz.com/srv/world-news-rss
     parser: rss
-    pools: [GLOBAL_GEOECON]
+    pools:
+      - GLOBAL_GEOECON
     is_active: true
   - id: haaretz_opinion
-    name: "Haaretz: Opinion"
+    name: 'Haaretz: Opinion'
     type: rss
     url: https://www.haaretz.com/srv/opinion-rss
     parser: rss
-    pools: [GLOBAL_CULT_SOC]
+    pools:
+      - GLOBAL_CULT_SOC
     is_active: true
   - id: haaretz_life_culture
-    name: "Haaretz: Life & Culture"
+    name: 'Haaretz: Life & Culture'
     type: rss
-    url: "https://www.haaretz.com/srv/life-&-culture-rss"
+    url: https://www.haaretz.com/srv/life-&-culture-rss
     parser: rss
-    pools: [GLOBAL_CULT_SOC]
+    pools:
+      - GLOBAL_CULT_SOC
+    is_active: true
+  - id: et_legal
+    name: ET Legal World
+    type: rss
+    url: https://economictimes.indiatimes.com/industry/banking/finance/rssfeeds/13358259.cms
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: bar_and_bench
+    name: Bar & Bench
+    type: http
+    url: https://barandbench.com/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://barandbench.com/news
+      selectors:
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools:
+      - GLOBAL_LAW_REG
+      - INDIA_WATCHDOG
+    is_active: true
+  - id: scotusblog
+    name: SCOTUSblog
+    type: rss
+    url: https://www.scotusblog.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    is_active: true
+  - id: india_law_news
+    name: India Law (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+law+regulation+supreme+court&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+      - INDIA_WATCHDOG
+    is_active: true
+  - id: global_sanctions
+    name: Global Sanctions (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=international+sanctions+regulatory&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    is_active: true
+  - id: us_state_dept
+    name: US State Department
+    type: rss
+    url: https://www.state.gov/rss/
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+      - GLOBAL_GEOECON
+    is_active: true
+  - id: rand
+    name: RAND Corporation
+    type: rss
+    url: https://news.google.com/rss/search?q=site:rand.org+defense+security+geopolitics&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_GEOECON
+    is_active: true
+  - id: brookings
+    name: Brookings Institution
+    type: rss
+    url: https://news.google.com/rss/search?q=site:brookings.edu+international+geopolitics&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_GEOECON
+    is_active: true
+  - id: idsa
+    name: IDSA (Defence Studies)
+    type: http
+    url: https://www.idsa.in/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://www.idsa.in/issuebrief
+      selectors:
+        item: div.views-row
+        title: a
+        link: a
+        date: span.date-display-single
+        desc: p
+    pools:
+      - GLOBAL_GEOECON
+    is_active: true
+  - id: india_geoecon
+    name: India Geopolitics (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+geopolitics+strategy+defense&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - GLOBAL_GEOECON
+      - INDIA_NATIONAL_BASE
+    is_active: true
+  - id: imf_news
+    name: IMF News
+    type: rss
+    url: https://www.imf.org/en/News/Rss
+    parser: rss
+    pools:
+      - GLOBAL_GEOECON
+      - GLOBAL_LAW_REG
+    is_active: true
+  - id: world_bank
+    name: World Bank News
+    type: rss
+    url: https://www.worldbank.org/en/news/all
+    parser: rss
+    pools:
+      - GLOBAL_GEOECON
+      - GLOBAL_ENV_HEALTH
+    is_active: true
+  - id: techcrunch
+    name: TechCrunch
+    type: rss
+    url: https://techcrunch.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: the_verge
+    name: The Verge
+    type: rss
+    url: https://www.theverge.com/rss/index.xml
+    parser: rss
+    pools:
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: wired
+    name: Wired
+    type: rss
+    url: https://www.wired.com/feed/rss
+    parser: rss
+    pools:
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: darkreading
+    name: Dark Reading
+    type: rss
+    url: https://www.darkreading.com/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: hackernews
+    name: Hacker News
+    type: rss
+    url: https://hnrss.org/frontpage
+    parser: rss
+    pools:
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: medianama
+    name: MediaNama
+    type: rss
+    url: https://www.medianama.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_TECH_CYBER
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: the_ken
+    name: The Ken
+    type: http
+    url: https://the-ken.com/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://the-ken.com/latest
+      selectors:
+        item: article
+        title: h2 a
+        link: a
+        desc: p
+    pools:
+      - GLOBAL_TECH_CYBER
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: nature_news
+    name: Nature News
+    type: rss
+    url: https://www.nature.com/nature.rss
+    parser: rss
+    pools:
+      - GLOBAL_ENV_HEALTH
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: science_mag
+    name: Science Magazine
+    type: rss
+    url: https://www.science.org/rss/news_current.xml
+    parser: rss
+    pools:
+      - GLOBAL_ENV_HEALTH
+      - GLOBAL_TECH_CYBER
+    is_active: true
+  - id: stat_news
+    name: STAT News
+    type: rss
+    url: https://www.statnews.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_ENV_HEALTH
+    is_active: true
+  - id: mca_notifications
+    name: MCA Notifications
+    type: http
+    url: https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/acts.html
+    parser: generic_html
+    parserConfig:
+      listUrl: https://www.mca.gov.in/content/mca/global/en/about-us/news.html
+      selectors:
+        item: div.cmp-teaser
+        title: a
+        link: a
+        desc: p
+    pools:
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: india_business_news
+    name: India Business (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+business+finance+markets&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: moneycontrol
+    name: Moneycontrol
+    type: rss
+    url: https://news.google.com/rss/search?q=site:moneycontrol.com+markets+business&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: mint_markets
+    name: Livemint Markets
+    type: rss
+    url: https://www.livemint.com/rss/markets
+    parser: rss
+    pools:
+      - INDIA_BUSINESS_REG
+    is_active: true
+  - id: india_national_gn
+    name: India National (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+news+politics+economy&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - INDIA_NATIONAL_BASE
+    is_active: true
+  - id: mint_politics
+    name: Livemint Politics
+    type: rss
+    url: https://www.livemint.com/rss/politics
+    parser: rss
+    pools:
+      - INDIA_NATIONAL_BASE
+    is_active: true
+  - id: ie_maharashtra
+    name: Indian Express (Maharashtra)
+    type: rss
+    url: https://indianexpress.com/section/cities/pune/feed/
+    parser: rss
+    pools:
+      - INDIA_REGION
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_west_bengal
+    name: Indian Express (West Bengal)
+    type: rss
+    url: https://indianexpress.com/section/cities/kolkata/feed/
+    parser: rss
+    pools:
+      - INDIA_REGION
+      - INDIA_CITIES
     is_active: true
