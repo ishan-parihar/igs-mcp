@@ -9,7 +9,7 @@ export async function registerAutodiscoverTools(srv: McpServer) {
     description: 'Auto-discover a usable feed or HTML selectors for a site base URL',
     inputSchema: { url: z.string().url(), pools: z.array(z.string()).optional(), name: z.string().optional() },
     outputSchema: {
-      kind: z.enum(['rss','atom','html','none']),
+      kind: z.enum(['rss','atom','html','json','sitemap','none']),
       url: z.string().optional(),
       selectors: z.object({ item: z.string(), title: z.string().optional(), link: z.string().optional(), date: z.string().optional(), desc: z.string().optional() }).optional(),
       sample: z.array(z.any()).optional(),

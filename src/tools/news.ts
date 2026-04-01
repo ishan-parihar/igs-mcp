@@ -13,6 +13,7 @@ import path from 'node:path';
 import { getUserConfigDir } from '../config/loader.js';
 import { load as loadHtml } from 'cheerio';
 import { parseWithSelectors, autoParseHtml } from '../parsers/generic_html.js';
+import { parseJsonFeed } from '../parsers/json_feed.js';
 
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
@@ -60,6 +61,15 @@ async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefe
     if (looksXml) {
       items = await parseRss(source, body, true);
     } else {
+      // JSON feed autodetect
+      if (ctype.includes('json') || /^[\[{]/.test(body.trim())) {
+        const jitems = parseJsonFeed(source, body);
+        if (jitems.length) {
+          items = jitems;
+        } else {
+          items = [];
+        }
+      } else {
       // Try to discover RSS/Atom via HTML <link rel="alternate" type="application/rss+xml">
       try {
         const $ = loadHtml(body);
@@ -77,6 +87,7 @@ async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefe
         }
       } catch {
         items = [];
+      }
       }
     }
   }

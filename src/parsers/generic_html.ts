@@ -1,4 +1,5 @@
 import { load as loadHtml } from 'cheerio';
+import { sampleFromSitemap } from './sitemap.js';
 import { stripHtml } from '../normalize/html.js';
 import type { NewsItem, Source } from '../types/news.js';
 import type { HttpClient } from '../http/client.js';
@@ -128,9 +129,22 @@ export async function autoParseHtml(source: Source, html: string): Promise<{ ite
 // Explore common site routes to find a good list page, then parse
 const COMMON_PATHS = ['/', '/news', '/latest', '/world', '/politics', '/business', '/technology', '/tech', '/opinion', '/opinions', '/culture', '/india', '/international', '/world-news', '/latest-news', '/economy', '/analysis'];
 
-export async function autodiscoverList(source: Source, http: HttpClient): Promise<{ kind: 'rss'|'atom'|'html'|'none'; url?: string; selectors?: SelectorConfig; sample?: NewsItem[] }> {
+export async function autodiscoverList(source: Source, http: HttpClient): Promise<{ kind: 'rss'|'atom'|'html'|'json'|'sitemap'|'none'; url?: string; selectors?: SelectorConfig; sample?: NewsItem[] }> {
   // Fetch base page first
-  for (const p of COMMON_PATHS) {
+  const pathsToTry = new Set(COMMON_PATHS);
+  // add top nav links from homepage
+  try {
+    const homeRes = await http.fetch(new URL('/', source.url).toString(), {}, 'bypass');
+    if ('response' in homeRes) {
+      const $ = loadHtml(homeRes.response.bodyText);
+      $('nav a[href^="/"]').slice(0, 10).each((_i, el) => {
+        const href = $(el).attr('href');
+        if (href) pathsToTry.add(href);
+      });
+    }
+  } catch {}
+
+  for (const p of Array.from(pathsToTry).slice(0, 20)) {
     try {
       const url = new URL(p, source.url).toString();
       const res = await http.fetch(url, {}, 'bypass');
@@ -139,6 +153,9 @@ export async function autodiscoverList(source: Source, http: HttpClient): Promis
       const body = res.response.bodyText;
       if (ctype.includes('xml') || /<rss[\s>/]/i.test(body) || /<feed[\s>/]/i.test(body)) {
         return { kind: 'rss', url, sample: [] };
+      }
+      if (ctype.includes('json') || /^[\[{]/.test(body.trim())) {
+        return { kind: 'json', url };
       }
       // Try rel=alternate for RSS on this page
       const $ = loadHtml(body);
@@ -155,5 +172,12 @@ export async function autodiscoverList(source: Source, http: HttpClient): Promis
       }
     } catch {}
   }
+  // Sitemaps as a last resort
+  try {
+    const items = await sampleFromSitemap(source, http);
+    if (items && items.length >= 10) {
+      return { kind: 'sitemap', url: new URL('/sitemap.xml', source.url).toString(), sample: items.slice(0, 10) };
+    }
+  } catch {}
   return { kind: 'none' };
 }
