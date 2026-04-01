@@ -530,6 +530,86 @@ sources:
     pools:
       - INDIA_CITIES
     is_active: true
+  - id: the_hindu_coimbatore
+    name: The Hindu (Coimbatore)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Coimbatore/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_kochi
+    name: The Hindu (Kochi)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Kochi/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_kozhikode
+    name: The Hindu (Kozhikode)
+    type: rss
+    url: https://www.thehindu.com/news/cities/kozhikode/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_madurai
+    name: The Hindu (Madurai)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Madurai/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_mangaluru
+    name: The Hindu (Mangaluru)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Mangalore/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_puducherry
+    name: The Hindu (Puducherry)
+    type: rss
+    url: https://www.thehindu.com/news/cities/puducherry/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_thiruvananthapuram
+    name: The Hindu (Thiruvananthapuram)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Thiruvananthapuram/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_tiruchirapalli
+    name: The Hindu (Tiruchirapalli)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Tiruchirapalli/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_vijayawada
+    name: The Hindu (Vijayawada)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Vijayawada/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: the_hindu_visakhapatnam
+    name: The Hindu (Visakhapatnam)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Visakhapatnam/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
   - id: ie_delhi
     name: Indian Express (Delhi)
     type: rss
@@ -550,6 +630,62 @@ sources:
     name: Indian Express (Bengaluru)
     type: rss
     url: https://indianexpress.com/section/cities/bengaluru/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_chennai
+    name: Indian Express (Chennai)
+    type: rss
+    url: https://indianexpress.com/section/cities/chennai/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_hyderabad
+    name: Indian Express (Hyderabad)
+    type: rss
+    url: https://indianexpress.com/section/cities/hyderabad/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_kolkata
+    name: Indian Express (Kolkata)
+    type: rss
+    url: https://indianexpress.com/section/cities/kolkata/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_pune
+    name: Indian Express (Pune)
+    type: rss
+    url: https://indianexpress.com/section/cities/pune/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_ahmedabad
+    name: Indian Express (Ahmedabad)
+    type: rss
+    url: https://indianexpress.com/section/cities/ahmedabad/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_lucknow
+    name: Indian Express (Lucknow)
+    type: rss
+    url: https://indianexpress.com/section/cities/lucknow/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    is_active: true
+  - id: ie_chandigarh
+    name: Indian Express (Chandigarh)
+    type: rss
+    url: https://indianexpress.com/section/cities/chandigarh/feed/
     parser: rss
     pools:
       - INDIA_CITIES
