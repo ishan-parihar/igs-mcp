@@ -1,6 +1,6 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-import { loadSources, loadSettings, loadCountries } from '../config/loader.js';
+import { loadSources, loadSettings, getUserConfigDir } from '../config/loader.js';
 import { HttpClient } from '../http/client.js';
 import { QueryCache } from '../http/queryCache.js';
 import { parseRss } from '../parsers/rss.js';
@@ -8,18 +8,23 @@ import { parseOfacHtml } from '../parsers/ofac.js';
 import { parseUssfcfcHtml } from '../parsers/ussf_cfc.js';
 import { parseWhoJson } from '../parsers/who_dons.js';
 import { parseNewslaundryHtml } from '../parsers/newslaundry.js';
+import { parseSemanticScholarJson } from '../parsers/semantic_scholar.js';
 import type { NewsItem, Source } from '../types/news.js';
 import path from 'node:path';
-import { getUserConfigDir } from '../config/loader.js';
 import { load as loadHtml } from 'cheerio';
 import { parseWithSelectors, autoParseHtml } from '../parsers/generic_html.js';
 import { parseJsonFeed } from '../parsers/json_feed.js';
+import { extractArticleContent } from '../parsers/article_content.js';
+import { request } from 'undici';
+import PQueue from 'p-queue';
+import { rewriteGnUrl } from '../utils/gn-url.js';
 
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
   sources: z.array(z.string()).optional(),
   countries: z.array(z.string()).optional(),
   cities: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
   start: z.string().optional(),
   end: z.string().optional(),
   keywords: z.array(z.string()).optional(),
@@ -28,6 +33,7 @@ const FetchInput = z.object({
   limit: z.number().int().min(1).max(500).default(100),
   cacheMode: z.enum(['prefer','bypass','only']).default('prefer'),
   includeRaw: z.boolean().optional().default(false),
+  enrichArticles: z.boolean().optional().default(false),
 });
 
 function filterByTime(items: NewsItem[], start?: string, end?: string) {
@@ -39,12 +45,13 @@ function filterByTime(items: NewsItem[], start?: string, end?: string) {
   });
 }
 
-async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefer'|'bypass'|'only') {
+async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefer'|'bypass'|'only', overrideUrl?: string) {
+  const url = overrideUrl || source.url;
   const headers = source.headers || {};
-  const res = await http.fetch(source.url, headers, cacheMode);
+  const res = await http.fetch(url, headers, cacheMode);
   if ('cached' in res && res.cached) {
     const items = (res.cache.items as any[]);
-    return items as NewsItem[]; // stored normalized
+    return items as NewsItem[];
   }
   if (!('response' in res)) return [];
   let items: NewsItem[] = [];
@@ -56,52 +63,65 @@ async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefe
     items = parseWhoJson(source, res.response.bodyText);
   } else if (source.parser === 'newslaundry') {
     items = parseNewslaundryHtml(source, res.response.bodyText);
+  } else if (source.parser === 'semantic_scholar') {
+    items = parseSemanticScholarJson(source, res.response.bodyText);
   } else if (source.parser === 'generic_html' && source.parserConfig?.selectors) {
     items = await parseWithSelectors(source, res.response.bodyText, source.parserConfig.selectors as any);
   } else {
-    // Auto-detect: if content-type or body indicates XML/Atom → parse as RSS.
     const ctype = (res.response.headers['content-type'] || '').toLowerCase();
     const body = res.response.bodyText;
     const looksXml = ctype.includes('xml') || ctype.includes('rss') || ctype.includes('atom') || /<rss[\s>/]/i.test(body) || /<feed[\s>/]/i.test(body);
     if (looksXml) {
       items = await parseRss(source, body, true);
     } else {
-      // JSON feed autodetect
       if (ctype.includes('json') || /^[\[{]/.test(body.trim())) {
         const jitems = parseJsonFeed(source, body);
-        if (jitems.length) {
-          items = jitems;
-        } else {
-          items = [];
-        }
+        if (jitems.length) { items = jitems; } else { items = []; }
       } else {
-      // Try to discover RSS/Atom via HTML <link rel="alternate" type="application/rss+xml">
-      try {
-        const $ = loadHtml(body);
-        const linkEl = $("link[rel='alternate'][type*='rss'], link[rel='alternate'][type*='atom']").first();
-        const href = linkEl.attr('href');
-        if (href) {
-          const rssUrl = new URL(href, source.url).toString();
-          const res2 = await http.fetch(rssUrl, headers, cacheMode);
-          if ('response' in res2) {
-            items = await parseRss(source, res2.response.bodyText, true);
+        try {
+          const $ = loadHtml(body);
+          const linkEl = $("link[rel='alternate'][type*='rss'], link[rel='alternate'][type*='atom']").first();
+          const href = linkEl.attr('href');
+          if (href) {
+            const rssUrl = new URL(href, url).toString();
+            const res2 = await http.fetch(rssUrl, headers, cacheMode);
+            if ('response' in res2) {
+              items = await parseRss(source, res2.response.bodyText, true);
+            }
+          } else {
+            const auto = await autoParseHtml(source, body);
+            items = auto.items;
           }
-        } else {
-          const auto = await autoParseHtml(source, body);
-          items = auto.items;
-        }
-      } catch {
-        items = [];
-      }
+        } catch { items = []; }
       }
     }
   }
-  await http.writeCache(source.url, items, (res as any).etag, (res as any).lastModified);
+  await http.writeCache(url, items, (res as any).etag, (res as any).lastModified);
   return items;
 }
 
-function buildQueryKey(kind: string, pools: string[]|undefined, sources: string[]|undefined, start?: string, end?: string, limit?: number) {
-  return [kind, (pools||[]).slice().sort().join(','), (sources||[]).slice().sort().join(','), start||'', end||'', String(limit||'')].join('|');
+function buildQueryKey(
+  kind: string,
+  pools: string[]|undefined,
+  sources: string[]|undefined,
+  start?: string,
+  end?: string,
+  limit?: number,
+  keywords?: string[],
+  domains?: string[],
+  matchAll?: boolean
+) {
+  return [
+    kind,
+    (pools||[]).slice().sort().join(','),
+    (sources||[]).slice().sort().join(','),
+    start||'',
+    end||'',
+    String(limit||''),
+    (keywords||[]).join('|'),
+    (domains||[]).join('|'),
+    matchAll ? '1' : '0'
+  ].join('|');
 }
 
 function filterByKeywords(items: NewsItem[], keywords: string[] = [], exclude: string[] = [], matchAll = false): NewsItem[] {
@@ -116,65 +136,85 @@ function filterByKeywords(items: NewsItem[], keywords: string[] = [], exclude: s
   });
 }
 
-const CITY_SOURCE_MAP: Record<string, string[]> = {
-  // Global cities (curated)
-  'London': ['standard_london'],
-  'New York': ['nytimes_nyregion'],
-  'Paris': ['leparisien_paris'],
-  'Singapore': ['straitstimes_singapore'],
-  'Tokyo': ['gn_tokyo'],
-  'Berlin': ['gn_berlin'],
-  'Dubai': ['gn_dubai'],
-  'Johannesburg': ['gn_johannesburg'],
-  // India
-  'Delhi': ['the_hindu_delhi','ie_delhi'],
-  'Mumbai': ['the_hindu_mumbai','ie_mumbai'],
-  'Bengaluru': ['the_hindu_bengaluru','ie_bengaluru'],
-  'Chennai': ['the_hindu_chennai','ie_chennai'],
-  'Hyderabad': ['the_hindu_hyderabad','ie_hyderabad'],
-  'Kolkata': ['the_hindu_kolkata','ie_kolkata'],
-  'Pune': ['ie_pune'],
-  'Ahmedabad': ['ie_ahmedabad'],
-  'Lucknow': ['ie_lucknow'],
-  'Chandigarh': ['ie_chandigarh'],
-};
-
-const COUNTRY_CURATED_MAP: Record<string, string[]> = {
-  'United States': ['guardian_us','npr_top'],
-  'United Kingdom': ['bbc_uk','guardian_uk'],
-  'France': ['france24_fr'],
-  'Europe': ['bbc_europe','politico_europe'],
-  'Japan': ['guardian_japan'],
-  'Australia': ['abc_au_top'],
-  'Canada': ['guardian_canada'],
-  'China': ['guardian_china'],
-  'Russia': ['moscow_times'],
-  'Africa': ['bbc_africa'],
-  'Middle East': ['france24_me'],
-  'India': ['guardian_india','france24_india'],
-};
-
-function resolveCountrySources(countriesDoc: any, requested: string[]): string[] {
-  const out: string[] = [];
-  // from registry
-  for (const name of requested) {
-    const entry = (countriesDoc.countries || []).find((c: any) => (c.name?.toLowerCase() === name.toLowerCase()) || (c.code?.toLowerCase() === name.toLowerCase()));
-    if (entry) {
-      if (entry.guardian_slug) out.push(`guardian_${entry.guardian_slug}`);
-      if (entry.france24_slug) out.push(`france24_${entry.france24_slug}`);
-    }
-    // curated additions
-    if (COUNTRY_CURATED_MAP[name]) out.push(...COUNTRY_CURATED_MAP[name]);
+function resolveSourcesByFilter(
+  sources: Source[],
+  opts: { countries?: string[]; cities?: string[]; domains?: string[] }
+): Source[] {
+  let result = sources;
+  if (opts.countries?.length) {
+    const codes = opts.countries.map(c => c.toUpperCase());
+    const names = opts.countries.map(c => c.toLowerCase());
+    result = result.filter(s => {
+      const sc = (s.countries || []).map(x => x.toUpperCase());
+      return sc.includes('ALL') || sc.some(c => codes.includes(c) || names.includes(c));
+    });
   }
-  return Array.from(new Set(out));
+  if (opts.cities?.length) {
+    const lc = opts.cities.map(c => c.toLowerCase());
+    result = result.filter(s =>
+      (s.cities || []).some(c => lc.includes(c.toLowerCase()))
+    );
+  }
+  if (opts.domains?.length) {
+    const ld = opts.domains.map(d => d.toLowerCase());
+    result = result.filter(s =>
+      (s.domains || []).some(d => ld.includes(d.toLowerCase()))
+    );
+  }
+  return result;
+}
+
+async function enrichArticlesFromLinks(items: NewsItem[], concurrency: number = 4, timeoutMs: number = 8000): Promise<NewsItem[]> {
+  const toEnrich = items.filter(it =>
+    it.link.includes('news.google.com') ||
+    !it.content_snippet ||
+    it.content_snippet.length < 100
+  );
+  if (!toEnrich.length) return items;
+
+  const queue: Promise<void>[] = [];
+  let active = 0;
+
+  function processItem(item: NewsItem): Promise<void> {
+    return (async () => {
+      try {
+        const res = await request(item.link, {
+          method: 'GET',
+          headers: { 'user-agent': 'Mozilla/5.0 (compatible; IGS/1.0)' },
+          headersTimeout: timeoutMs,
+          bodyTimeout: timeoutMs,
+          maxRedirections: 5,
+        });
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          const html = await res.body.text();
+          const content = extractArticleContent(html);
+          if (content.length > 100) {
+            item.content_snippet = content.slice(0, 2000);
+          }
+        }
+      } catch {
+        // keep original snippet on failure
+      }
+    })();
+  }
+
+  for (const item of toEnrich) {
+    const p = processItem(item).finally(() => { active--; });
+    queue.push(p);
+    active++;
+    if (active >= concurrency) {
+      await Promise.race(queue);
+    }
+  }
+  await Promise.allSettled(queue);
+  return items;
 }
 
 export async function registerNewsTools(srv: McpServer) {
-  // Using deprecated tool() for simplicity; can be migrated to registerTool later.
   srv.registerTool('news.fetch', {
-    description: 'Fetch normalized news. Default: fast brief (GLOBAL_BREAKING + INDIA_NATIONAL_BASE, last 24h). Custom: specify pools/sources/countries/cities/time/keywords. Use this as the first step, then optionally enrich summaries in a separate call.',
+    description: 'Fetch normalized news. Default: fast brief (GLOBAL_BREAKING + INDIA_NATIONAL_BASE, last 24h). Custom: specify pools/sources/countries/cities/domains/time/keywords. Set enrichArticles=true to fetch full article text from Google News proxy links (slower but richer content). Use this as the first step, then optionally enrich summaries in a separate call.',
     inputSchema: FetchInput.shape,
-    outputSchema: { items: z.array(z.any()), count: z.number() }
+    outputSchema: { items: z.array(z.any()), count: z.number(), meta: z.object({ sourcesQueried: z.number(), sourcesSucceeded: z.number(), sourcesFailed: z.number(), totalSourcesAvailable: z.number(), poolIds: z.array(z.string()), countryTags: z.array(z.string()), cityTags: z.array(z.string()), domainTags: z.array(z.string()), keywords: z.array(z.string()), excludeKeywords: z.array(z.string()), matchAll: z.boolean(), timeRange: z.object({ start: z.string(), end: z.string() }) }).optional() }
   }, async (args: any) => {
     const settings = await loadSettings();
     const baseCfg = getUserConfigDir();
@@ -183,28 +223,23 @@ export async function registerNewsTools(srv: McpServer) {
     const qcache = new QueryCache(cacheDir, settings.cache.queryTtlMs);
     const sf = await loadSources();
     let sources = sf.sources.filter(s => s.is_active !== false);
-    
-    // Friendly name mapping for countries and cities
-    const countriesDoc = await loadCountries();
-    const mappedCountrySources = args.countries?.length ? resolveCountrySources(countriesDoc, args.countries) : [];
-    const mappedCitySources = args.cities?.length ? args.cities.flatMap((c: string) => CITY_SOURCE_MAP[c] || []) : [];
 
     if (args.sources?.length) {
       sources = sources.filter(s => args.sources!.includes(s.id));
     } else {
-      // Compose from pools + countries + cities
-      let poolFiltered = sources;
-      if (args.pools?.length) poolFiltered = poolFiltered.filter(s => s.pools.some(p => args.pools!.includes(p)));
-      const idSet = new Set<string>(poolFiltered.map(s => s.id));
-      for (const id of [...mappedCountrySources, ...mappedCitySources]) idSet.add(id);
-      sources = sources.filter(s => idSet.has(s.id));
+      let filtered = sources;
+      if (args.pools?.length) filtered = filtered.filter(s => s.pools.some(p => args.pools!.includes(p)));
+      filtered = resolveSourcesByFilter(filtered, {
+        countries: args.countries,
+        cities: args.cities,
+        domains: args.domains,
+      });
+      sources = filtered;
     }
 
-    // Query-level cache: avoid any network calls if sources' feed caches haven't changed
-    const key = buildQueryKey('news.fetch', args.pools, args.sources, args.start, args.end, args.limit);
+    const key = buildQueryKey('news.fetch', args.pools, args.sources, args.start, args.end, args.limit, args.keywords, args.domains, args.matchAll);
     const cachedQuery = await qcache.read<{ items: NewsItem[]; count: number }>(key);
     if (cachedQuery) {
-      // Verify deps still match feed caches
       let valid = true;
       for (const src of sources) {
         const fc = await http.readCache(src.url);
@@ -218,21 +253,33 @@ export async function registerNewsTools(srv: McpServer) {
     }
 
     const all: NewsItem[] = [];
-    for (const src of sources) {
-      try {
-        const items = await parseBySource(src, http, args.cacheMode);
-        for (const it of items) all.push(it);
-      } catch (err: any) {
-        // continue on source error
-        // Optionally push a warning record
-      }
-    }
+    let sourcesSucceeded = 0;
+    let sourcesFailed = 0;
+    const queue = new PQueue({ concurrency: settings.http.concurrency });
 
-    let filtered = filterByTime(all, args.start, args.end)
-      ;
+    const fetchPromises = sources.map(src =>
+      queue.add(async () => {
+        try {
+          const url = rewriteGnUrl(src.url, { start: args.start, end: args.end, keywords: args.keywords });
+          const items = await parseBySource(src, http, args.cacheMode, url);
+          sourcesSucceeded++;
+          for (const it of items) all.push(it);
+        } catch (err: any) {
+          sourcesFailed++;
+        }
+      })
+    );
+
+    await Promise.allSettled(fetchPromises);
+
+    let filtered = filterByTime(all, args.start, args.end);
     filtered = filterByKeywords(filtered, args.keywords, args.excludeKeywords, args.matchAll)
       .sort((a,b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
       .slice(0, args.limit);
+
+    if (args.enrichArticles) {
+      filtered = await enrichArticlesFromLinks(filtered);
+    }
 
     if (!args.includeRaw) filtered.forEach(x => { delete (x as any).raw; });
     const deps: Record<string, number> = {};
@@ -242,12 +289,13 @@ export async function registerNewsTools(srv: McpServer) {
     }
     const structuredContent = { items: filtered, count: filtered.length, meta: {
       sourcesQueried: sources.length,
-      sourcesSucceeded: 0, // not tracked per-source here
-      sourcesFailed: 0,
+      sourcesSucceeded,
+      sourcesFailed,
+      totalSourcesAvailable: sf.sources.filter(s => s.is_active !== false).length,
       poolIds: args.pools || [],
-      regionTags: args.regions || [],
+      countryTags: args.countries || [],
       cityTags: args.cities || [],
-      topicTags: [],
+      domainTags: args.domains || [],
       keywords: args.keywords || [],
       excludeKeywords: args.excludeKeywords || [],
       matchAll: args.matchAll || false,
@@ -257,7 +305,6 @@ export async function registerNewsTools(srv: McpServer) {
     return { content: [{ type: 'text', text: JSON.stringify(structuredContent) }], structuredContent };
   });
 
-  // Quick single-source tester for agents
   srv.registerTool('news.testSource', {
     description: 'Debug helper. Test a single source id (bypass cache) and return up to 10 items. Use before adding custom sources or scrapers.',
     inputSchema: { id: z.string().min(1), cacheMode: z.enum(['prefer','bypass','only']).optional() },

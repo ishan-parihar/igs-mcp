@@ -1,121 +1,221 @@
 sources:
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL BREAKING — Wire services and fast event detection
+  # ═══════════════════════════════════════════════════════════════
   - id: reuters
     name: Reuters (via Google News)
     type: rss
     url: https://news.google.com/rss/search?q=site%3Areuters.com&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
+    pools: [GLOBAL_BREAKING]
+    countries: [ALL]
+    domains: [breaking, geopolitics, business, finance]
     is_active: true
   - id: reuters_india
     name: Reuters India
     type: rss
     url: https://news.google.com/rss/search?q=site%3Areuters.com+india&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
-      - INDIA_NATIONAL_BASE
+    pools: [GLOBAL_BREAKING, INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [breaking, geopolitics, business, finance]
     is_active: true
   - id: bbc_world
     name: BBC World News
     type: rss
     url: https://feeds.bbci.co.uk/news/world/rss.xml
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
+    pools: [GLOBAL_BREAKING]
+    countries: [ALL]
+    domains: [breaking, geopolitics, society]
     is_active: true
   - id: bbc_india
     name: BBC News India
     type: rss
     url: https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
-      - INDIA_NATIONAL_BASE
+    pools: [GLOBAL_BREAKING, INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [breaking, geopolitics, society]
     is_active: true
   - id: ft
     name: Financial Times
     type: rss
     url: https://www.ft.com/rss/home
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [finance, business, geopolitics]
     is_active: true
   - id: aljazeera
     name: Al Jazeera
     type: rss
     url: https://www.aljazeera.com/xml/rss/all.xml
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
+    pools: [GLOBAL_BREAKING]
+    countries: [ALL]
+    domains: [breaking, geopolitics]
     is_active: true
   - id: nikkei_asia
     name: Nikkei Asia
     type: rss
     url: https://asia.nikkei.com/rss/feed/nar
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [business, finance, geopolitics]
     is_active: true
   - id: straits_times
     name: Straits Times
     type: rss
     url: https://www.straitstimes.com/news/world/rss.xml
     parser: rss
-    pools:
-      - GLOBAL_BREAKING
+    pools: [GLOBAL_BREAKING]
+    countries: [ALL]
+    domains: [breaking, geopolitics]
     is_active: true
+  - id: haaretz_latest
+    name: 'Haaretz: Latest Headlines'
+    type: rss
+    url: https://www.haaretz.com/srv/haaretz-latest-headlines
+    parser: rss
+    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    countries: [IL]
+    domains: [breaking, geopolitics]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL GEOPOLITICS & GEOECONOMICS
+  # ═══════════════════════════════════════════════════════════════
   - id: war_on_the_rocks
     name: War on the Rocks
     type: rss
     url: https://warontherocks.com/feed/
     parser: rss
-    pools:
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [geopolitics, defense]
     is_active: true
   - id: foreign_affairs
     name: Foreign Affairs
     type: rss
     url: https://www.foreignaffairs.com/rss.xml
     parser: rss
-    pools:
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [geopolitics]
     is_active: true
   - id: the_diplomat
     name: The Diplomat
     type: rss
     url: https://thediplomat.com/feed/
     parser: rss
-    pools:
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [geopolitics]
     is_active: true
   - id: project_syndicate
     name: Project Syndicate
     type: rss
     url: https://www.project-syndicate.org/rss
     parser: rss
-    pools:
-      - GLOBAL_GEOECON
-      - GLOBAL_LAW_REG
+    pools: [GLOBAL_GEOECON, GLOBAL_LAW_REG]
+    countries: [ALL]
+    domains: [geopolitics, business, finance]
     is_active: true
   - id: ecfr
     name: European Council on Foreign Relations
     type: rss
     url: https://ecfr.eu/feed/
     parser: rss
-    pools:
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [geopolitics]
     is_active: true
-  - id: aeon
-    name: Aeon.co
+  - id: haaretz_world
+    name: 'Haaretz: World News'
     type: rss
-    url: https://aeon.co/feed.rss
+    url: https://www.haaretz.com/srv/world-news-rss
     parser: rss
-    pools:
-      - GLOBAL_CULT_SOC
+    pools: [GLOBAL_GEOECON]
+    countries: [IL]
+    domains: [geopolitics]
     is_active: true
+  - id: rand
+    name: RAND Corporation
+    type: rss
+    url: https://news.google.com/rss/search?q=site:rand.org+defense+security+geopolitics&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [geopolitics, defense]
+    is_active: true
+  - id: brookings
+    name: Brookings Institution
+    type: rss
+    url: https://news.google.com/rss/search?q=site:brookings.edu+international+geopolitics&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [geopolitics]
+    is_active: true
+  - id: idsa
+    name: IDSA (Defence Studies)
+    type: http
+    url: https://www.idsa.in/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://www.idsa.in/issuebrief
+      selectors:
+        item: div.views-row
+        title: a
+        link: a
+        date: span.date-display-single
+        desc: p
+    pools: [GLOBAL_GEOECON]
+    countries: [IN]
+    domains: [geopolitics, defense]
+    is_active: true
+  - id: india_geoecon
+    name: India Geopolitics (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+geopolitics+strategy+defense&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools: [GLOBAL_GEOECON, INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [geopolitics, defense]
+    is_active: true
+  - id: imf_news
+    name: IMF News
+    type: rss
+    url: https://www.imf.org/en/News/Rss
+    parser: rss
+    pools: [GLOBAL_GEOECON, GLOBAL_LAW_REG]
+    countries: [ALL]
+    domains: [finance, geopolitics]
+    is_active: true
+  - id: world_bank
+    name: World Bank News
+    type: rss
+    url: https://www.worldbank.org/en/news/all
+    parser: rss
+    pools: [GLOBAL_GEOECON, GLOBAL_ENV_HEALTH]
+    countries: [ALL]
+    domains: [finance, geopolitics, environment]
+    is_active: true
+  - id: us_state_dept
+    name: US State Department
+    type: rss
+    url: https://www.state.gov/rss/
+    parser: rss
+    pools: [GLOBAL_LAW_REG, GLOBAL_GEOECON]
+    countries: [US]
+    domains: [geopolitics, law]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL LAW & REGULATION
+  # ═══════════════════════════════════════════════════════════════
   - id: ofac_recent_actions
     name: OFAC Recent Actions
     type: http
@@ -124,42 +224,102 @@ sources:
       User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
       Accept: application/rss+xml
     parser: ofac
-    pools:
-      - GLOBAL_LAW_REG
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_LAW_REG, GLOBAL_GEOECON]
+    countries: [US]
+    domains: [law, finance]
     is_active: true
   - id: lawfare
     name: Lawfare
     type: rss
     url: https://www.lawfaremedia.org/feeds/articles
     parser: rss
-    pools:
-      - GLOBAL_LAW_REG
-      - GLOBAL_GEOECON
+    pools: [GLOBAL_LAW_REG, GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [law, geopolitics]
     is_active: true
+  - id: et_legal
+    name: ET Legal World
+    type: rss
+    url: https://economictimes.indiatimes.com/industry/banking/finance/rssfeeds/13358259.cms
+    parser: rss
+    pools: [GLOBAL_LAW_REG, INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [law, finance-india]
+    is_active: true
+  - id: bar_and_bench
+    name: Bar & Bench
+    type: http
+    url: https://barandbench.com/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://barandbench.com/news
+      selectors:
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools: [GLOBAL_LAW_REG, INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [law]
+    is_active: true
+  - id: scotusblog
+    name: SCOTUSblog
+    type: rss
+    url: https://www.scotusblog.com/feed/
+    parser: rss
+    pools: [GLOBAL_LAW_REG]
+    countries: [US]
+    domains: [law]
+    is_active: true
+  - id: india_law_news
+    name: India Law (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+law+regulation+supreme+court&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools: [GLOBAL_LAW_REG, INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [law]
+    is_active: true
+  - id: global_sanctions
+    name: Global Sanctions (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=international+sanctions+regulatory&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools: [GLOBAL_LAW_REG]
+    countries: [ALL]
+    domains: [law, geopolitics, finance]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL TECH & CYBER
+  # ═══════════════════════════════════════════════════════════════
   - id: mit_tech_review
     name: MIT Technology Review
     type: rss
     url: https://www.technologyreview.com/feed/
     parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [tech, science]
     is_active: true
   - id: ars_technica
     name: Ars Technica
     type: rss
     url: http://feeds.arstechnica.com/arstechnica/index
     parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [tech, science]
     is_active: true
   - id: cisa_alerts
     name: US CISA Alerts
     type: rss
     url: https://www.cisa.gov/cybersecurity-advisories/alerts.xml
     parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [US]
+    domains: [cyber, law]
     is_active: true
   - id: ussf_cfc
     name: US Space Force CFC News
@@ -169,123 +329,293 @@ sources:
       User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
       Accept: application/rss+xml
     parser: ussf_cfc
-    pools:
-      - GLOBAL_TECH_CYBER
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [US]
+    domains: [tech, defense]
     is_active: true
+  - id: techcrunch
+    name: TechCrunch
+    type: rss
+    url: https://techcrunch.com/feed/
+    parser: rss
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [tech, business, startups]
+    is_active: true
+  - id: the_verge
+    name: The Verge
+    type: rss
+    url: https://www.theverge.com/rss/index.xml
+    parser: rss
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [tech]
+    is_active: true
+  - id: wired
+    name: Wired
+    type: rss
+    url: https://www.wired.com/feed/rss
+    parser: rss
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [tech, culture, science]
+    is_active: true
+  - id: darkreading
+    name: Dark Reading
+    type: rss
+    url: https://www.darkreading.com/rss.xml
+    parser: rss
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [cyber]
+    is_active: true
+  - id: hackernews
+    name: Hacker News
+    type: rss
+    url: https://hnrss.org/frontpage
+    parser: rss
+    pools: [GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [tech, startups]
+    is_active: true
+  - id: medianama
+    name: MediaNama
+    type: rss
+    url: https://www.medianama.com/feed/
+    parser: rss
+    pools: [GLOBAL_TECH_CYBER, INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [tech, law]
+    is_active: true
+  - id: the_ken
+    name: The Ken
+    type: http
+    url: https://the-ken.com/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://the-ken.com/latest
+      selectors:
+        item: article
+        title: h2 a
+        link: a
+        desc: p
+    pools: [GLOBAL_TECH_CYBER, INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [tech, business, startups]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL ENVIRONMENT & HEALTH
+  # ═══════════════════════════════════════════════════════════════
   - id: who_dons
     name: WHO Disease Outbreak News
     type: http
     url: https://www.who.int/api/emergencies/diseaseoutbreaknews
     parser: who_dons
-    pools:
-      - GLOBAL_ENV_HEALTH
+    pools: [GLOBAL_ENV_HEALTH]
+    countries: [ALL]
+    domains: [health]
     is_active: true
   - id: mongabay
     name: Mongabay
     type: rss
     url: https://news.mongabay.com/feed/
     parser: rss
-    pools:
-      - GLOBAL_ENV_HEALTH
+    pools: [GLOBAL_ENV_HEALTH]
+    countries: [ALL]
+    domains: [environment]
     is_active: true
   - id: inside_climate
     name: Inside Climate News
     type: rss
     url: https://insideclimatenews.org/feed/
     parser: rss
-    pools:
-      - GLOBAL_ENV_HEALTH
+    pools: [GLOBAL_ENV_HEALTH]
+    countries: [ALL]
+    domains: [environment]
+    is_active: true
+  - id: nature_news
+    name: Nature News
+    type: rss
+    url: https://www.nature.com/nature.rss
+    parser: rss
+    pools: [GLOBAL_ENV_HEALTH, GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [science, health]
+    is_active: true
+  - id: science_mag
+    name: Science Magazine
+    type: rss
+    url: https://www.science.org/rss/news_current.xml
+    parser: rss
+    pools: [GLOBAL_ENV_HEALTH, GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [science, health]
+    is_active: true
+  - id: stat_news
+    name: STAT News
+    type: rss
+    url: https://www.statnews.com/feed/
+    parser: rss
+    pools: [GLOBAL_ENV_HEALTH]
+    countries: [ALL]
+    domains: [health, science]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL CULTURE & SOCIETY
+  # ═══════════════════════════════════════════════════════════════
+  - id: aeon
+    name: Aeon.co
+    type: rss
+    url: https://aeon.co/feed.rss
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [ALL]
+    domains: [culture, science]
     is_active: true
   - id: unherd
     name: UnHerd
     type: rss
     url: https://unherd.com/feed
     parser: rss
-    pools:
-      - GLOBAL_CULT_SOC
+    pools: [GLOBAL_CULT_SOC]
+    countries: [ALL]
+    domains: [culture, geopolitics]
     is_active: true
   - id: noema
     name: Noema Magazine
     type: rss
     url: https://www.noemamag.com/?feed=noemarss
     parser: rss
-    pools:
-      - GLOBAL_CULT_SOC
+    pools: [GLOBAL_CULT_SOC]
+    countries: [ALL]
+    domains: [culture, science]
     is_active: true
+  - id: haaretz_opinion
+    name: 'Haaretz: Opinion'
+    type: rss
+    url: https://www.haaretz.com/srv/opinion-rss
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [IL]
+    domains: [culture, geopolitics]
+    is_active: true
+  - id: haaretz_life_culture
+    name: 'Haaretz: Life & Culture'
+    type: rss
+    url: https://www.haaretz.com/srv/life-&-culture-rss
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [IL]
+    domains: [culture]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # INDIA NATIONAL BASELINE
+  # ═══════════════════════════════════════════════════════════════
   - id: the_hindu
     name: The Hindu (National)
     type: rss
     url: https://www.thehindu.com/news/national/feeder/default.rss
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
+    pools: [INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [india-domestic, geopolitics]
     is_active: true
   - id: the_hindu_world
     name: The Hindu (World)
     type: rss
     url: https://www.thehindu.com/news/international/feeder/default.rss
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
+    pools: [INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [geopolitics, india-domestic]
     is_active: true
   - id: ie_national
     name: Indian Express (National)
     type: rss
     url: https://indianexpress.com/section/india/feed/
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
+    pools: [INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [india-domestic, geopolitics]
     is_active: true
   - id: ie_world
     name: Indian Express (World)
     type: rss
     url: https://indianexpress.com/section/world/feed/
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
+    pools: [INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [geopolitics, india-domestic]
     is_active: true
   - id: et_india
     name: Economic Times India
     type: rss
     url: https://economictimes.indiatimes.com/rssfeedsdefault.cms
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_NATIONAL_BASE, INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [india-domestic, finance-india, business]
     is_active: true
   - id: livemint
     name: Livemint
     type: rss
     url: https://www.livemint.com/rss/news
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_NATIONAL_BASE, INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [india-domestic, finance-india, business]
     is_active: true
+  - id: india_national_gn
+    name: India National (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=india+news+politics+economy&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools: [INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [india-domestic]
+    is_active: true
+  - id: mint_politics
+    name: Livemint Politics
+    type: rss
+    url: https://www.livemint.com/rss/politics
+    parser: rss
+    pools: [INDIA_NATIONAL_BASE]
+    countries: [IN]
+    domains: [india-domestic]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # INDIA WATCHDOG & INVESTIGATIVE
+  # ═══════════════════════════════════════════════════════════════
   - id: scroll_in
     name: Scroll.in
     type: rss
     url: https://news.google.com/rss/search?q=site:scroll.in&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
-      - INDIA_WATCHDOG
+    pools: [INDIA_NATIONAL_BASE, INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [india-domestic]
     is_active: true
   - id: newslaundry
     name: Newslaundry
     type: http
     url: https://www.newslaundry.com/collection/all-stories
     parser: newslaundry
-    pools:
-      - INDIA_WATCHDOG
+    pools: [INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [india-domestic, factcheck]
     is_active: true
   - id: the_wire
     name: The Wire
     type: rss
     url: https://news.google.com/rss/search?q=site:thewire.in&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools:
-      - INDIA_WATCHDOG
+    pools: [INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [india-domestic]
     is_active: true
   - id: article14
     name: Article 14
@@ -300,8 +630,9 @@ sources:
         link: a
         date: time
         desc: p
-    pools:
-      - INDIA_WATCHDOG
+    pools: [INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [india-domestic, law]
     is_active: true
   - id: caravan
     name: The Caravan
@@ -316,18 +647,23 @@ sources:
         link: a
         date: time
         desc: p
-    pools:
-      - INDIA_WATCHDOG
+    pools: [INDIA_WATCHDOG]
+    countries: [IN]
+    domains: [india-domestic, culture]
     is_active: true
   - id: the_news_minute
     name: The News Minute
     type: rss
     url: https://www.thenewsminute.com/feeds/all.xml
     parser: rss
-    pools:
-      - INDIA_WATCHDOG
-      - INDIA_REGION
+    pools: [INDIA_WATCHDOG, INDIA_REGION]
+    countries: [IN]
+    domains: [india-domestic, india-regional]
     is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # INDIA FACT-CHECK & DATA
+  # ═══════════════════════════════════════════════════════════════
   - id: indiaspend
     name: IndiaSpend
     type: http
@@ -341,16 +677,18 @@ sources:
         link: a
         date: time
         desc: p
-    pools:
-      - INDIA_FACTCHECK_DATA
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck, india-domestic]
     is_active: true
   - id: altnews
     name: Alt News
     type: rss
     url: https://www.altnews.in/feed/
     parser: rss
-    pools:
-      - INDIA_FACTCHECK_DATA
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck]
     is_active: true
   - id: boom_live
     name: BOOM Live
@@ -365,9 +703,14 @@ sources:
         link: a
         date: time
         desc: p
-    pools:
-      - INDIA_FACTCHECK_DATA
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck]
     is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # INDIA BUSINESS & REGULATION
+  # ═══════════════════════════════════════════════════════════════
   - id: nse_circulars
     name: NSE Circulars
     type: http
@@ -381,8 +724,9 @@ sources:
         item: ul li
         title: a
         link: a
-    pools:
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india, law]
     is_active: true
   - id: rbi_notifications
     name: RBI Press Releases
@@ -398,8 +742,9 @@ sources:
         title: a
         link: a
         date: td:nth-child(1)
-    pools:
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india, law]
     is_active: true
   - id: sebi_circulars
     name: SEBI Circulars
@@ -415,547 +760,9 @@ sources:
         title: a
         link: a
         date: td:nth-child(1)
-    pools:
-      - INDIA_BUSINESS_REG
-    is_active: true
-  - id: ie_south
-    name: Indian Express (South)
-    type: rss
-    url: https://news.google.com/rss/search?q=site:indianexpress.com+south+india&hl=en-IN&gl=IN&ceid=IN:en
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: ie_east
-    name: Indian Express (East)
-    type: rss
-    url: https://indianexpress.com/section/india/east-india/feed/
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: ie_northeast
-    name: Indian Express (North East)
-    type: rss
-    url: https://indianexpress.com/section/india/north-east-india/feed/
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: the_hindu_karnataka
-    name: The Hindu (Karnataka)
-    type: rss
-    url: https://www.thehindu.com/news/national/karnataka/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: the_hindu_tamil_nadu
-    name: The Hindu (Tamil Nadu)
-    type: rss
-    url: https://www.thehindu.com/news/national/tamil-nadu/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: the_hindu_kerala
-    name: The Hindu (Kerala)
-    type: rss
-    url: https://www.thehindu.com/news/national/kerala/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: the_hindu_andhra
-    name: The Hindu (Andhra Pradesh)
-    type: rss
-    url: https://www.thehindu.com/news/national/andhra-pradesh/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: the_hindu_telangana
-    name: The Hindu (Telangana)
-    type: rss
-    url: https://www.thehindu.com/news/national/telangana/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_REGION
-    is_active: true
-  - id: the_hindu_delhi
-    name: The Hindu (Delhi)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Delhi/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_mumbai
-    name: The Hindu (Mumbai)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Mumbai/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_bengaluru
-    name: The Hindu (Bengaluru)
-    type: rss
-    url: https://www.thehindu.com/news/cities/bangalore/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_chennai
-    name: The Hindu (Chennai)
-    type: rss
-    url: https://www.thehindu.com/news/cities/chennai/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_hyderabad
-    name: The Hindu (Hyderabad)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_kolkata
-    name: The Hindu (Kolkata)
-    type: rss
-    url: https://www.thehindu.com/news/cities/kolkata/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_coimbatore
-    name: The Hindu (Coimbatore)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Coimbatore/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_kochi
-    name: The Hindu (Kochi)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Kochi/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_kozhikode
-    name: The Hindu (Kozhikode)
-    type: rss
-    url: https://www.thehindu.com/news/cities/kozhikode/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_madurai
-    name: The Hindu (Madurai)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Madurai/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_mangaluru
-    name: The Hindu (Mangaluru)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Mangalore/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_puducherry
-    name: The Hindu (Puducherry)
-    type: rss
-    url: https://www.thehindu.com/news/cities/puducherry/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_thiruvananthapuram
-    name: The Hindu (Thiruvananthapuram)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Thiruvananthapuram/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_tiruchirapalli
-    name: The Hindu (Tiruchirapalli)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Tiruchirapalli/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_vijayawada
-    name: The Hindu (Vijayawada)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Vijayawada/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: the_hindu_visakhapatnam
-    name: The Hindu (Visakhapatnam)
-    type: rss
-    url: https://www.thehindu.com/news/cities/Visakhapatnam/feeder/default.rss
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_delhi
-    name: Indian Express (Delhi)
-    type: rss
-    url: https://indianexpress.com/section/cities/delhi/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_mumbai
-    name: Indian Express (Mumbai)
-    type: rss
-    url: https://indianexpress.com/section/cities/mumbai/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_bengaluru
-    name: Indian Express (Bengaluru)
-    type: rss
-    url: https://indianexpress.com/section/cities/bengaluru/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: standard_london
-    name: Evening Standard (London)
-    type: rss
-    url: https://www.standard.co.uk/news/rss
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: nytimes_nyregion
-    name: NYTimes (New York Region)
-    type: rss
-    url: https://rss.nytimes.com/services/xml/rss/nyt/NYRegion.xml
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: straitstimes_singapore
-    name: Straits Times (Singapore)
-    type: rss
-    url: https://www.straitstimes.com/news/singapore/rss.xml
-    parser: rss
-    pools:
-      - GLOBAL_CITIES
-    is_active: true
-  - id: ie_chennai
-    name: Indian Express (Chennai)
-    type: rss
-    url: https://indianexpress.com/section/cities/chennai/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_hyderabad
-    name: Indian Express (Hyderabad)
-    type: rss
-    url: https://indianexpress.com/section/cities/hyderabad/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_kolkata
-    name: Indian Express (Kolkata)
-    type: rss
-    url: https://indianexpress.com/section/cities/kolkata/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_pune
-    name: Indian Express (Pune)
-    type: rss
-    url: https://indianexpress.com/section/cities/pune/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_ahmedabad
-    name: Indian Express (Ahmedabad)
-    type: rss
-    url: https://indianexpress.com/section/cities/ahmedabad/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_lucknow
-    name: Indian Express (Lucknow)
-    type: rss
-    url: https://indianexpress.com/section/cities/lucknow/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: ie_chandigarh
-    name: Indian Express (Chandigarh)
-    type: rss
-    url: https://indianexpress.com/section/cities/chandigarh/feed/
-    parser: rss
-    pools:
-      - INDIA_CITIES
-    is_active: true
-  - id: haaretz_latest
-    name: 'Haaretz: Latest Headlines'
-    type: rss
-    url: https://www.haaretz.com/srv/haaretz-latest-headlines
-    parser: rss
-    pools:
-      - GLOBAL_BREAKING
-      - GLOBAL_GEOECON
-    is_active: true
-  - id: haaretz_world
-    name: 'Haaretz: World News'
-    type: rss
-    url: https://www.haaretz.com/srv/world-news-rss
-    parser: rss
-    pools:
-      - GLOBAL_GEOECON
-    is_active: true
-  - id: haaretz_opinion
-    name: 'Haaretz: Opinion'
-    type: rss
-    url: https://www.haaretz.com/srv/opinion-rss
-    parser: rss
-    pools:
-      - GLOBAL_CULT_SOC
-    is_active: true
-  - id: haaretz_life_culture
-    name: 'Haaretz: Life & Culture'
-    type: rss
-    url: https://www.haaretz.com/srv/life-&-culture-rss
-    parser: rss
-    pools:
-      - GLOBAL_CULT_SOC
-    is_active: true
-  - id: et_legal
-    name: ET Legal World
-    type: rss
-    url: https://economictimes.indiatimes.com/industry/banking/finance/rssfeeds/13358259.cms
-    parser: rss
-    pools:
-      - GLOBAL_LAW_REG
-      - INDIA_BUSINESS_REG
-    is_active: true
-  - id: bar_and_bench
-    name: Bar & Bench
-    type: http
-    url: https://barandbench.com/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://barandbench.com/news
-      selectors:
-        item: article
-        title: h2 a
-        link: a
-        date: time
-        desc: p
-    pools:
-      - GLOBAL_LAW_REG
-      - INDIA_WATCHDOG
-    is_active: true
-  - id: scotusblog
-    name: SCOTUSblog
-    type: rss
-    url: https://www.scotusblog.com/feed/
-    parser: rss
-    pools:
-      - GLOBAL_LAW_REG
-    is_active: true
-  - id: india_law_news
-    name: India Law (Google News)
-    type: rss
-    url: https://news.google.com/rss/search?q=india+law+regulation+supreme+court&hl=en-IN&gl=IN&ceid=IN:en
-    parser: rss
-    pools:
-      - GLOBAL_LAW_REG
-      - INDIA_WATCHDOG
-    is_active: true
-  - id: global_sanctions
-    name: Global Sanctions (Google News)
-    type: rss
-    url: https://news.google.com/rss/search?q=international+sanctions+regulatory&hl=en-US&gl=US&ceid=US:en
-    parser: rss
-    pools:
-      - GLOBAL_LAW_REG
-    is_active: true
-  - id: us_state_dept
-    name: US State Department
-    type: rss
-    url: https://www.state.gov/rss/
-    parser: rss
-    pools:
-      - GLOBAL_LAW_REG
-      - GLOBAL_GEOECON
-    is_active: true
-  - id: rand
-    name: RAND Corporation
-    type: rss
-    url: https://news.google.com/rss/search?q=site:rand.org+defense+security+geopolitics&hl=en-US&gl=US&ceid=US:en
-    parser: rss
-    pools:
-      - GLOBAL_GEOECON
-    is_active: true
-  - id: brookings
-    name: Brookings Institution
-    type: rss
-    url: https://news.google.com/rss/search?q=site:brookings.edu+international+geopolitics&hl=en-US&gl=US&ceid=US:en
-    parser: rss
-    pools:
-      - GLOBAL_GEOECON
-    is_active: true
-  - id: idsa
-    name: IDSA (Defence Studies)
-    type: http
-    url: https://www.idsa.in/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://www.idsa.in/issuebrief
-      selectors:
-        item: div.views-row
-        title: a
-        link: a
-        date: span.date-display-single
-        desc: p
-    pools:
-      - GLOBAL_GEOECON
-    is_active: true
-  - id: india_geoecon
-    name: India Geopolitics (Google News)
-    type: rss
-    url: https://news.google.com/rss/search?q=india+geopolitics+strategy+defense&hl=en-IN&gl=IN&ceid=IN:en
-    parser: rss
-    pools:
-      - GLOBAL_GEOECON
-      - INDIA_NATIONAL_BASE
-    is_active: true
-  - id: imf_news
-    name: IMF News
-    type: rss
-    url: https://www.imf.org/en/News/Rss
-    parser: rss
-    pools:
-      - GLOBAL_GEOECON
-      - GLOBAL_LAW_REG
-    is_active: true
-  - id: world_bank
-    name: World Bank News
-    type: rss
-    url: https://www.worldbank.org/en/news/all
-    parser: rss
-    pools:
-      - GLOBAL_GEOECON
-      - GLOBAL_ENV_HEALTH
-    is_active: true
-  - id: techcrunch
-    name: TechCrunch
-    type: rss
-    url: https://techcrunch.com/feed/
-    parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: the_verge
-    name: The Verge
-    type: rss
-    url: https://www.theverge.com/rss/index.xml
-    parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: wired
-    name: Wired
-    type: rss
-    url: https://www.wired.com/feed/rss
-    parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: darkreading
-    name: Dark Reading
-    type: rss
-    url: https://www.darkreading.com/rss.xml
-    parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: hackernews
-    name: Hacker News
-    type: rss
-    url: https://hnrss.org/frontpage
-    parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: medianama
-    name: MediaNama
-    type: rss
-    url: https://www.medianama.com/feed/
-    parser: rss
-    pools:
-      - GLOBAL_TECH_CYBER
-      - INDIA_BUSINESS_REG
-    is_active: true
-  - id: the_ken
-    name: The Ken
-    type: http
-    url: https://the-ken.com/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://the-ken.com/latest
-      selectors:
-        item: article
-        title: h2 a
-        link: a
-        desc: p
-    pools:
-      - GLOBAL_TECH_CYBER
-      - INDIA_BUSINESS_REG
-    is_active: true
-  - id: nature_news
-    name: Nature News
-    type: rss
-    url: https://www.nature.com/nature.rss
-    parser: rss
-    pools:
-      - GLOBAL_ENV_HEALTH
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: science_mag
-    name: Science Magazine
-    type: rss
-    url: https://www.science.org/rss/news_current.xml
-    parser: rss
-    pools:
-      - GLOBAL_ENV_HEALTH
-      - GLOBAL_TECH_CYBER
-    is_active: true
-  - id: stat_news
-    name: STAT News
-    type: rss
-    url: https://www.statnews.com/feed/
-    parser: rss
-    pools:
-      - GLOBAL_ENV_HEALTH
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india, law]
     is_active: true
   - id: mca_notifications
     name: MCA Notifications
@@ -969,840 +776,1430 @@ sources:
         title: a
         link: a
         desc: p
-    pools:
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india, law, business]
     is_active: true
   - id: india_business_news
     name: India Business (Google News)
     type: rss
     url: https://news.google.com/rss/search?q=india+business+finance+markets&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools:
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india, business]
     is_active: true
   - id: moneycontrol
     name: Moneycontrol
     type: rss
     url: https://news.google.com/rss/search?q=site:moneycontrol.com+markets+business&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools:
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india, business]
     is_active: true
   - id: mint_markets
     name: Livemint Markets
     type: rss
     url: https://www.livemint.com/rss/markets
     parser: rss
-    pools:
-      - INDIA_BUSINESS_REG
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [finance-india]
     is_active: true
-  - id: india_national_gn
-    name: India National (Google News)
+
+  # ═══════════════════════════════════════════════════════════════
+  # INDIA REGIONAL
+  # ═══════════════════════════════════════════════════════════════
+  - id: ie_south
+    name: Indian Express (South)
     type: rss
-    url: https://news.google.com/rss/search?q=india+news+politics+economy&hl=en-IN&gl=IN&ceid=IN:en
+    url: https://news.google.com/rss/search?q=site:indianexpress.com+south+india&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
     is_active: true
-  - id: mint_politics
-    name: Livemint Politics
+  - id: ie_east
+    name: Indian Express (East)
     type: rss
-    url: https://www.livemint.com/rss/politics
+    url: https://indianexpress.com/section/india/east-india/feed/
     parser: rss
-    pools:
-      - INDIA_NATIONAL_BASE
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
     is_active: true
-  - id: ie_maharashtra
-    name: Indian Express (Maharashtra)
+  - id: ie_northeast
+    name: Indian Express (North East)
     type: rss
-    url: https://indianexpress.com/section/cities/pune/feed/
+    url: https://indianexpress.com/section/india/north-east-india/feed/
     parser: rss
-    pools:
-      - INDIA_REGION
-      - INDIA_CITIES
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
     is_active: true
-  - id: ie_west_bengal
-    name: Indian Express (West Bengal)
+  - id: the_hindu_karnataka
+    name: The Hindu (Karnataka)
+    type: rss
+    url: https://www.thehindu.com/news/national/karnataka/feeder/default.rss
+    parser: rss
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
+    is_active: true
+  - id: the_hindu_tamil_nadu
+    name: The Hindu (Tamil Nadu)
+    type: rss
+    url: https://www.thehindu.com/news/national/tamil-nadu/feeder/default.rss
+    parser: rss
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
+    is_active: true
+  - id: the_hindu_kerala
+    name: The Hindu (Kerala)
+    type: rss
+    url: https://www.thehindu.com/news/national/kerala/feeder/default.rss
+    parser: rss
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
+    is_active: true
+  - id: the_hindu_andhra
+    name: The Hindu (Andhra Pradesh)
+    type: rss
+    url: https://www.thehindu.com/news/national/andhra-pradesh/feeder/default.rss
+    parser: rss
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
+    is_active: true
+  - id: the_hindu_telangana
+    name: The Hindu (Telangana)
+    type: rss
+    url: https://www.thehindu.com/news/national/telangana/feeder/default.rss
+    parser: rss
+    pools: [INDIA_REGION]
+    countries: [IN]
+    domains: [india-regional]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # INDIA CITIES
+  # ═══════════════════════════════════════════════════════════════
+  - id: the_hindu_delhi
+    name: The Hindu (Delhi)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Delhi/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Delhi]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_mumbai
+    name: The Hindu (Mumbai)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Mumbai/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Mumbai]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_bengaluru
+    name: The Hindu (Bengaluru)
+    type: rss
+    url: https://www.thehindu.com/news/cities/bangalore/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Bengaluru]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_chennai
+    name: The Hindu (Chennai)
+    type: rss
+    url: https://www.thehindu.com/news/cities/chennai/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Chennai]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_hyderabad
+    name: The Hindu (Hyderabad)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Hyderabad]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_kolkata
+    name: The Hindu (Kolkata)
+    type: rss
+    url: https://www.thehindu.com/news/cities/kolkata/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Kolkata]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_coimbatore
+    name: The Hindu (Coimbatore)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Coimbatore/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Coimbatore]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_kochi
+    name: The Hindu (Kochi)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Kochi/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Kochi]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_kozhikode
+    name: The Hindu (Kozhikode)
+    type: rss
+    url: https://www.thehindu.com/news/cities/kozhikode/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Kozhikode]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_madurai
+    name: The Hindu (Madurai)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Madurai/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Madurai]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_mangaluru
+    name: The Hindu (Mangaluru)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Mangalore/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Mangaluru]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_puducherry
+    name: The Hindu (Puducherry)
+    type: rss
+    url: https://www.thehindu.com/news/cities/puducherry/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Puducherry]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_thiruvananthapuram
+    name: The Hindu (Thiruvananthapuram)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Thiruvananthapuram/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Thiruvananthapuram]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_tiruchirapalli
+    name: The Hindu (Tiruchirapalli)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Tiruchirapalli/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Tiruchirapalli]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_vijayawada
+    name: The Hindu (Vijayawada)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Vijayawada/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Vijayawada]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: the_hindu_visakhapatnam
+    name: The Hindu (Visakhapatnam)
+    type: rss
+    url: https://www.thehindu.com/news/cities/Visakhapatnam/feeder/default.rss
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Visakhapatnam]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_delhi
+    name: Indian Express (Delhi)
+    type: rss
+    url: https://indianexpress.com/section/cities/delhi/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Delhi]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_mumbai
+    name: Indian Express (Mumbai)
+    type: rss
+    url: https://indianexpress.com/section/cities/mumbai/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Mumbai]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_bengaluru
+    name: Indian Express (Bengaluru)
+    type: rss
+    url: https://indianexpress.com/section/cities/bengaluru/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Bengaluru]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_chennai
+    name: Indian Express (Chennai)
+    type: rss
+    url: https://indianexpress.com/section/cities/chennai/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Chennai]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_hyderabad
+    name: Indian Express (Hyderabad)
+    type: rss
+    url: https://indianexpress.com/section/cities/hyderabad/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Hyderabad]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_kolkata
+    name: Indian Express (Kolkata)
     type: rss
     url: https://indianexpress.com/section/cities/kolkata/feed/
     parser: rss
-    pools:
-      - INDIA_REGION
-      - INDIA_CITIES
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Kolkata]
+    domains: [india-domestic, local]
     is_active: true
+  - id: ie_pune
+    name: Indian Express (Pune)
+    type: rss
+    url: https://indianexpress.com/section/cities/pune/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Pune]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_ahmedabad
+    name: Indian Express (Ahmedabad)
+    type: rss
+    url: https://indianexpress.com/section/cities/ahmedabad/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Ahmedabad]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_lucknow
+    name: Indian Express (Lucknow)
+    type: rss
+    url: https://indianexpress.com/section/cities/lucknow/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Lucknow]
+    domains: [india-domestic, local]
+    is_active: true
+  - id: ie_chandigarh
+    name: Indian Express (Chandigarh)
+    type: rss
+    url: https://indianexpress.com/section/cities/chandigarh/feed/
+    parser: rss
+    pools: [INDIA_CITIES]
+    countries: [IN]
+    cities: [Chandigarh]
+    domains: [india-domestic, local]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL CITIES (non-India)
+  # ═══════════════════════════════════════════════════════════════
+  - id: standard_london
+    name: Evening Standard (London)
+    type: rss
+    url: https://www.standard.co.uk/news/rss
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [GB]
+    cities: [London]
+    domains: [local, geopolitics]
+    is_active: true
+  - id: nytimes_nyregion
+    name: NYTimes (New York Region)
+    type: rss
+    url: https://rss.nytimes.com/services/xml/rss/nyt/NYRegion.xml
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [US]
+    cities: [New York]
+    domains: [local, geopolitics]
+    is_active: true
+  - id: straitstimes_singapore
+    name: Straits Times (Singapore)
+    type: rss
+    url: https://www.straitstimes.com/news/singapore/rss.xml
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [SG]
+    cities: [Singapore]
+    domains: [local, geopolitics]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # GLOBAL COUNTRY FEEDS (Guardian + France24)
+  # ═══════════════════════════════════════════════════════════════
   - id: guardian_india
     name: Guardian (India)
     type: rss
     url: https://www.theguardian.com/world/india/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IN]
+    domains: [geopolitics, society, culture]
     is_active: true
   - id: france24_india
     name: France24 (India)
     type: rss
     url: https://www.france24.com/en/tag/india/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_united-kingdom
-    name: France24 (United Kingdom)
-    type: rss
-    url: https://www.france24.com/en/tag/united-kingdom/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: guardian_france
-    name: Guardian (France)
-    type: rss
-    url: https://www.theguardian.com/world/france/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_france
-    name: France24 (France)
-    type: rss
-    url: https://www.france24.com/en/tag/france/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: guardian_germany
-    name: Guardian (Germany)
-    type: rss
-    url: https://www.theguardian.com/world/germany/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_germany
-    name: France24 (Germany)
-    type: rss
-    url: https://www.france24.com/en/tag/germany/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: guardian_japan
-    name: Guardian (Japan)
-    type: rss
-    url: https://www.theguardian.com/world/japan/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_japan
-    name: France24 (Japan)
-    type: rss
-    url: https://www.france24.com/en/tag/japan/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: guardian_southafrica
-    name: Guardian (South Africa)
-    type: rss
-    url: https://www.theguardian.com/world/southafrica/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_south-africa
-    name: France24 (South Africa)
-    type: rss
-    url: https://www.france24.com/en/tag/south-africa/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: guardian_brazil
-    name: Guardian (Brazil)
-    type: rss
-    url: https://www.theguardian.com/world/brazil/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: france24_brazil
-    name: France24 (Brazil)
-    type: rss
-    url: https://www.france24.com/en/tag/brazil/rss
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IN]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: guardian_us
     name: Guardian (US News)
     type: rss
     url: https://www.theguardian.com/us-news/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [US]
+    domains: [geopolitics, society]
     is_active: true
   - id: npr_top
     name: NPR Top News
     type: rss
     url: https://feeds.npr.org/1001/rss.xml
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
-    is_active: true
-  - id: bbc_uk
-    name: BBC UK
-    type: rss
-    url: https://feeds.bbci.co.uk/news/uk/rss.xml
-    parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [US]
+    domains: [geopolitics, society, culture]
     is_active: true
   - id: guardian_uk
     name: Guardian (UK)
     type: rss
     url: https://www.theguardian.com/uk-news/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [GB]
+    domains: [geopolitics, society]
     is_active: true
-  - id: france24_fr
+  - id: bbc_uk
+    name: BBC UK
+    type: rss
+    url: https://feeds.bbci.co.uk/news/uk/rss.xml
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [GB]
+    domains: [geopolitics, society, breaking]
+    is_active: true
+  - id: france24_united-kingdom
+    name: France24 (United Kingdom)
+    type: rss
+    url: https://www.france24.com/en/tag/united-kingdom/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [GB]
+    domains: [geopolitics]
+    is_active: true
+  - id: guardian_france
+    name: Guardian (France)
+    type: rss
+    url: https://www.theguardian.com/world/france/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [FR]
+    domains: [geopolitics, society]
+    is_active: true
+  - id: france24_france
     name: France24 (France)
     type: rss
     url: https://www.france24.com/en/tag/france/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [FR]
+    domains: [geopolitics, breaking]
     is_active: true
-  - id: bbc_europe
-    name: BBC Europe
+  - id: guardian_germany
+    name: Guardian (Germany)
     type: rss
-    url: https://feeds.bbci.co.uk/news/world/europe/rss.xml
+    url: https://www.theguardian.com/world/germany/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [DE]
+    domains: [geopolitics, society]
     is_active: true
-  - id: politico_europe
-    name: Politico Europe
+  - id: france24_germany
+    name: France24 (Germany)
     type: rss
-    url: https://www.politico.eu/feed/
+    url: https://www.france24.com/en/tag/germany/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [DE]
+    domains: [geopolitics]
     is_active: true
-  - id: abc_au_top
-    name: ABC Australia (Top Stories)
+  - id: guardian_japan
+    name: Guardian (Japan)
     type: rss
-    url: https://www.abc.net.au/news/feed/51120/rss.xml
+    url: https://www.theguardian.com/world/japan/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [JP]
+    domains: [geopolitics, society]
     is_active: true
-  - id: guardian_china
-    name: Guardian (China)
+  - id: france24_japan
+    name: France24 (Japan)
     type: rss
-    url: https://www.theguardian.com/world/china/rss
+    url: https://www.france24.com/en/tag/japan/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [JP]
+    domains: [geopolitics]
     is_active: true
-  - id: moscow_times
-    name: The Moscow Times (News)
+  - id: guardian_southafrica
+    name: Guardian (South Africa)
     type: rss
-    url: https://www.themoscowtimes.com/rss/news
+    url: https://www.theguardian.com/world/southafrica/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ZA]
+    domains: [geopolitics, society]
     is_active: true
-  - id: bbc_africa
-    name: BBC Africa
+  - id: france24_south-africa
+    name: France24 (South Africa)
     type: rss
-    url: https://feeds.bbci.co.uk/news/world/africa/rss.xml
+    url: https://www.france24.com/en/tag/south-africa/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ZA]
+    domains: [geopolitics]
     is_active: true
-  - id: france24_me
-    name: France24 (Middle East)
+  - id: guardian_brazil
+    name: Guardian (Brazil)
     type: rss
-    url: https://www.france24.com/en/middle-east/rss
+    url: https://www.theguardian.com/world/brazil/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [BR]
+    domains: [geopolitics, society]
+    is_active: true
+  - id: france24_brazil
+    name: France24 (Brazil)
+    type: rss
+    url: https://www.france24.com/en/tag/brazil/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [BR]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_canada
     name: Guardian (Canada)
     type: rss
     url: https://www.theguardian.com/world/canada/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CA]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_canada
     name: France24 (Canada)
     type: rss
     url: https://www.france24.com/en/tag/canada/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CA]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_italy
     name: Guardian (Italy)
     type: rss
     url: https://www.theguardian.com/world/italy/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IT]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_italy
     name: France24 (Italy)
     type: rss
     url: https://www.france24.com/en/tag/italy/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IT]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_spain
     name: Guardian (Spain)
     type: rss
     url: https://www.theguardian.com/world/spain/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ES]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_spain
     name: France24 (Spain)
     type: rss
     url: https://www.france24.com/en/tag/spain/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ES]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_netherlands
     name: Guardian (Netherlands)
     type: rss
     url: https://www.theguardian.com/world/netherlands/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NL]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_netherlands
     name: France24 (Netherlands)
     type: rss
     url: https://www.france24.com/en/tag/netherlands/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NL]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_sweden
     name: Guardian (Sweden)
     type: rss
     url: https://www.theguardian.com/world/sweden/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [SE]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_sweden
     name: France24 (Sweden)
     type: rss
     url: https://www.france24.com/en/tag/sweden/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [SE]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_norway
     name: Guardian (Norway)
     type: rss
     url: https://www.theguardian.com/world/norway/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NO]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_norway
     name: France24 (Norway)
     type: rss
     url: https://www.france24.com/en/tag/norway/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NO]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_denmark
     name: Guardian (Denmark)
     type: rss
     url: https://www.theguardian.com/world/denmark/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [DK]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_denmark
     name: France24 (Denmark)
     type: rss
     url: https://www.france24.com/en/tag/denmark/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [DK]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_poland
     name: Guardian (Poland)
     type: rss
     url: https://www.theguardian.com/world/poland/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PL]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_poland
     name: France24 (Poland)
     type: rss
     url: https://www.france24.com/en/tag/poland/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PL]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_ukraine
     name: Guardian (Ukraine)
     type: rss
     url: https://www.theguardian.com/world/ukraine/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [UA]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: france24_ukraine
     name: France24 (Ukraine)
     type: rss
     url: https://www.france24.com/en/tag/ukraine/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [UA]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: guardian_turkey
     name: Guardian (Turkey)
     type: rss
     url: https://www.theguardian.com/world/turkey/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [TR]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_turkey
     name: France24 (Turkey)
     type: rss
     url: https://www.france24.com/en/tag/turkey/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [TR]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_iran
     name: Guardian (Iran)
     type: rss
     url: https://www.theguardian.com/world/iran/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IR]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: france24_iran
     name: France24 (Iran)
     type: rss
     url: https://www.france24.com/en/tag/iran/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IR]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: guardian_israel
     name: Guardian (Israel)
     type: rss
     url: https://www.theguardian.com/world/israel/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IL]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: france24_israel
     name: France24 (Israel)
     type: rss
     url: https://www.france24.com/en/tag/israel/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IL]
+    domains: [geopolitics, breaking]
     is_active: true
   - id: guardian_saudiarabia
     name: Guardian (Saudi Arabia)
     type: rss
     url: https://www.theguardian.com/world/saudiarabia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [SA]
+    domains: [geopolitics, energy]
     is_active: true
   - id: france24_saudi-arabia
     name: France24 (Saudi Arabia)
     type: rss
     url: https://www.france24.com/en/tag/saudi-arabia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [SA]
+    domains: [geopolitics, energy]
     is_active: true
   - id: guardian_united-arab-emirates
     name: Guardian (United Arab Emirates)
     type: rss
     url: https://www.theguardian.com/world/united-arab-emirates/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AE]
+    domains: [geopolitics, business, energy]
     is_active: true
   - id: france24_united-arab-emirates
     name: France24 (United Arab Emirates)
     type: rss
     url: https://www.france24.com/en/tag/united-arab-emirates/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AE]
+    domains: [geopolitics, energy]
     is_active: true
   - id: guardian_egypt
     name: Guardian (Egypt)
     type: rss
     url: https://www.theguardian.com/world/egypt/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [EG]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_egypt
     name: France24 (Egypt)
     type: rss
     url: https://www.france24.com/en/tag/egypt/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [EG]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_morocco
     name: Guardian (Morocco)
     type: rss
     url: https://www.theguardian.com/world/morocco/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [MA]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_morocco
     name: France24 (Morocco)
     type: rss
     url: https://www.france24.com/en/tag/morocco/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [MA]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_nigeria
     name: Guardian (Nigeria)
     type: rss
     url: https://www.theguardian.com/world/nigeria/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NG]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_nigeria
     name: France24 (Nigeria)
     type: rss
     url: https://www.france24.com/en/tag/nigeria/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NG]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_kenya
     name: Guardian (Kenya)
     type: rss
     url: https://www.theguardian.com/world/kenya/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [KE]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_kenya
     name: France24 (Kenya)
     type: rss
     url: https://www.france24.com/en/tag/kenya/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [KE]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_ethiopia
     name: Guardian (Ethiopia)
     type: rss
     url: https://www.theguardian.com/world/ethiopia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ET]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_ethiopia
     name: France24 (Ethiopia)
     type: rss
     url: https://www.france24.com/en/tag/ethiopia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ET]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_argentina
     name: Guardian (Argentina)
     type: rss
     url: https://www.theguardian.com/world/argentina/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AR]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_argentina
     name: France24 (Argentina)
     type: rss
     url: https://www.france24.com/en/tag/argentina/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AR]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_mexico
     name: Guardian (Mexico)
     type: rss
     url: https://www.theguardian.com/world/mexico/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [MX]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_mexico
     name: France24 (Mexico)
     type: rss
     url: https://www.france24.com/en/tag/mexico/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [MX]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_chile
     name: Guardian (Chile)
     type: rss
     url: https://www.theguardian.com/world/chile/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CL]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_chile
     name: France24 (Chile)
     type: rss
     url: https://www.france24.com/en/tag/chile/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CL]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_colombia
     name: Guardian (Colombia)
     type: rss
     url: https://www.theguardian.com/world/colombia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CO]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_colombia
     name: France24 (Colombia)
     type: rss
     url: https://www.france24.com/en/tag/colombia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CO]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_peru
     name: Guardian (Peru)
     type: rss
     url: https://www.theguardian.com/world/peru/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PE]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_peru
     name: France24 (Peru)
     type: rss
     url: https://www.france24.com/en/tag/peru/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PE]
+    domains: [geopolitics]
+    is_active: true
+  - id: guardian_australia
+    name: Guardian (Australia)
+    type: rss
+    url: https://www.theguardian.com/australia-news/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AU]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_australia
     name: France24 (Australia)
     type: rss
     url: https://www.france24.com/en/tag/australia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AU]
+    domains: [geopolitics]
+    is_active: true
+  - id: guardian_newzealand
+    name: Guardian (New Zealand)
+    type: rss
+    url: https://www.theguardian.com/world/newzealand/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NZ]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_new-zealand
     name: France24 (New Zealand)
     type: rss
     url: https://www.france24.com/en/tag/new-zealand/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [NZ]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_south-korea
     name: Guardian (South Korea)
     type: rss
     url: https://www.theguardian.com/world/south-korea/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [KR]
+    domains: [geopolitics, society, tech]
     is_active: true
   - id: france24_south-korea
     name: France24 (South Korea)
     type: rss
     url: https://www.france24.com/en/tag/south-korea/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [KR]
+    domains: [geopolitics, tech]
     is_active: true
   - id: guardian_taiwan
     name: Guardian (Taiwan)
     type: rss
     url: https://www.theguardian.com/world/taiwan/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [TW]
+    domains: [geopolitics, tech]
     is_active: true
   - id: france24_taiwan
     name: France24 (Taiwan)
     type: rss
     url: https://www.france24.com/en/tag/taiwan/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [TW]
+    domains: [geopolitics, tech]
     is_active: true
   - id: guardian_singapore
     name: Guardian (Singapore)
     type: rss
     url: https://www.theguardian.com/world/singapore/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [SG]
+    domains: [geopolitics, business]
     is_active: true
   - id: france24_singapore
     name: France24 (Singapore)
     type: rss
     url: https://www.france24.com/en/tag/singapore/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [SG]
+    domains: [geopolitics, business]
     is_active: true
   - id: guardian_malaysia
     name: Guardian (Malaysia)
     type: rss
     url: https://www.theguardian.com/world/malaysia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [MY]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_malaysia
     name: France24 (Malaysia)
     type: rss
     url: https://www.france24.com/en/tag/malaysia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [MY]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_indonesia
     name: Guardian (Indonesia)
     type: rss
     url: https://www.theguardian.com/world/indonesia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ID]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_indonesia
     name: France24 (Indonesia)
     type: rss
     url: https://www.france24.com/en/tag/indonesia/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ID]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_thailand
     name: Guardian (Thailand)
     type: rss
     url: https://www.theguardian.com/world/thailand/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [TH]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_thailand
     name: France24 (Thailand)
     type: rss
     url: https://www.france24.com/en/tag/thailand/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [TH]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_philippines
     name: Guardian (Philippines)
     type: rss
     url: https://www.theguardian.com/world/philippines/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PH]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_philippines
     name: France24 (Philippines)
     type: rss
     url: https://www.france24.com/en/tag/philippines/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PH]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_vietnam
     name: Guardian (Vietnam)
     type: rss
     url: https://www.theguardian.com/world/vietnam/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [VN]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_vietnam
     name: France24 (Vietnam)
     type: rss
     url: https://www.france24.com/en/tag/vietnam/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [VN]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_pakistan
     name: Guardian (Pakistan)
     type: rss
     url: https://www.theguardian.com/world/pakistan/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PK]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_pakistan
     name: France24 (Pakistan)
     type: rss
     url: https://www.france24.com/en/tag/pakistan/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PK]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_bangladesh
     name: Guardian (Bangladesh)
     type: rss
     url: https://www.theguardian.com/world/bangladesh/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [BD]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_bangladesh
     name: France24 (Bangladesh)
     type: rss
     url: https://www.france24.com/en/tag/bangladesh/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [BD]
+    domains: [geopolitics]
     is_active: true
   - id: guardian_srilanka
     name: Guardian (Sri Lanka)
     type: rss
     url: https://www.theguardian.com/world/srilanka/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [LK]
+    domains: [geopolitics, society]
     is_active: true
   - id: france24_sri-lanka
     name: France24 (Sri Lanka)
     type: rss
     url: https://www.france24.com/en/tag/sri-lanka/rss
     parser: rss
-    pools:
-      - GLOBAL_COUNTRIES
+    pools: [GLOBAL_COUNTRIES]
+    countries: [LK]
+    domains: [geopolitics]
     is_active: true
+
+  # Regional feeds (BBC, Politico, ABC, Moscow Times, Haaretz)
+  - id: bbc_europe
+    name: BBC Europe
+    type: rss
+    url: https://feeds.bbci.co.uk/news/world/europe/rss.xml
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics]
+    is_active: true
+  - id: politico_europe
+    name: Politico Europe
+    type: rss
+    url: https://www.politico.eu/feed/
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics]
+    is_active: true
+  - id: abc_au_top
+    name: ABC Australia (Top Stories)
+    type: rss
+    url: https://www.abc.net.au/news/feed/51120/rss.xml
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [AU]
+    domains: [geopolitics, society]
+    is_active: true
+  - id: guardian_china
+    name: Guardian (China)
+    type: rss
+    url: https://www.theguardian.com/world/china/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics, tech, business]
+    is_active: true
+  - id: moscow_times
+    name: The Moscow Times (News)
+    type: rss
+    url: https://www.themoscowtimes.com/rss/news
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics]
+    is_active: true
+  - id: bbc_africa
+    name: BBC Africa
+    type: rss
+    url: https://feeds.bbci.co.uk/news/world/africa/rss.xml
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics]
+    is_active: true
+  - id: france24_me
+    name: France24 (Middle East)
+    type: rss
+    url: https://www.france24.com/en/middle-east/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics, energy]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # NEW: FINANCE & MARKETS
+  # ═══════════════════════════════════════════════════════════════
+  - id: cnbc_markets
+    name: CNBC Markets
+    type: rss
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [finance, business]
+    is_active: true
+  - id: marketwatch_top
+    name: MarketWatch
+    type: rss
+    url: https://feeds.marketwatch.com/marketwatch/topstories/
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [finance, business]
+    is_active: true
+  - id: reuters_business
+    name: Reuters Business (via Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=site:reuters.com+business+markets&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [finance, business, breaking]
+    is_active: true
+  - id: hbr
+    name: Harvard Business Review
+    type: rss
+    url: https://hbr.org/feed
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [business, strategy]
+    is_active: true
+  - id: fortune
+    name: Fortune
+    type: rss
+    url: https://fortune.com/feed
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [business, finance]
+    is_active: true
+  - id: fastcompany
+    name: Fast Company
+    type: rss
+    url: https://www.fastcompany.com/latest/rss
+    parser: rss
+    pools: [GLOBAL_GEOECON, GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [business, tech, startups]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # NEW: ENERGY & COMMODITIES
+  # ═══════════════════════════════════════════════════════════════
+  - id: oilprice
+    name: OilPrice.com
+    type: rss
+    url: https://oilprice.com/rss/main
+    parser: rss
+    pools: [GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [energy, finance, geopolitics]
+    is_active: true
+  - id: ie_news
+    name: IEA News
+    type: rss
+    url: https://www.iea.org/rss/news.xml
+    parser: rss
+    pools: [GLOBAL_GEOECON, GLOBAL_ENV_HEALTH]
+    countries: [ALL]
+    domains: [energy, environment, science]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # NEW: SCIENCE
+  # ═══════════════════════════════════════════════════════════════
+  - id: scientific_american
+    name: Scientific American
+    type: rss
+    url: https://www.scientificamerican.com/feed/
+    parser: rss
+    pools: [GLOBAL_ENV_HEALTH, GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [science, health, tech]
+    is_active: true
+  - id: new_scientist
+    name: New Scientist
+    type: rss
+    url: https://www.newscientist.com/feed/home
+    parser: rss
+    pools: [GLOBAL_ENV_HEALTH, GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [science, tech, health]
+    is_active: true
+  - id: phys_org
+    name: Phys.org
+    type: rss
+    url: https://phys.org/rss-feed/
+    parser: rss
+    pools: [GLOBAL_ENV_HEALTH, GLOBAL_TECH_CYBER]
+    countries: [ALL]
+    domains: [science, tech]
+    is_active: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # NEW: INDIA TECH & STARTUPS
+  # ═══════════════════════════════════════════════════════════════
+  - id: inc42
+    name: Inc42
+    type: rss
+    url: https://inc42.com/feed/
+    parser: rss
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [tech, business, startups]
+    is_active: true
+  - id: yourstory
+    name: YourStory
+    type: rss
+    url: https://yourstory.com/feed
+    parser: rss
+    pools: [INDIA_BUSINESS_REG]
+    countries: [IN]
+    domains: [tech, business, startups]
+    is_active: true
+

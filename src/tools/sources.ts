@@ -10,6 +10,9 @@ const SourceInput = z.object({
   headers: z.record(z.string()).optional(),
   parser: z.string().optional(),
   pools: z.array(z.string()).default([]),
+  countries: z.array(z.string()).optional().default([]),
+  cities: z.array(z.string()).optional().default([]),
+  domains: z.array(z.string()).optional().default([]),
   is_active: z.boolean().optional().default(true),
 });
 
@@ -17,7 +20,7 @@ export async function registerSourceTools(srv: McpServer) {
   srv.registerTool('sources.list', {
     description: 'List sources. Use pools + search to narrow, then select source ids for news.fetch. Returns id/name/type/url/pools.',
     inputSchema: { pools: z.array(z.string()).optional(), active_only: z.boolean().optional() },
-    outputSchema: { sources: z.array(z.object({ id: z.string(), name: z.string(), type: z.enum(['rss','http']), url: z.string(), headers: z.record(z.string()).optional(), parser: z.string().optional(), pools: z.array(z.string()), is_active: z.boolean().optional() })) }
+    outputSchema: { sources: z.array(z.object({ id: z.string(), name: z.string(), type: z.enum(['rss','http']), url: z.string(), headers: z.record(z.string()).optional(), parser: z.string().optional(), parserConfig: z.object({ listUrl: z.string().optional(), selectors: z.object({ item: z.string(), title: z.string().optional(), link: z.string().optional(), date: z.string().optional(), desc: z.string().optional() }).optional() }).optional(), pools: z.array(z.string()), countries: z.array(z.string()).optional(), cities: z.array(z.string()).optional(), domains: z.array(z.string()).optional(), is_active: z.boolean().optional() })) }
   }, async (args: any) => {
     const sf = await loadSources();
     let list = sf.sources;

@@ -11,7 +11,7 @@ export type Source = {
   type: 'rss' | 'http';
   url: string;
   headers?: Record<string, string>;
-  parser?: string; // 'rss' | 'ofac' | 'ussf_cfc' | 'who_dons' | 'newslaundry'
+  parser?: string;
   parserConfig?: {
     listUrl?: string;
     selectors?: {
@@ -23,7 +23,11 @@ export type Source = {
     };
   };
   pools: string[];
-  is_active?: boolean;
+  countries: string[];
+  cities: string[];
+  domains: string[];
+  is_active: boolean;
+  sourceCategory: 'news' | 'community' | 'research';
 };
 
 export type NewsItem = {

@@ -8,10 +8,11 @@ import { registerNewsTools } from './tools/news.js';
 import { registerAutodiscoverTools } from './tools/autodiscover.js';
 import { registerCountryCityTools } from './tools/countries.js';
 import { registerEnrichTool } from './tools/enrich.js';
+import { registerResearchTools } from './tools/research.js';
 
 async function main() {
   const log = pino({ level: process.env.LOG_LEVEL || 'info' });
-  const server = new McpServer({ name: 'igs-news-mcp', version: '0.1.0' }, { capabilities: {} });
+  const server = new McpServer({ name: 'igs-mcp', version: '0.2.0' }, { capabilities: {} });
 
   await registerPoolTools(server);
   await registerSourceTools(server);
@@ -20,6 +21,7 @@ async function main() {
   await registerAutodiscoverTools(server);
   await registerCountryCityTools(server);
   await registerEnrichTool(server);
+  await registerResearchTools(server);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);

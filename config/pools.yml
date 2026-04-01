@@ -70,3 +70,4 @@ pools:
     name: Global Cities
     description: City-specific feeds where available; fallback to curated or GN feeds
     is_active: true
+

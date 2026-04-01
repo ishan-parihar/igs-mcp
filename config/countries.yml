@@ -1,296 +1,181 @@
 countries:
   - code: IN
     name: India
-    guardian_slug: india
-    france24_slug: india
-    cities:
-      - Delhi
-      - Mumbai
-      - Bengaluru
-      - Chennai
-      - Hyderabad
-      - Kolkata
+    continent: Asia
+    cities: [Delhi, Mumbai, Bengaluru, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Lucknow, Chandigarh, Coimbatore, Kochi, Kozhikode, Madurai, Mangaluru, Puducherry, Thiruvananthapuram, Tiruchirapalli, Vijayawada, Visakhapatnam]
   - code: US
     name: United States
-    guardian_slug: us-news
-    france24_slug: united-states
-    cities:
-      - New York
-      - Washington DC
-      - Los Angeles
-      - San Francisco
+    continent: North America
+    cities: [New York, Washington DC, Los Angeles, San Francisco]
   - code: GB
     name: United Kingdom
-    guardian_slug: uk-news
-    france24_slug: united-kingdom
-    cities:
-      - London
-      - Manchester
-      - Edinburgh
+    continent: Europe
+    cities: [London, Manchester, Edinburgh]
   - code: FR
     name: France
-    guardian_slug: france
-    france24_slug: france
-    cities:
-      - Paris
-      - Marseille
+    continent: Europe
+    cities: [Paris, Marseille]
   - code: DE
     name: Germany
-    guardian_slug: germany
-    france24_slug: germany
-    cities:
-      - Berlin
-      - Munich
+    continent: Europe
+    cities: [Berlin, Munich]
   - code: JP
     name: Japan
-    guardian_slug: japan
-    france24_slug: japan
-    cities:
-      - Tokyo
-      - Osaka
+    continent: Asia
+    cities: [Tokyo, Osaka]
   - code: ZA
     name: South Africa
-    guardian_slug: southafrica
-    france24_slug: south-africa
-    cities:
-      - Johannesburg
-      - Cape Town
+    continent: Africa
+    cities: [Johannesburg, Cape Town]
   - code: BR
     name: Brazil
-    guardian_slug: brazil
-    france24_slug: brazil
-    cities:
-      - São Paulo
-      - Rio de Janeiro
+    continent: South America
+    cities: [São Paulo, Rio de Janeiro]
   - code: CA
     name: Canada
-    guardian_slug: canada
-    france24_slug: canada
-    cities:
-      - Toronto
-      - Montreal
+    continent: North America
+    cities: [Toronto, Montreal]
   - code: IT
     name: Italy
-    guardian_slug: italy
-    france24_slug: italy
-    cities:
-      - Rome
-      - Milan
+    continent: Europe
+    cities: [Rome, Milan]
   - code: ES
     name: Spain
-    guardian_slug: spain
-    france24_slug: spain
-    cities:
-      - Madrid
-      - Barcelona
+    continent: Europe
+    cities: [Madrid, Barcelona]
   - code: NL
     name: Netherlands
-    guardian_slug: netherlands
-    france24_slug: netherlands
-    cities:
-      - Amsterdam
+    continent: Europe
+    cities: [Amsterdam]
   - code: SE
     name: Sweden
-    guardian_slug: sweden
-    france24_slug: sweden
-    cities:
-      - Stockholm
+    continent: Europe
+    cities: [Stockholm]
   - code: NO
     name: Norway
-    guardian_slug: norway
-    france24_slug: norway
-    cities:
-      - Oslo
+    continent: Europe
+    cities: [Oslo]
   - code: DK
     name: Denmark
-    guardian_slug: denmark
-    france24_slug: denmark
-    cities:
-      - Copenhagen
+    continent: Europe
+    cities: [Copenhagen]
   - code: PL
     name: Poland
-    guardian_slug: poland
-    france24_slug: poland
-    cities:
-      - Warsaw
+    continent: Europe
+    cities: [Warsaw]
   - code: UA
     name: Ukraine
-    guardian_slug: ukraine
-    france24_slug: ukraine
-    cities:
-      - Kyiv
+    continent: Europe
+    cities: [Kyiv]
   - code: TR
     name: Turkey
-    guardian_slug: turkey
-    france24_slug: turkey
-    cities:
-      - Istanbul
+    continent: Asia
+    cities: [Istanbul]
   - code: IR
     name: Iran
-    guardian_slug: iran
-    france24_slug: iran
-    cities:
-      - Tehran
+    continent: Asia
+    cities: [Tehran]
   - code: IL
     name: Israel
-    guardian_slug: israel
-    france24_slug: israel
-    cities:
-      - Tel Aviv
-      - Jerusalem
+    continent: Asia
+    cities: [Tel Aviv, Jerusalem]
   - code: SA
     name: Saudi Arabia
-    guardian_slug: saudiarabia
-    france24_slug: saudi-arabia
-    cities:
-      - Riyadh
-      - Jeddah
+    continent: Asia
+    cities: [Riyadh, Jeddah]
   - code: AE
     name: United Arab Emirates
-    guardian_slug: united-arab-emirates
-    france24_slug: united-arab-emirates
-    cities:
-      - Dubai
-      - Abu Dhabi
+    continent: Asia
+    cities: [Dubai, Abu Dhabi]
   - code: EG
     name: Egypt
-    guardian_slug: egypt
-    france24_slug: egypt
-    cities:
-      - Cairo
+    continent: Africa
+    cities: [Cairo]
   - code: MA
     name: Morocco
-    guardian_slug: morocco
-    france24_slug: morocco
-    cities:
-      - Casablanca
+    continent: Africa
+    cities: [Casablanca]
   - code: NG
     name: Nigeria
-    guardian_slug: nigeria
-    france24_slug: nigeria
-    cities:
-      - Lagos
-      - Abuja
+    continent: Africa
+    cities: [Lagos, Abuja]
   - code: KE
     name: Kenya
-    guardian_slug: kenya
-    france24_slug: kenya
-    cities:
-      - Nairobi
+    continent: Africa
+    cities: [Nairobi]
   - code: ET
     name: Ethiopia
-    guardian_slug: ethiopia
-    france24_slug: ethiopia
-    cities:
-      - Addis Ababa
+    continent: Africa
+    cities: [Addis Ababa]
   - code: AR
     name: Argentina
-    guardian_slug: argentina
-    france24_slug: argentina
-    cities:
-      - Buenos Aires
+    continent: South America
+    cities: [Buenos Aires]
   - code: MX
     name: Mexico
-    guardian_slug: mexico
-    france24_slug: mexico
-    cities:
-      - Mexico City
+    continent: North America
+    cities: [Mexico City]
   - code: CL
     name: Chile
-    guardian_slug: chile
-    france24_slug: chile
-    cities:
-      - Santiago
+    continent: South America
+    cities: [Santiago]
   - code: CO
     name: Colombia
-    guardian_slug: colombia
-    france24_slug: colombia
-    cities:
-      - Bogota
+    continent: South America
+    cities: [Bogota]
   - code: PE
     name: Peru
-    guardian_slug: peru
-    france24_slug: peru
-    cities:
-      - Lima
+    continent: South America
+    cities: [Lima]
   - code: AU
     name: Australia
-    guardian_slug: australia-news
-    france24_slug: australia
-    cities:
-      - Sydney
-      - Melbourne
+    continent: Oceania
+    cities: [Sydney, Melbourne]
   - code: NZ
     name: New Zealand
-    guardian_slug: world/newzealand
-    france24_slug: new-zealand
-    cities:
-      - Auckland
-      - Wellington
+    continent: Oceania
+    cities: [Auckland, Wellington]
   - code: KR
     name: South Korea
-    guardian_slug: south-korea
-    france24_slug: south-korea
-    cities:
-      - Seoul
+    continent: Asia
+    cities: [Seoul]
   - code: TW
     name: Taiwan
-    guardian_slug: taiwan
-    france24_slug: taiwan
-    cities:
-      - Taipei
+    continent: Asia
+    cities: [Taipei]
   - code: SG
     name: Singapore
-    guardian_slug: singapore
-    france24_slug: singapore
-    cities:
-      - Singapore
+    continent: Asia
+    cities: [Singapore]
   - code: MY
     name: Malaysia
-    guardian_slug: malaysia
-    france24_slug: malaysia
-    cities:
-      - Kuala Lumpur
+    continent: Asia
+    cities: [Kuala Lumpur]
   - code: ID
     name: Indonesia
-    guardian_slug: indonesia
-    france24_slug: indonesia
-    cities:
-      - Jakarta
+    continent: Asia
+    cities: [Jakarta]
   - code: TH
     name: Thailand
-    guardian_slug: thailand
-    france24_slug: thailand
-    cities:
-      - Bangkok
+    continent: Asia
+    cities: [Bangkok]
   - code: PH
     name: Philippines
-    guardian_slug: philippines
-    france24_slug: philippines
-    cities:
-      - Manila
+    continent: Asia
+    cities: [Manila]
   - code: VN
     name: Vietnam
-    guardian_slug: vietnam
-    france24_slug: vietnam
-    cities:
-      - Hanoi
+    continent: Asia
+    cities: [Hanoi]
   - code: PK
     name: Pakistan
-    guardian_slug: pakistan
-    france24_slug: pakistan
-    cities:
-      - Karachi
-      - Lahore
+    continent: Asia
+    cities: [Karachi, Lahore]
   - code: BD
     name: Bangladesh
-    guardian_slug: bangladesh
-    france24_slug: bangladesh
-    cities:
-      - Dhaka
+    continent: Asia
+    cities: [Dhaka]
   - code: LK
     name: Sri Lanka
-    guardian_slug: srilanka
-    france24_slug: sri-lanka
-    cities:
-      - Colombo
+    continent: Asia
+    cities: [Colombo]

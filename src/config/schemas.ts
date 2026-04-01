@@ -33,7 +33,11 @@ export const SourceSchema = z.object({
     })
     .optional(),
   pools: z.array(z.string()).default([]),
+  countries: z.array(z.string()).optional().default([]),
+  cities: z.array(z.string()).optional().default([]),
+  domains: z.array(z.string()).optional().default([]),
   is_active: z.boolean().optional().default(true),
+  sourceCategory: z.enum(['news', 'community', 'research']).optional().default('news'),
 });
 
 export const SourcesFileSchema = z.object({
