@@ -24,6 +24,7 @@
     "rss-parser": "^3.13.0",
     "sentiment": "^5.0.2",
     "undici": "^6.19.5",
+    "xml2js": "^0.6.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
