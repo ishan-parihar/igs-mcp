@@ -172,7 +172,7 @@ function resolveCountrySources(countriesDoc: any, requested: string[]): string[]
 export async function registerNewsTools(srv: McpServer) {
   // Using deprecated tool() for simplicity; can be migrated to registerTool later.
   srv.registerTool('news.fetch', {
-    description: 'Fetch normalized news from live sources within time window',
+    description: 'Fetch normalized news. Default: fast brief (GLOBAL_BREAKING + INDIA_NATIONAL_BASE, last 24h). Custom: specify pools/sources/countries/cities/time/keywords. Use this as the first step, then optionally enrich summaries in a separate call.',
     inputSchema: FetchInput.shape,
     outputSchema: { items: z.array(z.any()), count: z.number() }
   }, async (args: any) => {
@@ -259,7 +259,7 @@ export async function registerNewsTools(srv: McpServer) {
 
   // Quick single-source tester for agents
   srv.registerTool('news.testSource', {
-    description: 'Test a single source by id and return up to 10 sample items',
+    description: 'Debug helper. Test a single source id (bypass cache) and return up to 10 items. Use before adding custom sources or scrapers.',
     inputSchema: { id: z.string().min(1), cacheMode: z.enum(['prefer','bypass','only']).optional() },
     outputSchema: { items: z.array(z.any()), count: z.number() }
   }, async (args: any) => {

@@ -15,7 +15,7 @@ const SourceInput = z.object({
 
 export async function registerSourceTools(srv: McpServer) {
   srv.registerTool('sources.list', {
-    description: 'List sources filtered by pools/active',
+    description: 'List sources. Use pools + search to narrow, then select source ids for news.fetch. Returns id/name/type/url/pools.',
     inputSchema: { pools: z.array(z.string()).optional(), active_only: z.boolean().optional() },
     outputSchema: { sources: z.array(z.object({ id: z.string(), name: z.string(), type: z.enum(['rss','http']), url: z.string(), headers: z.record(z.string()).optional(), parser: z.string().optional(), pools: z.array(z.string()), is_active: z.boolean().optional() })) }
   }, async (args: any) => {
@@ -28,7 +28,7 @@ export async function registerSourceTools(srv: McpServer) {
   });
 
   srv.registerTool('sources.upsert', {
-    description: 'Create or update a source',
+    description: 'Create or update a source (rss/http). Use this after sources.autodiscover, or to add a known feed. Avoid generic city/country adds when native feeds exist.',
     inputSchema: SourceInput.shape,
     outputSchema: { id: z.string() }
   }, async (args: any) => {
@@ -44,7 +44,7 @@ export async function registerSourceTools(srv: McpServer) {
   });
 
   srv.registerTool('sources.delete', {
-    description: 'Delete a source by id',
+    description: 'Delete a source by id. Use with caution and consider disabling (is_active=false) first.',
     inputSchema: { id: z.string().min(1) },
     outputSchema: { removed: z.boolean() }
   }, async (args: any) => {

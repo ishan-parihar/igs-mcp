@@ -6,7 +6,7 @@ import { loadSettings, loadSources, saveSources } from '../config/loader.js';
 
 export async function registerAutodiscoverTools(srv: McpServer) {
   srv.registerTool('sources.autodiscover', {
-    description: 'Auto-discover a usable feed or HTML selectors for a site base URL',
+    description: 'Auto-discover feeds/selectors. Give a homepage; tool tries RSS/Atom/JSON/HTML/sitemap. Use as a precursor to sources.enableGenericScraper or sources.upsert.',
     inputSchema: { url: z.string().url(), pools: z.array(z.string()).optional(), name: z.string().optional() },
     outputSchema: {
       kind: z.enum(['rss','atom','html','json','sitemap','none']),
@@ -24,7 +24,7 @@ export async function registerAutodiscoverTools(srv: McpServer) {
   });
 
   srv.registerTool('sources.enableGenericScraper', {
-    description: 'Enable generic HTML scraper for a source id with known selectors',
+    description: 'Enable generic HTML scraping for a source (known selectors). Prefer native RSS first; use only when no feed is available.',
     inputSchema: {
       id: z.string().min(1),
       listUrl: z.string().url().optional(),

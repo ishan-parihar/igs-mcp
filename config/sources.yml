@@ -1238,3 +1238,571 @@ sources:
     pools:
       - GLOBAL_COUNTRIES
     is_active: true
+  - id: france24_canada
+    name: France24 (Canada)
+    type: rss
+    url: https://www.france24.com/en/tag/canada/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_italy
+    name: Guardian (Italy)
+    type: rss
+    url: https://www.theguardian.com/world/italy/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_italy
+    name: France24 (Italy)
+    type: rss
+    url: https://www.france24.com/en/tag/italy/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_spain
+    name: Guardian (Spain)
+    type: rss
+    url: https://www.theguardian.com/world/spain/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_spain
+    name: France24 (Spain)
+    type: rss
+    url: https://www.france24.com/en/tag/spain/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_netherlands
+    name: Guardian (Netherlands)
+    type: rss
+    url: https://www.theguardian.com/world/netherlands/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_netherlands
+    name: France24 (Netherlands)
+    type: rss
+    url: https://www.france24.com/en/tag/netherlands/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_sweden
+    name: Guardian (Sweden)
+    type: rss
+    url: https://www.theguardian.com/world/sweden/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_sweden
+    name: France24 (Sweden)
+    type: rss
+    url: https://www.france24.com/en/tag/sweden/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_norway
+    name: Guardian (Norway)
+    type: rss
+    url: https://www.theguardian.com/world/norway/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_norway
+    name: France24 (Norway)
+    type: rss
+    url: https://www.france24.com/en/tag/norway/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_denmark
+    name: Guardian (Denmark)
+    type: rss
+    url: https://www.theguardian.com/world/denmark/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_denmark
+    name: France24 (Denmark)
+    type: rss
+    url: https://www.france24.com/en/tag/denmark/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_poland
+    name: Guardian (Poland)
+    type: rss
+    url: https://www.theguardian.com/world/poland/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_poland
+    name: France24 (Poland)
+    type: rss
+    url: https://www.france24.com/en/tag/poland/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_ukraine
+    name: Guardian (Ukraine)
+    type: rss
+    url: https://www.theguardian.com/world/ukraine/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_ukraine
+    name: France24 (Ukraine)
+    type: rss
+    url: https://www.france24.com/en/tag/ukraine/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_turkey
+    name: Guardian (Turkey)
+    type: rss
+    url: https://www.theguardian.com/world/turkey/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_turkey
+    name: France24 (Turkey)
+    type: rss
+    url: https://www.france24.com/en/tag/turkey/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_iran
+    name: Guardian (Iran)
+    type: rss
+    url: https://www.theguardian.com/world/iran/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_iran
+    name: France24 (Iran)
+    type: rss
+    url: https://www.france24.com/en/tag/iran/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_israel
+    name: Guardian (Israel)
+    type: rss
+    url: https://www.theguardian.com/world/israel/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_israel
+    name: France24 (Israel)
+    type: rss
+    url: https://www.france24.com/en/tag/israel/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_saudiarabia
+    name: Guardian (Saudi Arabia)
+    type: rss
+    url: https://www.theguardian.com/world/saudiarabia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_saudi-arabia
+    name: France24 (Saudi Arabia)
+    type: rss
+    url: https://www.france24.com/en/tag/saudi-arabia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_united-arab-emirates
+    name: Guardian (United Arab Emirates)
+    type: rss
+    url: https://www.theguardian.com/world/united-arab-emirates/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_united-arab-emirates
+    name: France24 (United Arab Emirates)
+    type: rss
+    url: https://www.france24.com/en/tag/united-arab-emirates/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_egypt
+    name: Guardian (Egypt)
+    type: rss
+    url: https://www.theguardian.com/world/egypt/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_egypt
+    name: France24 (Egypt)
+    type: rss
+    url: https://www.france24.com/en/tag/egypt/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_morocco
+    name: Guardian (Morocco)
+    type: rss
+    url: https://www.theguardian.com/world/morocco/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_morocco
+    name: France24 (Morocco)
+    type: rss
+    url: https://www.france24.com/en/tag/morocco/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_nigeria
+    name: Guardian (Nigeria)
+    type: rss
+    url: https://www.theguardian.com/world/nigeria/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_nigeria
+    name: France24 (Nigeria)
+    type: rss
+    url: https://www.france24.com/en/tag/nigeria/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_kenya
+    name: Guardian (Kenya)
+    type: rss
+    url: https://www.theguardian.com/world/kenya/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_kenya
+    name: France24 (Kenya)
+    type: rss
+    url: https://www.france24.com/en/tag/kenya/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_ethiopia
+    name: Guardian (Ethiopia)
+    type: rss
+    url: https://www.theguardian.com/world/ethiopia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_ethiopia
+    name: France24 (Ethiopia)
+    type: rss
+    url: https://www.france24.com/en/tag/ethiopia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_argentina
+    name: Guardian (Argentina)
+    type: rss
+    url: https://www.theguardian.com/world/argentina/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_argentina
+    name: France24 (Argentina)
+    type: rss
+    url: https://www.france24.com/en/tag/argentina/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_mexico
+    name: Guardian (Mexico)
+    type: rss
+    url: https://www.theguardian.com/world/mexico/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_mexico
+    name: France24 (Mexico)
+    type: rss
+    url: https://www.france24.com/en/tag/mexico/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_chile
+    name: Guardian (Chile)
+    type: rss
+    url: https://www.theguardian.com/world/chile/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_chile
+    name: France24 (Chile)
+    type: rss
+    url: https://www.france24.com/en/tag/chile/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_colombia
+    name: Guardian (Colombia)
+    type: rss
+    url: https://www.theguardian.com/world/colombia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_colombia
+    name: France24 (Colombia)
+    type: rss
+    url: https://www.france24.com/en/tag/colombia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_peru
+    name: Guardian (Peru)
+    type: rss
+    url: https://www.theguardian.com/world/peru/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_peru
+    name: France24 (Peru)
+    type: rss
+    url: https://www.france24.com/en/tag/peru/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_australia
+    name: France24 (Australia)
+    type: rss
+    url: https://www.france24.com/en/tag/australia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_new-zealand
+    name: France24 (New Zealand)
+    type: rss
+    url: https://www.france24.com/en/tag/new-zealand/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_south-korea
+    name: Guardian (South Korea)
+    type: rss
+    url: https://www.theguardian.com/world/south-korea/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_south-korea
+    name: France24 (South Korea)
+    type: rss
+    url: https://www.france24.com/en/tag/south-korea/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_taiwan
+    name: Guardian (Taiwan)
+    type: rss
+    url: https://www.theguardian.com/world/taiwan/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_taiwan
+    name: France24 (Taiwan)
+    type: rss
+    url: https://www.france24.com/en/tag/taiwan/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_singapore
+    name: Guardian (Singapore)
+    type: rss
+    url: https://www.theguardian.com/world/singapore/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_singapore
+    name: France24 (Singapore)
+    type: rss
+    url: https://www.france24.com/en/tag/singapore/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_malaysia
+    name: Guardian (Malaysia)
+    type: rss
+    url: https://www.theguardian.com/world/malaysia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_malaysia
+    name: France24 (Malaysia)
+    type: rss
+    url: https://www.france24.com/en/tag/malaysia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_indonesia
+    name: Guardian (Indonesia)
+    type: rss
+    url: https://www.theguardian.com/world/indonesia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_indonesia
+    name: France24 (Indonesia)
+    type: rss
+    url: https://www.france24.com/en/tag/indonesia/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_thailand
+    name: Guardian (Thailand)
+    type: rss
+    url: https://www.theguardian.com/world/thailand/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_thailand
+    name: France24 (Thailand)
+    type: rss
+    url: https://www.france24.com/en/tag/thailand/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_philippines
+    name: Guardian (Philippines)
+    type: rss
+    url: https://www.theguardian.com/world/philippines/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_philippines
+    name: France24 (Philippines)
+    type: rss
+    url: https://www.france24.com/en/tag/philippines/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_vietnam
+    name: Guardian (Vietnam)
+    type: rss
+    url: https://www.theguardian.com/world/vietnam/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_vietnam
+    name: France24 (Vietnam)
+    type: rss
+    url: https://www.france24.com/en/tag/vietnam/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_pakistan
+    name: Guardian (Pakistan)
+    type: rss
+    url: https://www.theguardian.com/world/pakistan/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_pakistan
+    name: France24 (Pakistan)
+    type: rss
+    url: https://www.france24.com/en/tag/pakistan/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_bangladesh
+    name: Guardian (Bangladesh)
+    type: rss
+    url: https://www.theguardian.com/world/bangladesh/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_bangladesh
+    name: France24 (Bangladesh)
+    type: rss
+    url: https://www.france24.com/en/tag/bangladesh/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: guardian_srilanka
+    name: Guardian (Sri Lanka)
+    type: rss
+    url: https://www.theguardian.com/world/srilanka/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
+  - id: france24_sri-lanka
+    name: France24 (Sri Lanka)
+    type: rss
+    url: https://www.france24.com/en/tag/sri-lanka/rss
+    parser: rss
+    pools:
+      - GLOBAL_COUNTRIES
+    is_active: true
