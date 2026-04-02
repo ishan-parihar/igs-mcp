@@ -5,6 +5,7 @@ import keywordExtractor from 'keyword-extractor';
 // @ts-ignore
 import Sentiment from 'sentiment';
 import nlp from 'compromise';
+import { domainClassifier, embeddingGenerator, extractEntities } from '../nlp/index.js';
 
 const sentiment = new Sentiment();
 
@@ -33,7 +34,7 @@ function extractKeywords(text: string, max = 8): string[] {
   return Object.entries(freq).sort((a,b) => b[1]-a[1]).slice(0, max).map(([w]) => w);
 }
 
-function extractEntities(text: string): { name: string; type: string }[] {
+function extractEntitiesBasic(text: string): { name: string; type: string }[] {
   const doc = nlp(text || '');
   const ents: { name: string; type: string }[] = [];
   doc.people().out('array').forEach((n: string) => ents.push({ name: n, type: 'Person' }));
@@ -53,33 +54,108 @@ function summarize(text: string, title: string): string {
 
 export async function registerEnrichTool(srv: McpServer) {
   srv.registerTool('news.enrich', {
-    description: 'NLP enrichment (offline). Adds topics, entities, sentiment, and a short summary to items. Use after news.fetch for deeper analysis without slowing down fetch.',
+    description: 'NLP enrichment (offline). Adds topics, entities, sentiment, summary, domains, and embeddings to items. Use after news.fetch for deeper analysis. New: auto-domain classification and semantic embeddings for inter-domain insight discovery.',
     inputSchema: {
       items: z.array(z.object({
-        id: z.string(), title: z.string(), link: z.string(), pubDate: z.string(),
-        source_name: z.string(), pool_id: z.string(), content_snippet: z.string().optional(),
-        author: z.string().optional(), media_url: z.string().optional()
+        id: z.string(), 
+        title: z.string(), 
+        link: z.string(), 
+        pubDate: z.string(),
+        source_name: z.string(), 
+        pool_id: z.string(), 
+        content_snippet: z.string().optional(),
+        author: z.string().optional(), 
+        media_url: z.string().optional()
       })),
-      extract: z.array(z.enum(['topics','entities','sentiment','summary'])).optional()
+      extract: z.array(z.enum(['topics','entities','sentiment','summary','domains','embeddings'])).optional(),
+      useAdvancedEntities: z.boolean().optional().default(false),
     },
     outputSchema: {
-      items: z.array(z.any())
+      items: z.array(z.any()),
+      meta: z.object({
+        itemsEnriched: z.number(),
+        domainsClassified: z.number(),
+        embeddingsGenerated: z.number(),
+      }).optional(),
     }
   }, async (args: any) => {
     const want = new Set<string>((args.extract || ['topics','entities','sentiment','summary']));
-    const out = (args.items || []).map((it: EnrichItem) => {
+    const useAdvancedEntities = args.useAdvancedEntities || false;
+    
+    let domainsClassified = 0;
+    let embeddingsGenerated = 0;
+    
+    const out = await Promise.all((args.items || []).map(async (it: EnrichItem) => {
       const text = `${it.title} ${it.content_snippet || ''}`;
       const enriched: any = { ...it };
-      if (want.has('topics')) enriched.topics = extractKeywords(text, 8);
-      if (want.has('entities')) enriched.entities = extractEntities(text);
+      
+      // Existing enrichments (fast, synchronous)
+      if (want.has('topics')) {
+        enriched.topics = extractKeywords(text, 8);
+      }
+      
+      if (want.has('entities')) {
+        if (useAdvancedEntities) {
+          // Use advanced entity linker with context
+          const entities = extractEntities(text, 0.5);
+          enriched.entities = entities.map(e => ({
+            name: e.name,
+            type: e.type,
+            mentions: e.mentions,
+            confidence: e.confidence,
+          }));
+        } else {
+          // Use basic entity extraction (backward compatible)
+          enriched.entities = extractEntitiesBasic(text);
+        }
+      }
+      
       if (want.has('sentiment')) {
         const s = sentiment.analyze(text);
-        enriched.sentiment = { score: s.score, comparative: s.comparative, label: s.score > 1 ? 'positive' : s.score < -1 ? 'negative' : 'neutral' };
+        enriched.sentiment = { 
+          score: s.score, 
+          comparative: s.comparative, 
+          label: s.score > 1 ? 'positive' : s.score < -1 ? 'negative' : 'neutral' 
+        };
       }
-      if (want.has('summary')) enriched.summary = summarize(it.content_snippet || '', it.title);
+      
+      if (want.has('summary')) {
+        enriched.summary = summarize(it.content_snippet || '', it.title);
+      }
+      
+      // New ML-powered enrichments (async)
+      if (want.has('domains')) {
+        try {
+          enriched.domains = await domainClassifier.classify(text, 5, 0.5);
+          domainsClassified++;
+        } catch (error) {
+          console.error('[news.enrich] Domain classification failed:', error);
+          enriched.domains = [];
+        }
+      }
+      
+      if (want.has('embeddings')) {
+        try {
+          enriched.embedding = await embeddingGenerator.generate(text);
+          embeddingsGenerated++;
+        } catch (error) {
+          console.error('[news.enrich] Embedding generation failed:', error);
+          enriched.embedding = [];
+        }
+      }
+      
       return enriched;
-    });
-    const structuredContent = { items: out };
+    }));
+    
+    const structuredContent = { 
+      items: out,
+      meta: {
+        itemsEnriched: out.length,
+        domainsClassified,
+        embeddingsGenerated,
+      }
+    };
+    
     return { content: [{ type: 'text', text: JSON.stringify(structuredContent) }], structuredContent };
   });
 }
