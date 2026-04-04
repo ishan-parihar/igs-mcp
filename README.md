@@ -22,7 +22,17 @@ All processing happens **locally on your machine**. No data is sent to external 
 
 ## 🚀 Quick Start
 
-### 1. Install
+### 1. Install & Configure (Recommended)
+
+```bash
+git clone https://github.com/ishan-parihar/igs-mcp.git
+cd igs-mcp
+./setup.sh
+```
+
+The setup script checks prerequisites (Node.js v20+), installs dependencies, builds, bootstraps config files, and prints your Claude Desktop config at the end — ready to copy-paste.
+
+### Manual Install
 
 ```bash
 git clone https://github.com/ishan-parihar/igs-mcp.git
@@ -328,6 +338,7 @@ Tool includes automatic retry with backoff.
 - 🔧 Historical date queries via Google News URL rewriting
 - 🗑️ REMOVED: RSS-based Reddit/arXiv/Semantic Scholar sources
 - 📚 Added INSTALL.md and AUDIT_REPORT.md
+- 🛠️ Added `setup.sh` one-line installer with auto-config
 
 ### v0.1.0 (Initial Release)
 
