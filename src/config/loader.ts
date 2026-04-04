@@ -25,7 +25,7 @@ async function fileExists(p: string): Promise<boolean> {
 
 async function ensureBootstrapped() {
   // If user config files are missing, copy from DEFAULT_DIR
-  const files = ['pools.yml', 'sources.yml', 'settings.yml'];
+  const files = ['pools.yml', 'sources.yml', 'settings.yml', 'countries.yml'];
   await fs.mkdir(USER_CFG_DIR, { recursive: true });
   for (const f of files) {
     const target = path.join(USER_CFG_DIR, f);
@@ -91,11 +91,16 @@ export async function loadSettings(): Promise<Settings> {
 // Lightweight loader for countries.yml (no zod schema; used for friendly mapping)
 export async function loadCountries(): Promise<any> {
   await ensureBootstrapped();
-  const file = path.join(DEFAULT_DIR, 'countries.yml');
+  const userFile = path.join(USER_CFG_DIR, 'countries.yml');
   try {
-    const raw = await fs.readFile(file, 'utf8');
+    const raw = await fs.readFile(userFile, 'utf8');
     return yaml.load(raw) as any;
   } catch {
-    return { countries: [] };
+    try {
+      const raw = await fs.readFile(path.join(DEFAULT_DIR, 'countries.yml'), 'utf8');
+      return yaml.load(raw) as any;
+    } catch {
+      return { countries: [] };
+    }
   }
 }
