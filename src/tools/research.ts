@@ -4,6 +4,13 @@ import { searchReddit, normalizeRedditPost } from '../utils/reddit-api.js';
 import { searchArxiv, normalizeArxivPaper } from '../utils/arxiv-api.js';
 import { searchSemanticScholar, normalizeSemanticScholarPaper } from '../utils/semanticscholar-api.js';
 import type { NewsItem } from '../types/news.js';
+import { extractMarkdownSummary } from '../parsers/pdf-to-markdown.js';
+import path from 'node:path';
+import { request } from 'undici';
+import { writeFile } from 'node:fs/promises';
+import { resolvePaperPath, ensureDir, sanitizeFilename } from '../utils/fs-helpers.js';
+import { convertPdfToMarkdown } from '../parsers/pdf-to-markdown.js';
+import { getPaperDetails } from '../utils/semanticscholar-api.js';
 
 const RedditSearchInput = z.object({
   query: z.string().min(1).describe('Search query'),
@@ -27,6 +34,12 @@ const PaperDetailsInput = z.object({
   includeCitations: z.boolean().optional().default(false),
   includeReferences: z.boolean().optional().default(false),
   extractPDF: z.boolean().optional().default(false),
+});
+
+const DownloadInput = z.object({
+  paperId: z.string().min(1).describe('Paper ID (arxiv:2401.12345 or semanticscholar:abc123)'),
+  outputPath: z.string().optional().describe('Where to save the PDF. Defaults to IGS_PAPERS_DIR or ~/.config/igs-mcp/papers/'),
+  format: z.enum(['pdf', 'markdown', 'both']).optional().default('both').describe('What to save: just PDF, just markdown, or both'),
 });
 
 export async function registerResearchTools(srv: McpServer) {
@@ -229,20 +242,19 @@ export async function registerResearchTools(srv: McpServer) {
     // Extract PDF content if requested
     if (args.extractPDF && paper.pdfUrl) {
       try {
-        const { extractPaperFromPDF, createPaperSummary } = await import('../parsers/pdf-extractor.js');
         const { request } = await import('undici');
-        
+
         const res = await request(paper.pdfUrl, {
           headers: {
             'user-agent': 'Mozilla/5.0 (compatible; IGS/1.0)',
           },
         });
-        
+
         if (res.statusCode === 200) {
           const buffer = Buffer.from(await res.body.arrayBuffer());
-          const extracted = await extractPaperFromPDF(buffer);
-          result.paper.content = createPaperSummary(extracted);
-          result.paper.tokenEstimate = extracted.tokenEstimate;
+          const markdown = await extractMarkdownSummary(buffer, 3000);
+          result.paper.content = markdown;
+          result.paper.tokenEstimate = Math.ceil(markdown.length / 4);
         }
       } catch (err) {
         console.error('PDF extraction failed:', err);
@@ -255,6 +267,105 @@ export async function registerResearchTools(srv: McpServer) {
     return {
       content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }],
       structuredContent,
+    };
+  });
+
+  srv.registerTool('research.download', {
+    description: 'Download a research paper PDF and optionally convert to markdown. Saves files to the specified path or default papers directory. Returns file paths and metadata.',
+    inputSchema: DownloadInput.shape,
+    outputSchema: {
+      pdfPath: z.string().optional(),
+      markdownPath: z.string().optional(),
+      fileSize: z.number(),
+      markdownSize: z.number().optional(),
+      metadata: z.object({
+        id: z.string(),
+        title: z.string(),
+        authors: z.array(z.string()),
+        pdfUrl: z.string(),
+        year: z.number().optional(),
+        citations: z.number().optional(),
+      }),
+    },
+  }, async (args: any) => {
+    const paperId = args.paperId;
+    let paper: any = null;
+
+    if (paperId.startsWith('arxiv:')) {
+      const arxivId = paperId.replace('arxiv:', '');
+      const arxivPapers = await searchArxiv({
+        query: `all:${arxivId}`,
+        maxResults: 1,
+      });
+      paper = arxivPapers[0];
+    } else if (paperId.startsWith('semanticscholar:')) {
+      const ssId = paperId.replace('semanticscholar:', '');
+      paper = await getPaperDetails(ssId);
+    } else {
+      const arxivPapers = await searchArxiv({
+        query: `all:${paperId}`,
+        maxResults: 1,
+      });
+      if (arxivPapers.length > 0) {
+        paper = arxivPapers[0];
+      }
+    }
+
+    if (!paper) {
+      throw new Error(`Paper not found: ${paperId}`);
+    }
+
+    const pdfUrl = paper.pdfUrl || paper.openAccessPdf?.url;
+    if (!pdfUrl) {
+      throw new Error(`No PDF URL available for paper: ${paper.title || paperId}`);
+    }
+
+    const res = await request(pdfUrl, {
+      headers: { 'user-agent': 'Mozilla/5.0 (compatible; IGS/1.0)' },
+    });
+    if (res.statusCode !== 200) {
+      throw new Error(`Failed to download PDF: HTTP ${res.statusCode}`);
+    }
+    const pdfBuffer = Buffer.from(await res.body.arrayBuffer());
+
+    const format: 'pdf' | 'markdown' | 'both' = args.format || 'both';
+
+    const basePath = await resolvePaperPath({ paperId: args.paperId, outputPath: args.outputPath, extension: 'pdf' });
+
+    let pdfPath: string | undefined;
+    if (format === 'pdf' || format === 'both') {
+      pdfPath = basePath;
+      await ensureDir(path.dirname(pdfPath));
+      await writeFile(pdfPath, pdfBuffer);
+    }
+
+    let mdPath: string | undefined;
+    let markdown: string | undefined;
+    if (format === 'markdown' || format === 'both') {
+      markdown = await convertPdfToMarkdown(pdfBuffer);
+      mdPath = basePath.replace(/\.pdf$/, '.md');
+      await ensureDir(path.dirname(mdPath));
+      await writeFile(mdPath, markdown, 'utf-8');
+    }
+
+    const result = {
+      pdfPath: (format === 'pdf' || format === 'both') ? pdfPath : undefined,
+      markdownPath: (format === 'markdown' || format === 'both') ? mdPath : undefined,
+      fileSize: pdfBuffer.length,
+      markdownSize: markdown ? Buffer.byteLength(markdown, 'utf-8') : undefined,
+      metadata: {
+        id: paper.paperId || paper.id,
+        title: paper.title,
+        authors: paper.authors?.map((a: any) => a.name) || [],
+        pdfUrl,
+        year: paper.year || (paper.published ? new Date(paper.published).getFullYear() : undefined),
+        citations: paper.citationCount,
+      },
+    };
+
+    return {
+      content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+      structuredContent: result,
     };
   });
 }
