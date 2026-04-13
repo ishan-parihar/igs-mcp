@@ -248,6 +248,9 @@ export async function registerResearchTools(srv: McpServer) {
           headers: {
             'user-agent': 'Mozilla/5.0 (compatible; IGS/1.0)',
           },
+          maxRedirections: 5,
+          headersTimeout: 15000,
+          bodyTimeout: 60000,
         });
 
         if (res.statusCode === 200) {
@@ -258,7 +261,7 @@ export async function registerResearchTools(srv: McpServer) {
         }
       } catch (err) {
         console.error('PDF extraction failed:', err);
-        result.paper.content = 'PDF extraction failed';
+        result.paper.content = `PDF extraction failed: ${err instanceof Error ? err.message : String(err)}`;
       }
     }
     
@@ -322,6 +325,9 @@ export async function registerResearchTools(srv: McpServer) {
 
     const res = await request(pdfUrl, {
       headers: { 'user-agent': 'Mozilla/5.0 (compatible; IGS/1.0)' },
+      maxRedirections: 5,
+      headersTimeout: 15000,
+      bodyTimeout: 60000,
     });
     if (res.statusCode !== 200) {
       throw new Error(`Failed to download PDF: HTTP ${res.statusCode}`);
