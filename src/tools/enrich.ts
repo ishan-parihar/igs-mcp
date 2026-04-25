@@ -1,3 +1,4 @@
+import process from 'process';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 // @ts-ignore
@@ -5,7 +6,7 @@ import keywordExtractor from 'keyword-extractor';
 // @ts-ignore
 import Sentiment from 'sentiment';
 import nlp from 'compromise';
-import { domainClassifier, embeddingGenerator, extractEntities } from '../nlp/index.js';
+import { domainClassifier, extractEntities } from '../nlp/index.js';
 
 const sentiment = new Sentiment();
 
@@ -54,7 +55,7 @@ function summarize(text: string, title: string): string {
 
 export async function registerEnrichTool(srv: McpServer) {
   srv.registerTool('news.enrich', {
-    description: 'NLP enrichment (offline). Adds topics, entities, sentiment, summary, domains, and embeddings to items. Use after news.fetch for deeper analysis. New: auto-domain classification and semantic embeddings for inter-domain insight discovery.',
+    description: 'NLP enrichment (offline). Adds topics, entities, sentiment, summary, and domains to items. Use after news.fetch for deeper analysis.',
     inputSchema: {
       items: z.array(z.object({
         id: z.string(), 
@@ -67,7 +68,7 @@ export async function registerEnrichTool(srv: McpServer) {
         author: z.string().optional(), 
         media_url: z.string().optional()
       })),
-      extract: z.array(z.enum(['topics','entities','sentiment','summary','domains','embeddings'])).optional(),
+      extract: z.array(z.enum(['topics','entities','sentiment','summary','domains'])).optional(),
       useAdvancedEntities: z.boolean().optional().default(false),
     },
     outputSchema: {
@@ -75,15 +76,16 @@ export async function registerEnrichTool(srv: McpServer) {
       meta: z.object({
         itemsEnriched: z.number(),
         domainsClassified: z.number(),
-        embeddingsGenerated: z.number(),
       }).optional(),
     }
   }, async (args: any) => {
-    const want = new Set<string>((args.extract || ['topics','entities','sentiment','summary']));
+    const defaultExtract = ['topics','entities','sentiment','summary','domains'];
+    
+    const extractList = (args.extract || []).filter((e: string) => e !== 'embeddings');
+    const want = new Set<string>(extractList.length > 0 ? extractList : defaultExtract);
     const useAdvancedEntities = args.useAdvancedEntities || false;
     
     let domainsClassified = 0;
-    let embeddingsGenerated = 0;
     
     const out = await Promise.all((args.items || []).map(async (it: EnrichItem) => {
       const text = `${it.title} ${it.content_snippet || ''}`;
@@ -134,16 +136,6 @@ export async function registerEnrichTool(srv: McpServer) {
         }
       }
       
-      if (want.has('embeddings')) {
-        try {
-          enriched.embedding = await embeddingGenerator.generate(text);
-          embeddingsGenerated++;
-        } catch (error) {
-          console.error('[news.enrich] Embedding generation failed:', error);
-          enriched.embedding = [];
-        }
-      }
-      
       return enriched;
     }));
     
@@ -152,7 +144,6 @@ export async function registerEnrichTool(srv: McpServer) {
       meta: {
         itemsEnriched: out.length,
         domainsClassified,
-        embeddingsGenerated,
       }
     };
     

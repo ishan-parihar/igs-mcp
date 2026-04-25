@@ -1,5 +1,4 @@
 import { LinkedEntity, normalizeEntityName } from './entity-linker.js';
-import { cosineSimilarity } from './embedding-generator.js';
 
 /**
  * Processed article insight data.
@@ -9,20 +8,8 @@ export interface ArticleInsight {
   title: string;
   domains: Array<{ domain: string; score: number }>;
   entities: LinkedEntity[];
-  embedding?: number[];
   pubDate: string;
   sourceName: string;
-}
-
-/**
- * Cluster of similar articles.
- */
-export interface ArticleCluster {
-  clusterId: string;
-  articleIds: string[];
-  domains: string[];
-  representativeTitle: string;
-  avgSimilarity: number;
 }
 
 /**
@@ -212,81 +199,6 @@ export class InsightEngine {
     }
 
     return connections.sort((a, b) => b.connectionStrength - a.connectionStrength);
-  }
-
-  /**
-   * Cluster articles by embedding similarity.
-   * Uses simple hierarchical clustering with a similarity threshold.
-   */
-  clusterArticles(
-    similarityThreshold: number = 0.7,
-    minClusterSize: number = 3
-  ): ArticleCluster[] {
-    const articlesWithEmbeddings = Array.from(this.articles.values()).filter(
-      (a) => a.embedding && a.embedding.length > 0
-    );
-
-    if (articlesWithEmbeddings.length < minClusterSize) {
-      return [];
-    }
-
-    const clusters: ArticleCluster[] = [];
-    const assigned = new Set<string>();
-
-    for (let i = 0; i < articlesWithEmbeddings.length; i++) {
-      const article1 = articlesWithEmbeddings[i];
-      if (assigned.has(article1.id) || !article1.embedding) {
-        continue;
-      }
-
-      const clusterArticles = [article1];
-      assigned.add(article1.id);
-
-      for (let j = i + 1; j < articlesWithEmbeddings.length; j++) {
-        const article2 = articlesWithEmbeddings[j];
-        if (assigned.has(article2.id) || !article2.embedding) {
-          continue;
-        }
-
-        const similarity = cosineSimilarity(article1.embedding, article2.embedding);
-        if (similarity >= similarityThreshold) {
-          clusterArticles.push(article2);
-          assigned.add(article2.id);
-        }
-      }
-
-      if (clusterArticles.length >= minClusterSize) {
-        // Calculate average similarity within cluster
-        let totalSimilarity = 0;
-        let pairCount = 0;
-        for (let m = 0; m < clusterArticles.length; m++) {
-          for (let n = m + 1; n < clusterArticles.length; n++) {
-            const emb1 = clusterArticles[m].embedding;
-            const emb2 = clusterArticles[n].embedding;
-            if (emb1 && emb2) {
-              totalSimilarity += cosineSimilarity(emb1, emb2);
-              pairCount++;
-            }
-          }
-        }
-
-        // Collect unique domains
-        const domains = new Set<string>();
-        clusterArticles.forEach((a) =>
-          a.domains.forEach((d) => domains.add(d.domain))
-        );
-
-        clusters.push({
-          clusterId: `cluster_${clusters.length}`,
-          articleIds: clusterArticles.map((a) => a.id),
-          domains: Array.from(domains),
-          representativeTitle: clusterArticles[0].title,
-          avgSimilarity: pairCount > 0 ? totalSimilarity / pairCount : 0,
-        });
-      }
-    }
-
-    return clusters.sort((a, b) => b.articleIds.length - a.articleIds.length);
   }
 
   /**

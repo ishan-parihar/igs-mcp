@@ -3,7 +3,6 @@ import { z } from 'zod';
 import { insightEngine, type ArticleInsight } from '../nlp/index.js';
 
 export async function registerInsightTools(srv: McpServer) {
-  // Tool 1: Find cross-domain connections for an entity
   srv.registerTool('insights.findConnections', {
     description: 'Find articles that mention the same entity across different domains (e.g., tech + geopolitics). Enables inter-domain insight discovery.',
     inputSchema: {
@@ -26,18 +25,12 @@ export async function registerInsightTools(srv: McpServer) {
   }, async (args: any) => {
     const connections = insightEngine.findInterDomainConnections(args.entity, args.minDomains);
     
-    const structuredContent = {
-      connections,
-      count: connections.length,
-    };
-    
     return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
+      content: [{ type: 'text', text: JSON.stringify({ connections, count: connections.length }, null, 2) }], 
+      structuredContent: { connections, count: connections.length }
     };
   });
 
-  // Tool 2: Find all cross-domain connections
   srv.registerTool('insights.findAllConnections', {
     description: 'Discover all entities that appear across multiple domains. Returns connections sorted by strength.',
     inputSchema: {
@@ -58,57 +51,12 @@ export async function registerInsightTools(srv: McpServer) {
     const limited = connections.slice(0, args.limit);
     const stats = insightEngine.getStats();
     
-    const structuredContent = {
-      connections: limited,
-      totalFound: connections.length,
-      stats,
-    };
-    
     return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
+      content: [{ type: 'text', text: JSON.stringify({ connections: limited, totalFound: connections.length, stats }, null, 2) }], 
+      structuredContent: { connections: limited, totalFound: connections.length, stats }
     };
   });
 
-  // Tool 3: Get topic clusters
-  srv.registerTool('insights.getClusters', {
-    description: 'Get clusters of similar articles based on semantic similarity. Articles in the same cluster discuss similar topics.',
-    inputSchema: {
-      similarityThreshold: z.number().optional().default(0.7).describe('Minimum similarity score (0-1) to group articles'),
-      minClusterSize: z.number().optional().default(3).describe('Minimum articles per cluster'),
-    },
-    outputSchema: {
-      clusters: z.array(z.object({
-        clusterId: z.string(),
-        articleIds: z.array(z.string()),
-        domains: z.array(z.string()),
-        representativeTitle: z.string(),
-        avgSimilarity: z.number(),
-      })),
-      clusterCount: z.number(),
-      stats: z.object({
-        totalArticles: z.number(),
-        totalEntities: z.number(),
-        totalDomains: z.number(),
-      }),
-    }
-  }, async (args: any) => {
-    const clusters = insightEngine.clusterArticles(args.similarityThreshold, args.minClusterSize);
-    const stats = insightEngine.getStats();
-    
-    const structuredContent = {
-      clusters,
-      clusterCount: clusters.length,
-      stats,
-    };
-    
-    return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
-    };
-  });
-
-  // Tool 4: Trending entities
   srv.registerTool('insights.trendingEntities', {
     description: 'Detect entities with increasing mention frequency. Useful for identifying emerging topics and breaking news.',
     inputSchema: {
@@ -137,19 +85,12 @@ export async function registerInsightTools(srv: McpServer) {
     const trending = insightEngine.detectTrendingEntities(timeWindowMs, args.minGrowth, args.minCurrentMentions);
     const stats = insightEngine.getStats();
     
-    const structuredContent = {
-      trending,
-      count: trending.length,
-      stats,
-    };
-    
     return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
+      content: [{ type: 'text', text: JSON.stringify({ trending, count: trending.length, stats }, null, 2) }], 
+      structuredContent: { trending, count: trending.length, stats }
     };
   });
 
-  // Tool 5: Add articles to insight engine
   srv.registerTool('insights.indexArticles', {
     description: 'Add enriched articles to the insight engine for cross-article analysis. Call this after news.enrich to enable insight discovery.',
     inputSchema: {
@@ -169,7 +110,6 @@ export async function registerInsightTools(srv: McpServer) {
           normalizedId: z.string().optional(),
           confidence: z.number().optional(),
         })).optional().default([]),
-        embedding: z.array(z.number()).optional(),
       })),
     },
     outputSchema: {
@@ -200,7 +140,6 @@ export async function registerInsightTools(srv: McpServer) {
           normalizedId: e.normalizedId || e.name.toLowerCase(),
           confidence: e.confidence || 0.7,
         })),
-        embedding: article.embedding,
       };
       
       insightEngine.addArticle(insight);
@@ -209,18 +148,12 @@ export async function registerInsightTools(srv: McpServer) {
     
     const stats = insightEngine.getStats();
     
-    const structuredContent = {
-      indexed,
-      stats,
-    };
-    
     return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
+      content: [{ type: 'text', text: JSON.stringify({ indexed, stats }, null, 2) }], 
+      structuredContent: { indexed, stats }
     };
   });
 
-  // Tool 6: Get engine stats
   srv.registerTool('insights.getStats', {
     description: 'Get statistics about the indexed articles in the insight engine.',
     inputSchema: z.object({}),
@@ -234,15 +167,12 @@ export async function registerInsightTools(srv: McpServer) {
   }, async () => {
     const stats = insightEngine.getStats();
     
-    const structuredContent = stats;
-    
     return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
+      content: [{ type: 'text', text: JSON.stringify(stats, null, 2) }], 
+      structuredContent: stats
     };
   });
 
-  // Tool 7: Clear index
   srv.registerTool('insights.clearIndex', {
     description: 'Clear all indexed articles from the insight engine. Use to free memory or reset the index.',
     inputSchema: z.object({}),
@@ -252,13 +182,9 @@ export async function registerInsightTools(srv: McpServer) {
   }, async () => {
     insightEngine.clear();
     
-    const structuredContent = {
-      cleared: true,
-    };
-    
     return { 
-      content: [{ type: 'text', text: JSON.stringify(structuredContent, null, 2) }], 
-      structuredContent 
+      content: [{ type: 'text', text: JSON.stringify({ cleared: true }, null, 2) }], 
+      structuredContent: { cleared: true }
     };
   });
 }

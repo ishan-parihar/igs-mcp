@@ -2,8 +2,7 @@
  * NLP Module - Auto-tagging and insight discovery for IGS.
  * 
  * Provides:
- * - Domain classification using zero-shot transformers
- * - Embedding generation for semantic search
+ * - Domain classification (keyword-based)
  * - Entity extraction and linking
  * - Cross-article insight discovery
  */
@@ -15,13 +14,6 @@ export {
   type DomainLabel,
   type DomainClassification,
 } from './domain-classifier.js';
-
-export {
-  embeddingGenerator,
-  EmbeddingGenerator,
-  cosineSimilarity,
-  findSimilarEmbeddings,
-} from './embedding-generator.js';
 
 export {
   extractAndLinkEntities,
@@ -38,7 +30,6 @@ export {
   insightEngine,
   InsightEngine,
   type ArticleInsight,
-  type ArticleCluster,
   type EntityConnection,
   type TrendingEntity,
 } from './insight-engine.js';
