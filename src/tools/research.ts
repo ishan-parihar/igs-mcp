@@ -251,7 +251,7 @@ export async function registerResearchTools(srv: McpServer) {
           maxRedirections: 5,
           headersTimeout: 15000,
           bodyTimeout: 60000,
-        });
+        } as any);
 
         if (res.statusCode === 200) {
           const buffer = Buffer.from(await res.body.arrayBuffer());
@@ -328,7 +328,7 @@ export async function registerResearchTools(srv: McpServer) {
       maxRedirections: 5,
       headersTimeout: 15000,
       bodyTimeout: 60000,
-    });
+    } as any);
     if (res.statusCode !== 200) {
       throw new Error(`Failed to download PDF: HTTP ${res.statusCode}`);
     }

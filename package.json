@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Intelligence Gathering System MCP server for managing RSS/HTTP news pools and fetching normalized updates.",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit"
@@ -15,25 +15,24 @@
     "@opendocsg/pdf2md": "^0.2.6",
     "cheerio": "^1.0.0",
     "compromise": "^14.15.0",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "js-yaml": "^4.1.0",
     "keyword-extractor": "^0.0.28",
-    "p-queue": "^8.0.1",
+    "p-queue": "^9.1.2",
     "pdf-parse": "^2.4.5",
-    "pino": "^9.1.0",
+    "pino": "^10.3.1",
     "rss-parser": "^3.13.0",
     "sentiment": "^5.0.2",
     "undici": "^6.19.5",
     "xml2js": "^0.6.2",
-    "zod": "^3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.12.7",
+    "@types/node": "^25.6.0",
     "@types/xml2js": "^0.4.14",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.6.3"
+    "tsx": "^4.19.4",
+    "typescript": "^6.0.3"
   }
 }

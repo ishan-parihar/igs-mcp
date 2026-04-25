@@ -16,7 +16,7 @@ export const SourceSchema = z.object({
   name: z.string().min(1),
   type: z.enum(['rss', 'http']),
   url: z.string().url(),
-  headers: z.record(z.string()).optional(),
+  headers: z.record(z.string(), z.string()).optional(),
   parser: z.string().optional(),
   parserConfig: z
     .object({

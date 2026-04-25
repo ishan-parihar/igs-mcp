@@ -184,7 +184,7 @@ async function enrichArticlesFromLinks(items: NewsItem[], concurrency: number = 
           headersTimeout: timeoutMs,
           bodyTimeout: timeoutMs,
           maxRedirections: 5,
-        });
+        } as any);
         if (res.statusCode >= 200 && res.statusCode < 300) {
           const html = await res.body.text();
           const content = extractArticleContent(html);
