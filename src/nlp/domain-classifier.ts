@@ -1,5 +1,3 @@
-import { pipeline } from '@xenova/transformers';
-
 export const DOMAIN_LABELS = [
   'breaking', 'geopolitics', 'finance', 'business', 'tech',
   'cyber', 'science', 'health', 'environment', 'energy',
