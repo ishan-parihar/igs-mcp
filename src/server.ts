@@ -9,6 +9,7 @@ import { registerCountryCityTools } from './tools/countries.js';
 import { registerEnrichTool } from './tools/enrich.js';
 import { registerResearchTools } from './tools/research.js';
 import { registerInsightTools } from './tools/insights.js';
+import { registerWebTools } from './tools/web.js';
 
 const log = {
   info: (...args: unknown[]) => process.stderr.write('[info] ' + args.join(' ') + '\n'),
@@ -28,6 +29,7 @@ async function main() {
   await registerEnrichTool(server);
   await registerInsightTools(server);
   await registerResearchTools(server);
+  await registerWebTools(server);
 
   log.info('server ready');
 

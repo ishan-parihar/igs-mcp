@@ -18,6 +18,8 @@ import { extractArticleContent } from '../parsers/article_content.js';
 import { request } from 'undici';
 import PQueue from 'p-queue';
 import { rewriteGnUrl } from '../utils/gn-url.js';
+import { TavilyClient } from '../utils/tavily.js';
+import { FirecrawlClient } from '../utils/firecrawl.js';
 
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
@@ -30,11 +32,82 @@ const FetchInput = z.object({
   keywords: z.array(z.string()).optional(),
   excludeKeywords: z.array(z.string()).optional(),
   matchAll: z.boolean().optional().default(false),
+  discoveryMode: z.boolean().optional().default(false),
   limit: z.number().int().min(1).max(500).default(100),
   cacheMode: z.enum(['prefer','bypass','only']).default('prefer'),
   includeRaw: z.boolean().optional().default(false),
   enrichArticles: z.boolean().optional().default(false),
+  fallbackToRealtime: z.boolean().optional().default(false).describe('Fallback to realtime web search if no results from IGS sources'),
+  realtimeLimit: z.number().int().min(1).max(100).optional().default(10).describe('Max realtime results when fallback is enabled'),
+  realtimeTopic: z.enum(['general', 'news', 'finance']).optional().default('general').describe('Topic for realtime search'),
 });
+
+type NewsQueryKeyArgs = {
+  pools?: string[];
+  sources?: string[];
+  countries?: string[];
+  cities?: string[];
+  domains?: string[];
+  start?: string;
+  end?: string;
+  limit?: number;
+  keywords?: string[];
+  excludeKeywords?: string[];
+  matchAll?: boolean;
+  cacheMode?: string;
+  includeRaw?: boolean;
+  enrichArticles?: boolean;
+  fallbackToRealtime?: boolean;
+  realtimeLimit?: number;
+  realtimeTopic?: string;
+  discoveryMode?: boolean;
+};
+
+function normalizeList(values?: string[]): string {
+  return (values || []).slice().sort().join(',');
+}
+
+export function buildQueryKeyForNews(args: NewsQueryKeyArgs): string {
+  return [
+    'news.fetch',
+    normalizeList(args.pools),
+    normalizeList(args.sources),
+    normalizeList(args.countries),
+    normalizeList(args.cities),
+    normalizeList(args.domains),
+    args.start || '',
+    args.end || '',
+    String(args.limit || ''),
+    normalizeList(args.keywords),
+    normalizeList(args.excludeKeywords),
+    args.matchAll ? '1' : '0',
+    args.cacheMode || '',
+    args.includeRaw ? '1' : '0',
+    args.enrichArticles ? '1' : '0',
+    args.fallbackToRealtime ? '1' : '0',
+    String(args.realtimeLimit || ''),
+    args.realtimeTopic || '',
+    args.discoveryMode ? '1' : '0',
+  ].join('|');
+}
+
+export function resolveNewsCacheDependencyUrl(
+  sourceUrl: string,
+  opts: { start?: string; end?: string; keywords?: string[] }
+): string {
+  return rewriteGnUrl(sourceUrl, opts);
+}
+
+export function resolveNewsQueryTtlMs(
+  baseTtlMs: number,
+  args: { discoveryMode?: boolean; pools?: string[]; keywords?: string[]; fallbackToRealtime?: boolean }
+): number {
+  const broadDiscovery =
+    args.discoveryMode ||
+    args.fallbackToRealtime ||
+    (!args.keywords?.length && (!args.pools?.length || args.pools.some(p => p === 'GLOBAL_BREAKING' || p === 'INDIA_NATIONAL_BASE')));
+  return broadDiscovery ? Math.min(baseTtlMs, 60_000) : baseTtlMs;
+}
 
 function filterByTime(items: NewsItem[], start?: string, end?: string) {
   const s = start ? new Date(start).getTime() : -Infinity;
@@ -98,30 +171,6 @@ async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefe
   }
   await http.writeCache(url, items, (res as any).etag, (res as any).lastModified);
   return items;
-}
-
-function buildQueryKey(
-  kind: string,
-  pools: string[]|undefined,
-  sources: string[]|undefined,
-  start?: string,
-  end?: string,
-  limit?: number,
-  keywords?: string[],
-  domains?: string[],
-  matchAll?: boolean
-) {
-  return [
-    kind,
-    (pools||[]).slice().sort().join(','),
-    (sources||[]).slice().sort().join(','),
-    start||'',
-    end||'',
-    String(limit||''),
-    (keywords||[]).join('|'),
-    (domains||[]).join('|'),
-    matchAll ? '1' : '0'
-  ].join('|');
 }
 
 function filterByKeywords(items: NewsItem[], keywords: string[] = [], exclude: string[] = [], matchAll = false): NewsItem[] {
@@ -220,9 +269,16 @@ export async function registerNewsTools(srv: McpServer) {
     const baseCfg = getUserConfigDir();
     const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);
     const http = new HttpClient(settings.http, cacheDir);
-    const qcache = new QueryCache(cacheDir, settings.cache.queryTtlMs);
     const sf = await loadSources();
     let sources = sf.sources.filter(s => s.is_active !== false);
+
+    const queryTtlMs = resolveNewsQueryTtlMs(settings.cache.queryTtlMs, {
+      discoveryMode: args.discoveryMode,
+      pools: args.pools,
+      keywords: args.keywords,
+      fallbackToRealtime: args.fallbackToRealtime,
+    });
+    const qcache = new QueryCache(cacheDir, queryTtlMs);
 
     if (args.sources?.length) {
       sources = sources.filter(s => args.sources!.includes(s.id));
@@ -237,13 +293,37 @@ export async function registerNewsTools(srv: McpServer) {
       sources = filtered;
     }
 
-    const key = buildQueryKey('news.fetch', args.pools, args.sources, args.start, args.end, args.limit, args.keywords, args.domains, args.matchAll);
+    const key = buildQueryKeyForNews({
+      pools: args.pools,
+      sources: args.sources,
+      countries: args.countries,
+      cities: args.cities,
+      domains: args.domains,
+      start: args.start,
+      end: args.end,
+      limit: args.limit,
+      keywords: args.keywords,
+      excludeKeywords: args.excludeKeywords,
+      matchAll: args.matchAll,
+      cacheMode: args.cacheMode,
+      includeRaw: args.includeRaw,
+      enrichArticles: args.enrichArticles,
+      fallbackToRealtime: args.fallbackToRealtime,
+      realtimeLimit: args.realtimeLimit,
+      realtimeTopic: args.realtimeTopic,
+      discoveryMode: args.discoveryMode,
+    });
     const cachedQuery = await qcache.read<{ items: NewsItem[]; count: number }>(key);
     if (cachedQuery) {
       let valid = true;
       for (const src of sources) {
-        const fc = await http.readCache(src.url);
-        const depAt = cachedQuery.meta.deps[src.url];
+        const dependencyUrl = resolveNewsCacheDependencyUrl(src.url, {
+          start: args.start,
+          end: args.end,
+          keywords: args.discoveryMode ? [] : args.keywords,
+        });
+        const fc = await http.readCache(dependencyUrl);
+        const depAt = cachedQuery.meta.deps[dependencyUrl];
         if (!fc || !depAt || fc.fetchedAt !== depAt) { valid = false; break; }
       }
       if (valid) {
@@ -260,7 +340,11 @@ export async function registerNewsTools(srv: McpServer) {
     const fetchPromises = sources.map(src =>
       queue.add(async () => {
         try {
-          const url = rewriteGnUrl(src.url, { start: args.start, end: args.end, keywords: args.keywords });
+          const url = resolveNewsCacheDependencyUrl(src.url, {
+            start: args.start,
+            end: args.end,
+            keywords: args.discoveryMode ? [] : args.keywords,
+          });
           const items = await parseBySource(src, http, args.cacheMode, url);
           sourcesSucceeded++;
           for (const it of items) all.push(it);
@@ -273,7 +357,10 @@ export async function registerNewsTools(srv: McpServer) {
     await Promise.allSettled(fetchPromises);
 
     let filtered = filterByTime(all, args.start, args.end);
-    filtered = filterByKeywords(filtered, args.keywords, args.excludeKeywords, args.matchAll)
+    filtered = args.discoveryMode
+      ? filtered
+      : filterByKeywords(filtered, args.keywords, args.excludeKeywords, args.matchAll);
+    filtered = filtered
       .sort((a,b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
       .slice(0, args.limit);
 
@@ -281,11 +368,91 @@ export async function registerNewsTools(srv: McpServer) {
       filtered = await enrichArticlesFromLinks(filtered);
     }
 
+    // Fallback to realtime web search if enabled and no results
+    if (args.fallbackToRealtime && filtered.length === 0) {
+      const settings = await loadSettings();
+      const tavilyClient = new TavilyClient(settings.tavily);
+      const firecrawlClient = new FirecrawlClient(settings.firecrawl);
+
+      if (tavilyClient.isEnabled() || firecrawlClient.isEnabled()) {
+        console.log('[news.fetch] No results from IGS sources, falling back to realtime web search');
+
+        try {
+          let realtimeResults: NewsItem[] = [];
+
+          if (tavilyClient.isEnabled()) {
+            const response = await tavilyClient.search({
+              query: args.keywords?.join(' ') || 'latest news',
+              topic: args.realtimeTopic || 'general',
+              maxResults: args.realtimeLimit || 10,
+              days: args.start ? Math.ceil((Date.now() - new Date(args.start).getTime()) / (1000 * 60 * 60 * 24)) : undefined,
+              includeDomains: args.domains,
+              excludeDomains: args.excludeKeywords,
+            });
+
+            realtimeResults = response.results.map((r: any) => ({
+              id: `tavily:${Buffer.from(r.url).toString('base64').slice(0, 16)}`,
+              title: r.title || 'Untitled',
+              link: r.url,
+              pubDate: r.publishedDate || new Date().toISOString(),
+              source_name: 'Web Search (Tavily)',
+              pool_id: 'WEB_SEARCH',
+              content_snippet: r.content || r.snippet || '',
+              author: undefined,
+              media_url: undefined,
+              raw: r,
+            }));
+          } else if (firecrawlClient.isEnabled()) {
+            const response = await firecrawlClient.search({
+              query: args.keywords?.join(' ') || 'latest news',
+              limit: args.realtimeLimit || 10,
+            });
+
+            if (response.success && response.data?.web) {
+              realtimeResults = response.data.web.map((r: any) => ({
+                id: `firecrawl:${Buffer.from(r.url).toString('base64').slice(0, 16)}`,
+                title: r.title || 'Untitled',
+                link: r.url,
+                pubDate: new Date().toISOString(),
+                source_name: 'Web Search (Firecrawl)',
+                pool_id: 'WEB_SEARCH',
+                content_snippet: r.description || '',
+                author: undefined,
+                media_url: undefined,
+                raw: r,
+              }));
+            }
+          }
+
+          // Apply keyword filtering to realtime results unless we're in broad discovery mode
+          realtimeResults = args.discoveryMode
+            ? realtimeResults
+            : filterByKeywords(realtimeResults, args.keywords, args.excludeKeywords, args.matchAll);
+
+          // Merge with existing results
+          filtered = [...filtered, ...realtimeResults];
+
+          // Sort by recency and limit
+          filtered.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+          filtered = filtered.slice(0, args.limit);
+
+          console.log(`[news.fetch] Fallback returned ${realtimeResults.length} realtime results`);
+        } catch (error) {
+          console.error('[news.fetch] Realtime fallback failed:', error);
+        }
+      }
+    }
+
     if (!args.includeRaw) filtered.forEach(x => { delete (x as any).raw; });
     const deps: Record<string, number> = {};
     for (const src of sources) {
-      const fc = await http.readCache(src.url);
-      if (fc) deps[src.url] = fc.fetchedAt;
+      const dependencyUrl = resolveNewsCacheDependencyUrl(src.url, {
+        start: args.start,
+        end: args.end,
+        keywords: args.discoveryMode ? [] : args.keywords,
+      });
+      const fc = await http.readCache(dependencyUrl);
+      if (fc) deps[dependencyUrl] = fc.fetchedAt;
     }
     const structuredContent = { items: filtered, count: filtered.length, meta: {
       sourcesQueried: sources.length,

@@ -48,7 +48,17 @@ export type FetchOptions = {
   sources?: string[];
   start?: string; // ISO
   end?: string;   // ISO
+  keywords?: string[];
+  excludeKeywords?: string[];
+  countries?: string[];
+  cities?: string[];
+  domains?: string[];
   limit?: number;
   cacheMode?: 'prefer' | 'bypass' | 'only';
   includeRaw?: boolean;
+  enrichArticles?: boolean;
+  fallbackToRealtime?: boolean;
+  realtimeLimit?: number;
+  realtimeTopic?: 'general' | 'news' | 'finance';
+  discoveryMode?: boolean;
 };

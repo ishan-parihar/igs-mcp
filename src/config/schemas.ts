@@ -65,6 +65,19 @@ export const SettingsSchema = z.object({
   time: z.object({
     timezone: z.enum(['local']).default('local'),
   }),
+  tavily: z.object({
+    enabled: z.boolean().default(false),
+    apiKey: z.string().optional(),
+    searchDepth: z.enum(['basic', 'advanced', 'fast', 'ultra-fast']).default('basic'),
+    defaultTopic: z.enum(['general', 'news', 'finance']).default('general'),
+    timeoutMs: z.number().int().min(1000).default(30000),
+  }).optional(),
+  firecrawl: z.object({
+    enabled: z.boolean().default(false),
+    apiKey: z.string().optional(),
+    timeoutMs: z.number().int().min(1000).default(60000),
+    defaultFormats: z.array(z.enum(['markdown', 'html', 'screenshot', 'links'])).default(['markdown']),
+  }).optional(),
 });
 
 export type PoolsFile = z.infer<typeof PoolsFileSchema>;

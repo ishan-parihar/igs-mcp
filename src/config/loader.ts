@@ -51,6 +51,32 @@ async function writeYaml(file: string, obj: unknown) {
   await fs.writeFile(file, txt, 'utf8');
 }
 
+async function mergeMissingDefaultSources() {
+  const userFile = path.join(USER_CFG_DIR, 'sources.yml');
+  const defaultFile = path.join(DEFAULT_DIR, 'sources.yml');
+  if (!(await fileExists(userFile)) || !(await fileExists(defaultFile))) return;
+
+  const [userDoc, defaultDoc] = await Promise.all([
+    readYaml<SourcesFile>(userFile),
+    readYaml<SourcesFile>(defaultFile),
+  ]);
+
+  const userIds = new Set((userDoc.sources || []).map(s => s.id));
+  const merged = [...(userDoc.sources || [])];
+  let changed = false;
+
+  for (const src of defaultDoc.sources || []) {
+    if (!userIds.has(src.id)) {
+      merged.push(src);
+      changed = true;
+    }
+  }
+
+  if (changed) {
+    await writeYaml(userFile, { sources: merged });
+  }
+}
+
 export function getUserConfigDir(): string { return USER_CFG_DIR; }
 
 export async function loadPools(): Promise<PoolsFile> {
@@ -69,6 +95,7 @@ export async function savePools(data: PoolsFile): Promise<void> {
 
 export async function loadSources(): Promise<SourcesFile> {
   await ensureBootstrapped();
+  await mergeMissingDefaultSources();
   const file = path.join(USER_CFG_DIR, 'sources.yml');
   const parsed = await readYaml<SourcesFile>(file);
   return SourcesFileSchema.parse(parsed);

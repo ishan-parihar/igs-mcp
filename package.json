@@ -8,15 +8,18 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "sync:config": "tsx scripts/sync_user_config.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@opendocsg/pdf2md": "^0.2.6",
+    "@tavily/core": "^0.7.2",
     "cheerio": "^1.0.0",
     "compromise": "^14.15.0",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
+    "firecrawl": "^4.20.0",
     "js-yaml": "^4.1.0",
     "keyword-extractor": "^0.0.28",
     "p-queue": "^9.1.2",
