@@ -141,7 +141,7 @@ sources:
     domains:
       - breaking
       - geopolitics
-    is_active: true
+    is_active: false
   - id: ap_us
     name: Associated Press (US)
     type: rss
@@ -154,7 +154,7 @@ sources:
     domains:
       - breaking
       - geopolitics
-    is_active: true
+    is_active: false
   - id: bloomberg_markets
     name: Bloomberg Markets
     type: rss
@@ -481,7 +481,7 @@ sources:
       - law
       - geopolitics
       - europe
-    is_active: true
+    is_active: false
   - id: wto_news
     name: WTO Latest News
     type: rss
@@ -495,7 +495,7 @@ sources:
       - law
       - trade
       - geopolitics
-    is_active: true
+    is_active: false
   - id: fatf_publications
     name: FATF Publications
     type: rss
@@ -509,7 +509,7 @@ sources:
       - law
       - finance
       - geopolitics
-    is_active: true
+    is_active: false
   - id: mit_tech_review
     name: MIT Technology Review
     type: rss
@@ -820,7 +820,7 @@ sources:
       - culture
       - geopolitics
       - africa
-    is_active: true
+    is_active: false
   - id: kyoto_journal
     name: Kyoto Journal
     type: rss
@@ -833,7 +833,7 @@ sources:
     domains:
       - culture
       - asia
-    is_active: true
+    is_active: false
   - id: conversation_africa
     name: The Conversation (Africa)
     type: rss
@@ -847,7 +847,7 @@ sources:
       - culture
       - science
       - africa
-    is_active: true
+    is_active: false
   - id: memo
     name: Middle East Monitor
     type: rss
@@ -861,7 +861,7 @@ sources:
       - culture
       - geopolitics
       - middle-east
-    is_active: true
+    is_active: false
   - id: the_hindu
     name: The Hindu (National)
     type: rss
@@ -1158,7 +1158,7 @@ sources:
       - IN
     domains:
       - factcheck
-    is_active: true
+    is_active: false
   - id: newschecker
     name: NewsChecker
     type: http
@@ -1178,7 +1178,7 @@ sources:
       - IN
     domains:
       - factcheck
-    is_active: true
+    is_active: false
   - id: nse_circulars
     name: NSE Circulars
     type: http
@@ -1848,7 +1848,7 @@ sources:
     domains:
       - local
       - geopolitics
-    is_active: true
+    is_active: false
   - id: news_on_japan
     name: News On Japan
     type: rss
@@ -1863,7 +1863,7 @@ sources:
     domains:
       - local
       - culture
-    is_active: true
+    is_active: false
   - id: emirates247
     name: Emirates 24/7
     type: rss
@@ -1878,7 +1878,7 @@ sources:
     domains:
       - local
       - breaking
-    is_active: true
+    is_active: false
   - id: dubai_chronicle
     name: Dubai Chronicle
     type: rss
@@ -1893,7 +1893,7 @@ sources:
     domains:
       - local
       - culture
-    is_active: true
+    is_active: false
   - id: local_berlin
     name: The Local (Berlin)
     type: rss
@@ -1938,7 +1938,7 @@ sources:
     domains:
       - local
       - geopolitics
-    is_active: true
+    is_active: false
   - id: standard_hk
     name: The Standard (Hong Kong)
     type: rss
@@ -1953,11 +1953,11 @@ sources:
     domains:
       - local
       - geopolitics
-    is_active: true
+    is_active: false
   - id: google_news_tokyo
     name: Tokyo News (Google News)
     type: rss
-    url: https://news.google.com/rss/search?q=%22Tokyo%22+when:6h&hl=en&gl=JP&ceid=JP:en
+    url: https://news.google.com/rss/search?q=%22Tokyo%22+&hl=en&gl=JP&ceid=JP:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1972,7 +1972,7 @@ sources:
   - id: google_news_dubai
     name: Dubai News (Google News)
     type: rss
-    url: https://news.google.com/rss/search?q=%22Dubai%22+when:6h&hl=en&gl=AE&ceid=AE:en
+    url: https://news.google.com/rss/search?q=%22Dubai%22+&hl=en&gl=AE&ceid=AE:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1987,7 +1987,7 @@ sources:
   - id: google_news_paris
     name: Paris News (Google News)
     type: rss
-    url: https://news.google.com/rss/search?q=%22Paris%22+when:6h&hl=en&gl=FR&ceid=FR:en
+    url: https://news.google.com/rss/search?q=%22Paris%22+&hl=en&gl=FR&ceid=FR:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -2002,7 +2002,7 @@ sources:
   - id: google_news_berlin
     name: Berlin News (Google News)
     type: rss
-    url: https://news.google.com/rss/search?q=%22Berlin%22+when:6h&hl=en&gl=DE&ceid=DE:en
+    url: https://news.google.com/rss/search?q=%22Berlin%22+&hl=en&gl=DE&ceid=DE:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -2017,7 +2017,7 @@ sources:
   - id: google_news_beijing
     name: Beijing News (Google News)
     type: rss
-    url: https://news.google.com/rss/search?q=%22Beijing%22+when:6h&hl=en&gl=CN&ceid=CN:en
+    url: https://news.google.com/rss/search?q=%22Beijing%22+&hl=en&gl=CN&ceid=CN:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -2032,7 +2032,7 @@ sources:
   - id: google_news_sydney
     name: Sydney News (Google News)
     type: rss
-    url: https://news.google.com/rss/search?q=%22Sydney%22+when:6h&hl=en&gl=AU&ceid=AU:en
+    url: https://news.google.com/rss/search?q=%22Sydney%22+&hl=en&gl=AU&ceid=AU:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -3260,7 +3260,7 @@ sources:
       - IR
     domains:
       - geopolitics
-    is_active: true
+    is_active: false
   - id: tehran_times
     name: Tehran Times
     type: rss
@@ -3284,7 +3284,7 @@ sources:
       - IR
     domains:
       - geopolitics
-    is_active: true
+    is_active: false
   - id: brazil_news
     name: Brazil News.Net
     type: rss
@@ -3323,7 +3323,7 @@ sources:
     domains:
       - geopolitics
       - society
-    is_active: true
+    is_active: false
   - id: dawn_pakistan_section
     name: Dawn (Pakistan Section)
     type: rss
@@ -3335,7 +3335,7 @@ sources:
       - PK
     domains:
       - geopolitics
-    is_active: true
+    is_active: false
   - id: scmp_china
     name: South China Morning Post (China)
     type: rss
@@ -3348,7 +3348,7 @@ sources:
     domains:
       - geopolitics
       - business
-    is_active: true
+    is_active: false
   - id: scmp_hongkong
     name: South China Morning Post (Hong Kong)
     type: rss
@@ -3361,7 +3361,7 @@ sources:
     domains:
       - geopolitics
       - culture
-    is_active: true
+    is_active: false
   - id: scmp_world
     name: South China Morning Post (World)
     type: rss
@@ -3374,7 +3374,7 @@ sources:
     domains:
       - geopolitics
       - business
-    is_active: true
+    is_active: false
   - id: bbc_europe
     name: BBC Europe
     type: rss
