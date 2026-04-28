@@ -83,6 +83,42 @@ sources:
     countries: [IL]
     domains: [breaking, geopolitics]
     is_active: true
+  - id: ap_world
+    name: Associated Press (World)
+    type: rss
+    url: http://hosted.ap.org/lineups/WORLDHEADLINES.rss
+    parser: rss
+    pools: [GLOBAL_BREAKING]
+    countries: [ALL]
+    domains: [breaking, geopolitics]
+    is_active: true
+  - id: ap_us
+    name: Associated Press (US)
+    type: rss
+    url: http://hosted.ap.org/lineups/USHEADLINES.rss
+    parser: rss
+    pools: [GLOBAL_BREAKING]
+    countries: [US]
+    domains: [breaking, geopolitics]
+    is_active: true
+  - id: bloomberg_markets
+    name: Bloomberg Markets
+    type: rss
+    url: https://feeds.bloomberg.com/markets/news.rss
+    parser: rss
+    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    countries: [ALL]
+    domains: [finance, business, breaking]
+    is_active: true
+  - id: china_daily
+    name: China Daily (China News)
+    type: rss
+    url: http://www.chinadaily.com.cn/rss/china_rss.xml
+    parser: rss
+    pools: [GLOBAL_BREAKING, GLOBAL_GEOECON]
+    countries: [CN]
+    domains: [geopolitics, breaking]
+    is_active: true
 
   # ═══════════════════════════════════════════════════════════════
   # GLOBAL GEOPOLITICS & GEOECONOMICS
@@ -289,7 +325,34 @@ sources:
     pools: [GLOBAL_LAW_REG]
     countries: [ALL]
     domains: [law, geopolitics, finance]
-    is_active: true
+    is_active: true;
+  - id: cjeu_press
+    name: EU Court of Justice (Curia)
+    type: rss
+    url: http://curia.europa.eu/site/rss.jsp?lang=en&secondLang=fr
+    parser: rss
+    pools: [GLOBAL_LAW_REG]
+    countries: [ALL]
+    domains: [law, geopolitics, europe]
+    is_active: true;
+  - id: wto_news
+    name: WTO Latest News
+    type: rss
+    url: https://feeder.co/discover/16d5a81ae6/wto-org
+    parser: rss
+    pools: [GLOBAL_LAW_REG]
+    countries: [ALL]
+    domains: [law, trade, geopolitics]
+    is_active: true;
+  - id: fatf_publications
+    name: FATF Publications
+    type: rss
+    url: https://feeder.co/discover/16d5a81ae6/fatf-org
+    parser: rss
+    pools: [GLOBAL_LAW_REG]
+    countries: [ALL]
+    domains: [law, finance, geopolitics]
+    is_active: true;
 
   # ═══════════════════════════════════════════════════════════════
   # GLOBAL TECH & CYBER
@@ -509,7 +572,43 @@ sources:
     pools: [GLOBAL_CULT_SOC]
     countries: [IL]
     domains: [culture]
-    is_active: true
+    is_active: true;
+  - id: african_arguments
+    name: African Arguments
+    type: rss
+    url: https://africanarguments.org/feed
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [ALL]
+    domains: [culture, geopolitics, africa]
+    is_active: true;
+  - id: kyoto_journal
+    name: Kyoto Journal
+    type: rss
+    url: https://kyotojournal.org/feed
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [JP]
+    domains: [culture, asia]
+    is_active: true;
+  - id: conversation_africa
+    name: The Conversation (Africa)
+    type: rss
+    url: https://theconversation.com/global/feed
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [ALL]
+    domains: [culture, science, africa]
+    is_active: true;
+  - id: memo
+    name: Middle East Monitor
+    type: rss
+    url: https://www.middleeastmonitor.com/feed
+    parser: rss
+    pools: [GLOBAL_CULT_SOC]
+    countries: [ALL]
+    domains: [culture, geopolitics, middle-east]
+    is_active: true;
 
   # ═══════════════════════════════════════════════════════════════
   # INDIA NATIONAL BASELINE
@@ -706,7 +805,59 @@ sources:
     pools: [INDIA_FACTCHECK_DATA]
     countries: [IN]
     domains: [factcheck]
-    is_active: true
+    is_active: true;
+  - id: factly
+    name: Factly
+    type: http
+    url: https://factly.in/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://factly.in/category/fact-check/
+      selectors:
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck]
+    is_active: true;
+  - id: fact_crescendo
+    name: Fact Crescendo
+    type: rss
+    url: https://english.factcrescendo.com/feed
+    parser: rss
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck]
+    is_active: true;
+  - id: indiatoday_factcheck
+    name: India Today Fact Check
+    type: rss
+    url: https://www.indiatoday.in/rss
+    parser: rss
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck]
+    is_active: true;
+  - id: newschecker
+    name: NewsChecker
+    type: http
+    url: https://factchecker.vishvasnews.com/
+    parser: generic_html
+    parserConfig:
+      listUrl: https://factchecker.vishvasnews.com/
+      selectors:
+        item: article
+        title: h2 a
+        link: a
+        date: time
+        desc: p
+    pools: [INDIA_FACTCHECK_DATA]
+    countries: [IN]
+    domains: [factcheck]
+    is_active: true;
 
   # ═══════════════════════════════════════════════════════════════
   # INDIA BUSINESS & REGULATION
@@ -1180,7 +1331,147 @@ sources:
     countries: [SG]
     cities: [Singapore]
     domains: [local, geopolitics]
-    is_active: true
+    is_active: true;
+  - id: japan_times
+    name: The Japan Times
+    type: rss
+    url: https://www.japantimes.co.jp/feed
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [JP]
+    cities: [Tokyo]
+    domains: [local, geopolitics]
+    is_active: true;
+  - id: news_on_japan
+    name: News On Japan
+    type: rss
+    url: https://www.news-on-japan.com/rss/top.xml
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [JP]
+    cities: [Tokyo]
+    domains: [local, culture]
+    is_active: true;
+  - id: emirates247
+    name: Emirates 24/7
+    type: rss
+    url: https://www.emirates247.com/cmlink/rss-feeds.xml
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [AE]
+    cities: [Dubai]
+    domains: [local, breaking]
+    is_active: true;
+  - id: dubai_chronicle
+    name: Dubai Chronicle
+    type: rss
+    url: https://www.dubaichronicle.com/feed
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [AE]
+    cities: [Dubai]
+    domains: [local, culture]
+    is_active: true;
+  - id: local_berlin
+    name: The Local (Berlin)
+    type: rss
+    url: https://feeds.thelocal.com/rss/de/berlin
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [DE]
+    cities: [Berlin]
+    domains: [local, culture]
+    is_active: true;
+  - id: beijinger
+    name: The Beijinger
+    type: rss
+    url: https://www.thebeijinger.com/blog/feed
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [CN]
+    cities: [Beijing]
+    domains: [local, culture]
+    is_active: true;
+  - id: hongkong_fp
+    name: Hong Kong Free Press
+    type: rss
+    url: https://hongkongfp.com/feed
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [HK]
+    cities: [Hong Kong]
+    domains: [local, geopolitics]
+    is_active: true;
+  - id: standard_hk
+    name: The Standard (Hong Kong)
+    type: rss
+    url: https://www.thestandard.com.hk/newsfeed/rss
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [HK]
+    cities: [Hong Kong]
+    domains: [local, geopolitics]
+    is_active: true;
+  - id: google_news_tokyo
+    name: Tokyo News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Tokyo%22+when:6h&hl=en&gl=JP&ceid=JP:en
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [JP]
+    cities: [Tokyo]
+    domains: [local, breaking]
+    is_active: true;
+  - id: google_news_dubai
+    name: Dubai News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Dubai%22+when:6h&hl=en&gl=AE&ceid=AE:en
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [AE]
+    cities: [Dubai]
+    domains: [local, breaking]
+    is_active: true;
+  - id: google_news_paris
+    name: Paris News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Paris%22+when:6h&hl=en&gl=FR&ceid=FR:en
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [FR]
+    cities: [Paris]
+    domains: [local, culture]
+    is_active: true;
+  - id: google_news_berlin
+    name: Berlin News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Berlin%22+when:6h&hl=en&gl=DE&ceid=DE:en
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [DE]
+    cities: [Berlin]
+    domains: [local, culture]
+    is_active: true;
+  - id: google_news_beijing
+    name: Beijing News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Beijing%22+when:6h&hl=en&gl=CN&ceid=CN:en
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [CN]
+    cities: [Beijing]
+    domains: [local, breaking]
+    is_active: true;
+  - id: google_news_sydney
+    name: Sydney News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Sydney%22+when:6h&hl=en&gl=AU&ceid=AU:en
+    parser: rss
+    pools: [GLOBAL_CITIES]
+    countries: [AU]
+    cities: [Sydney]
+    domains: [local, breaking]
+    is_active: true;
 
   # ═══════════════════════════════════════════════════════════════
   # GLOBAL COUNTRY FEEDS (Guardian + France24)
@@ -2003,7 +2294,133 @@ sources:
     pools: [GLOBAL_COUNTRIES]
     countries: [LK]
     domains: [geopolitics]
-    is_active: true
+    is_active: true;
+  - id: moscow_times
+    name: The Moscow Times
+    type: rss
+    url: https://www.themoscowtimes.com/rss/news
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [RU]
+    domains: [geopolitics, breaking]
+    is_active: true;
+  - id: rt_russia
+    name: RT (Russia)
+    type: rss
+    url: https://www.rt.com/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [RU]
+    domains: [geopolitics, breaking]
+    is_active: true;
+  - id: rt_russia_section
+    name: RT (Russia Section)
+    type: rss
+    url: https://www.rt.com/rss/russia
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [RU]
+    domains: [geopolitics]
+    is_active: true;
+  - id: mehr_news
+    name: Mehr News Agency
+    type: rss
+    url: https://en.mehrnews.com/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IR]
+    domains: [geopolitics, breaking]
+    is_active: true;
+  - id: tasnim_news
+    name: Tasnim News Agency
+    type: rss
+    url: https://www.tasnimnews.com/en/rss/feed/0/0/0
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IR]
+    domains: [geopolitics]
+    is_active: true;
+  - id: tehran_times
+    name: Tehran Times
+    type: rss
+    url: https://www.tehrantimes.com/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IR]
+    domains: [geopolitics]
+    is_active: true;
+  - id: iran_news_daily
+    name: Iran News Daily
+    type: rss
+    url: https://irannewsdaily.com/feed
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [IR]
+    domains: [geopolitics]
+    is_active: true;
+  - id: brazil_news
+    name: Brazil News.Net
+    type: rss
+    url: https://feeds.brazilnews.net/rss/244
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [BR]
+    domains: [geopolitics, business]
+    is_active: true;
+  - id: mercopress_brazil
+    name: MercoPress (Brazil)
+    type: rss
+    url: https://en.mercopress.com/rss/brazil
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [BR]
+    domains: [geopolitics, business]
+    is_active: true;
+  - id: dawn_pakistan
+    name: Dawn
+    type: rss
+    url: https://www.dawn.com/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PK]
+    domains: [geopolitics, society]
+    is_active: true;
+  - id: dawn_pakistan_section
+    name: Dawn (Pakistan Section)
+    type: rss
+    url: https://www.dawn.com/pakistan/rss
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [PK]
+    domains: [geopolitics]
+    is_active: true;
+  - id: scmp_china
+    name: South China Morning Post (China)
+    type: rss
+    url: https://www.scmp.com/rss/4/feed
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [CN]
+    domains: [geopolitics, business]
+    is_active: true;
+  - id: scmp_hongkong
+    name: South China Morning Post (Hong Kong)
+    type: rss
+    url: https://www.scmp.com/rss/2/feed
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [HK]
+    domains: [geopolitics, culture]
+    is_active: true;
+  - id: scmp_world
+    name: South China Morning Post (World)
+    type: rss
+    url: https://www.scmp.com/rss/5/feed
+    parser: rss
+    pools: [GLOBAL_COUNTRIES]
+    countries: [ALL]
+    domains: [geopolitics, business]
+    is_active: true;
 
   # Regional feeds (BBC, Politico, ABC, Moscow Times, Haaretz)
   - id: bbc_europe
