@@ -29,10 +29,10 @@ const FetchInput = z.object({
   domains: z.array(z.string()).optional(),
   start: z.string().optional(),
   end: z.string().optional(),
-  keywords: z.array(z.string()).optional(),
+  keywords: z.union([z.array(z.string()), z.array(z.array(z.string()))]).optional(),
   excludeKeywords: z.array(z.string()).optional(),
   matchAll: z.boolean().optional().default(false),
-  discoveryMode: z.boolean().optional().default(false),
+  discoveryMode: z.boolean().optional().default(false).describe('If true, bypasses local keyword filtering and returns all fetched items. Useful for discovering emerging trends.'),
   limit: z.number().int().min(1).max(500).default(100),
   cacheMode: z.enum(['prefer','bypass','only']).default('prefer'),
   includeRaw: z.boolean().optional().default(false),
@@ -40,6 +40,7 @@ const FetchInput = z.object({
   fallbackToRealtime: z.boolean().optional().default(false).describe('Fallback to realtime web search if no results from IGS sources'),
   realtimeLimit: z.number().int().min(1).max(100).optional().default(10).describe('Max realtime results when fallback is enabled'),
   realtimeTopic: z.enum(['general', 'news', 'finance']).optional().default('general').describe('Topic for realtime search'),
+  urgency: z.enum(['normal', 'high']).optional().default('normal').describe('Set to "high" for breaking news to force cache bypass and prioritize recency.'),
 });
 
 type NewsQueryKeyArgs = {
@@ -173,15 +174,32 @@ async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefe
   return items;
 }
 
-function filterByKeywords(items: NewsItem[], keywords: string[] = [], exclude: string[] = [], matchAll = false): NewsItem[] {
-  if ((!keywords || keywords.length === 0) && (!exclude || exclude.length === 0)) return items;
-  const kws = (keywords || []).map(k => k.toLowerCase());
+export function filterByKeywords(items: NewsItem[], keywords: any = [], exclude: string[] = [], matchAll = false): NewsItem[] {
+  if ((!keywords || (Array.isArray(keywords) && keywords.length === 0)) && (!exclude || exclude.length === 0)) return items;
+  
   const exs = (exclude || []).map(k => k.toLowerCase());
+  
+  // Normalize keywords into clusters (each cluster is a set of synonyms)
+  const clusters: string[][] = Array.isArray(keywords[0]) 
+    ? keywords 
+    : (keywords || []).map(k => [k]);
+    
+  const normalizedClusters = clusters.map(c => c.map(k => k.toLowerCase()));
+
   return items.filter(it => {
     const text = `${it.title} ${it.content_snippet} ${it.link}`.toLowerCase();
+    
+    // Exclude if any excluded keyword matches
     if (exs.length && exs.some(e => text.includes(e))) return false;
-    if (kws.length === 0) return true;
-    return matchAll ? kws.every(k => text.includes(k)) : kws.some(k => text.includes(k));
+    
+    if (normalizedClusters.length === 0) return true;
+    
+    // For each cluster, at least one term must match
+    const clusterMatches = normalizedClusters.map(cluster => 
+      cluster.some(term => text.includes(term))
+    );
+    
+    return matchAll ? clusterMatches.every(m => m) : clusterMatches.some(m => m);
   });
 }
 
@@ -259,12 +277,72 @@ async function enrichArticlesFromLinks(items: NewsItem[], concurrency: number = 
   return items;
 }
 
+function batchSimilarNews(items: NewsItem[], threshold: number = 0.3): NewsItem[] {
+  if (items.length <= 1) return items;
+
+  const results: NewsItem[] = [];
+  const used = new Set<number>();
+
+  const getWordSet = (text: string) => {
+    const words = text.toLowerCase()
+      .replace(/[^\w\s]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 2);
+    return new Set(words);
+  };
+
+  for (let i = 0; i < items.length; i++) {
+    if (used.has(i)) continue;
+
+    const cluster = [i];
+    const setI = getWordSet(items[i].title);
+
+    for (let j = i + 1; j < items.length; j++) {
+      if (used.has(j)) continue;
+
+      const setJ = getWordSet(items[j].title);
+      const intersection = new Set([...setI].filter(x => setJ.has(x)));
+      const union = new Set([...setI, ...setJ]);
+      const similarity = intersection.size / union.size;
+
+      if (similarity >= threshold) {
+        cluster.push(j);
+      }
+    }
+
+    // Select the best representative for the cluster
+    // Priority: Source Authority (simplified) > Recency
+    const bestIdx = cluster.reduce((prev, curr) => {
+      const a = items[prev];
+      const b = items[curr];
+      // Simple authority: favor specific high-quality IDs
+      const authority = ['reuters', 'ap_world', 'ap_us', 'nytimes', 'wsj', 'bbc_world'].reduce((acc, id) => {
+        if (a.source_name?.toLowerCase().includes(id) || a.id?.includes(id)) acc.a++;
+        if (b.source_name?.toLowerCase().includes(id) || b.id?.includes(id)) acc.b++;
+        return acc;
+      }, { a: 0, b: 0 });
+
+      if (authority.a !== authority.b) return authority.a > authority.b ? prev : curr;
+      return new Date(b.pubDate).getTime() > new Date(a.pubDate).getTime() ? curr : prev;
+    }, cluster[0]);
+
+    results.push(items[bestIdx]);
+    cluster.forEach(idx => used.add(idx));
+  }
+
+  return results;
+}
+
 export async function registerNewsTools(srv: McpServer) {
   srv.registerTool('news.fetch', {
-    description: 'Fetch normalized news. Default: fast brief (GLOBAL_BREAKING + INDIA_NATIONAL_BASE, last 24h). Custom: specify pools/sources/countries/cities/domains/time/keywords. Set enrichArticles=true to fetch full article text from Google News proxy links (slower but richer content). Use this as the first step, then optionally enrich summaries in a separate call.',
+    description: 'Fetch normalized news. Default: fast brief (GLOBAL_BREAKING + INDIA_NATIONAL_BASE, last 24h). Custom: specify pools/sources/countries/cities/domains/time/keywords. IMPORTANT: For breaking news, ALWAYS provide keywords. For maximum recall, use CLUSTERS of synonyms (e.g. [[\"Trump\", \"Donald Trump\"], [\"attack\", \"assassination\", \"shooting\"]]) to expand the search vector. Set enrichArticles=true to fetch full article text from Google News proxy links (slower but richer content). Use this as the first step, then optionally enrich summaries in a separate call.',
     inputSchema: FetchInput.shape,
     outputSchema: { items: z.array(z.any()), count: z.number(), meta: z.object({ sourcesQueried: z.number(), sourcesSucceeded: z.number(), sourcesFailed: z.number(), totalSourcesAvailable: z.number(), poolIds: z.array(z.string()), countryTags: z.array(z.string()), cityTags: z.array(z.string()), domainTags: z.array(z.string()), keywords: z.array(z.string()), excludeKeywords: z.array(z.string()), matchAll: z.boolean(), timeRange: z.object({ start: z.string(), end: z.string() }) }).optional() }
   }, async (args: any) => {
+    if (args.urgency === 'high') {
+      args.cacheMode = 'bypass';
+    }
+
     const settings = await loadSettings();
     const baseCfg = getUserConfigDir();
     const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);
@@ -367,6 +445,9 @@ export async function registerNewsTools(srv: McpServer) {
     if (args.enrichArticles) {
       filtered = await enrichArticlesFromLinks(filtered);
     }
+
+    // Smart Batching: group similar news stories to reduce redundancy
+    filtered = batchSimilarNews(filtered);
 
     // Fallback to realtime web search if enabled and no results
     if (args.fallbackToRealtime && filtered.length === 0) {
