@@ -51,6 +51,7 @@ export class HttpClient {
             headers: h,
             headersTimeout: this.settings.timeoutMs,
             bodyTimeout: this.settings.timeoutMs,
+            maxRedirections: 10,
           });
 
           const status = res.statusCode;

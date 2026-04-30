@@ -132,7 +132,7 @@ sources:
   - id: ap_world
     name: Associated Press (World)
     type: rss
-    url: https://news.google.com/rss/search?q=site%3Aapnews.com+world&hl=en-US&gl=US&ceid=US%3Aen
+    url: https://news.google.com/rss/search?q=site:apnews.com+world&hl=en-US&gl=US&ceid=US:en
     parser: rss
     pools:
       - GLOBAL_BREAKING
@@ -145,7 +145,7 @@ sources:
   - id: ap_us
     name: Associated Press (US)
     type: rss
-    url: https://news.google.com/rss/search?q=site%3Aapnews.com+US&hl=en-US&gl=US&ceid=US%3Aen
+    url: https://news.google.com/rss/search?q=site:apnews.com+us&hl=en-US&gl=US&ceid=US:en
     parser: rss
     pools:
       - GLOBAL_BREAKING
@@ -154,6 +154,49 @@ sources:
     domains:
       - breaking
       - geopolitics
+    is_active: true
+  - id: nytimes
+    name: New York Times
+    type: rss
+    url: https://news.google.com/rss/search?q=site:nytimes.com&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - breaking
+      - geopolitics
+      - society
+    is_active: true
+  - id: wsj
+    name: Wall Street Journal
+    type: rss
+    url: https://news.google.com/rss/search?q=site:wsj.com&hl=en-US&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - breaking
+      - business
+      - finance
+      - geopolitics
+    is_active: true
+  - id: guardian_world
+    name: The Guardian (World)
+    type: rss
+    url: https://www.theguardian.com/world/rss
+    parser: rss
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - breaking
+      - geopolitics
+      - society
     is_active: true
   - id: bloomberg_markets
     name: Bloomberg Markets
@@ -173,7 +216,7 @@ sources:
   - id: china_daily
     name: China Daily (China News)
     type: rss
-    url: http://www.chinadaily.com.cn/rss/china_rss.xml
+    url: https://www.chinadaily.com.cn/rss/china_rss.xml
     parser: rss
     pools:
       - GLOBAL_BREAKING
@@ -287,17 +330,9 @@ sources:
     is_active: true
   - id: idsa
     name: IDSA (Defence Studies)
-    type: http
-    url: https://www.idsa.in/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://www.idsa.in/issuebrief
-      selectors:
-        item: div.views-row
-        title: a
-        link: a
-        date: span.date-display-single
-        desc: p
+    type: rss
+    url: https://idsa.in/rss/news
+    parser: rss
     pools:
       - GLOBAL_GEOECON
     countries:
@@ -323,7 +358,7 @@ sources:
   - id: imf_news
     name: IMF News
     type: rss
-    url: https://www.imf.org/en/News/Rss
+    url: https://www.imf.org/en/News/RSS
     parser: rss
     pools:
       - GLOBAL_GEOECON
@@ -337,7 +372,7 @@ sources:
   - id: world_bank
     name: World Bank News
     type: rss
-    url: https://www.worldbank.org/en/news/all
+    url: https://www.worldbank.org/en/news/rss
     parser: rss
     pools:
       - GLOBAL_GEOECON
@@ -352,7 +387,7 @@ sources:
   - id: us_state_dept
     name: US State Department
     type: rss
-    url: https://www.state.gov/rss/
+    url: https://www.state.gov/feed/
     parser: rss
     pools:
       - GLOBAL_LAW_REG
@@ -410,17 +445,9 @@ sources:
     is_active: true
   - id: bar_and_bench
     name: Bar & Bench
-    type: http
-    url: https://barandbench.com/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://barandbench.com/news
-      selectors:
-        item: article
-        title: h2 a
-        link: a
-        date: time
-        desc: p
+    type: rss
+    url: https://www.barandbench.com/rss/news
+    parser: rss
     pools:
       - GLOBAL_LAW_REG
       - INDIA_WATCHDOG
@@ -551,12 +578,9 @@ sources:
     is_active: true
   - id: ussf_cfc
     name: US Space Force CFC News
-    type: http
-    url: https://www.ussf-cfc.spaceforce.mil/News
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-      Accept: application/rss+xml
-    parser: ussf_cfc
+    type: rss
+    url: https://news.google.com/rss/search?q=United+States+Space+Force+news&hl=en-US&gl=US&ceid=US:en
+    parser: rss
     pools:
       - GLOBAL_TECH_CYBER
     countries:
@@ -713,8 +737,6 @@ sources:
     countries:
       - ALL
     domains:
-      - science
-    is_active: true
       - science
       - health
     is_active: true
@@ -1028,7 +1050,7 @@ sources:
     domains:
       - india-domestic
       - law
-    is_active: true
+    is_active: false
   - id: caravan
     name: The Caravan
     type: http
@@ -1049,7 +1071,7 @@ sources:
     domains:
       - india-domestic
       - culture
-    is_active: true
+    is_active: false
   - id: the_news_minute
     name: The News Minute
     type: rss
@@ -1063,7 +1085,7 @@ sources:
     domains:
       - india-domestic
       - india-regional
-    is_active: true
+    is_active: false
   - id: indiaspend
     name: IndiaSpend
     type: http
@@ -1099,17 +1121,9 @@ sources:
     is_active: true
   - id: boom_live
     name: BOOM Live
-    type: http
-    url: https://www.boomlive.in/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://www.boomlive.in/fact-check
-      selectors:
-        item: article
-        title: h2 a
-        link: a
-        date: time
-        desc: p
+    type: rss
+    url: https://www.boomlive.in/rss/news
+    parser: rss
     pools:
       - INDIA_FACTCHECK_DATA
     countries:
@@ -1200,16 +1214,17 @@ sources:
   - id: nse_circulars
     name: NSE Circulars
     type: http
-    url: https://www.nseindia.com/rss-feed
+    url: https://www.nseindia.com/api-circulars
     headers:
       User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
     parser: generic_html
     parserConfig:
-      listUrl: https://www.nseindia.com/static/rss-feed
+      listUrl: https://www.nseindia.com/api-circulars
       selectors:
-        item: ul li
-        title: a
-        link: a
+        item: tr.circular-item
+        title: td:nth-child(2) a
+        link: td:nth-child(2) a
+        date: td:nth-child(3)
     pools:
       - INDIA_BUSINESS_REG
     countries:
@@ -1220,18 +1235,9 @@ sources:
     is_active: true
   - id: rbi_notifications
     name: RBI Press Releases
-    type: http
-    url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-    parser: generic_html
-    parserConfig:
-      listUrl: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
-      selectors:
-        item: tr
-        title: a
-        link: a
-        date: td:nth-child(1)
+    type: rss
+    url: https://rbi.org.in/rss/rssmain.aspx
+    parser: rss
     pools:
       - INDIA_BUSINESS_REG
     countries:
@@ -1282,7 +1288,7 @@ sources:
       - finance-india
       - law
       - business
-    is_active: true
+    is_active: false
   - id: india_business_news
     name: India Business (Google News)
     type: rss
@@ -1806,6 +1812,816 @@ sources:
     domains:
       - india-domestic
       - local
+    is_active: true
+  - id: the_hindu_rajasthan
+    name: The Hindu (Rajasthan)
+    type: rss
+    url: https://www.thehindu.com/news/national/rajasthan/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Jaipur
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_jaipur
+    name: Indian Express (Jaipur)
+    type: rss
+    url: https://indianexpress.com/section/cities/jaipur/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Jaipur
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_madhya_pradesh
+    name: The Hindu (Madhya Pradesh)
+    type: rss
+    url: https://www.thehindu.com/news/national/madhya-pradesh/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Bhopal
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_bhopal
+    name: Indian Express (Bhopal)
+    type: rss
+    url: https://indianexpress.com/section/cities/bhopal/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Bhopal
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_bihar
+    name: The Hindu (Bihar)
+    type: rss
+    url: https://www.thehindu.com/news/national/bihar/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Patna
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_patna
+    name: Indian Express (Patna)
+    type: rss
+    url: https://indianexpress.com/section/cities/patna/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Patna
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_jharkhand
+    name: The Hindu (Jharkhand)
+    type: rss
+    url: https://www.thehindu.com/news/national/jharkhand/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Ranchi
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_ranchi
+    name: Indian Express (Ranchi)
+    type: rss
+    url: https://indianexpress.com/section/cities/ranchi/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Ranchi
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_odisha
+    name: The Hindu (Odisha)
+    type: rss
+    url: https://www.thehindu.com/news/national/odisha/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Bhubaneswar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_bhubaneswar
+    name: Indian Express (Bhubaneswar)
+    type: rss
+    url: https://indianexpress.com/section/cities/bhubaneswar/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Bhubaneswar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_assam
+    name: The Hindu (Assam)
+    type: rss
+    url: https://www.thehindu.com/news/national/assam/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Guwahati
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_guwahati
+    name: Indian Express (Guwahati)
+    type: rss
+    url: https://indianexpress.com/section/cities/guwahati/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Guwahati
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_himachal_pradesh
+    name: The Hindu (Himachal Pradesh)
+    type: rss
+    url: https://www.thehindu.com/news/national/himachal-pradesh/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Shimla
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_shimla
+    name: Indian Express (Shimla)
+    type: rss
+    url: https://indianexpress.com/section/cities/shimla/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Shimla
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_uttarakhand
+    name: The Hindu (Uttarakhand)
+    type: rss
+    url: https://www.thehindu.com/news/national/uttarakhand/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Dehradun
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_dehradun
+    name: Indian Express (Dehradun)
+    type: rss
+    url: https://indianexpress.com/section/cities/dehradun/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Dehradun
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_jammu_kashmir
+    name: The Hindu (Jammu & Kashmir)
+    type: rss
+    url: https://www.thehindu.com/news/national/jammu-kashmir/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Srinagar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_srinagar
+    name: Indian Express (Srinagar)
+    type: rss
+    url: https://indianexpress.com/section/cities/srinagar/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Srinagar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_chhattisgarh
+    name: The Hindu (Chhattisgarh)
+    type: rss
+    url: https://www.thehindu.com/news/national/chhattisgarh/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Raipur
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_raipur
+    name: Indian Express (Raipur)
+    type: rss
+    url: https://indianexpress.com/section/cities/raipur/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Raipur
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_gujarat
+    name: The Hindu (Gujarat)
+    type: rss
+    url: https://www.thehindu.com/news/national/gujarat/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Gandhinagar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_gandhinagar
+    name: Indian Express (Gandhinagar)
+    type: rss
+    url: https://indianexpress.com/section/cities/gandhinagar/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Gandhinagar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_tripura
+    name: The Hindu (Tripura)
+    type: rss
+    url: https://www.thehindu.com/news/national/other-states/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Agartala
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_agartala
+    name: Indian Express (Agartala)
+    type: rss
+    url: https://indianexpress.com/section/cities/agartala/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Agartala
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_meghalaya
+    name: The Hindu (Meghalaya)
+    type: rss
+    url: https://www.thehindu.com/news/national/other-states/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Shillong
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_shillong
+    name: Indian Express (Shillong)
+    type: rss
+    url: https://indianexpress.com/section/cities/shillong/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Shillong
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_manipur
+    name: The Hindu (Manipur)
+    type: rss
+    url: https://www.thehindu.com/news/national/other-states/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Imphal
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_imphal
+    name: Indian Express (Imphal)
+    type: rss
+    url: https://indianexpress.com/section/cities/imphal/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Imphal
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_mizoram
+    name: The Hindu (Mizoram)
+    type: rss
+    url: https://www.thehindu.com/news/national/other-states/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Aizawl
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_aizawl
+    name: Indian Express (Aizawl)
+    type: rss
+    url: https://indianexpress.com/section/cities/aizawl/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Aizawl
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_arunachal_pradesh
+    name: The Hindu (Arunachal Pradesh)
+    type: rss
+    url: https://www.thehindu.com/news/national/other-states/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Itanagar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_itanagar
+    name: Indian Express (Itanagar)
+    type: rss
+    url: https://indianexpress.com/section/cities/itanagar/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Itanagar
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: the_hindu_nagaland
+    name: The Hindu (Nagaland)
+    type: rss
+    url: https://www.thehindu.com/news/national/other-states/feeder/default.rss
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Kohima
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: ie_kohima
+    name: Indian Express (Kohima)
+    type: rss
+    url: https://indianexpress.com/section/cities/kohima/feed/
+    parser: rss
+    pools:
+      - INDIA_CITIES
+    countries:
+      - IN
+    cities:
+      - Kohima
+    domains:
+      - india-domestic
+      - local
+    is_active: true
+  - id: google_news_losangeles
+    name: Los Angeles News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Los+Angeles%22+&hl=en&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - US
+    cities:
+      - Los Angeles
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_chicago
+    name: Chicago News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Chicago%22+&hl=en&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - US
+    cities:
+      - Chicago
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_washington
+    name: Washington DC News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Washington+DC%22+&hl=en&gl=US&ceid=US:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - US
+    cities:
+      - Washington DC
+    domains:
+      - local
+      - geopolitics
+    is_active: true
+  - id: google_news_toronto
+    name: Toronto News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Toronto%22+&hl=en&gl=CA&ceid=CA:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - CA
+    cities:
+      - Toronto
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_madrid
+    name: Madrid News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Madrid%22+&hl=en&gl=ES&ceid=ES:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - ES
+    cities:
+      - Madrid
+    domains:
+      - local
+      - culture
+    is_active: true
+  - id: google_news_rome
+    name: Rome News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Rome%22+&hl=en&gl=IT&ceid=IT:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - IT
+    cities:
+      - Rome
+    domains:
+      - local
+      - culture
+    is_active: true
+  - id: google_news_moscow
+    name: Moscow News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Moscow%22+&hl=en&gl=RU&ceid=RU:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - RU
+    cities:
+      - Moscow
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_seoul
+    name: Seoul News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Seoul%22+&hl=en&gl=KR&ceid=KR:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - KR
+    cities:
+      - Seoul
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_bangkok
+    name: Bangkok News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Bangkok%22+&hl=en&gl=TH&ceid=TH:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - TH
+    cities:
+      - Bangkok
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_jakarta
+    name: Jakarta News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Jakarta%22+&hl=en&gl=ID&ceid=ID:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - ID
+    cities:
+      - Jakarta
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_shanghai
+    name: Shanghai News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Shanghai%22+&hl=en&gl=CN&ceid=CN:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - CN
+    cities:
+      - Shanghai
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_istanbul
+    name: Istanbul News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Istanbul%22+&hl=en&gl=TR&ceid=TR:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - TR
+    cities:
+      - Istanbul
+    domains:
+      - local
+      - culture
+    is_active: true
+  - id: google_news_cairo
+    name: Cairo News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Cairo%22+&hl=en&gl=EG&ceid=EG:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - EG
+    cities:
+      - Cairo
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_riyadh
+    name: Riyadh News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Riyadh%22+&hl=en&gl=SA&ceid=SA:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - SA
+    cities:
+      - Riyadh
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_abudhabi
+    name: Abu Dhabi News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Abu+Dhabi%22+&hl=en&gl=AE&ceid=AE:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - AE
+    cities:
+      - Abu Dhabi
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_doha
+    name: Doha News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Doha%22+&hl=en&gl=QA&ceid=QA:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - QA
+    cities:
+      - Doha
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_lagos
+    name: Lagos News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Lagos%22+&hl=en&gl=NG&ceid=NG:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - NG
+    cities:
+      - Lagos
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_nairobi
+    name: Nairobi News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Nairobi%22+&hl=en&gl=KE&ceid=KE:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - KE
+    cities:
+      - Nairobi
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_mexicocity
+    name: Mexico City News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Mexico+City%22+&hl=en&gl=MX&ceid=MX:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - MX
+    cities:
+      - Mexico City
+    domains:
+      - local
+      - breaking
+    is_active: true
+  - id: google_news_saopaulo
+    name: Sao Paulo News (Google News)
+    type: rss
+    url: https://news.google.com/rss/search?q=%22Sao+Paulo%22+&hl=en&gl=BR&ceid=BR:en
+    parser: rss
+    pools:
+      - GLOBAL_CITIES
+    countries:
+      - BR
+    cities:
+      - Sao Paulo
+    domains:
+      - local
+      - breaking
     is_active: true
   - id: standard_london
     name: Evening Standard (London)
@@ -3315,7 +4131,7 @@ sources:
     domains:
       - geopolitics
       - business
-    is_active: true
+    is_active: false
   - id: mercopress_brazil
     name: MercoPress (Brazil)
     type: rss
@@ -3533,7 +4349,7 @@ sources:
     domains:
       - business
       - strategy
-    is_active: true
+    is_active: false
   - id: fortune
     name: Fortune
     type: rss
@@ -3590,7 +4406,7 @@ sources:
       - energy
       - environment
       - science
-    is_active: true
+    is_active: false
   - id: scientific_american
     name: Scientific American
     type: rss

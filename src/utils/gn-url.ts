@@ -16,7 +16,7 @@
 
 export function rewriteGnUrl(
   sourceUrl: string,
-  opts: { start?: string; end?: string; keywords?: string[] }
+  opts: { start?: string; end?: string; keywords?: string[] | string[][] }
 ): string {
   // Only process Google News RSS search URLs
   if (!sourceUrl.includes('news.google.com/rss/search')) {
@@ -44,9 +44,18 @@ export function rewriteGnUrl(
       }
     }
 
-    // Inject keywords
+    // Inject keywords (Support clusters for semantic expansion)
     if (opts.keywords && opts.keywords.length > 0) {
-      additions.push(...opts.keywords);
+      if (Array.isArray(opts.keywords[0])) {
+        // It's a cluster array: [ ["Trump", "Donald Trump"], ["attack", "shooting"] ]
+        const clusters = (opts.keywords as string[][]).map(cluster => 
+          `(${cluster.join(' OR ')})`
+        );
+        additions.push(...clusters);
+      } else {
+        // It's a simple array: ["Trump", "attack"]
+        additions.push(...(opts.keywords as string[]));
+      }
     }
 
     // Append additions to query

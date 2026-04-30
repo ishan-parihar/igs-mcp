@@ -1,0 +1,409 @@
+════════════════════════════════════════════════════════════════════════
+  IGS — Full Source Health Audit
+  Started: 2026-05-02T09:49:50.761Z
+════════════════════════════════════════════════════════════════════════
+
+Loaded 325 sources total, 316 active.
+
+[1/316] reuters                        ✅ 100 items
+[2/316] reuters_india                  ✅ 100 items
+[3/316] bbc_world                      ✅ 39 items
+[4/316] bbc_india                      ✅ 39 items
+[5/316] ft                             ✅ 12 items
+[6/316] aljazeera                      ✅ 25 items
+[7/316] nikkei_asia                    ✅ 50 items
+[8/316] straits_times                  ✅ 50 items
+[9/316] haaretz_latest                 ✅ 100 items
+[10/316] ap_world                       ✅ 100 items
+[11/316] ap_us                          ✅ 100 items
+[12/316] nytimes                        ✅ 100 items
+[13/316] wsj                            ✅ 100 items
+[14/316] guardian_world                 ✅ 45 items
+[15/316] bloomberg_markets              ✅ 30 items
+[16/316] china_daily                    ❌ No response (304 or network error)
+[17/316] war_on_the_rocks               ✅ 100 items
+[18/316] foreign_affairs                ✅ 20 items
+[19/316] the_diplomat                   ✅ 96 items
+[20/316] project_syndicate              ✅ 20 items
+[21/316] ecfr                           ✅ 25 items
+[22/316] haaretz_world                  ✅ 35 items
+[23/316] rand                           ✅ 100 items
+[24/316] brookings                      ✅ 100 items
+[25/316] idsa                           ❌ 0 items returned (empty feed/parse)
+[26/316] india_geoecon                  ✅ 76 items
+[27/316] imf_news                       ❌ 0 items returned (empty feed/parse)
+[28/316] world_bank                     ❌ No response (304 or network error)
+[29/316] us_state_dept                  ❌ 0 items returned (empty feed/parse)
+[30/316] ofac_recent_actions            ✅ 10 items
+[31/316] lawfare                        ✅ 5 items
+[32/316] et_legal                       ✅ 50 items
+[33/316] bar_and_bench                  ❌ 0 items returned (empty feed/parse)
+[34/316] scotusblog                     ✅ 50 items
+[35/316] india_law_news                 ✅ 100 items
+[36/316] global_sanctions               ✅ 100 items
+[37/316] mit_tech_review                ✅ 10 items
+[38/316] ars_technica                   ✅ 20 items
+[39/316] cisa_alerts                    ✅ 30 items
+[40/316] ussf_cfc                       ❌ 0 items returned (empty feed/parse)
+[41/316] techcrunch                     ✅ 20 items
+[42/316] the_verge                      ✅ 10 items
+[43/316] wired                          ✅ 50 items
+[44/316] darkreading                    ✅ 50 items
+[45/316] hackernews                     ✅ 20 items
+[46/316] medianama                      ✅ 10 items
+[47/316] the_ken                        ✅ 65 items
+[48/316] who_dons                       ✅ 50 items
+[49/316] mongabay                       ✅ 32 items
+[50/316] inside_climate                 ✅ 10 items
+[51/316] nature_news                    ✅ 100 items
+[52/316] science_mag                    ✅ 10 items
+[53/316] stat_news                      ✅ 20 items
+[54/316] aeon                           ✅ 20 items
+[55/316] unherd                         ✅ 30 items
+[56/316] noema                          ✅ 10 items
+[57/316] haaretz_opinion                ✅ 35 items
+[58/316] haaretz_life_culture           ✅ 35 items
+[59/316] the_hindu                      ✅ 60 items
+[60/316] the_hindu_world                ✅ 60 items
+[61/316] ie_national                    ✅ 200 items
+[62/316] ie_world                       ✅ 200 items
+[63/316] et_india                       ✅ 76 items
+[64/316] livemint                       ✅ 35 items
+[65/316] india_national_gn              ✅ 67 items
+[66/316] mint_politics                  ✅ 35 items
+[67/316] scroll_in                      ✅ 100 items
+[68/316] newslaundry                    ✅ 40 items
+[69/316] the_wire                       ✅ 100 items
+[70/316] article14                      ❌ 0 items returned (empty feed/parse)
+[71/316] caravan                        ❌ 0 items returned (empty feed/parse)
+[72/316] the_news_minute                ❌ 0 items returned (empty feed/parse)
+[73/316] indiaspend                     ✅ 6 items
+[74/316] altnews                        ✅ 10 items
+[75/316] boom_live                      ❌ 0 items returned (empty feed/parse)
+[76/316] factly                         ✅ 12 items
+[77/316] fact_crescendo                 ✅ 10 items
+[78/316] indiatoday_factcheck           ✅ 100 items
+[79/316] newschecker                    ✅ 1 items
+[80/316] afp_factcheck_india            ✅ 100 items
+[81/316] the_quint_webqoof              ✅ 100 items
+[82/316] nse_circulars                  ❌ Headers Timeout Error
+[83/316] rbi_notifications              ❌ HTTP 504
+[84/316] sebi_circulars                 ✅ 42 items
+[85/316] mca_notifications              ❌ 0 items returned (empty feed/parse)
+[86/316] india_business_news            ✅ 61 items
+[87/316] moneycontrol                   ✅ 100 items
+[88/316] mint_markets                   ✅ 35 items
+[89/316] ie_south                       ✅ 100 items
+[90/316] ie_east                        ✅ 1 items
+[91/316] ie_northeast                   ✅ 200 items
+[92/316] the_hindu_karnataka            ✅ 60 items
+[93/316] the_hindu_tamil_nadu           ✅ 60 items
+[94/316] the_hindu_kerala               ✅ 60 items
+[95/316] the_hindu_andhra               ✅ 60 items
+[96/316] the_hindu_telangana            ✅ 60 items
+[97/316] the_hindu_delhi                ✅ 60 items
+[98/316] the_hindu_mumbai               ✅ 60 items
+[99/316] the_hindu_bengaluru            ✅ 60 items
+[100/316] the_hindu_chennai              ✅ 60 items
+[101/316] the_hindu_hyderabad            ✅ 60 items
+[102/316] the_hindu_kolkata              ✅ 60 items
+[103/316] the_hindu_coimbatore           ✅ 60 items
+[104/316] the_hindu_kochi                ✅ 60 items
+[105/316] the_hindu_kozhikode            ✅ 60 items
+[106/316] the_hindu_madurai              ✅ 60 items
+[107/316] the_hindu_mangaluru            ✅ 60 items
+[108/316] the_hindu_puducherry           ✅ 60 items
+[109/316] the_hindu_thiruvananthapuram   ✅ 60 items
+[110/316] the_hindu_tiruchirapalli       ✅ 60 items
+[111/316] the_hindu_vijayawada           ✅ 60 items
+[112/316] the_hindu_visakhapatnam        ✅ 60 items
+[113/316] ie_delhi                       ✅ 200 items
+[114/316] ie_mumbai                      ✅ 200 items
+[115/316] ie_bengaluru                   ✅ 1 items
+[116/316] ie_chennai                     ✅ 200 items
+[117/316] ie_hyderabad                   ✅ 200 items
+[118/316] ie_kolkata                     ✅ 200 items
+[119/316] ie_pune                        ✅ 200 items
+[120/316] ie_ahmedabad                   ✅ 200 items
+[121/316] ie_lucknow                     ✅ 200 items
+[122/316] ie_chandigarh                  ✅ 200 items
+[123/316] the_hindu_jaipur               ❌ 0 items returned (empty feed/parse)
+[124/316] ie_jaipur                      ✅ 200 items
+[125/316] the_hindu_bhopal               ❌ 0 items returned (empty feed/parse)
+[126/316] ie_bhopal                      ✅ 200 items
+[127/316] the_hindu_patna                ❌ 0 items returned (empty feed/parse)
+[128/316] ie_patna                       ✅ 200 items
+[129/316] the_hindu_ranchi               ❌ 0 items returned (empty feed/parse)
+[130/316] ie_ranchi                      ✅ 1 items
+[131/316] the_hindu_bhubaneswar          ❌ 0 items returned (empty feed/parse)
+[132/316] ie_bhubaneswar                 ✅ 200 items
+[133/316] the_hindu_guwahati             ❌ 0 items returned (empty feed/parse)
+[134/316] ie_guwahati                    ✅ 200 items
+[135/316] the_hindu_shimla               ❌ 0 items returned (empty feed/parse)
+[136/316] ie_shimla                      ✅ 200 items
+[137/316] the_hindu_dehradun             ❌ 0 items returned (empty feed/parse)
+[138/316] ie_dehradun                    ✅ 1 items
+[139/316] the_hindu_srinagar             ❌ 0 items returned (empty feed/parse)
+[140/316] ie_srinagar                    ✅ 200 items
+[141/316] the_hindu_raipur               ❌ 0 items returned (empty feed/parse)
+[142/316] ie_raipur                      ✅ 1 items
+[143/316] the_hindu_gandhinagar          ❌ 0 items returned (empty feed/parse)
+[144/316] ie_gandhinagar                 ✅ 200 items
+[145/316] the_hindu_agartala             ❌ 0 items returned (empty feed/parse)
+[146/316] ie_agartala                    ✅ 1 items
+[147/316] the_hindu_shillong             ❌ 0 items returned (empty feed/parse)
+[148/316] ie_shillong                    ✅ 1 items
+[149/316] the_hindu_imphal               ❌ 0 items returned (empty feed/parse)
+[150/316] ie_imphal                      ✅ 1 items
+[151/316] the_hindu_aizawl               ❌ 0 items returned (empty feed/parse)
+[152/316] ie_aizawl                      ✅ 1 items
+[153/316] the_hindu_itanagar             ❌ 0 items returned (empty feed/parse)
+[154/316] ie_itanagar                    ✅ 1 items
+[155/316] the_hindu_kohima               ❌ 0 items returned (empty feed/parse)
+[156/316] ie_kohima                      ✅ 1 items
+[157/316] google_news_losangeles         ✅ 109 items
+[158/316] google_news_chicago            ✅ 107 items
+[159/316] google_news_washington         ✅ 100 items
+[160/316] google_news_toronto            ✅ 110 items
+[161/316] google_news_madrid             ✅ 108 items
+[162/316] google_news_rome               ✅ 110 items
+[163/316] google_news_moscow             ✅ 105 items
+[164/316] google_news_seoul              ✅ 113 items
+[165/316] google_news_bangkok            ✅ 108 items
+[166/316] google_news_jakarta            ✅ 100 items
+[167/316] google_news_shanghai           ✅ 107 items
+[168/316] google_news_istanbul           ✅ 108 items
+[169/316] google_news_cairom             ✅ 108 items
+[170/316] google_news_riyadh             ✅ 108 items
+[171/316] google_news_abudhabi           ✅ 107 items
+[172/316] google_news_doha               ✅ 110 items
+[173/316] google_news_lagos              ✅ 109 items
+[174/316] google_news_nairobi            ✅ 105 items
+[175/316] google_news_mexicocity         ✅ 93 items
+[176/316] google_news_saopaulo           ✅ 100 items
+[177/316] standard_london                ✅ 73 items
+[178/316] nytimes_nyregion               ✅ 20 items
+[179/316] straitstimes_singapore         ✅ 39 items
+[180/316] japan_times                    ✅ 100 items
+[181/316] emirates247                    ✅ 100 items
+[182/316] dubai_chronicle                ✅ 100 items
+[183/316] local_berlin                   ✅ 20 items
+[184/316] beijinger                      ✅ 10 items
+[185/316] hongkong_fp                    ✅ 100 items
+[186/316] google_news_tokyo              ✅ 107 items
+[187/316] google_news_dubai              ✅ 103 items
+[188/316] google_news_paris              ✅ 107 items
+[189/316] google_news_berlin             ✅ 102 items
+[190/316] google_news_beijing            ✅ 105 items
+[191/316] google_news_sydney             ✅ 102 items
+[192/316] guardian_india                 ✅ 20 items
+[193/316] france24_india                 ✅ 23 items
+[194/316] guardian_us                    ✅ 33 items
+[195/316] npr_top                        ✅ 10 items
+[196/316] guardian_uk                    ✅ 45 items
+[197/316] bbc_uk                         ✅ 35 items
+[198/316] france24_united-kingdom        ✅ 24 items
+[199/316] guardian_france                ✅ 20 items
+[200/316] france24_france                ✅ 24 items
+[201/316] guardian_germany               ✅ 20 items
+[202/316] france24_germany               ✅ 24 items
+[203/316] guardian_japan                 ✅ 20 items
+[204/316] france24_japan                 ✅ 24 items
+[205/316] guardian_southafrica           ✅ 20 items
+[206/316] france24_south-africa          ✅ 24 items
+[207/316] guardian_brazil                ✅ 20 items
+[208/316] france24_brazil                ✅ 24 items
+[209/316] guardian_canada                ✅ 20 items
+[210/316] france24_canada                ✅ 24 items
+[211/316] guardian_italy                 ✅ 20 items
+[212/316] france24_italy                 ✅ 23 items
+[213/316] guardian_spain                 ✅ 20 items
+[214/316] france24_spain                 ✅ 24 items
+[215/316] guardian_netherlands           ✅ 20 items
+[216/316] france24_netherlands           ✅ 24 items
+[217/316] guardian_sweden                ✅ 20 items
+[218/316] france24_sweden                ✅ 23 items
+[219/316] guardian_norway                ✅ 20 items
+[220/316] france24_norway                ✅ 23 items
+[221/316] guardian_denmark               ✅ 20 items
+[222/316] france24_denmark               ✅ 24 items
+[223/316] guardian_poland                ✅ 20 items
+[224/316] france24_poland                ✅ 24 items
+[225/316] guardian_ukraine               ✅ 20 items
+[226/316] france24_ukraine               ✅ 24 items
+[227/316] guardian_turkey                ✅ 20 items
+[228/316] france24_turkey                ✅ 24 items
+[229/316] guardian_iran                  ✅ 20 items
+[230/316] france24_iran                  ✅ 22 items
+[231/316] guardian_israel                ✅ 20 items
+[232/316] france24_israel                ✅ 23 items
+[233/316] guardian_saudiarabia           ✅ 20 items
+[234/316] france24_saudi-arabia          ✅ 24 items
+[235/316] guardian_united-arab-emirates  ✅ 20 items
+[236/316] france24_united-arab-emirates  ✅ 23 items
+[237/316] guardian_egypt                 ✅ 20 items
+[238/316] france24_egypt                 ✅ 24 items
+[239/316] guardian_morocco               ✅ 20 items
+[240/316] france24_morocco               ✅ 24 items
+[241/316] guardian_nigeria               ✅ 20 items
+[242/316] france24_nigeria               ✅ 24 items
+[243/316] guardian_kenya                 ✅ 20 items
+[244/316] france24_kenya                 ✅ 24 items
+[245/316] guardian_ethiopia              ✅ 20 items
+[246/316] france24_ethiopia              ✅ 24 items
+[247/316] guardian_argentina             ✅ 20 items
+[248/316] france24_argentina             ✅ 24 items
+[249/316] guardian_mexico                ✅ 20 items
+[250/316] france24_mexico                ✅ 23 items
+[251/316] guardian_chile                 ✅ 20 items
+[252/316] france24_chile                 ✅ 24 items
+[253/316] guardian_colombia              ✅ 20 items
+[254/316] france24_colombia              ✅ 24 items
+[255/316] guardian_peru                  ✅ 20 items
+[256/316] france24_peru                  ✅ 23 items
+[257/316] guardian_australia             ✅ 22 items
+[258/316] france24_australia             ✅ 24 items
+[259/316] guardian_newzealand            ✅ 20 items
+[260/316] france24_new-zealand           ✅ 24 items
+[261/316] guardian_south-korea           ✅ 20 items
+[262/316] france24_south-korea           ✅ 23 items
+[263/316] guardian_taiwan                ✅ 20 items
+[264/316] france24_taiwan                ✅ 24 items
+[265/316] guardian_singapore             ✅ 20 items
+[266/316] france24_singapore             ✅ 24 items
+[267/316] guardian_malaysia              ✅ 20 items
+[268/316] france24_malaysia              ✅ 24 items
+[269/316] guardian_indonesia             ✅ 20 items
+[270/316] france24_indonesia             ✅ 23 items
+[271/316] guardian_thailand              ✅ 20 items
+[272/316] france24_thailand              ✅ 24 items
+[273/316] guardian_philippines           ✅ 20 items
+[274/316] france24_philippines           ✅ 24 items
+[275/316] guardian_vietnam               ✅ 20 items
+[276/316] france24_vietnam               ✅ 24 items
+[277/316] guardian_pakistan              ✅ 20 items
+[278/316] france24_pakistan              ✅ 24 items
+[279/316] guardian_bangladesh            ✅ 20 items
+[280/316] france24_bangladesh            ✅ 22 items
+[281/316] guardian_srilanka              ✅ 20 items
+[282/316] france24_sri-lanka             ✅ 24 items
+[283/316] moscow_times                   ✅ 50 items
+[284/316] rt_russia                      ✅ 100 items
+[285/316] rt_russia_section              ✅ 100 items
+[286/316] mehr_news                      ✅ 30 items
+[287/316] tasnim_news                    ✅ 50 items
+[288/316] tehran_times                   ✅ 30 items
+[289/316] iran_news_daily                ✅ 100 items
+[290/316] brazil_news                    ❌ 0 items returned (empty feed/parse)
+[291/316] mercopress_brazil              ✅ 10 items
+[292/316] dawn_pakistan                  ✅ 100 items
+[293/316] dawn_pakistan_section          ✅ 100 items
+[294/316] scmp_china                     ✅ 100 items
+[295/316] scmp_hongkong                  ✅ 100 items
+[296/316] scmp_world                     ✅ 100 items
+[297/316] bbc_europe                     ✅ 22 items
+[298/316] politico_europe                ✅ 10 items
+[299/316] abc_au_top                     ✅ 25 items
+[300/316] guardian_china                 ✅ 20 items
+[301/316] moscow_times                   ✅ 50 items
+[302/316] bbc_africa                     ✅ 29 items
+[303/316] france24_me                    ✅ 26 items
+[304/316] cnbc_markets                   ✅ 30 items
+[305/316] marketwatch_top                ✅ 10 items
+[306/316] reuters_business               ✅ 100 items
+[307/316] hbr                            ❌ HTTP 504
+[308/316] fortune                        ✅ 10 items
+[309/316] fastcompany                    ✅ 20 items
+[310/316] oilprice                       ✅ 15 items
+[311/316] ie_news                        ❌ 0 items returned (empty feed/parse)
+[312/316] scientific_american            ✅ 50 items
+[313/316] new_scientist                  ✅ 100 items
+[314/316] phys_org                       ✅ 30 items
+[315/316] inc42                          ✅ 24 items
+[316/316] yourstory                      ✅ 20 items
+
+════════════════════════════════════════════════════════════════════════
+  RESULTS
+════════════════════════════════════════════════════════════════════════
+  Total: 316 sources
+  Passed: 282
+  Failed: 34
+  Pass rate: 89.2%
+
+────────────────────────────────────────────────────────────────────────
+  PER-POOL BREAKDOWN
+────────────────────────────────────────────────────────────────────────
+  ⚠️ GLOBAL_COUNTRIES          111/112  (99%)
+  ⚠️ INDIA_CITIES               43/ 60  (72%)
+  ✅ GLOBAL_CITIES              35/ 35  (100%)
+  ⚠️ GLOBAL_GEOECON             15/ 20  (75%)
+  ⚠️ GLOBAL_BREAKING            15/ 16  (94%)
+  ⚠️ GLOBAL_TECH_CYBER          10/ 11  (91%)
+  ✅ GLOBAL_ENV_HEALTH           9/  9  (100%)
+  ✅ INDIA_NATIONAL_BASE         9/  9  (100%)
+  ⚠️ INDIA_FACTCHECK_DATA        8/  9  (89%)
+  ⚠️ INDIA_BUSINESS_REG          6/  9  (67%)
+  ⚠️ GLOBAL_LAW_REG              6/  8  (75%)
+  ✅ INDIA_REGION                8/  8  (100%)
+  ✅ GLOBAL_CULT_SOC             5/  5  (100%)
+  ⚠️ INDIA_WATCHDOG              2/  5  (40%)
+
+────────────────────────────────────────────────────────────────────────
+  FAILED SOURCES (34)
+────────────────────────────────────────────────────────────────────────
+
+  📁 GLOBAL_BREAKING (1 failed):
+    ❌ china_daily                    China Daily (China News)                   No response (304 or network error)
+
+  📁 GLOBAL_GEOECON (5 failed):
+    ❌ idsa                           IDSA (Defence Studies)                     0 items returned (empty feed/parse)
+    ❌ imf_news                       IMF News                                   0 items returned (empty feed/parse)
+    ❌ world_bank                     World Bank News                            No response (304 or network error)
+    ❌ hbr                            Harvard Business Review                    HTTP 504
+    ❌ ie_news                        IEA News                                   0 items returned (empty feed/parse)
+
+  📁 GLOBAL_LAW_REG (2 failed):
+    ❌ us_state_dept                  US State Department                        0 items returned (empty feed/parse)
+    ❌ bar_and_bench                  Bar & Bench                                0 items returned (empty feed/parse)
+
+  📁 GLOBAL_TECH_CYBER (1 failed):
+    ❌ ussf_cfc                       US Space Force CFC News                    0 items returned (empty feed/parse)
+
+  📁 INDIA_WATCHDOG (3 failed):
+    ❌ article14                      Article 14                                 0 items returned (empty feed/parse)
+    ❌ caravan                        The Caravan                                0 items returned (empty feed/parse)
+    ❌ the_news_minute                The News Minute                            0 items returned (empty feed/parse)
+
+  📁 INDIA_FACTCHECK_DATA (1 failed):
+    ❌ boom_live                      BOOM Live                                  0 items returned (empty feed/parse)
+
+  📁 INDIA_BUSINESS_REG (3 failed):
+    ❌ nse_circulars                  NSE Circulars                              Headers Timeout Error
+    ❌ rbi_notifications              RBI Press Releases                         HTTP 504
+    ❌ mca_notifications              MCA Notifications                          0 items returned (empty feed/parse)
+
+  📁 INDIA_CITIES (17 failed):
+    ❌ the_hindu_jaipur               The Hindu (Jaipur)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_bhopal               The Hindu (Bhopal)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_patna                The Hindu (Patna)                          0 items returned (empty feed/parse)
+    ❌ the_hindu_ranchi               The Hindu (Ranchi)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_bhubaneswar          The Hindu (Bhubaneswar)                    0 items returned (empty feed/parse)
+    ❌ the_hindu_guwahati             The Hindu (Guwahati)                       0 items returned (empty feed/parse)
+    ❌ the_hindu_shimla               The Hindu (Shimla)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_dehradun             The Hindu (Dehradun)                       0 items returned (empty feed/parse)
+    ❌ the_hindu_srinagar             The Hindu (Srinagar)                       0 items returned (empty feed/parse)
+    ❌ the_hindu_raipur               The Hindu (Raipur)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_gandhinagar          The Hindu (Gandhinagar)                    0 items returned (empty feed/parse)
+    ❌ the_hindu_agartala             The Hindu (Agartala)                       0 items returned (empty feed/parse)
+    ❌ the_hindu_shillong             The Hindu (Shillong)                       0 items returned (empty feed/parse)
+    ❌ the_hindu_imphal               The Hindu (Imphal)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_aizawl               The Hindu (Aizawl)                         0 items returned (empty feed/parse)
+    ❌ the_hindu_itanagar             The Hindu (Itanagar)                       0 items returned (empty feed/parse)
+    ❌ the_hindu_kohima               The Hindu (Kohima)                         0 items returned (empty feed/parse)
+
+  📁 GLOBAL_COUNTRIES (1 failed):
+    ❌ brazil_news                    Brazil News.Net                            0 items returned (empty feed/parse)
+
+════════════════════════════════════════════════════════════════════════
+  Audit complete: 282/316 passed
+════════════════════════════════════════════════════════════════════════
