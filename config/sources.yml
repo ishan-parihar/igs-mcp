@@ -132,7 +132,7 @@ sources:
   - id: ap_world
     name: Associated Press (World)
     type: rss
-    url: http://hosted.ap.org/lineups/WORLDHEADLINES.rss
+    url: https://news.google.com/rss/search?q=site%3Aapnews.com+world&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_BREAKING
@@ -141,11 +141,11 @@ sources:
     domains:
       - breaking
       - geopolitics
-    is_active: false
+    is_active: true
   - id: ap_us
     name: Associated Press (US)
     type: rss
-    url: http://hosted.ap.org/lineups/USHEADLINES.rss
+    url: https://news.google.com/rss/search?q=site%3Aapnews.com+US&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_BREAKING
@@ -154,7 +154,7 @@ sources:
     domains:
       - breaking
       - geopolitics
-    is_active: false
+    is_active: true
   - id: bloomberg_markets
     name: Bloomberg Markets
     type: rss
@@ -705,7 +705,7 @@ sources:
   - id: nature_news
     name: Nature News
     type: rss
-    url: https://www.nature.com/nature.rss
+    url: https://news.google.com/rss/search?q=site%3Anature.com&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_ENV_HEALTH
@@ -713,6 +713,8 @@ sources:
     countries:
       - ALL
     domains:
+      - science
+    is_active: true
       - science
       - health
     is_active: true
@@ -1150,7 +1152,7 @@ sources:
   - id: indiatoday_factcheck
     name: India Today Fact Check
     type: rss
-    url: https://www.indiatoday.in/rss
+    url: https://news.google.com/rss/search?q=site%3Aindiatoday.in+factcheck&hl=en-IN&gl=IN&ceid=IN:en
     parser: rss
     pools:
       - INDIA_FACTCHECK_DATA
@@ -1158,27 +1160,43 @@ sources:
       - IN
     domains:
       - factcheck
-    is_active: false
+    is_active: true
   - id: newschecker
     name: NewsChecker
-    type: http
-    url: https://factchecker.vishvasnews.com/
-    parser: generic_html
-    parserConfig:
-      listUrl: https://factchecker.vishvasnews.com/
-      selectors:
-        item: article
-        title: h2 a
-        link: a
-        date: time
-        desc: p
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Afactchecker.vishvasnews.com&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
     pools:
       - INDIA_FACTCHECK_DATA
     countries:
       - IN
     domains:
       - factcheck
-    is_active: false
+    is_active: true
+  - id: afp_factcheck_india
+    name: AFP Fact Check India
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Afactcheck.afp.com+india&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - INDIA_FACTCHECK_DATA
+    countries:
+      - IN
+    domains:
+      - factcheck
+    is_active: true
+  - id: the_quint_webqoof
+    name: The Quint WebQoof
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Athequint.com+webqoof&hl=en-IN&gl=IN&ceid=IN:en
+    parser: rss
+    pools:
+      - INDIA_FACTCHECK_DATA
+    countries:
+      - IN
+    domains:
+      - factcheck
+    is_active: true
   - id: nse_circulars
     name: NSE Circulars
     type: http
@@ -1837,7 +1855,7 @@ sources:
   - id: japan_times
     name: The Japan Times
     type: rss
-    url: https://www.japantimes.co.jp/feed
+    url: https://news.google.com/rss/search?q=site%3Ajapantimes.co.jp&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1848,7 +1866,7 @@ sources:
     domains:
       - local
       - geopolitics
-    is_active: false
+    is_active: true
   - id: news_on_japan
     name: News On Japan
     type: rss
@@ -1867,7 +1885,7 @@ sources:
   - id: emirates247
     name: Emirates 24/7
     type: rss
-    url: https://www.emirates247.com/cmlink/rss-feeds.xml
+    url: https://news.google.com/rss/search?q=site%3Aemirates247.com&hl=en-AE&gl=AE&ceid=AE:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1878,11 +1896,11 @@ sources:
     domains:
       - local
       - breaking
-    is_active: false
+    is_active: true
   - id: dubai_chronicle
     name: Dubai Chronicle
     type: rss
-    url: https://www.dubaichronicle.com/feed
+    url: https://news.google.com/rss/search?q=site%3Adubaichronicle.com&hl=en-AE&gl=AE&ceid=AE:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1893,7 +1911,7 @@ sources:
     domains:
       - local
       - culture
-    is_active: false
+    is_active: true
   - id: local_berlin
     name: The Local (Berlin)
     type: rss
@@ -1927,7 +1945,7 @@ sources:
   - id: hongkong_fp
     name: Hong Kong Free Press
     type: rss
-    url: https://hongkongfp.com/feed
+    url: https://news.google.com/rss/search?q=site%3Ahongkongfp.com&hl=en-HK&gl=HK&ceid=HK:en
     parser: rss
     pools:
       - GLOBAL_CITIES
@@ -1938,7 +1956,7 @@ sources:
     domains:
       - local
       - geopolitics
-    is_active: false
+    is_active: true
   - id: standard_hk
     name: The Standard (Hong Kong)
     type: rss
@@ -3214,7 +3232,7 @@ sources:
   - id: rt_russia
     name: RT (Russia)
     type: rss
-    url: https://www.rt.com/rss
+    url: https://news.google.com/rss/search?q=site%3Art.com&hl=en-US&gl=US&ceid=US:en
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3227,7 +3245,7 @@ sources:
   - id: rt_russia_section
     name: RT (Russia Section)
     type: rss
-    url: https://www.rt.com/rss/russia
+    url: https://news.google.com/rss/search?q=site%3Art.com+russia&hl=en-US&gl=US&ceid=US:en
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3252,7 +3270,7 @@ sources:
   - id: tasnim_news
     name: Tasnim News Agency
     type: rss
-    url: https://www.tasnimnews.com/en/rss/feed/0/0/0
+    url: https://news.google.com/rss/search?q=site%3Atasnimnews.com&hl=en-US&gl=US&ceid=US:en
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3260,7 +3278,7 @@ sources:
       - IR
     domains:
       - geopolitics
-    is_active: false
+    is_active: true
   - id: tehran_times
     name: Tehran Times
     type: rss
@@ -3276,7 +3294,7 @@ sources:
   - id: iran_news_daily
     name: Iran News Daily
     type: rss
-    url: https://irannewsdaily.com/feed
+    url: https://news.google.com/rss/search?q=site%3Airannewsdaily.com&hl=en-US&gl=US&ceid=US:en
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3284,7 +3302,7 @@ sources:
       - IR
     domains:
       - geopolitics
-    is_active: false
+    is_active: true
   - id: brazil_news
     name: Brazil News.Net
     type: rss
@@ -3314,7 +3332,7 @@ sources:
   - id: dawn_pakistan
     name: Dawn
     type: rss
-    url: https://www.dawn.com/rss
+    url: https://news.google.com/rss/search?q=site%3Adawn.com&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3323,11 +3341,11 @@ sources:
     domains:
       - geopolitics
       - society
-    is_active: false
+    is_active: true
   - id: dawn_pakistan_section
     name: Dawn (Pakistan Section)
     type: rss
-    url: https://www.dawn.com/pakistan/rss
+    url: https://news.google.com/rss/search?q=site%3Adawn.com+pakistan&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3335,11 +3353,11 @@ sources:
       - PK
     domains:
       - geopolitics
-    is_active: false
+    is_active: true
   - id: scmp_china
     name: South China Morning Post (China)
     type: rss
-    url: https://www.scmp.com/rss/4/feed
+    url: https://news.google.com/rss/search?q=site%3Ascmp.com+china&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3348,11 +3366,11 @@ sources:
     domains:
       - geopolitics
       - business
-    is_active: false
+    is_active: true
   - id: scmp_hongkong
     name: South China Morning Post (Hong Kong)
     type: rss
-    url: https://www.scmp.com/rss/2/feed
+    url: https://news.google.com/rss/search?q=site%3Ascmp.com+hong+kong&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3361,11 +3379,11 @@ sources:
     domains:
       - geopolitics
       - culture
-    is_active: false
+    is_active: true
   - id: scmp_world
     name: South China Morning Post (World)
     type: rss
-    url: https://www.scmp.com/rss/5/feed
+    url: https://news.google.com/rss/search?q=site%3Ascmp.com+world&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
       - GLOBAL_COUNTRIES
@@ -3374,7 +3392,7 @@ sources:
     domains:
       - geopolitics
       - business
-    is_active: false
+    is_active: true
   - id: bbc_europe
     name: BBC Europe
     type: rss
