@@ -310,6 +310,7 @@ sources:
     parser: rss
     pools:
       - GLOBAL_GEOECON
+      - GLOBAL_DEFENSE_SECURITY
     countries:
       - ALL
     domains:
@@ -335,6 +336,7 @@ sources:
     parser: rss
     pools:
       - GLOBAL_GEOECON
+      - GLOBAL_DEFENSE_SECURITY
     countries:
       - IN
     domains:
@@ -349,6 +351,7 @@ sources:
     pools:
       - GLOBAL_GEOECON
       - INDIA_NATIONAL_BASE
+      - GLOBAL_DEFENSE_SECURITY
     countries:
       - IN
     domains:
@@ -376,7 +379,7 @@ sources:
     parser: rss
     pools:
       - GLOBAL_GEOECON
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_ENVIRONMENT
     countries:
       - ALL
     domains:
@@ -508,7 +511,7 @@ sources:
       - law
       - geopolitics
       - europe
-    is_active: false
+    is_active: true
   - id: wto_news
     name: WTO Latest News
     type: rss
@@ -522,7 +525,7 @@ sources:
       - law
       - trade
       - geopolitics
-    is_active: false
+    is_active: true
   - id: fatf_publications
     name: FATF Publications
     type: rss
@@ -536,7 +539,7 @@ sources:
       - law
       - finance
       - geopolitics
-    is_active: false
+    is_active: true
   - id: mit_tech_review
     name: MIT Technology Review
     type: rss
@@ -696,11 +699,12 @@ sources:
     url: https://www.who.int/api/emergencies/diseaseoutbreaknews
     parser: who_dons
     pools:
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_HEALTH
     countries:
       - ALL
     domains:
       - health
+    tier: 1
     is_active: true
   - id: mongabay
     name: Mongabay
@@ -708,7 +712,7 @@ sources:
     url: https://news.mongabay.com/feed/
     parser: rss
     pools:
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_ENVIRONMENT
     countries:
       - ALL
     domains:
@@ -720,7 +724,7 @@ sources:
     url: https://insideclimatenews.org/feed/
     parser: rss
     pools:
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_ENVIRONMENT
     countries:
       - ALL
     domains:
@@ -732,8 +736,9 @@ sources:
     url: https://news.google.com/rss/search?q=site%3Anature.com&hl=en-US&gl=US&ceid=US%3Aen
     parser: rss
     pools:
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_ENVIRONMENT
       - GLOBAL_TECH_CYBER
+      - GLOBAL_SCIENCE
     countries:
       - ALL
     domains:
@@ -746,8 +751,9 @@ sources:
     url: https://www.science.org/rss/news_current.xml
     parser: rss
     pools:
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_ENVIRONMENT
       - GLOBAL_TECH_CYBER
+      - GLOBAL_SCIENCE
     countries:
       - ALL
     domains:
@@ -760,7 +766,7 @@ sources:
     url: https://www.statnews.com/feed/
     parser: rss
     pools:
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_HEALTH
     countries:
       - ALL
     domains:
@@ -844,7 +850,7 @@ sources:
       - culture
       - geopolitics
       - africa
-    is_active: false
+    is_active: true
   - id: kyoto_journal
     name: Kyoto Journal
     type: rss
@@ -857,7 +863,7 @@ sources:
     domains:
       - culture
       - asia
-    is_active: false
+    is_active: true
   - id: conversation_africa
     name: The Conversation (Africa)
     type: rss
@@ -871,7 +877,7 @@ sources:
       - culture
       - science
       - africa
-    is_active: false
+    is_active: true
   - id: memo
     name: Middle East Monitor
     type: rss
@@ -885,7 +891,7 @@ sources:
       - culture
       - geopolitics
       - middle-east
-    is_active: false
+    is_active: true
   - id: the_hindu
     name: The Hindu (National)
     type: rss
@@ -4260,7 +4266,7 @@ sources:
       - tech
       - business
     is_active: true
-  - id: moscow_times
+  - id: moscow_times_dup
     name: The Moscow Times (News)
     type: rss
     url: https://www.themoscowtimes.com/rss/news
@@ -4399,14 +4405,14 @@ sources:
     parser: rss
     pools:
       - GLOBAL_GEOECON
-      - GLOBAL_ENV_HEALTH
+      - GLOBAL_ENVIRONMENT
     countries:
       - ALL
     domains:
       - energy
       - environment
       - science
-    is_active: false
+    is_active: true
   - id: scientific_american
     name: Scientific American
     type: rss
@@ -4415,6 +4421,7 @@ sources:
     pools:
       - GLOBAL_ENV_HEALTH
       - GLOBAL_TECH_CYBER
+      - GLOBAL_SCIENCE
     countries:
       - ALL
     domains:
@@ -4430,6 +4437,7 @@ sources:
     pools:
       - GLOBAL_ENV_HEALTH
       - GLOBAL_TECH_CYBER
+      - GLOBAL_SCIENCE
     countries:
       - ALL
     domains:
@@ -4445,6 +4453,7 @@ sources:
     pools:
       - GLOBAL_ENV_HEALTH
       - GLOBAL_TECH_CYBER
+      - GLOBAL_SCIENCE
     countries:
       - ALL
     domains:
@@ -4479,3 +4488,1532 @@ sources:
       - business
       - startups
     is_active: true
+
+  ## HEALTH POOL (GLOBAL_HEALTH)
+  - id: cdc
+    name: CDC (Centers for Disease Control)
+    type: rss
+    url: https://tools.cdc.gov/api/v2/resources/media/404267.rss
+    parser: rss
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+    is_active: true
+    tier: 1
+
+  - id: bmj
+    name: British Medical Journal
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Abmj.com&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - science
+    is_active: true
+    tier: 1
+
+  - id: lancet
+    name: The Lancet
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Athelancet.com&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - science
+    is_active: true
+    tier: 1
+
+  - id: nejm
+    name: New England Journal of Medicine
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Anejm.org&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - science
+    is_active: true
+    tier: 1
+
+  - id: jama
+    name: JAMA Network
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Ajamanetwork.com&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - science
+    is_active: true
+    tier: 1
+
+  - id: kff_health
+    name: KFF Health News
+    type: rss
+    url: https://kffhealthnews.org/feed/
+    parser: rss
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - policy
+    is_active: true
+    tier: 2
+
+  ## SCIENCE POOL (GLOBAL_SCIENCE)
+  - id: live_science
+    name: Live Science
+    type: rss
+    url: https://www.livescience.com/feeds/all
+    parser: rss
+    pools:
+      - GLOBAL_SCIENCE
+    countries:
+      - ALL
+    domains:
+      - science
+    is_active: true
+    tier: 2
+
+  - id: knowable_mag
+    name: Knowable Magazine
+    type: rss
+    url: https://knowablemagazine.org/feed/rss
+    parser: rss
+    pools:
+      - GLOBAL_SCIENCE
+    countries:
+      - ALL
+    domains:
+      - science
+    is_active: true
+    tier: 2
+
+  ## ENVIRONMENT POOL (GLOBAL_ENVIRONMENT)
+  - id: carbon_brief
+    name: Carbon Brief
+    type: rss
+    url: https://www.carbonbrief.org/feed/
+    parser: rss
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - environment
+      - climate
+      - energy
+    is_active: true
+    tier: 2
+
+  - id: yale_climate
+    name: Yale Climate Connections
+    type: rss
+    url: https://yaleclimateconnections.org/feed/
+    parser: rss
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - environment
+      - climate
+    is_active: true
+    tier: 2
+
+  - id: skeptical_science
+    name: Skeptical Science
+    type: rss
+    url: https://skepticalscience.com/rss.php
+    parser: rss
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - environment
+      - climate
+      - science
+    is_active: true
+    tier: 2
+
+  ## DEFENSE POOL (GLOBAL_DEFENSE_SECURITY)
+  - id: defense_news
+    name: Defense News
+    type: rss
+    url: https://www.defensenews.com/arc/outboundfeeds/rss/
+    parser: rss
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - geopolitics
+    is_active: true
+    tier: 2
+
+  - id: breaking_defense
+    name: Breaking Defense
+    type: rss
+    url: https://breakingdefense.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - tech
+      - geopolitics
+    is_active: true
+    tier: 2
+
+  - id: janes
+    name: Janes Defense
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Ajanes.com+defense+security&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - security
+    is_active: true
+    tier: 2
+
+  - id: newsweek_defense
+    name: Newsweek Defense
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Anewsweek.com+defense+military+security&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - security
+    is_active: true
+    tier: 3
+
+  ## LEGAL POOL (GLOBAL_LAW_REG)
+  - id: icj
+    name: International Court of Justice
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Aicj-cij.org&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    countries:
+      - ALL
+    domains:
+      - law
+      - geopolitics
+    is_active: true
+    tier: 1
+
+  - id: icc
+    name: International Criminal Court
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Aicc-cpi.int&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    countries:
+      - ALL
+    domains:
+      - law
+      - geopolitics
+    is_active: true
+    tier: 1
+
+  - id: ohchr
+    name: UN Human Rights Office
+    type: rss
+    url: https://news.google.com/rss/search?q=site%3Aohchr.org&hl=en-US&gl=US&ceid=US%3Aen
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    countries:
+      - ALL
+    domains:
+      - law
+      - human-rights
+    is_active: true
+    tier: 1
+
+  - id: hrw
+    name: Human Rights Watch
+    type: rss
+    url: https://www.hrw.org/feed/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    countries:
+      - ALL
+    domains:
+      - law
+      - human-rights
+    is_active: true
+    tier: 1
+
+  - id: amnesty
+    name: Amnesty International
+    type: rss
+    url: https://www.amnesty.org/en/latest/rss.xml
+    parser: rss
+    pools:
+      - GLOBAL_LAW_REG
+    countries:
+      - ALL
+    domains:
+      - law
+      - human-rights
+    is_active: true
+    tier: 1
+
+  ## CULTURAL POOL (GLOBAL_CULT_SOC)
+  - id: newyorker
+    name: The New Yorker
+    type: rss
+    url: https://www.newyorker.com/feed/rss
+    parser: rss
+    pools:
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - culture
+      - geopolitics
+    is_active: true
+    tier: 2
+
+  - id: the_atlantic
+    name: The Atlantic
+    type: rss
+    url: https://feeds.feedburner.com/TheAtlantic
+    parser: rss
+    pools:
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - culture
+      - geopolitics
+      - science
+    is_active: true
+    tier: 2
+
+  - id: nplusonemag
+    name: n+1 Magazine
+    type: rss
+    url: https://nplusonemag.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - culture
+    is_active: true
+    tier: 2
+
+  - id: foreign_policy
+    name: Foreign Policy Magazine
+    type: rss
+    url: https://foreignpolicy.com/feed/
+    parser: rss
+    pools:
+      - GLOBAL_CULT_SOC
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - culture
+      - geopolitics
+    is_active: true
+    tier: 2
+
+  - id: reddit_worldnews
+    name: reddit/r/worldnews
+    type: social_media
+    platform: reddit
+    url: worldnews
+    parser: reddit
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - breaking
+      - geopolitics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_geopolitics
+    name: reddit/r/geopolitics
+    type: social_media
+    platform: reddit
+    url: geopolitics
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - geopolitics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_politics
+    name: reddit/r/politics
+    type: social_media
+    platform: reddit
+    url: politics
+    parser: reddit
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - US
+    domains:
+      - breaking
+      - geopolitics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_economics
+    name: reddit/r/economics
+    type: social_media
+    platform: reddit
+    url: economics
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - finance
+      - business
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_collapse
+    name: reddit/r/collapse
+    type: social_media
+    platform: reddit
+    url: collapse
+    parser: reddit
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - environment
+      - climate
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_middileast
+    name: reddit/r/MiddleEast
+    type: social_media
+    platform: reddit
+    url: MiddleEast
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - geopolitics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_india
+    name: reddit/r/India
+    type: social_media
+    platform: reddit
+    url: India
+    parser: reddit
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - geopolitics
+      - society
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_defense
+    name: reddit/r/LessCredibleDefence
+    type: social_media
+    platform: reddit
+    url: LessCredibleDefence
+    parser: reddit
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - security
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_science
+    name: reddit/r/science
+    type: social_media
+    platform: reddit
+    url: science
+    parser: reddit
+    pools:
+      - GLOBAL_SCIENCE
+    countries:
+      - ALL
+    domains:
+      - science
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: reddit_health
+    name: reddit/r/health
+    type: social_media
+    platform: reddit
+    url: health
+    parser: reddit
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+      batch_size: 25
+
+  - id: twitter_foreignpolicy
+    name: Foreign Policy on Twitter
+    type: social_media
+    platform: twitter
+    url: ForeignPolicy
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - geopolitics
+      - culture
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  - id: twitter_mehdirhasan
+    name: Mehdi Hasan on Twitter
+    type: social_media
+    platform: twitter
+    url: mehdirhasan
+    parser: twitter
+    pools:
+      - GLOBAL_BREAKING
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - breaking
+      - geopolitics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  - id: twitter_nidhi
+    name: Nidhi Razdan on Twitter
+    type: social_media
+    platform: twitter
+    url: Nidhi
+    parser: twitter
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - geopolitics
+      - india
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  - id: twitter_raghu_karnad
+    name: Raghu Karnad on Twitter
+    type: social_media
+    platform: twitter
+    url: raghu_karnad
+    parser: twitter
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+      - INDIA_NATIONAL_BASE
+    countries:
+      - ALL
+    domains:
+      - defense
+      - geopolitics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  - id: twitter_allenanalysis
+    name: Allen Analysis on Twitter
+    type: social_media
+    platform: twitter
+    url: allenanalysis
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - geopolitics
+      - defense
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  - id: twitter_schwarz
+    name: Robert Schwarz on Twitter
+    type: social_media
+    platform: twitter
+    url: schwarz
+    parser: twitter
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - environment
+      - climate
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  - id: twitter_who
+    name: WHO on Twitter
+    type: social_media
+    platform: twitter
+    url: WHO
+    parser: twitter
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+      batch_size: 50
+
+  ## --- Polarity-balanced Reddit sources ---
+
+  # GLOBAL_BREAKING — RIGHT: counter to r/politics (left)
+  - id: reddit_conservative
+    name: reddit/r/Conservative
+    type: social_media
+    platform: reddit
+    url: Conservative
+    parser: reddit
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - politics
+      - conservatism
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_BREAKING — CENTER: bridge between r/politics and r/Conservative
+  - id: reddit_moderatepolitics
+    name: reddit/r/moderatepolitics
+    type: social_media
+    platform: reddit
+    url: moderatepolitics
+    parser: reddit
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - politics
+      - centrist
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_BREAKING — CENTER: evidence-based politics
+  - id: reddit_neutralpolitics
+    name: reddit/r/NeutralPolitics
+    type: social_media
+    platform: reddit
+    url: NeutralPolitics
+    parser: reddit
+    pools:
+      - GLOBAL_BREAKING
+    countries:
+      - ALL
+    domains:
+      - politics
+      - centrist
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_GEOECON — LEFT: socialist counter to r/Libertarian
+  - id: reddit_socialism
+    name: reddit/r/socialism
+    type: social_media
+    platform: reddit
+    url: socialism
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - socialism
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_GEOECON — RIGHT: libertarian counter to r/socialism
+  - id: reddit_libertarian
+    name: reddit/r/Libertarian
+    type: social_media
+    platform: reddit
+    url: Libertarian
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - libertarian
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_GEOECON — RIGHT: Austrian economics
+  - id: reddit_austrian_economics
+    name: reddit/r/austrian_economics
+    type: social_media
+    platform: reddit
+    url: austrian_economics
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - austrian
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_GEOECON — CENTER-RIGHT: neoliberal
+  - id: reddit_neoliberal
+    name: reddit/r/neoliberal
+    type: social_media
+    platform: reddit
+    url: neoliberal
+    parser: reddit
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - neoliberal
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_ENVIRONMENT — RIGHT: skeptic counter to r/collapse + r/environment
+  - id: reddit_climateskeptics
+    name: reddit/r/climateskeptics
+    type: social_media
+    platform: reddit
+    url: climateskeptics
+    parser: reddit
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - climate
+      - skepticism
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_ENVIRONMENT — CENTER: climate science
+  - id: reddit_climate_science
+    name: reddit/r/climate_science
+    type: social_media
+    platform: reddit
+    url: climate_science
+    parser: reddit
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - climate
+      - science
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_ENVIRONMENT — CENTER: energy
+  - id: reddit_energy
+    name: reddit/r/energy
+    type: social_media
+    platform: reddit
+    url: energy
+    parser: reddit
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - energy
+      - infrastructure
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_DEFENSE_SECURITY — CENTER: rigorous defense analysis
+  - id: reddit_credibledefense
+    name: reddit/r/CredibleDefense
+    type: social_media
+    platform: reddit
+    url: CredibleDefense
+    parser: reddit
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - military
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_DEFENSE_SECURITY — CENTER: military history & doctrine
+  - id: reddit_warcollege
+    name: reddit/r/WarCollege
+    type: social_media
+    platform: reddit
+    url: WarCollege
+    parser: reddit
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - military
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_TECH_CYBER — CENTER: uncovered pool
+  - id: reddit_cybersecurity
+    name: reddit/r/cybersecurity
+    type: social_media
+    platform: reddit
+    url: cybersecurity
+    parser: reddit
+    pools:
+      - GLOBAL_TECH_CYBER
+    countries:
+      - ALL
+    domains:
+      - cybersecurity
+      - technology
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_TECH_CYBER — CENTER: network security
+  - id: reddit_netsec
+    name: reddit/r/netsec
+    type: social_media
+    platform: reddit
+    url: netsec
+    parser: reddit
+    pools:
+      - GLOBAL_TECH_CYBER
+    countries:
+      - ALL
+    domains:
+      - cybersecurity
+      - technology
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_TECH_CYBER — LEFT-LIBERTARIAN: digital privacy
+  - id: reddit_privacy
+    name: reddit/r/privacy
+    type: social_media
+    platform: reddit
+    url: privacy
+    parser: reddit
+    pools:
+      - GLOBAL_TECH_CYBER
+    countries:
+      - ALL
+    domains:
+      - privacy
+      - technology
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_HEALTH — CENTER: medical professionals
+  - id: reddit_medicine
+    name: reddit/r/medicine
+    type: social_media
+    platform: reddit
+    url: medicine
+    parser: reddit
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - medicine
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # INDIA_NATIONAL_BASE — RIGHT: counter to r/India (left)
+  - id: reddit_indiaspeaks
+    name: reddit/r/IndiaSpeaks
+    type: social_media
+    platform: reddit
+    url: IndiaSpeaks
+    parser: reddit
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - india
+      - politics
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  # GLOBAL_CULT_SOC — CENTER: uncovered pool
+  - id: reddit_askhistorians
+    name: reddit/r/AskHistorians
+    type: social_media
+    platform: reddit
+    url: AskHistorians
+    parser: reddit
+    pools:
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - history
+      - culture
+      - social
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 300
+
+  ## --- Polarity-balanced Twitter sources ---
+
+  # GLOBAL_GEOECON — CENTER-LEFT: think tank
+  - id: twitter_cfr_org
+    name: twitter/@CFR_org
+    type: social_media
+    platform: twitter
+    url: CFR_org
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - foreign-policy
+      - international-relations
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — CENTER-LEFT: think tank
+  - id: twitter_csis
+    name: twitter/@CSIS
+    type: social_media
+    platform: twitter
+    url: CSIS
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - international-relations
+      - security
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — CENTER-LEFT: think tank
+  - id: twitter_brookingsinst
+    name: twitter/@BrookingsInst
+    type: social_media
+    platform: twitter
+    url: BrookingsInst
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - public-policy
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — CENTER: think tank
+  - id: twitter_carnegieendow
+    name: twitter/@CarnegieEndow
+    type: social_media
+    platform: twitter
+    url: CarnegieEndow
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - international-peace
+      - policy
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — CENTER: think tank
+  - id: twitter_chathamhouse
+    name: twitter/@ChathamHouse
+    type: social_media
+    platform: twitter
+    url: ChathamHouse
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - international-affairs
+      - policy
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — LIBERTARIAN: counter to Brookings/CFR (center-left)
+  - id: twitter_catoinstitute
+    name: twitter/@CatoInstitute
+    type: social_media
+    platform: twitter
+    url: CatoInstitute
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - libertarian
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — CENTER-RIGHT: counter to @jacobin (left)
+  - id: twitter_wsj
+    name: twitter/@WSJ
+    type: social_media
+    platform: twitter
+    url: WSJ
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - business
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — CENTER
+  - id: twitter_theeconomist
+    name: twitter/@TheEconomist
+    type: social_media
+    platform: twitter
+    url: TheEconomist
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - economics
+      - current-affairs
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_GEOECON — LEFT: counter to @WSJ (center-right)
+  - id: twitter_jacobin
+    name: twitter/@jacobin
+    type: social_media
+    platform: twitter
+    url: jacobin
+    parser: twitter
+    pools:
+      - GLOBAL_GEOECON
+    countries:
+      - ALL
+    domains:
+      - socialism
+      - politics
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_CULT_SOC — RIGHT: conservative think tank (uncovered pool)
+  - id: twitter_aei
+    name: twitter/@AEI
+    type: social_media
+    platform: twitter
+    url: AEI
+    parser: twitter
+    pools:
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - public-policy
+      - culture
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_CULT_SOC — RIGHT: conservative think tank
+  - id: twitter_heritage
+    name: twitter/@Heritage
+    type: social_media
+    platform: twitter
+    url: Heritage
+    parser: twitter
+    pools:
+      - GLOBAL_CULT_SOC
+    countries:
+      - ALL
+    domains:
+      - public-policy
+      - culture
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_DEFENSE_SECURITY — CENTER
+  - id: twitter_defenseone
+    name: twitter/@DefenseOne
+    type: social_media
+    platform: twitter
+    url: DefenseOne
+    parser: twitter
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - military
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_DEFENSE_SECURITY — CENTER: analysis
+  - id: twitter_warontherocks
+    name: twitter/@WarOnTheRocks
+    type: social_media
+    platform: twitter
+    url: WarOnTheRocks
+    parser: twitter
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - defense
+      - strategy
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_DEFENSE_SECURITY — CENTER: think tank
+  - id: twitter_randcorporation
+    name: twitter/@RANDCorporation
+    type: social_media
+    platform: twitter
+    url: RANDCorporation
+    parser: twitter
+    pools:
+      - GLOBAL_DEFENSE_SECURITY
+    countries:
+      - ALL
+    domains:
+      - research
+      - defense
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_ENVIRONMENT — CENTER: institutional
+  - id: twitter_ipcc_ch
+    name: twitter/@IPCC_CH
+    type: social_media
+    platform: twitter
+    url: IPCC_CH
+    parser: twitter
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - climate
+      - science
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_ENVIRONMENT — CENTER: institutional
+  - id: twitter_unfccc
+    name: twitter/@UNFCCC
+    type: social_media
+    platform: twitter
+    url: UNFCCC
+    parser: twitter
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - climate
+      - diplomacy
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_ENVIRONMENT — CENTER: institutional
+  - id: twitter_wmo
+    name: twitter/@WMO
+    type: social_media
+    platform: twitter
+    url: WMO
+    parser: twitter
+    pools:
+      - GLOBAL_ENVIRONMENT
+    countries:
+      - ALL
+    domains:
+      - weather
+      - climate
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_HEALTH — CENTER: institutional
+  - id: twitter_cdcgov
+    name: twitter/@CDCgov
+    type: social_media
+    platform: twitter
+    url: CDCgov
+    parser: twitter
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - public-health
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_HEALTH — CENTER: institutional
+  - id: twitter_nih
+    name: twitter/@NIH
+    type: social_media
+    platform: twitter
+    url: NIH
+    parser: twitter
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - research
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_HEALTH — CENTER: institutional
+  - id: twitter_nejm
+    name: twitter/@NEJM
+    type: social_media
+    platform: twitter
+    url: NEJM
+    parser: twitter
+    pools:
+      - GLOBAL_HEALTH
+    countries:
+      - ALL
+    domains:
+      - health
+      - medicine
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # GLOBAL_SCIENCE — CENTER: institutional
+  - id: twitter_nature
+    name: twitter/@nature
+    type: social_media
+    platform: twitter
+    url: nature
+    parser: twitter
+    pools:
+      - GLOBAL_SCIENCE
+    countries:
+      - ALL
+    domains:
+      - science
+      - research
+    is_active: true
+    tier: 1
+    rate_limit:
+      interval_seconds: 900
+
+  # INDIA_NATIONAL_BASE — RIGHT: counter to @thewire_in (left)
+  - id: twitter_swarajyamag
+    name: twitter/@swarajyamag
+    type: social_media
+    platform: twitter
+    url: swarajyamag
+    parser: twitter
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - india
+      - politics
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # INDIA_NATIONAL_BASE — RIGHT: counter to @thewire_in
+  - id: twitter_opindia
+    name: twitter/@OpIndia
+    type: social_media
+    platform: twitter
+    url: OpIndia
+    parser: twitter
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - india
+      - politics
+    is_active: true
+    tier: 3
+    rate_limit:
+      interval_seconds: 900
+
+  # INDIA_NATIONAL_BASE — CENTER: bridge between @thewire_in (left) and @swarajyamag (right)
+  - id: twitter_theprintindia
+    name: twitter/@ThePrintIndia
+    type: social_media
+    platform: twitter
+    url: ThePrintIndia
+    parser: twitter
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - india
+      - politics
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # INDIA_NATIONAL_BASE — LEFT
+  - id: twitter_thewire_in
+    name: twitter/@thewire_in
+    type: social_media
+    platform: twitter
+    url: thewire_in
+    parser: twitter
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - india
+      - politics
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900
+
+  # INDIA_NATIONAL_BASE — LEFT
+  - id: twitter_scroll_in
+    name: twitter/@scroll_in
+    type: social_media
+    platform: twitter
+    url: scroll_in
+    parser: twitter
+    pools:
+      - INDIA_NATIONAL_BASE
+    countries:
+      - IN
+    domains:
+      - india
+      - news
+    is_active: true
+    tier: 2
+    rate_limit:
+      interval_seconds: 900

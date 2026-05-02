@@ -14,8 +14,8 @@ export const PoolsFileSchema = z.object({
 export const SourceSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
-  type: z.enum(['rss', 'http']),
-  url: z.string().url(),
+  type: z.enum(['rss', 'http', 'social_media']),
+  url: z.string(),
   headers: z.record(z.string(), z.string()).optional(),
   parser: z.string().optional(),
   parserConfig: z
@@ -37,7 +37,56 @@ export const SourceSchema = z.object({
   cities: z.array(z.string()).optional().default([]),
   domains: z.array(z.string()).optional().default([]),
   is_active: z.boolean().optional().default(true),
-  sourceCategory: z.enum(['news', 'community', 'research']).optional().default('news'),
+  platform: z.enum(['reddit', 'twitter', 'web']).optional(),
+  tier: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),
+  rate_limit: z
+    .object({
+      interval_seconds: z.number().int().positive(),
+      batch_size: z.number().int().positive().optional(),
+    })
+    .optional(),
+  sourceCategory: z.enum(['news', 'community', 'research', 'social']).optional().default('news'),
+}).superRefine((data, ctx) => {
+  // If type === 'social_media', platform must be set
+  if (data.type === 'social_media' && !data.platform) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Sources with type 'social_media' must have a 'platform' field (reddit, twitter, or web)",
+      path: ['platform'],
+    });
+  }
+
+  // If tier is provided, validate it's 1, 2, or 3
+  if (data.tier !== undefined && ![1, 2, 3].includes(data.tier)) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: 'Tier must be 1, 2, or 3 if provided',
+      path: ['tier'],
+    });
+  }
+
+  // If rate_limit is provided, interval_seconds must be positive
+  if (data.rate_limit !== undefined) {
+    if (data.rate_limit.interval_seconds < 1) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'rate_limit.interval_seconds must be a positive integer',
+        path: ['rate_limit', 'interval_seconds'],
+      });
+    }
+  }
+
+  // Non-social_media sources must have a valid URL
+  if (data.type !== 'social_media' && data.url) {
+    const urlResult = z.string().url().safeParse(data.url);
+    if (!urlResult.success) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['url'],
+        message: `Invalid URL for non-social_media source: ${data.url}`,
+      });
+    }
+  }
 });
 
 export const SourcesFileSchema = z.object({
@@ -83,3 +132,47 @@ export const SettingsSchema = z.object({
 export type PoolsFile = z.infer<typeof PoolsFileSchema>;
 export type SourcesFile = z.infer<typeof SourcesFileSchema>;
 export type Settings = z.infer<typeof SettingsSchema>;
+
+export interface ValidationResult {
+  valid: boolean;
+  errors: Array<{ path: string; message: string; value?: unknown }>;
+  warnings: Array<{ path: string; message: string }>;
+}
+
+/**
+ * Validate a parsed YAML sources document against the extended schema.
+ * Returns structured validation result instead of throwing.
+ * This is the primary entry point for validating sources.yml before loading.
+ */
+export function validateSourcesYaml(data: unknown): ValidationResult {
+  const result = SourcesFileSchema.safeParse(data);
+  if (result.success) {
+    return { valid: true, errors: [], warnings: [] };
+  }
+
+  const errors = result.error.issues.map(issue => ({
+    path: issue.path.join('.'),
+    message: issue.message,
+    value: (issue as any).received,
+  }));
+
+  return { valid: false, errors, warnings: [] };
+}
+
+/**
+ * Validate a single source entry against the schema.
+ */
+export function validateSourceEntry(data: unknown): ValidationResult {
+  const result = SourceSchema.safeParse(data);
+  if (result.success) {
+    return { valid: true, errors: [], warnings: [] };
+  }
+
+  const errors = result.error.issues.map(issue => ({
+    path: issue.path.join('.'),
+    message: issue.message,
+    value: (issue as any).received,
+  }));
+
+  return { valid: false, errors, warnings: [] };
+}

@@ -8,7 +8,7 @@ export type Pool = {
 export type Source = {
   id: string;
   name: string;
-  type: 'rss' | 'http';
+  type: 'rss' | 'http' | 'social_media';
   url: string;
   headers?: Record<string, string>;
   parser?: string;
@@ -27,7 +27,13 @@ export type Source = {
   cities: string[];
   domains: string[];
   is_active: boolean;
-  sourceCategory: 'news' | 'community' | 'research';
+  sourceCategory: 'news' | 'community' | 'research' | 'social';
+  platform?: 'reddit' | 'twitter' | 'web';
+  tier?: 1 | 2 | 3;
+  rate_limit?: {
+    interval_seconds: number;
+    batch_size?: number;
+  };
 };
 
 export type NewsItem = {

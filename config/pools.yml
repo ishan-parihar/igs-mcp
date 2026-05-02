@@ -23,7 +23,7 @@ pools:
   - id: GLOBAL_ENV_HEALTH
     name: Global Environment & Health
     description: Disease, climate, biodiversity, environmental disruption
-    is_active: true
+    is_active: false          # Deactivated - split into GLOBAL_HEALTH and GLOBAL_ENVIRONMENT
 
   - id: GLOBAL_CULT_SOC
     name: Global Culture & Society
@@ -69,5 +69,29 @@ pools:
   - id: GLOBAL_CITIES
     name: Global Cities
     description: City-specific feeds where available; fallback to curated or GN feeds
+    is_active: true
+
+  # ─── New: Health (split from ENV_HEALTH) ─────────────────
+  - id: GLOBAL_HEALTH
+    name: Global Health
+    description: Pandemics, disease outbreaks, health policy, medical research, biosecurity
+    is_active: true
+
+  # ─── New: Environment & Climate (split from ENV_HEALTH) ──
+  - id: GLOBAL_ENVIRONMENT
+    name: Global Environment & Climate
+    description: Climate change, biodiversity, energy transition, environmental policy, natural disasters
+    is_active: true
+
+  # ─── New: Science & Discovery ──────────────────────────
+  - id: GLOBAL_SCIENCE
+    name: Global Science & Discovery
+    description: Scientific research, space exploration, physics, biology, chemistry, discovery
+    is_active: true
+
+  # ─── New: Defense & Security ───────────────────────────
+  - id: GLOBAL_DEFENSE_SECURITY
+    name: Global Defense & Security
+    description: Military, defense, aerospace, security policy, strategic forces, arms control
     is_active: true
 
