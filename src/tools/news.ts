@@ -9,6 +9,8 @@ import { parseUssfcfcHtml } from '../parsers/ussf_cfc.js';
 import { parseWhoJson } from '../parsers/who_dons.js';
 import { parseNewslaundryHtml } from '../parsers/newslaundry.js';
 import { parseSemanticScholarJson } from '../parsers/semantic_scholar.js';
+import { parseReddit } from '../parsers/reddit.js';
+import { parseTwitter } from '../parsers/twitter.js';
 import type { NewsItem, Source } from '../types/news.js';
 import path from 'node:path';
 import { load as loadHtml } from 'cheerio';
@@ -123,6 +125,14 @@ function filterByTime(items: NewsItem[], start?: string, end?: string) {
 }
 
 async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefer'|'bypass'|'only', overrideUrl?: string) {
+  // Route social media sources to their platform parsers (no HTTP fetch)
+  if (source.platform === 'reddit' || source.parser === 'reddit') {
+    return await parseReddit(source);
+  }
+  if (source.platform === 'twitter' || source.parser === 'twitter') {
+    return await parseTwitter(source);
+  }
+
   const url = overrideUrl || source.url;
   const headers = source.headers || {};
   const res = await http.fetch(url, headers, cacheMode);
