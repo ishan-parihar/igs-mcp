@@ -18,8 +18,8 @@ import { extractArticleContent } from '../parsers/article_content.js';
 import { request } from 'undici';
 import PQueue from 'p-queue';
 import { rewriteGnUrl } from '../utils/gn-url.js';
-import { TavilyClient } from '../utils/tavily.js';
-import { FirecrawlClient } from '../utils/firecrawl.js';
+import { TavilyClient, normalizeTavilyResult } from '../utils/tavily.js';
+import { FirecrawlClient, normalizeFirecrawlResult } from '../utils/firecrawl.js';
 
 const FetchInput = z.object({
   pools: z.array(z.string()).optional(),
@@ -40,6 +40,7 @@ const FetchInput = z.object({
   fallbackToRealtime: z.boolean().optional().default(false).describe('Fallback to realtime web search if no results from IGS sources'),
   realtimeLimit: z.number().int().min(1).max(100).optional().default(10).describe('Max realtime results when fallback is enabled'),
   realtimeTopic: z.enum(['general', 'news', 'finance']).optional().default('general').describe('Topic for realtime search'),
+  realtimeProvider: z.enum(['auto', 'tavily', 'firecrawl']).optional().default('auto').describe('Realtime provider to use (auto: Tavily primary, Firecrawl fallback)'),
   urgency: z.enum(['normal', 'high']).optional().default('normal').describe('Set to "high" for breaking news to force cache bypass and prioritize recency.'),
 });
 
@@ -61,6 +62,7 @@ type NewsQueryKeyArgs = {
   fallbackToRealtime?: boolean;
   realtimeLimit?: number;
   realtimeTopic?: string;
+  realtimeProvider?: string;
   discoveryMode?: boolean;
 };
 
@@ -88,6 +90,7 @@ export function buildQueryKeyForNews(args: NewsQueryKeyArgs): string {
     args.fallbackToRealtime ? '1' : '0',
     String(args.realtimeLimit || ''),
     args.realtimeTopic || '',
+    args.realtimeProvider || '',
     args.discoveryMode ? '1' : '0',
   ].join('|');
 }
@@ -182,7 +185,7 @@ export function filterByKeywords(items: NewsItem[], keywords: any = [], exclude:
   // Normalize keywords into clusters (each cluster is a set of synonyms)
   const clusters: string[][] = Array.isArray(keywords[0]) 
     ? keywords 
-    : (keywords || []).map(k => [k]);
+    : (keywords || []).map((k: string) => [k]);
     
   const normalizedClusters = clusters.map(c => c.map(k => k.toLowerCase()));
 
@@ -389,6 +392,7 @@ export async function registerNewsTools(srv: McpServer) {
       fallbackToRealtime: args.fallbackToRealtime,
       realtimeLimit: args.realtimeLimit,
       realtimeTopic: args.realtimeTopic,
+      realtimeProvider: args.realtimeProvider,
       discoveryMode: args.discoveryMode,
     });
     const cachedQuery = await qcache.read<{ items: NewsItem[]; count: number }>(key);
@@ -454,14 +458,16 @@ export async function registerNewsTools(srv: McpServer) {
       const settings = await loadSettings();
       const tavilyClient = new TavilyClient(settings.tavily);
       const firecrawlClient = new FirecrawlClient(settings.firecrawl);
+      const provider = args.realtimeProvider === 'auto' ? 'tavily' : args.realtimeProvider;
 
       if (tavilyClient.isEnabled() || firecrawlClient.isEnabled()) {
         console.log('[news.fetch] No results from IGS sources, falling back to realtime web search');
 
-        try {
-          let realtimeResults: NewsItem[] = [];
+        let realtimeResults: NewsItem[] = [];
+        let actualRealtimeProvider = provider;
 
-          if (tavilyClient.isEnabled()) {
+        try {
+          if (provider === 'tavily' || (provider === 'auto' && tavilyClient.isEnabled())) {
             const response = await tavilyClient.search({
               query: args.keywords?.join(' ') || 'latest news',
               topic: args.realtimeTopic || 'general',
@@ -471,18 +477,8 @@ export async function registerNewsTools(srv: McpServer) {
               excludeDomains: args.excludeKeywords,
             });
 
-            realtimeResults = response.results.map((r: any) => ({
-              id: `tavily:${Buffer.from(r.url).toString('base64').slice(0, 16)}`,
-              title: r.title || 'Untitled',
-              link: r.url,
-              pubDate: r.publishedDate || new Date().toISOString(),
-              source_name: 'Web Search (Tavily)',
-              pool_id: 'WEB_SEARCH',
-              content_snippet: r.content || r.snippet || '',
-              author: undefined,
-              media_url: undefined,
-              raw: r,
-            }));
+            realtimeResults = response.results.map((r: any) => normalizeTavilyResult(r, 'Realtime (Tavily)'));
+            actualRealtimeProvider = 'tavily';
           } else if (firecrawlClient.isEnabled()) {
             const response = await firecrawlClient.search({
               query: args.keywords?.join(' ') || 'latest news',
@@ -490,37 +486,58 @@ export async function registerNewsTools(srv: McpServer) {
             });
 
             if (response.success && response.data?.web) {
-              realtimeResults = response.data.web.map((r: any) => ({
-                id: `firecrawl:${Buffer.from(r.url).toString('base64').slice(0, 16)}`,
-                title: r.title || 'Untitled',
-                link: r.url,
-                pubDate: new Date().toISOString(),
-                source_name: 'Web Search (Firecrawl)',
-                pool_id: 'WEB_SEARCH',
-                content_snippet: r.description || '',
-                author: undefined,
-                media_url: undefined,
-                raw: r,
-              }));
+              realtimeResults = response.data.web.map((r: any) => normalizeFirecrawlResult(r, 'Realtime (Firecrawl)'));
             }
+            actualRealtimeProvider = 'firecrawl';
           }
-
-          // Apply keyword filtering to realtime results unless we're in broad discovery mode
-          realtimeResults = args.discoveryMode
-            ? realtimeResults
-            : filterByKeywords(realtimeResults, args.keywords, args.excludeKeywords, args.matchAll);
-
-          // Merge with existing results
-          filtered = [...filtered, ...realtimeResults];
-
-          // Sort by recency and limit
-          filtered.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
-          filtered = filtered.slice(0, args.limit);
-
-          console.log(`[news.fetch] Fallback returned ${realtimeResults.length} realtime results`);
         } catch (error) {
-          console.error('[news.fetch] Realtime fallback failed:', error);
+          if (provider === 'tavily' && firecrawlClient.isEnabled()) {
+            console.warn('[news.fetch] Tavily failed, falling back to Firecrawl:', error);
+            try {
+              const response = await firecrawlClient.search({
+                query: args.keywords?.join(' ') || 'latest news',
+                limit: args.realtimeLimit || 10,
+              });
+
+              if (response.success && response.data?.web) {
+                realtimeResults = response.data.web.map((r: any) => normalizeFirecrawlResult(r, 'Realtime (Firecrawl fallback)'));
+              }
+              actualRealtimeProvider = 'firecrawl (fallback)';
+            } catch (fallbackError) {
+              console.error('[news.fetch] Fallback to Firecrawl also failed:', fallbackError);
+            }
+          } else if (provider === 'firecrawl' && tavilyClient.isEnabled()) {
+            console.warn('[news.fetch] Firecrawl failed, falling back to Tavily:', error);
+            try {
+              const response = await tavilyClient.search({
+                query: args.keywords?.join(' ') || 'latest news',
+                topic: args.realtimeTopic || 'general',
+                maxResults: args.realtimeLimit || 10,
+              });
+
+              realtimeResults = response.results.map((r: any) => normalizeTavilyResult(r, 'Realtime (Tavily fallback)'));
+              actualRealtimeProvider = 'tavily (fallback)';
+            } catch (fallbackError) {
+              console.error('[news.fetch] Fallback to Tavily also failed:', fallbackError);
+            }
+          } else {
+            console.error('[news.fetch] Realtime fallback failed:', error);
+          }
         }
+
+        // Apply keyword filtering to realtime results unless we're in broad discovery mode
+        realtimeResults = args.discoveryMode
+          ? realtimeResults
+          : filterByKeywords(realtimeResults, args.keywords, args.excludeKeywords, args.matchAll);
+
+        // Merge with existing results
+        filtered = [...filtered, ...realtimeResults];
+
+        // Sort by recency and limit
+        filtered.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+        filtered = filtered.slice(0, args.limit);
+
+        console.log(`[news.fetch] Fallback (${actualRealtimeProvider}) returned ${realtimeResults.length} realtime results`);
       }
     }
 

@@ -1,5 +1,6 @@
 import { tavily } from '@tavily/core';
 import type { Settings } from '../config/schemas.js';
+import type { NewsItem } from '../types/news.js';
 
 export interface TavilySearchOptions {
   query: string;
@@ -273,4 +274,19 @@ export class TavilyClient {
       throw error;
     }
   }
+}
+
+export function normalizeTavilyResult(result: TavilySearchResult, source: string): NewsItem {
+  return {
+    id: `tavily:${Buffer.from(result.url).toString('base64').slice(0, 16)}`,
+    title: result.title || 'Untitled',
+    link: result.url,
+    pubDate: result.publishedDate || new Date().toISOString(),
+    source_name: source,
+    pool_id: 'WEB_SEARCH',
+    content_snippet: result.content || '',
+    author: undefined,
+    media_url: undefined,
+    raw: result,
+  };
 }

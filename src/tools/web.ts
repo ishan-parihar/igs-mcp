@@ -1,8 +1,8 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import { loadSettings } from '../config/loader.js';
-import { TavilyClient, type TavilySearchOptions } from '../utils/tavily.js';
-import { FirecrawlClient, type FirecrawlScrapeOptions, type FirecrawlCrawlOptions, type FirecrawlMapOptions } from '../utils/firecrawl.js';
+import { TavilyClient, type TavilySearchOptions, normalizeTavilyResult } from '../utils/tavily.js';
+import { FirecrawlClient, type FirecrawlScrapeOptions, type FirecrawlCrawlOptions, type FirecrawlMapOptions, normalizeFirecrawlResult } from '../utils/firecrawl.js';
 import type { NewsItem } from '../types/news.js';
 
 const WebSearchInput = z.object({
@@ -65,36 +65,6 @@ const WebMapInput = z.object({
   includePaths: z.array(z.string()).optional().describe('URL patterns to include'),
   excludePaths: z.array(z.string()).optional().describe('URL patterns to exclude'),
 });
-
-function normalizeTavilyResult(result: any, source: string): NewsItem {
-  return {
-    id: `tavily:${Buffer.from(result.url).toString('base64').slice(0, 16)}`,
-    title: result.title || 'Untitled',
-    link: result.url,
-    pubDate: result.publishedDate || new Date().toISOString(),
-    source_name: source,
-    pool_id: 'WEB_SEARCH',
-    content_snippet: result.content || result.snippet || '',
-    author: undefined,
-    media_url: undefined,
-    raw: result,
-  };
-}
-
-function normalizeFirecrawlResult(result: any, source: string): NewsItem {
-  return {
-    id: `firecrawl:${Buffer.from(result.url).toString('base64').slice(0, 16)}`,
-    title: result.metadata?.title || result.title || 'Untitled',
-    link: result.url || result.metadata?.sourceURL,
-    pubDate: new Date().toISOString(),
-    source_name: source,
-    pool_id: 'WEB_SEARCH',
-    content_snippet: result.markdown || result.html || result.description || '',
-    author: undefined,
-    media_url: result.screenshot,
-    raw: result,
-  };
-}
 
 export async function registerWebTools(srv: McpServer) {
   srv.registerTool('web.search', {

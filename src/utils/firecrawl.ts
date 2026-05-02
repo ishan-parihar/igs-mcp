@@ -1,5 +1,6 @@
 import Firecrawl from 'firecrawl';
 import type { Settings } from '../config/schemas.js';
+import type { NewsItem } from '../types/news.js';
 
 export interface FirecrawlScrapeOptions {
   url: string;
@@ -312,4 +313,19 @@ export class FirecrawlClient {
       };
     }
   }
+}
+
+export function normalizeFirecrawlResult(result: { url?: string; metadata?: { title?: string; sourceURL?: string }; title?: string; description?: string; markdown?: string; html?: string; screenshot?: string }, source: string): NewsItem {
+  return {
+    id: `firecrawl:${Buffer.from(result.url || result.metadata?.sourceURL || '').toString('base64').slice(0, 16)}`,
+    title: result.metadata?.title || result.title || 'Untitled',
+    link: result.url || result.metadata?.sourceURL || '',
+    pubDate: new Date().toISOString(),
+    source_name: source,
+    pool_id: 'WEB_SEARCH',
+    content_snippet: result.markdown || result.html || result.description || '',
+    author: undefined,
+    media_url: result.screenshot,
+    raw: result,
+  };
 }
