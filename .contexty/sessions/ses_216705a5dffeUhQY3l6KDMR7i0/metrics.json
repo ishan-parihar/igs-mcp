@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "sessionID": "ses_216705a5dffeUhQY3l6KDMR7i0",
+  "timestamp": "2026-05-02T16:41:13.514Z",
+  "tokens": {
+    "input": 15648,
+    "output": 2269,
+    "reasoning": 2013,
+    "cacheRead": 615040,
+    "cacheWrite": 0
+  },
+  "files": [],
+  "tools": [
+    {
+      "name": "read",
+      "count": 5,
+      "successCount": 5,
+      "failCount": 0
+    },
+    {
+      "name": "write",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "name": "lsp_diagnostics",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "name": "bash",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "name": "edit",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    }
+  ],
+  "acpm": {
+    "activePreset": null,
+    "allowCount": 2109,
+    "denyCount": 0,
+    "sanitizeCount": 0,
+    "deniedByCategory": {},
+    "folderAccessDistribution": {
+      "denied": 0,
+      "read-only": 0,
+      "read-write": 0
+    },
+    "toolCategoryStatus": []
+  }
+}

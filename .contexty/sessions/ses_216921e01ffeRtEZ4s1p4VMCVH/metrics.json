@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "sessionID": "ses_216921e01ffeRtEZ4s1p4VMCVH",
+  "timestamp": "2026-05-02T16:05:29.117Z",
+  "tokens": {
+    "input": 94720,
+    "output": 4136,
+    "reasoning": 589,
+    "cacheRead": 319104,
+    "cacheWrite": 0
+  },
+  "files": [],
+  "tools": [
+    {
+      "name": "read",
+      "count": 38,
+      "successCount": 36,
+      "failCount": 2
+    },
+    {
+      "name": "grep",
+      "count": 4,
+      "successCount": 4,
+      "failCount": 0
+    },
+    {
+      "name": "glob",
+      "count": 11,
+      "successCount": 11,
+      "failCount": 0
+    },
+    {
+      "name": "bash",
+      "count": 6,
+      "successCount": 6,
+      "failCount": 0
+    },
+    {
+      "name": "memory_search",
+      "count": 1,
+      "successCount": 0,
+      "failCount": 1
+    }
+  ],
+  "acpm": {
+    "activePreset": null,
+    "allowCount": 1550,
+    "denyCount": 0,
+    "sanitizeCount": 0,
+    "deniedByCategory": {},
+    "folderAccessDistribution": {
+      "denied": 0,
+      "read-only": 0,
+      "read-write": 0
+    },
+    "toolCategoryStatus": []
+  }
+}

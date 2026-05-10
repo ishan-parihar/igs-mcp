@@ -7,16 +7,19 @@
 
 ---
 
-## 🎯 What It Does
+## The Problem
+Fragmented intelligence is an operational bottleneck for AI agents. High-authority news and research are scattered across hundreds of disparate RSS feeds, HTML sites, and niche APIs (arXiv, Semantic Scholar, Reddit). Manually aggregating this into a coherent "intelligence picture" is nearly impossible for an agent in a single turn, as it requires complex filtering, deduplication, and the ability to cross-reference entities across completely different data formats and domains.
 
-IGS is an MCP (Model Context Protocol) server that provides AI assistants with:
+## Engineering Highlights
 
-1. **News Monitoring** — Fetch from 223 curated RSS/HTTP sources (Reuters, BBC, Indian Express, etc.)
-2. **Reddit Search** — Search any subreddit with time/sort filters
-3. **Academic Research** — Search arXiv + Semantic Scholar papers with PDF extraction
-4. **Historical Queries** — Access news from specific date ranges via Google News
+### Multi-Tiered Intelligence Aggregation
+I implemented a system that monitors 223+ curated sources across 45 countries and 23 domains. By utilizing a pool-based organization system, the agent can pivot from "Global Breaking News" to "India Regional" in a single tool call. A specialized parser layer normalizes varied formats (RSS, Atom, JSON, HTML) into a consistent schema, allowing the agent to treat the entire global news web as a single, queryable database.
 
-All processing happens **locally on your machine**. No data is sent to external servers except the news sources themselves.
+### Local-First NLP Enrichment
+To avoid the latency and cost of external LLM calls for basic data cleaning, I built a local NLP enrichment layer. This system extracts entities, topics, and sentiment directly on the host machine using optimized pattern matching and keyword extraction. This allows the agent to perform high-speed pre-filtering and "triage" of intelligence sources before requesting a deep-dive analysis.
+
+### Hybrid Research Pipeline
+The server integrates disparate research modalities—combining real-time news with academic archives (arXiv/Semantic Scholar) and community discourse (Reddit). This enables a "triangulation" workflow: the agent can identify a breaking trend in the news, verify the underlying theory via a Semantic Scholar paper, and gauge real-world sentiment via Reddit—all within a single reasoning loop.
 
 ---
 

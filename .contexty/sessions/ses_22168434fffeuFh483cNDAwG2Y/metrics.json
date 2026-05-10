@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "sessionID": "ses_22168434fffeuFh483cNDAwG2Y",
+  "timestamp": "2026-05-02T12:19:36.990Z",
+  "tokens": {
+    "input": 996843,
+    "output": 14966,
+    "reasoning": 10416,
+    "cacheRead": 6877328,
+    "cacheWrite": 0
+  },
+  "files": [],
+  "tools": [
+    {
+      "name": "compress",
+      "count": 6,
+      "successCount": 6,
+      "failCount": 0
+    },
+    {
+      "name": "task",
+      "count": 2,
+      "successCount": 2,
+      "failCount": 0
+    },
+    {
+      "name": "read",
+      "count": 41,
+      "successCount": 41,
+      "failCount": 0
+    },
+    {
+      "name": "bash",
+      "count": 19,
+      "successCount": 19,
+      "failCount": 0
+    },
+    {
+      "name": "todowrite",
+      "count": 4,
+      "successCount": 4,
+      "failCount": 0
+    },
+    {
+      "name": "grep",
+      "count": 7,
+      "successCount": 7,
+      "failCount": 0
+    },
+    {
+      "name": "background_output",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "name": "edit",
+      "count": 3,
+      "successCount": 3,
+      "failCount": 0
+    }
+  ],
+  "acpm": {
+    "activePreset": null,
+    "allowCount": 966,
+    "denyCount": 0,
+    "sanitizeCount": 0,
+    "deniedByCategory": {},
+    "folderAccessDistribution": {
+      "denied": 0,
+      "read-only": 0,
+      "read-write": 0
+    },
+    "toolCategoryStatus": []
+  }
+}

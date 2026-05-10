@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "sessionID": "ses_216924f24ffezc7AIMRmO0QFRh",
+  "timestamp": "2026-05-02T16:07:05.374Z",
+  "tokens": {
+    "input": 210476,
+    "output": 6207,
+    "reasoning": 3517,
+    "cacheRead": 809216,
+    "cacheWrite": 0
+  },
+  "files": [],
+  "tools": [
+    {
+      "name": "call_omo_agent",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "name": "read",
+      "count": 4,
+      "successCount": 4,
+      "failCount": 0
+    },
+    {
+      "name": "glob",
+      "count": 8,
+      "successCount": 8,
+      "failCount": 0
+    },
+    {
+      "name": "memory_search",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    },
+    {
+      "name": "memory_get",
+      "count": 2,
+      "successCount": 2,
+      "failCount": 0
+    },
+    {
+      "name": "background_output",
+      "count": 2,
+      "successCount": 2,
+      "failCount": 0
+    }
+  ],
+  "acpm": {
+    "activePreset": null,
+    "allowCount": 1553,
+    "denyCount": 0,
+    "sanitizeCount": 0,
+    "deniedByCategory": {},
+    "folderAccessDistribution": {
+      "denied": 0,
+      "read-only": 0,
+      "read-write": 0
+    },
+    "toolCategoryStatus": []
+  }
+}

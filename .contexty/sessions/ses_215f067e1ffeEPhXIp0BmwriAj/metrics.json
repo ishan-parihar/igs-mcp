@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "sessionID": "ses_215f067e1ffeEPhXIp0BmwriAj",
+  "timestamp": "2026-05-02T19:03:13.901Z",
+  "tokens": {
+    "input": 176523,
+    "output": 8396,
+    "reasoning": 2416,
+    "cacheRead": 2700544,
+    "cacheWrite": 0
+  },
+  "files": [],
+  "tools": [
+    {
+      "name": "todowrite",
+      "count": 3,
+      "successCount": 3,
+      "failCount": 0
+    },
+    {
+      "name": "tavily_tavily-search",
+      "count": 23,
+      "successCount": 23,
+      "failCount": 0
+    },
+    {
+      "name": "read",
+      "count": 7,
+      "successCount": 7,
+      "failCount": 0
+    },
+    {
+      "name": "glob",
+      "count": 6,
+      "successCount": 6,
+      "failCount": 0
+    },
+    {
+      "name": "bash",
+      "count": 2,
+      "successCount": 2,
+      "failCount": 0
+    }
+  ],
+  "acpm": {
+    "activePreset": null,
+    "allowCount": 2748,
+    "denyCount": 0,
+    "sanitizeCount": 0,
+    "deniedByCategory": {},
+    "folderAccessDistribution": {
+      "denied": 0,
+      "read-only": 0,
+      "read-write": 0
+    },
+    "toolCategoryStatus": []
+  }
+}

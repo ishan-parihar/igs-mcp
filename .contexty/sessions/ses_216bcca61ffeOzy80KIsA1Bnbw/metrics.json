@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "sessionID": "ses_216bcca61ffeOzy80KIsA1Bnbw",
+  "timestamp": "2026-05-04T19:52:22.231Z",
+  "tokens": {
+    "input": 58846,
+    "output": 304,
+    "reasoning": 231,
+    "cacheRead": 179072,
+    "cacheWrite": 0
+  },
+  "files": [],
+  "tools": [
+    {
+      "name": "compress",
+      "count": 1,
+      "successCount": 1,
+      "failCount": 0
+    }
+  ],
+  "acpm": {
+    "activePreset": null,
+    "allowCount": 122,
+    "denyCount": 0,
+    "sanitizeCount": 0,
+    "deniedByCategory": {},
+    "folderAccessDistribution": {
+      "denied": 0,
+      "read-only": 0,
+      "read-write": 0
+    },
+    "toolCategoryStatus": []
+  }
+}

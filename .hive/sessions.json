@@ -1,0 +1,214 @@
+{
+  "sessions": [
+    {
+      "sessionId": "ses_22168434fffeuFh483cNDAwG2Y",
+      "startedAt": "2026-05-02T12:19:22.607Z",
+      "lastActiveAt": "2026-05-02T12:19:22.607Z",
+      "directivePrompt": "change the name of gitlab project to match igs-mcp, and then change the name of the folder too\n\n<dcp-system-reminder>\nCRITICAL WARNING: MAX CONTEXT LIMIT REACHED\n\nYou are at or beyond the configured max context threshold. This is an emergency context-recovery moment.\n\nYou MUST use the `compress` tool now. Do not continue normal exploration until compression is handled.\n\nIf you are in the middle of a critical atomic operation, finish that atomic step first, then compress immediately.\n\nSELECTION PROCESS\nStart from older, resolved history and capture as much stale context as safely possible in one pass.\nAvoid the newest active working messages unless it is clearly closed.\n\nSUMMARY REQUIREMENTS\nYour summary MUST cover all essential details from the selected messages so work can continue.\nIf the compressed range includes user messages, preserve user intent exactly. Prefer direct quotes for short user messages to avoid semantic drift.\n\nCompressed block context:\n- Active compressed blocks in this session: 9 (b1, b2, b3, b4, b5, b6, b7, b8, b11)\n- If your selected compression range includes any listed block, include each required placeholder exactly once in the summary using `(bN)`.\n</dcp-system-reminder>\n\n<dcp-message-id>m0188</dcp-message-id>",
+      "replayDirectivePending": false
+    },
+    {
+      "sessionId": "ses_216bcca61ffeOzy80KIsA1Bnbw",
+      "startedAt": "2026-05-02T15:16:29.337Z",
+      "lastActiveAt": "2026-05-04T19:52:21.513Z",
+      "agent": "​Sisyphus - Ultraworker",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216bc9d77ffeRLTt56fXFoQBCX",
+      "startedAt": "2026-05-02T15:16:40.717Z",
+      "lastActiveAt": "2026-05-02T15:16:40.717Z",
+      "agent": "explore",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216bc6946fferQ3TcpKmlrLdeM",
+      "startedAt": "2026-05-02T15:16:54.079Z",
+      "lastActiveAt": "2026-05-02T15:16:54.079Z",
+      "agent": "explore",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216924f24ffezc7AIMRmO0QFRh",
+      "startedAt": "2026-05-02T16:02:53.490Z",
+      "lastActiveAt": "2026-05-02T16:06:58.841Z",
+      "agent": "Metis - Plan Consultant",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216921e01ffeRtEZ4s1p4VMCVH",
+      "startedAt": "2026-05-02T16:03:05.857Z",
+      "lastActiveAt": "2026-05-02T16:03:05.857Z",
+      "agent": "explore",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_21680f279ffeeYzxx5TXANxP8N",
+      "startedAt": "2026-05-02T16:21:51.320Z",
+      "lastActiveAt": "2026-05-02T16:21:51.320Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_21680c4e2ffehBL14kNJyBksRu",
+      "startedAt": "2026-05-02T16:22:02.986Z",
+      "lastActiveAt": "2026-05-02T16:22:02.986Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216807fd4ffe4nRERgEuvV10bs",
+      "startedAt": "2026-05-02T16:22:20.669Z",
+      "lastActiveAt": "2026-05-02T16:22:20.669Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216803ee4ffeJRyvGEHv0ZHdfT",
+      "startedAt": "2026-05-02T16:22:37.288Z",
+      "lastActiveAt": "2026-05-02T16:22:37.288Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_21678209affePp8geOH7V2LVuP",
+      "startedAt": "2026-05-02T16:31:29.334Z",
+      "lastActiveAt": "2026-05-02T16:31:29.334Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_21677d086ffeHl8JgWkbKiF2te",
+      "startedAt": "2026-05-02T16:31:49.833Z",
+      "lastActiveAt": "2026-05-02T17:01:42.671Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216742984ffe4gvqI4Sgvueyjb",
+      "startedAt": "2026-05-02T16:35:49.196Z",
+      "lastActiveAt": "2026-05-02T16:35:49.196Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216738457ffeiw1LSYMEB8TiX3",
+      "startedAt": "2026-05-02T16:36:31.482Z",
+      "lastActiveAt": "2026-05-02T16:36:31.482Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216705a5dffeUhQY3l6KDMR7i0",
+      "startedAt": "2026-05-02T16:39:58.838Z",
+      "lastActiveAt": "2026-05-02T16:39:58.838Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_216701e36ffe522qOPJV11Oh7H",
+      "startedAt": "2026-05-02T16:40:14.230Z",
+      "lastActiveAt": "2026-05-02T16:40:14.230Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166fe407ffe5x998nsj85hEOZ",
+      "startedAt": "2026-05-02T16:40:29.125Z",
+      "lastActiveAt": "2026-05-02T16:40:29.125Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166cb242ffelW0G141QMmJAgG",
+      "startedAt": "2026-05-02T16:43:58.477Z",
+      "lastActiveAt": "2026-05-02T16:43:58.477Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166c7d48ffetFadHCxdbNIRnB",
+      "startedAt": "2026-05-02T16:44:12.038Z",
+      "lastActiveAt": "2026-05-02T16:44:12.038Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166a93eaffe3rb5Mk59rWq3qb",
+      "startedAt": "2026-05-02T16:46:17.334Z",
+      "lastActiveAt": "2026-05-02T16:46:17.334Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166a66deffeeNIq5Vve3NJa8a",
+      "startedAt": "2026-05-02T16:46:28.850Z",
+      "lastActiveAt": "2026-05-02T16:46:28.850Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166a4498fferG6vVeQdt8oWfc",
+      "startedAt": "2026-05-02T16:46:37.646Z",
+      "lastActiveAt": "2026-05-02T16:46:37.646Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2166a1d2fffePd120KD4oh6ZyX",
+      "startedAt": "2026-05-02T16:46:47.722Z",
+      "lastActiveAt": "2026-05-02T16:46:47.722Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2165ad306ffeV89WYlM5gZ4KmI",
+      "startedAt": "2026-05-02T17:03:29.740Z",
+      "lastActiveAt": "2026-05-02T17:03:29.740Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2165aaed5ffeGxmnWeIEC0dFb5",
+      "startedAt": "2026-05-02T17:03:39.000Z",
+      "lastActiveAt": "2026-05-02T17:03:39.000Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2165a89eaffeu6iwBRo1uP731w",
+      "startedAt": "2026-05-02T17:03:48.461Z",
+      "lastActiveAt": "2026-05-02T17:03:48.461Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_2165a5ea9ffeVMXjNXB5y46w4D",
+      "startedAt": "2026-05-02T17:03:59.523Z",
+      "lastActiveAt": "2026-05-02T17:03:59.523Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_215f0da3cffexjaFlMoIkRx2nB",
+      "startedAt": "2026-05-02T18:59:14.549Z",
+      "lastActiveAt": "2026-05-02T18:59:14.549Z",
+      "agent": "explore",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_215f067e1ffeEPhXIp0BmwriAj",
+      "startedAt": "2026-05-02T18:59:43.778Z",
+      "lastActiveAt": "2026-05-02T18:59:43.778Z",
+      "agent": "librarian",
+      "sessionKind": "unknown"
+    },
+    {
+      "sessionId": "ses_215e6fd1dffeSPfr0f4w7T3dzM",
+      "startedAt": "2026-05-02T19:10:01.141Z",
+      "lastActiveAt": "2026-05-02T19:10:01.141Z",
+      "agent": "Sisyphus-Junior",
+      "sessionKind": "unknown"
+    }
+  ]
+}

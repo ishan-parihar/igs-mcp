@@ -1,0 +1,944 @@
+{
+  "parts": [
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_00_FxIdRAlAHKX5x2iW5XlMj1Oc",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/test_*.py",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711818535,
+          "end": 1777711818601
+        }
+      },
+      "id": "prt_de7e1a5d0001hgEjn5k9J4ZKgQ",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_01_ixMByCvUJK9CVo03pUGeNSo1",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/*_test.py",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711819611,
+          "end": 1777711819632
+        }
+      },
+      "id": "prt_de7e1a7d8001MAmIAXtzAQ300g",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_02_oCSUdlSHQjZufYNehwieK2el",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/*_test.go",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711820277,
+          "end": 1777711820356
+        }
+      },
+      "id": "prt_de7e1ab5d001B1Uinf2vO2aJH6",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_03_URFZdIjAdm7Dsbdj9jGo4vxx",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/*_test.js",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711820746,
+          "end": 1777711820778
+        }
+      },
+      "id": "prt_de7e1af9c001h1JZEgJmcRR8kU",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_04_S6l922Wfp06XFcqn1zCF6ODg",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/Makefile",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711821928,
+          "end": 1777711821988
+        }
+      },
+      "id": "prt_de7e1b050001uIX8yQziqi0npT",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_05_yfhlbYMQsziullcZ0bhAnoid",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/package.json",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "Found 1 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/package.json",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711822351,
+          "end": 1777711822545
+        }
+      },
+      "id": "prt_de7e1b46b001PujtSVNzCqpLOl",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_06_zMEPGdlstqrCZYOGNe0qaRkg",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/__main__.py",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711823178,
+          "end": 1777711823277
+        }
+      },
+      "id": "prt_de7e1b612001SXNsTjMycyxdnF",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_07_6UOol4YDDRTENHoY7Io9Lo3N",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/scripts/**",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "Found 24 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/scripts/test_breaking_sources.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/full_system_test.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/test_new_sources.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details_2.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/analyze_source_gaps.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/sync_user_config.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/test_config_loader_merge.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/test_news_cache_behavior.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.ts\n/home/ishanp/Documents/GitHub/IGS/scripts/clean_unreliable_sources.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/seed_priority_countries.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/verify_countries.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/build_global_feeds.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/force_sync_defaults.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/fix_broken_feeds.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/verify_all_pools.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/fill_pool_gaps.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/verify_sources.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/migrate_pools.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/fix_haaretz_yaml.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/autodiscover_sites.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/add_sources.mjs\n/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.mjs",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711823838,
+          "end": 1777711823922
+        }
+      },
+      "id": "prt_de7e1b94e001YcWy8IY4DBE2HI",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_08_eDYKnA1HIZMfxN9ITDwv8gF8",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/.env*",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711824919,
+          "end": 1777711825047
+        }
+      },
+      "id": "prt_de7e1bbe000170m80LCQD3dGCz",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_09_sTP79qEjbkC5sYGuDCK0v2IP",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/README*",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "Found 1 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/README.md",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711825557,
+          "end": 1777711825585
+        }
+      },
+      "id": "prt_de7e1c01c001p4ry7BRricCJ8j",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_10_5irs7DkI5eno8N9FNi60dlgz",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/conftest.py",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711826496,
+          "end": 1777711826535
+        }
+      },
+      "id": "prt_de7e1c297001V05yeSl7nKb5lj",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_11_7kcFte16XBjiQ8DzfoevaHA1",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/cli*.py",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711827018,
+          "end": 1777711827045
+        }
+      },
+      "id": "prt_de7e1c643001VdNoW9kn4EKNgA",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_12_9xTLRxlb09LJs7RDnfVkCgtV",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "**/*.toml",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "No files found",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711827642,
+          "end": 1777711827732
+        }
+      },
+      "id": "prt_de7e1c84c001YCCVKUQPaMVm8n",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e193f500104yc6ioLWJBpXf"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_00_pKSUHLgBvVWNBtibbXPAC82q",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/package.json"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/package.json</path>\n<type>file</type>\n<content>\n1: {\n2:   \"name\": \"igs-mcp-server\",\n3:   \"version\": \"0.1.0\",\n4:   \"private\": true,\n5:   \"type\": \"module\",\n6:   \"description\": \"Intelligence Gathering System MCP server for managing RSS/HTTP news pools and fetching normalized updates.\",\n7:   \"scripts\": {\n8:     \"dev\": \"tsx watch src/server.ts\",\n9:     \"build\": \"tsc -p tsconfig.json\",\n10:     \"start\": \"node dist/server.js\",\n11:     \"typecheck\": \"tsc --noEmit\",\n12:     \"sync:config\": \"tsx scripts/sync_user_config.ts\"\n13:   },\n14:   \"dependencies\": {\n15:     \"@modelcontextprotocol/sdk\": \"^1.29.0\",\n16:     \"@opendocsg/pdf2md\": \"^0.2.6\",\n17:     \"@tavily/core\": \"^0.7.2\",\n18:     \"cheerio\": \"^1.0.0\",\n19:     \"compromise\": \"^14.15.0\",\n20:     \"date-fns\": \"^4.1.0\",\n21:     \"date-fns-tz\": \"^3.2.0\",\n22:     \"firecrawl\": \"^4.20.0\",\n23:     \"js-yaml\": \"^4.1.0\",\n24:     \"keyword-extractor\": \"^0.0.28\",\n25:     \"p-queue\": \"^9.1.2\",\n26:     \"pdf-parse\": \"^2.4.5\",\n27:     \"pino\": \"^10.3.1\",\n28:     \"rss-parser\": \"^3.13.0\",\n29:     \"sentiment\": \"^5.0.2\",\n30:     \"undici\": \"^6.19.5\",\n31:     \"xml2js\": \"^0.6.2\",\n32:     \"zod\": \"^3.25.76\"\n33:   },\n34:   \"devDependencies\": {\n35:     \"@types/js-yaml\": \"^4.0.9\",\n36:     \"@types/node\": \"^25.6.0\",\n37:     \"@types/xml2js\": \"^0.4.14\",\n38:     \"tsx\": \"^4.19.4\",\n39:     \"typescript\": \"^6.0.3\"\n40:   }\n41: }\n\n(End of file - total 41 lines)\n</content>\n\n[Project README: /home/ishanp/Documents/GitHub/IGS/README.md]\n# IGS MCP Server\n\n**Intelligence Gathering System** — Local-only MCP server for real-time news monitoring and academic research.\n\n[![npm](https://img.shields.io/npm/v/igs-mcp-server)](https://www.npmjs.com/package/igs-mcp-server)\n[![License](https://img.shields.io/github/license/ishan-parihar/igs-mcp)](https://github.com/ishan-parihar/igs-mcp/blob/main/LICENSE)\n\n---\n\n## 🎯 What It Does\n\nIGS is an MCP (Model Context Protocol) server that provides AI assistants with:\n\n1. **News Monitoring** — Fetch from 223 curated RSS/HTTP sources (Reuters, BBC, Indian Express, etc.)\n2. **Reddit Search** — Search any subreddit with time/sort filters\n3. **Academic Research** — Search arXiv + Semantic Scholar papers with PDF extraction\n4. **Historical Queries** — Access news from specific date ranges via Google News\n\nAll processing happens **locally on your machine**. No data is sent to external servers except the news sources themselves.\n\n---\n\n## 🚀 Quick Start\n\n### 1. Install & Configure (Recommended)\n\n```bash\ngit clone https://github.com/ishan-parihar/igs-mcp.git\ncd igs-mcp\n./setup.sh\n```\n\nThe setup script checks prerequisites (Node.js v20+), installs dependencies, builds, bootstraps config files, and prints your Claude Desktop config at the end — ready to copy-paste.\n\n### Manual Install\n\n```bash\ngit clone https://github.com/ishan-parihar/igs-mcp.git\ncd igs-mcp\nnpm install\nnpm run build\n```\n\n### 2. Configure Claude Desktop\n\nEdit `claude_desktop_config.json`:\n\n**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  \n**Windows:** `%APPDATA%\\Claude\\claude_desktop_config.json`  \n**Linux:** `~/.config/Claude/claude_desktop_config.json`\n\n```json\n{\n  \"mcpServers\": {\n    \"igs\": {\n      \"command\": \"node\",\n      \"args\": [\"/absolute/path/to/igs-mcp/dist/server.js\"]\n    }\n  }\n}\n```\n\n### 3. Restart Claude Desktop\n\nCompletely quit and relaunch Claude Desktop.\n\n---\n\n## 📚 Documentation\n\n| Document | Description |\n|----------|-------------|\n| [INSTALL.md](INSTALL.md) | Complete installation guide |\n| [AUDIT_REPORT.md](AUDIT_REPORT.md) | Installation audit & verification |\n| `docs/plans/` | Architecture & design documents |\n\n---\n\n## 🛠️ Available Tools\n\n### News Monitoring\n\n| Tool | Description | Example |\n|------|-------------|---------|\n| `news.fetch` | Fetch from curated sources | `news.fetch(pools=['GLOBAL_BREAKING'], keywords=['AI'], limit=10)` |\n| `news.testSource` | Test single source | `news.testSource(id='reuters')` |\n\n### Research Tools\n\n| Tool | Description | Example |\n|------|-------------|---------|\n| `reddit.search` | Search Reddit | `reddit.search(query='technology', subreddits=['news'], limit=10)` |\n| `research.search` | Search papers | `research.search(query='transformer', sources=['arxiv'], limit=10)` |\n| `research.paper` | Paper details + PDF | `research.paper(paperId='arxiv:2401.12345', extractPDF=true)` |\n\n### Source Management\n\n| Tool | Description |\n|------|-------------|\n| `sources.list` | List all sources |\n| `sources.upsert` | Add/update source |\n| `sources.delete` | Remove source |\n| `sources.countries` | Countries with source counts |\n| `sources.cities` | Cities with source counts |\n| `sources.domains` | Topic domains |\n\n### Pool Management\n\n| Tool | Description |\n|------|-------------|\n| `pools.list` | List all pools |\n| `pools.upsert` | Create/update pool |\n| `pools.delete` | Delete pool |\n\n---\n\n## 📊 Pre-configured Content\n\n### News Pools (14)\n\n| Pool | Description | Sources |\n|------|-------------|---------|\n| `GLOBAL_BREAKING` | Fast breaking news | Reuters, BBC, FT, Al Jazeera |\n| `GLOBAL_GEOECON` | Geopolitics & geoeconomics | Foreign Affairs, RAND, Brookings |\n| `GLOBAL_LAW_REG` | Law & regulation | OFAC, Lawfare, SCOTUSblog |\n| `GLOBAL_TECH_CYBER` | Tech & cyber | MIT Tech Review, Ars Technica, CISA |\n| `GLOBAL_ENV_HEALTH` | Environment & health | WHO, Mongabay, Nature |\n| `GLOBAL_CULT_SOC` | Culture & society | Aeon, UnHerd, Noema |\n| `INDIA_NATIONAL_BASE` | India national | The Hindu, Indian Express, Economic Times |\n| `INDIA_WATCHDOG` | India investigative | Scroll.in, The Wire, Article 14 |\n| `INDIA_FACTCHECK_DATA` | India fact-check | Alt News, BOOM Live, IndiaSpend |\n| `INDIA_BUSINESS_REG` | India business | Moneycontrol, NSE, RBI, SEBI |\n| `INDIA_REGION` | India regional | IE South/East/Northeast |\n| `INDIA_CITIES` | India cities | Delhi, Mumbai, Bengaluru feeds |\n| `GLOBAL_COUNTRIES` | Country feeds | Guardian/France24 country feeds |\n| `GLOBAL_CITIES` | Global cities | London, NYC, Singapore |\n\n### Source Inventory\n\n- **Total Sources:** 223\n- **Countries Covered:** 45\n- **Cities Covered:** 23\n- **Topic Domains:** 23 (geopolitics, finance, tech, science, etc.)\n\n---\n\n## 🔧 Configuration\n\n### User Config Directory\n\nIGS stores configuration in:\n\n- **Linux/macOS:** `~/.config/igs-mcp/`\n- **Windows:** `%APPDATA%\\igs-mcp\\`\n- **Custom:** Set `IGS_CONFIG_DIR` environment variable\n\n### Files\n\n```\n~/.config/igs-mcp/\n├── pools.yml      # Pool definitions\n├── sources.yml    # News sources (223 configured)\n└── settings.yml   # HTTP/cache settings\n```\n\n### Add Custom Source\n\nEdit `~/.config/igs-mcp/sources.yml`:\n\n```yaml\n- id: my_tech_blog\n  name: My Tech Blog\n  type: rss\n  url: https://example.com/feed.xml\n  parser: rss\n  pools: [GLOBAL_TECH_CYBER]\n  countries: [US]\n  domains: [tech]\n  is_active: true\n```\n\nNo restart required — changes load automatically.\n\n---\n\n## 🏗️ Architecture\n\n```\n┌─────────────────────────────────────────────┐\n│           MCP Client (Claude)               │\n└─────────────────┬───────────────────────────┘\n                  │ stdio\n┌─────────────────▼───────────────────────────┐\n│         IGS MCP Server (Node.js)            │\n├─────────────────────────────────────────────┤\n│  Tools: 11 MCP tools                        │\n│  • news.fetch      • research.search        │\n│  • reddit.search   • research.paper         │\n│  • sources.*       • pools.*                │\n├─────────────────────────────────────────────┤\n│  Parsers: 9 parsers                         │\n│  • RSS/Atom        • Generic HTML           │\n│  • Semantic Scholar• PDF extraction         │\n│  • OFAC, WHO, USSF (custom HTML)            │\n├─────────────────────────────────────────────┤\n│  APIs:                                      │\n│  • Reddit Search   • arXiv OAI-PMH          │\n│  • Semantic Scholar• Google News proxy      │\n└─────────────────────────────────────────────┘\n```\n\n---\n\n## ⚡ Performance\n\n| Metric | Value |\n|--------|-------|\n| Cold start | ~2 seconds |\n| news.fetch (9 sources) | ~3 seconds |\n| news.fetch (223 sources) | ~25 seconds |\n| Cache hit ratio | ~90% (warm) |\n| Memory usage | 50-150 MB |\n\n---\n\n## 🔒 Security\n\n- ✅ **Local-only** — Runs on your machine\n- ✅ **No telemetry** — No data collection\n- ✅ **HTTPS only** — All external requests encrypted\n- ✅ **No API keys required** — For basic functionality\n- ✅ **User-controlled config** — You own your data\n\n---\n\n## 📦 Dependencies\n\n### Runtime (15)\n\n- @modelcontextprotocol/sdk — MCP protocol\n- cheerio — HTML parsing\n- pdf-parse — PDF text extraction\n- xml2js — arXiv XML parsing\n- p-queue — Concurrency control\n- undici — HTTP client\n- zod — Schema validation\n- js-yaml — YAML parsing\n- rss-parser — RSS/Atom parsing\n- pino — Logging\n- compromise — NLP (enrichment)\n- sentiment — Sentiment analysis\n- keyword-extractor — Keyword extraction\n- date-fns + date-fns-tz — Date handling\n\n### Development (5)\n\n- typescript\n- @types/node\n- @types/js-yaml\n- @types/xml2js\n- ts-node-dev\n\n---\n\n## 🧪 Development\n\n```bash\n# Install\nnpm install\n\n# Development mode (auto-reload)\nnpm run dev\n\n# Build\nnpm run build\n\n# Type check\nnpm run typecheck\n\n# Start production\nnpm start\n```\n\n---\n\n## 🐛 Troubleshooting\n\n### Server won't start\n\n```bash\n# Check Node version (must be v20+)\nnode --version\n\n# Rebuild\nrm -rf dist/\nnpm run build\n```\n\n### Config not loading\n\n```bash\n# Check user config directory\nls -la ~/.config/igs-mcp/\n\n# Force bootstrap\nrm -rf ~/.config/igs-mcp/\nnpm start\n```\n\n### Cache issues\n\n```bash\n# Clear all caches\nrm -rf ~/.config/igs-mcp/cache/\nrm -rf ./cache/\n```\n\n### Rate limiting\n\n- **Semantic Scholar:** 100 requests/day (free tier)\n- **Reddit:** ~60 requests/minute\n- **arXiv:** 3000 requests/day\n\nTool includes automatic retry with backoff.\n\n---\n\n## 📝 Changelog\n\n### v0.2.0 (April 2026)\n\n**Major Upgrade: Research Tools**\n\n- ✨ NEW: `reddit.search` — Dynamic Reddit search\n- ✨ NEW: `research.search` — arXiv + Semantic Scholar\n- ✨ NEW: `research.paper` — PDF extraction with citations\n- 🔧 Parallel source fetching (6 concurrent)\n- 🔧 Historical date queries via Google News URL rewriting\n- 🗑️ REMOVED: RSS-based Reddit/arXiv/Semantic Scholar sources\n- 📚 Added INSTALL.md and AUDIT_REPORT.md\n- 🛠️ Added `setup.sh` one-line installer with auto-config\n\n### v0.1.0 (Initial Release)\n\n- Core news fetching with pools/sources\n- RSS/HTTP parsers\n- YAML configuration\n- Local caching with ETag support\n\n---\n\n## 📄 License\n\nMIT License — See [LICENSE](LICENSE) file.\n\n---\n\n## 🙏 Acknowledgments\n\n- MCP SDK: [Model Context Protocol](https://modelcontextprotocol.io/)\n- arXiv API: [arXiv.org](https://arxiv.org/)\n- Semantic Scholar: [Allen Institute for AI](https://www.semanticscholar.org/)\n- Reddit API: [Reddit](https://www.reddit.com/dev/api/)\n\n---\n\n## 📬 Support\n\n- **Issues:** https://github.com/ishan-parihar/igs-mcp/issues\n- **Discussions:** https://github.com/ishan-parihar/igs-mcp/discussions\n",
+        "metadata": {
+          "preview": "{\n  \"name\": \"igs-mcp-server\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"description\": \"Intelligence Gathering System MCP server for managing RSS/HTTP news pools and fetching normalized updates.\",\n  \"scripts\": {\n    \"dev\": \"tsx watch src/server.ts\",\n    \"build\": \"tsc -p tsconfig.json\",\n    \"start\": \"node dist/server.js\",\n    \"typecheck\": \"tsc --noEmit\",\n    \"sync:config\": \"tsx scripts/sync_user_config.ts\"\n  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.29.0\",\n    \"@opendocsg/pdf2md\": \"^0.2.6\",\n    \"@tavily/core\": \"^0.7.2\",\n    \"cheerio\": \"^1.0.0\",\n    \"compromise\": \"^14.15.0\",\n    \"date-fns\": \"^4.1.0\",",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "package.json",
+        "time": {
+          "start": 1777711832741,
+          "end": 1777711832759
+        }
+      },
+      "id": "prt_de7e1dcbc0016rEBML0dYlwPwN",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_01_SD3OhCZnmPE2xKeJTHUZuP1t",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/README.md"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/README.md</path>\n<type>file</type>\n<content>\n1: # IGS MCP Server\n2: \n3: **Intelligence Gathering System** — Local-only MCP server for real-time news monitoring and academic research.\n4: \n5: [![npm](https://img.shields.io/npm/v/igs-mcp-server)](https://www.npmjs.com/package/igs-mcp-server)\n6: [![License](https://img.shields.io/github/license/ishan-parihar/igs-mcp)](https://github.com/ishan-parihar/igs-mcp/blob/main/LICENSE)\n7: \n8: ---\n9: \n10: ## 🎯 What It Does\n11: \n12: IGS is an MCP (Model Context Protocol) server that provides AI assistants with:\n13: \n14: 1. **News Monitoring** — Fetch from 223 curated RSS/HTTP sources (Reuters, BBC, Indian Express, etc.)\n15: 2. **Reddit Search** — Search any subreddit with time/sort filters\n16: 3. **Academic Research** — Search arXiv + Semantic Scholar papers with PDF extraction\n17: 4. **Historical Queries** — Access news from specific date ranges via Google News\n18: \n19: All processing happens **locally on your machine**. No data is sent to external servers except the news sources themselves.\n20: \n21: ---\n22: \n23: ## 🚀 Quick Start\n24: \n25: ### 1. Install & Configure (Recommended)\n26: \n27: ```bash\n28: git clone https://github.com/ishan-parihar/igs-mcp.git\n29: cd igs-mcp\n30: ./setup.sh\n31: ```\n32: \n33: The setup script checks prerequisites (Node.js v20+), installs dependencies, builds, bootstraps config files, and prints your Claude Desktop config at the end — ready to copy-paste.\n34: \n35: ### Manual Install\n36: \n37: ```bash\n38: git clone https://github.com/ishan-parihar/igs-mcp.git\n39: cd igs-mcp\n40: npm install\n41: npm run build\n42: ```\n43: \n44: ### 2. Configure Claude Desktop\n45: \n46: Edit `claude_desktop_config.json`:\n47: \n48: **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  \n49: **Windows:** `%APPDATA%\\Claude\\claude_desktop_config.json`  \n50: **Linux:** `~/.config/Claude/claude_desktop_config.json`\n51: \n52: ```json\n53: {\n54:   \"mcpServers\": {\n55:     \"igs\": {\n56:       \"command\": \"node\",\n57:       \"args\": [\"/absolute/path/to/igs-mcp/dist/server.js\"]\n58:     }\n59:   }\n60: }\n61: ```\n62: \n63: ### 3. Restart Claude Desktop\n64: \n65: Completely quit and relaunch Claude Desktop.\n66: \n67: ---\n68: \n69: ## 📚 Documentation\n70: \n71: | Document | Description |\n72: |----------|-------------|\n73: | [INSTALL.md](INSTALL.md) | Complete installation guide |\n74: | [AUDIT_REPORT.md](AUDIT_REPORT.md) | Installation audit & verification |\n75: | `docs/plans/` | Architecture & design documents |\n76: \n77: ---\n78: \n79: ## 🛠️ Available Tools\n80: \n81: ### News Monitoring\n82: \n83: | Tool | Description | Example |\n84: |------|-------------|---------|\n85: | `news.fetch` | Fetch from curated sources | `news.fetch(pools=['GLOBAL_BREAKING'], keywords=['AI'], limit=10)` |\n86: | `news.testSource` | Test single source | `news.testSource(id='reuters')` |\n87: \n88: ### Research Tools\n89: \n90: | Tool | Description | Example |\n91: |------|-------------|---------|\n92: | `reddit.search` | Search Reddit | `reddit.search(query='technology', subreddits=['news'], limit=10)` |\n93: | `research.search` | Search papers | `research.search(query='transformer', sources=['arxiv'], limit=10)` |\n94: | `research.paper` | Paper details + PDF | `research.paper(paperId='arxiv:2401.12345', extractPDF=true)` |\n95: \n96: ### Source Management\n97: \n98: | Tool | Description |\n99: |------|-------------|\n100: | `sources.list` | List all sources |\n101: | `sources.upsert` | Add/update source |\n102: | `sources.delete` | Remove source |\n103: | `sources.countries` | Countries with source counts |\n104: | `sources.cities` | Cities with source counts |\n105: | `sources.domains` | Topic domains |\n106: \n107: ### Pool Management\n108: \n109: | Tool | Description |\n110: |------|-------------|\n111: | `pools.list` | List all pools |\n112: | `pools.upsert` | Create/update pool |\n113: | `pools.delete` | Delete pool |\n114: \n115: ---\n116: \n117: ## 📊 Pre-configured Content\n118: \n119: ### News Pools (14)\n120: \n121: | Pool | Description | Sources |\n122: |------|-------------|---------|\n123: | `GLOBAL_BREAKING` | Fast breaking news | Reuters, BBC, FT, Al Jazeera |\n124: | `GLOBAL_GEOECON` | Geopolitics & geoeconomics | Foreign Affairs, RAND, Brookings |\n125: | `GLOBAL_LAW_REG` | Law & regulation | OFAC, Lawfare, SCOTUSblog |\n126: | `GLOBAL_TECH_CYBER` | Tech & cyber | MIT Tech Review, Ars Technica, CISA |\n127: | `GLOBAL_ENV_HEALTH` | Environment & health | WHO, Mongabay, Nature |\n128: | `GLOBAL_CULT_SOC` | Culture & society | Aeon, UnHerd, Noema |\n129: | `INDIA_NATIONAL_BASE` | India national | The Hindu, Indian Express, Economic Times |\n130: | `INDIA_WATCHDOG` | India investigative | Scroll.in, The Wire, Article 14 |\n131: | `INDIA_FACTCHECK_DATA` | India fact-check | Alt News, BOOM Live, IndiaSpend |\n132: | `INDIA_BUSINESS_REG` | India business | Moneycontrol, NSE, RBI, SEBI |\n133: | `INDIA_REGION` | India regional | IE South/East/Northeast |\n134: | `INDIA_CITIES` | India cities | Delhi, Mumbai, Bengaluru feeds |\n135: | `GLOBAL_COUNTRIES` | Country feeds | Guardian/France24 country feeds |\n136: | `GLOBAL_CITIES` | Global cities | London, NYC, Singapore |\n137: \n138: ### Source Inventory\n139: \n140: - **Total Sources:** 223\n141: - **Countries Covered:** 45\n142: - **Cities Covered:** 23\n143: - **Topic Domains:** 23 (geopolitics, finance, tech, science, etc.)\n144: \n145: ---\n146: \n147: ## 🔧 Configuration\n148: \n149: ### User Config Directory\n150: \n151: IGS stores configuration in:\n152: \n153: - **Linux/macOS:** `~/.config/igs-mcp/`\n154: - **Windows:** `%APPDATA%\\igs-mcp\\`\n155: - **Custom:** Set `IGS_CONFIG_DIR` environment variable\n156: \n157: ### Files\n158: \n159: ```\n160: ~/.config/igs-mcp/\n161: ├── pools.yml      # Pool definitions\n162: ├── sources.yml    # News sources (223 configured)\n163: └── settings.yml   # HTTP/cache settings\n164: ```\n165: \n166: ### Add Custom Source\n167: \n168: Edit `~/.config/igs-mcp/sources.yml`:\n169: \n170: ```yaml\n171: - id: my_tech_blog\n172:   name: My Tech Blog\n173:   type: rss\n174:   url: https://example.com/feed.xml\n175:   parser: rss\n176:   pools: [GLOBAL_TECH_CYBER]\n177:   countries: [US]\n178:   domains: [tech]\n179:   is_active: true\n180: ```\n181: \n182: No restart required — changes load automatically.\n183: \n184: ---\n185: \n186: ## 🏗️ Architecture\n187: \n188: ```\n189: ┌─────────────────────────────────────────────┐\n190: │           MCP Client (Claude)               │\n191: └─────────────────┬───────────────────────────┘\n192:                   │ stdio\n193: ┌─────────────────▼───────────────────────────┐\n194: │         IGS MCP Server (Node.js)            │\n195: ├─────────────────────────────────────────────┤\n196: │  Tools: 11 MCP tools                        │\n197: │  • news.fetch      • research.search        │\n198: │  • reddit.search   • research.paper         │\n199: │  • sources.*       • pools.*                │\n200: ├─────────────────────────────────────────────┤\n201: │  Parsers: 9 parsers                         │\n202: │  • RSS/Atom        • Generic HTML           │\n203: │  • Semantic Scholar• PDF extraction         │\n204: │  • OFAC, WHO, USSF (custom HTML)            │\n205: ├─────────────────────────────────────────────┤\n206: │  APIs:                                      │\n207: │  • Reddit Search   • arXiv OAI-PMH          │\n208: │  • Semantic Scholar• Google News proxy      │\n209: └─────────────────────────────────────────────┘\n210: ```\n211: \n212: ---\n213: \n214: ## ⚡ Performance\n215: \n216: | Metric | Value |\n217: |--------|-------|\n218: | Cold start | ~2 seconds |\n219: | news.fetch (9 sources) | ~3 seconds |\n220: | news.fetch (223 sources) | ~25 seconds |\n221: | Cache hit ratio | ~90% (warm) |\n222: | Memory usage | 50-150 MB |\n223: \n224: ---\n225: \n226: ## 🔒 Security\n227: \n228: - ✅ **Local-only** — Runs on your machine\n229: - ✅ **No telemetry** — No data collection\n230: - ✅ **HTTPS only** — All external requests encrypted\n231: - ✅ **No API keys required** — For basic functionality\n232: - ✅ **User-controlled config** — You own your data\n233: \n234: ---\n235: \n236: ## 📦 Dependencies\n237: \n238: ### Runtime (15)\n239: \n240: - @modelcontextprotocol/sdk — MCP protocol\n241: - cheerio — HTML parsing\n242: - pdf-parse — PDF text extraction\n243: - xml2js — arXiv XML parsing\n244: - p-queue — Concurrency control\n245: - undici — HTTP client\n246: - zod — Schema validation\n247: - js-yaml — YAML parsing\n248: - rss-parser — RSS/Atom parsing\n249: - pino — Logging\n250: - compromise — NLP (enrichment)\n251: - sentiment — Sentiment analysis\n252: - keyword-extractor — Keyword extraction\n253: - date-fns + date-fns-tz — Date handling\n254: \n255: ### Development (5)\n256: \n257: - typescript\n258: - @types/node\n259: - @types/js-yaml\n260: - @types/xml2js\n261: - ts-node-dev\n262: \n263: ---\n264: \n265: ## 🧪 Development\n266: \n267: ```bash\n268: # Install\n269: npm install\n270: \n271: # Development mode (auto-reload)\n272: npm run dev\n273: \n274: # Build\n275: npm run build\n276: \n277: # Type check\n278: npm run typecheck\n279: \n280: # Start production\n281: npm start\n282: ```\n283: \n284: ---\n285: \n286: ## 🐛 Troubleshooting\n287: \n288: ### Server won't start\n289: \n290: ```bash\n291: # Check Node version (must be v20+)\n292: node --version\n293: \n294: # Rebuild\n295: rm -rf dist/\n296: npm run build\n297: ```\n298: \n299: ### Config not loading\n300: \n301: ```bash\n302: # Check user config directory\n303: ls -la ~/.config/igs-mcp/\n304: \n305: # Force bootstrap\n306: rm -rf ~/.config/igs-mcp/\n307: npm start\n308: ```\n309: \n310: ### Cache issues\n311: \n312: ```bash\n313: # Clear all caches\n314: rm -rf ~/.config/igs-mcp/cache/\n315: rm -rf ./cache/\n316: ```\n317: \n318: ### Rate limiting\n319: \n320: - **Semantic Scholar:** 100 requests/day (free tier)\n321: - **Reddit:** ~60 requests/minute\n322: - **arXiv:** 3000 requests/day\n323: \n324: Tool includes automatic retry with backoff.\n325: \n326: ---\n327: \n328: ## 📝 Changelog\n329: \n330: ### v0.2.0 (April 2026)\n331: \n332: **Major Upgrade: Research Tools**\n333: \n334: - ✨ NEW: `reddit.search` — Dynamic Reddit search\n335: - ✨ NEW: `research.search` — arXiv + Semantic Scholar\n336: - ✨ NEW: `research.paper` — PDF extraction with citations\n337: - 🔧 Parallel source fetching (6 concurrent)\n338: - 🔧 Historical date queries via Google News URL rewriting\n339: - 🗑️ REMOVED: RSS-based Reddit/arXiv/Semantic Scholar sources\n340: - 📚 Added INSTALL.md and AUDIT_REPORT.md\n341: - 🛠️ Added `setup.sh` one-line installer with auto-config\n342: \n343: ### v0.1.0 (Initial Release)\n344: \n345: - Core news fetching with pools/sources\n346: - RSS/HTTP parsers\n347: - YAML configuration\n348: - Local caching with ETag support\n349: \n350: ---\n351: \n352: ## 📄 License\n353: \n354: MIT License — See [LICENSE](LICENSE) file.\n355: \n356: ---\n357: \n358: ## 🙏 Acknowledgments\n359: \n360: - MCP SDK: [Model Context Protocol](https://modelcontextprotocol.io/)\n361: - arXiv API: [arXiv.org](https://arxiv.org/)\n362: - Semantic Scholar: [Allen Institute for AI](https://www.semanticscholar.org/)\n363: - Reddit API: [Reddit](https://www.reddit.com/dev/api/)\n364: \n365: ---\n366: \n367: ## 📬 Support\n368: \n369: - **Issues:** https://github.com/ishan-parihar/igs-mcp/issues\n370: - **Discussions:** https://github.com/ishan-parihar/igs-mcp/discussions\n\n(End of file - total 370 lines)\n</content>",
+        "metadata": {
+          "preview": "# IGS MCP Server\n\n**Intelligence Gathering System** — Local-only MCP server for real-time news monitoring and academic research.\n\n[![npm](https://img.shields.io/npm/v/igs-mcp-server)](https://www.npmjs.com/package/igs-mcp-server)\n[![License](https://img.shields.io/github/license/ishan-parihar/igs-mcp)](https://github.com/ishan-parihar/igs-mcp/blob/main/LICENSE)\n\n---\n\n## 🎯 What It Does\n\nIGS is an MCP (Model Context Protocol) server that provides AI assistants with:\n\n1. **News Monitoring** — Fetch from 223 curated RSS/HTTP sources (Reuters, BBC, Indian Express, etc.)\n2. **Reddit Search** — Search any subreddit with time/sort filters\n3. **Academic Research** — Search arXiv + Semantic Scholar papers with PDF extraction\n4. **Historical Queries** — Access news from specific date ranges via Google News\n\nAll processing happens **locally on your machine**. No data is sent to external servers except the news sources themselves.\n",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "README.md",
+        "time": {
+          "start": 1777711833542,
+          "end": 1777711833774
+        }
+      },
+      "id": "prt_de7e1dea6001oComXtMMqKME9j",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_02_wxwJ2XW3sfQzvETHlqzJWHLD",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.ts</path>\n<type>file</type>\n<content>\n1: import path from 'node:path';\n2: import { loadSettings, loadSources, saveSources, getUserConfigDir } from '../src/config/loader.js';\n3: import { HttpClient } from '../src/http/client.js';\n4: import { QueryCache } from '../src/http/queryCache.js';\n5: import { parseRss } from '../src/parsers/rss.js';\n6: import { parseOfacHtml } from '../src/parsers/ofac.js';\n7: import { parseUssfcfcHtml } from '../src/parsers/ussf_cfc.js';\n8: import { parseWhoJson } from '../src/parsers/who_dons.js';\n9: import { parseNewslaundryHtml } from '../src/parsers/newslaundry.js';\n10: import type { Source, NewsItem } from '../src/types/news.js';\n11: \n12: async function upsertSource(s: Source) {\n13:   const sf = await loadSources();\n14:   const idx = sf.sources.findIndex(x => x.id === s.id);\n15:   if (idx >= 0) sf.sources[idx] = s; else sf.sources.push(s);\n16:   await saveSources(sf);\n17: }\n18: \n19: async function removeSource(id: string) {\n20:   const sf = await loadSources();\n21:   sf.sources = sf.sources.filter(s => s.id !== id);\n22:   await saveSources(sf);\n23: }\n24: \n25: async function parseBySource(source: Source, http: HttpClient, cacheMode: 'prefer'|'bypass'|'only'): Promise<NewsItem[]> {\n26:   const res = await http.fetch(source.url, source.headers || {}, cacheMode);\n27:   if (res.cached) {\n28:     return (res.cache.items as NewsItem[]);\n29:   }\n30:   if (!('response' in res)) return [];\n31:   let items: NewsItem[] = [];\n32:   switch (source.parser) {\n33:     case 'ofac': items = parseOfacHtml(source, res.response.bodyText); break;\n34:     case 'ussf_cfc': items = parseUssfcfcHtml(source, res.response.bodyText); break;\n35:     case 'who_dons': items = parseWhoJson(source, res.response.bodyText); break;\n36:     case 'newslaundry': items = parseNewslaundryHtml(source, res.response.bodyText); break;\n37:     case 'rss':\n38:     default:\n39:       items = await parseRss(source, res.response.bodyText, true);\n40:   }\n41:   await http.writeCache(source.url, items, (res as any).etag, (res as any).lastModified);\n42:   return items;\n43: }\n44: \n45: async function run() {\n46:   const settings = await loadSettings();\n47:   const baseCfg = getUserConfigDir();\n48:   const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n49:   const http = new HttpClient(settings.http, cacheDir);\n50: \n51:   // 1) Add test RSS source\n52:   const testRss: Source = {\n53:     id: 'test_rss_ars', name: 'Test Ars Technica (RSS)', type: 'rss',\n54:     url: 'http://feeds.arstechnica.com/arstechnica/index', parser: 'rss', pools: [], is_active: true\n55:   };\n56:   await upsertSource(testRss);\n57: \n58:   // 2) Add test HTTP source that returns RSS (no parser specified to exercise default)\n59:   const testHttpRss: Source = {\n60:     id: 'test_http_rss_ars', name: 'Test Ars Technica (HTTP RSS)', type: 'http',\n61:     url: 'http://feeds.arstechnica.com/arstechnica/index', pools: [], is_active: true\n62:   } as any;\n63:   await upsertSource(testHttpRss);\n64: \n65:   // 3) Ensure WHO DONs present (JSON HTTP)\n66:   const who: Source = {\n67:     id: 'test_who_dons', name: 'WHO DONs (Test Copy)', type: 'http',\n68:     url: 'https://www.who.int/api/emergencies/diseaseoutbreaknews', parser: 'who_dons', pools: [], is_active: true\n69:   };\n70:   await upsertSource(who);\n71: \n72:   const sources = [testRss, testHttpRss, who];\n73: \n74:   for (const src of sources) {\n75:     const items = await parseBySource(src, http, 'bypass');\n76:     console.log(`SOURCE ${src.id} (${src.type}${src.parser ? '/' + src.parser : ''}) -> ${items.length} items`);\n77:     for (const it of items.slice(0, 3)) {\n78:       console.log(`- ${it.pubDate} | ${it.title} | ${it.link}`);\n79:     }\n80:   }\n81: \n82:   // Cleanup test sources\n83:   await removeSource(testRss.id);\n84:   await removeSource(testHttpRss.id);\n85:   await removeSource(who.id);\n86: }\n87: \n88: run().catch((e) => { console.error(e); process.exit(1); });\n\n(End of file - total 88 lines)\n</content>",
+        "metadata": {
+          "preview": "import path from 'node:path';\nimport { loadSettings, loadSources, saveSources, getUserConfigDir } from '../src/config/loader.js';\nimport { HttpClient } from '../src/http/client.js';\nimport { QueryCache } from '../src/http/queryCache.js';\nimport { parseRss } from '../src/parsers/rss.js';\nimport { parseOfacHtml } from '../src/parsers/ofac.js';\nimport { parseUssfcfcHtml } from '../src/parsers/ussf_cfc.js';\nimport { parseWhoJson } from '../src/parsers/who_dons.js';\nimport { parseNewslaundryHtml } from '../src/parsers/newslaundry.js';\nimport type { Source, NewsItem } from '../src/types/news.js';\n\nasync function upsertSource(s: Source) {\n  const sf = await loadSources();\n  const idx = sf.sources.findIndex(x => x.id === s.id);\n  if (idx >= 0) sf.sources[idx] = s; else sf.sources.push(s);\n  await saveSources(sf);\n}\n\nasync function removeSource(id: string) {\n  const sf = await loadSources();",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/test_fetch.ts",
+        "time": {
+          "start": 1777711833790,
+          "end": 1777711833871
+        }
+      },
+      "id": "prt_de7e1e1cb00128ni5lAgkJ21s7",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_03_xd76HhziiwhruS5ATUDzuoGf",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.mjs"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.mjs</path>\n<type>file</type>\n<content>\n1: import path from 'node:path';\n2: import { loadSettings, loadSources, saveSources, getUserConfigDir } from '../dist/config/loader.js';\n3: import { HttpClient } from '../dist/http/client.js';\n4: import { QueryCache } from '../dist/http/queryCache.js';\n5: import { parseRss } from '../dist/parsers/rss.js';\n6: import { parseOfacHtml } from '../dist/parsers/ofac.js';\n7: import { parseUssfcfcHtml } from '../dist/parsers/ussf_cfc.js';\n8: import { parseWhoJson } from '../dist/parsers/who_dons.js';\n9: import { parseNewslaundryHtml } from '../dist/parsers/newslaundry.js';\n10: \n11: async function upsertSource(s) {\n12:   const sf = await loadSources();\n13:   const idx = sf.sources.findIndex(x => x.id === s.id);\n14:   if (idx >= 0) sf.sources[idx] = s; else sf.sources.push(s);\n15:   await saveSources(sf);\n16: }\n17: \n18: async function removeSource(id) {\n19:   const sf = await loadSources();\n20:   sf.sources = sf.sources.filter(s => s.id !== id);\n21:   await saveSources(sf);\n22: }\n23: \n24: async function parseBySource(source, http, cacheMode) {\n25:   const res = await http.fetch(source.url, source.headers || {}, cacheMode);\n26:   if (res.cached) {\n27:     return (res.cache.items);\n28:   }\n29:   if (!('response' in res)) return [];\n30:   let items = [];\n31:   switch (source.parser) {\n32:     case 'ofac': items = parseOfacHtml(source, res.response.bodyText); break;\n33:     case 'ussf_cfc': items = parseUssfcfcHtml(source, res.response.bodyText); break;\n34:     case 'who_dons': items = parseWhoJson(source, res.response.bodyText); break;\n35:     case 'newslaundry': items = parseNewslaundryHtml(source, res.response.bodyText); break;\n36:     case 'rss':\n37:     default:\n38:       items = await parseRss(source, res.response.bodyText, true);\n39:   }\n40:   await http.writeCache(source.url, items, res.etag, res.lastModified);\n41:   return items;\n42: }\n43: \n44: async function run() {\n45:   const settings = await loadSettings();\n46:   const baseCfg = getUserConfigDir();\n47:   const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n48:   const http = new HttpClient(settings.http, cacheDir);\n49:   // qcache unused here but would be used for multi-source merges\n50:   // const qcache = new QueryCache(cacheDir, settings.cache.queryTtlMs);\n51: \n52:   const testRss = { id: 'test_rss_ars', name: 'Test Ars Technica (RSS)', type: 'rss', url: 'http://feeds.arstechnica.com/arstechnica/index', parser: 'rss', pools: [], is_active: true };\n53:   await upsertSource(testRss);\n54:   const testHttpRss = { id: 'test_http_rss_ars', name: 'Test Ars Technica (HTTP RSS)', type: 'http', url: 'http://feeds.arstechnica.com/arstechnica/index', pools: [], is_active: true };\n55:   await upsertSource(testHttpRss);\n56:   const who = { id: 'test_who_dons', name: 'WHO DONs (Test Copy)', type: 'http', url: 'https://www.who.int/api/emergencies/diseaseoutbreaknews', parser: 'who_dons', pools: [], is_active: true };\n57:   await upsertSource(who);\n58: \n59:   const sources = [testRss, testHttpRss, who];\n60:   for (const src of sources) {\n61:     const items = await parseBySource(src, http, 'bypass');\n62:     console.log(`SOURCE ${src.id} (${src.type}${src.parser ? '/' + src.parser : ''}) -> ${items.length} items`);\n63:     for (const it of items.slice(0, 3)) {\n64:       console.log(`- ${it.pubDate} | ${it.title} | ${it.link}`);\n65:     }\n66:   }\n67: \n68:   await removeSource(testRss.id);\n69:   await removeSource(testHttpRss.id);\n70:   await removeSource(who.id);\n71: }\n72: \n73: run().catch((e) => { console.error(e); process.exit(1); });\n\n(End of file - total 73 lines)\n</content>",
+        "metadata": {
+          "preview": "import path from 'node:path';\nimport { loadSettings, loadSources, saveSources, getUserConfigDir } from '../dist/config/loader.js';\nimport { HttpClient } from '../dist/http/client.js';\nimport { QueryCache } from '../dist/http/queryCache.js';\nimport { parseRss } from '../dist/parsers/rss.js';\nimport { parseOfacHtml } from '../dist/parsers/ofac.js';\nimport { parseUssfcfcHtml } from '../dist/parsers/ussf_cfc.js';\nimport { parseWhoJson } from '../dist/parsers/who_dons.js';\nimport { parseNewslaundryHtml } from '../dist/parsers/newslaundry.js';\n\nasync function upsertSource(s) {\n  const sf = await loadSources();\n  const idx = sf.sources.findIndex(x => x.id === s.id);\n  if (idx >= 0) sf.sources[idx] = s; else sf.sources.push(s);\n  await saveSources(sf);\n}\n\nasync function removeSource(id) {\n  const sf = await loadSources();\n  sf.sources = sf.sources.filter(s => s.id !== id);",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/test_fetch.mjs",
+        "time": {
+          "start": 1777711834560,
+          "end": 1777711834623
+        }
+      },
+      "id": "prt_de7e1e312001FX8GBzFsZIkjq9",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_04_CkHJZfDZqVYRNFfOF3RZfCuW",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/full_system_test.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/full_system_test.ts</path>\n<type>file</type>\n<content>\n1: import { loadSources, loadSettings, getUserConfigDir } from '../src/config/loader.js';\n2: import { HttpClient } from '../src/http/client.js';\n3: import { parseRss } from '../src/parsers/rss.js';\n4: import { filterByKeywords } from '../src/tools/news.js';\n5: import path from 'node:path';\n6: \n7: async function testSourceHealth() {\n8:   console.log('\\n--- 1. Source Health Audit ---');\n9:   const settings = await loadSettings();\n10:   const baseCfg = getUserConfigDir();\n11:   const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n12:   const http = new HttpClient(settings.http, cacheDir);\n13:   const sf = await loadSources();\n14:   \n15:   const sampleSources = sf.sources.filter(s => s.is_active !== false).slice(0, 20);\n16:   let succeeded = 0;\n17:   \n18:   for (const src of sampleSources) {\n19:     try {\n20:       const res = await http.fetch(src.url, src.headers || {}, 'bypass');\n21:       if ('response' in res) {\n22:         const items = await parseRss(src, res.response.bodyText, true);\n23:         if (items.length > 0) {\n24:           console.log(`✅ ${src.id} [${src.name}]: OK (${items.length} items)`);\n25:           succeeded++;\n26:         } else {\n27:           console.log(`⚠️ ${src.id} [${src.name}]: Empty`);\n28:         }\n29:       } else {\n30:         console.log(`❌ ${src.id} [${src.name}]: Fetch failed`);\n31:       }\n32:     } catch (e) {\n33:       console.log(`❌ ${src.id} [${src.name}]: Error ${e}`);\n34:     }\n35:   }\n36:   console.log(`\\nHealth Summary: ${succeeded}/${sampleSources.length} sampled sources returned data.`);\n37: }\n38: \n39: async function testSemanticClusters() {\n40:   console.log('\\n--- 2. Semantic Cluster Testing ---');\n41:   \n42:   const mockItems = [\n43:     { title: 'Trump attack in Pennsylvania', content_snippet: '...', link: '...', pubDate: new Date().toISOString() },\n44:     { title: 'Assassination attempt on Donald Trump', content_snippet: '...', link: '...', pubDate: new Date().toISOString() },\n45:     { title: 'Generic news about weather', content_snippet: '...', link: '...', pubDate: new Date().toISOString() },\n46:     { title: 'Biden speaks on economy', content_snippet: '...', link: '...', pubDate: new Date().toISOString() },\n47:   ] as any[];\n48: \n49:   const clusters = [\n50:     ['Trump', 'Donald Trump'],\n51:     ['attack', 'assassination', 'shooting']\n52:   ];\n53: \n54:   const filtered = filterByKeywords(mockItems, clusters, [], true); // matchAll = true\n55:   console.log(`Items provided: ${mockItems.length}, Filtered with clusters: ${filtered.length}`);\n56:   \n57:   if (filtered.length === 2) {\n58:     console.log('✅ Semantic Cluster Filtering: PASSED (Correctly matched synonyms)');\n59:   } else {\n60:     console.log(`❌ Semantic Cluster Filtering: FAILED (Expected 2, got ${filtered.length})`);\n61:   }\n62: }\n63: \n64: async function testBatching() {\n65:   console.log('\\n--- 3. Smart Batching Testing ---');\n66:   \n67:   const mockItems = [\n68:     { id: '1', title: 'Trump attack in Pennsylvania', source_name: 'Reuters', pubDate: new Date().toISOString(), content_snippet: '...' },\n69:     { id: '2', title: 'Trump attack in PA', source_name: 'AP News', pubDate: new Date().toISOString(), content_snippet: '...' },\n70:     { id: '3', title: 'Trump assassination attempt in Pennsylvania', source_name: 'NYT', pubDate: new Date().toISOString(), content_snippet: '...' },\n71:     { id: '4', title: 'Climate change affects Arctic', source_name: 'Guardian', pubDate: new Date().toISOString(), content_snippet: '...' },\n72:     { id: '5', title: 'Arctic ice melting rapidly', source_name: 'BBC', pubDate: new Date().toISOString(), content_snippet: '...' },\n73:   ] as any[];\n74: \n75:   // We need to import batchSimilarNews, but it's not exported. \n76:   // For testing, we can use a modified version of the logic or I can export it.\n77:   // Since I just wrote it into news.ts, I'll use a proxy test if possible or \n78:   // I will simply manually implement the check in this script to verify the logic is sound.\n79:   \n80:   // Mocking the batchSimilarNews logic here for verification\n81:   const getWordSet = (text: string) => {\n82:     const words = text.toLowerCase().replace(/[^\\w\\s]/g, ' ').split(/\\s+/).filter(w => w.length > 2);\n83:     return new Set(words);\n84:   };\n85: \n86:   const results = [];\n87:   const used = new Set();\n88:   for (let i = 0; i < mockItems.length; i++) {\n89:     if (used.has(i)) continue;\n90:     const cluster = [i];\n91:     const setI = getWordSet(mockItems[i].title);\n92:     for (let j = i + 1; j < mockItems.length; j++) {\n93:       if (used.has(j)) continue;\n94:       const setJ = getWordSet(mockItems[j].title);\n95:       const intersection = new Set([...setI].filter(x => setJ.has(x)));\n96:       const union = new Set([...setI, ...setJ]);\n97:       if (intersection.size / union.size >= 0.3) cluster.push(j);\n98:     }\n99:     results.push(mockItems[cluster[0]]);\n100:     cluster.forEach(idx => used.add(idx));\n101:   }\n102: \n103:   console.log(`Original items: ${mockItems.length}, Batched items: ${results.length}`);\n104:   if (results.length === 2) {\n105:     console.log('✅ Smart Batching Logic: PASSED (Correctly collapsed 5 items into 2 clusters)');\n106:   } else {\n107:     console.log(`❌ Smart Batching Logic: FAILED (Expected 2, got ${results.length})`);\n108:   }\n109: }\n110: \n111: async function runAll() {\n112:   try {\n113:     await testSourceHealth();\n114:     await testSemanticClusters();\n115:     await testBatching();\n116:   } catch (e) {\n117:     console.error('Critical test failure:', e);\n118:   }\n119: }\n120: \n121: runAll();\n\n(End of file - total 121 lines)\n</content>",
+        "metadata": {
+          "preview": "import { loadSources, loadSettings, getUserConfigDir } from '../src/config/loader.js';\nimport { HttpClient } from '../src/http/client.js';\nimport { parseRss } from '../src/parsers/rss.js';\nimport { filterByKeywords } from '../src/tools/news.js';\nimport path from 'node:path';\n\nasync function testSourceHealth() {\n  console.log('\\n--- 1. Source Health Audit ---');\n  const settings = await loadSettings();\n  const baseCfg = getUserConfigDir();\n  const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n  const http = new HttpClient(settings.http, cacheDir);\n  const sf = await loadSources();\n  \n  const sampleSources = sf.sources.filter(s => s.is_active !== false).slice(0, 20);\n  let succeeded = 0;\n  \n  for (const src of sampleSources) {\n    try {\n      const res = await http.fetch(src.url, src.headers || {}, 'bypass');",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/full_system_test.ts",
+        "time": {
+          "start": 1777711835223,
+          "end": 1777711835268
+        }
+      },
+      "id": "prt_de7e1e5c1001cjt1Sklq5w3Do1",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_05_cwsCTscejz4cLIzHNUlx5TRg",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/test_new_sources.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/test_new_sources.ts</path>\n<type>file</type>\n<content>\n1: import { loadSettings, loadSources, getUserConfigDir } from '../dist/config/loader.js';\n2: import { HttpClient } from '../dist/http/client.js';\n3: import { parseRss } from '../dist/parsers/rss.js';\n4: import { autoParseHtml } from '../dist/parsers/generic_html.js';\n5: import { parseWhoJson } from '../dist/parsers/who_dons.js';\n6: import { parseNewslaundryHtml } from '../dist/parsers/newslaundry.js';\n7: \n8: // Test newly added sources\n9: const NEW_SOURCE_IDS = [\n10:   // GLOBAL_BREAKING additions\n11:   'ap_world', 'ap_us', 'bloomberg_markets', 'china_daily',\n12:   // GLOBAL_CITIES additions\n13:   'japan_times', 'news_on_japan', 'emirates247', 'dubai_chronicle',\n14:   'local_berlin', 'beijinger', 'hongkong_fp', 'standard_hk',\n15:   'google_news_tokyo', 'google_news_dubai', 'google_news_paris',\n16:   'google_news_berlin', 'google_news_beijing', 'google_news_sydney',\n17:   // GLOBAL_COUNTRIES native sources\n18:   'moscow_times', 'rt_russia', 'rt_russia_section',\n19:   'mehr_news', 'tasnim_news', 'tehran_times', 'iran_news_daily',\n20:   'brazil_news', 'mercopress_brazil',\n21:   'dawn_pakistan', 'dawn_pakistan_section',\n22:   'scmp_china', 'scmp_hongkong', 'scmp_world',\n23:   // GLOBAL_LAW_REG additions\n24:   'cjeu_press', 'wto_news', 'fatf_publications',\n25:   // GLOBAL_CULT_SOC additions\n26:   'african_arguments', 'kyoto_journal', 'conversation_africa', 'memo',\n27:   // INDIA_FACTCHECK_DATA additions\n28:   'factly', 'fact_crescendo', 'indiatoday_factcheck', 'newschecker',\n29: ];\n30: \n31: async function run() {\n32:   const settings = await loadSettings();\n33:   const baseCfg = getUserConfigDir();\n34:   const cacheDir = baseCfg + '/cache';\n35:   const http = new HttpClient(settings.http, cacheDir);\n36:   const sf = await loadSources();\n37: \n38:   let passed = 0, failed = 0;\n39:   const failures = [];\n40: \n41:   for (const id of NEW_SOURCE_IDS) {\n42:     const src = sf.sources.find(s => s.id === id);\n43:     if (!src) {\n44:       console.log(`✗ ${id}: NOT FOUND`);\n45:       failed++;\n46:       failures.push(id);\n47:       continue;\n48:     }\n49: \n50:     try {\n51:       const res = await http.fetch(src.url, src.headers || {}, 'bypass');\n52:       if (!('response' in res)) {\n53:         console.log(`✗ ${src.name}: NO RESPONSE`);\n54:         failed++;\n55:         failures.push(id);\n56:         continue;\n57:       }\n58: \n59:       const ctype = (res.response.headers['content-type'] || '').toLowerCase();\n60:       const body = res.response.bodyText;\n61:       let items;\n62: \n63:       if (src.parser === 'rss') {\n64:         items = await parseRss(src, body, true);\n65:       } else if (src.parser === 'generic_html') {\n66:         const auto = await autoParseHtml(src, body);\n67:         items = auto.items;\n68:       } else if (src.parser === 'who_dons') {\n69:         items = parseWhoJson(src, body);\n70:       } else if (src.parser === 'newslaundry') {\n71:         items = parseNewslaundryHtml(src, body);\n72:       } else {\n73:         items = body.length > 100 ? [{title: 'OK', link: src.url}] : [];\n74:       }\n75: \n76:       if (items && items.length > 0) {\n77:         console.log(`✓ ${src.name}: ${items.length} items`);\n78:         passed++;\n79:       } else {\n80:         console.log(`✗ ${src.name}: 0 items`);\n81:         failed++;\n82:         failures.push(id);\n83:       }\n84:     } catch (e) {\n85:       console.log(`✗ ${src.name}: ${e.message.slice(0, 80)}`);\n86:       failed++;\n87:       failures.push(id);\n88:     }\n89:   }\n90: \n91:   console.log('\\n' + '═'.repeat(50));\n92:   console.log(`Results: ${passed} passed, ${failed} failed, ${NEW_SOURCE_IDS.length} tested`);\n93:   if (failures.length) console.log(`Failed IDs: ${failures.join(', ')}`);\n94: }\n95: \n96: run().catch(e => { console.error(e); process.exit(1); });\n\n(End of file - total 96 lines)\n</content>",
+        "metadata": {
+          "preview": "import { loadSettings, loadSources, getUserConfigDir } from '../dist/config/loader.js';\nimport { HttpClient } from '../dist/http/client.js';\nimport { parseRss } from '../dist/parsers/rss.js';\nimport { autoParseHtml } from '../dist/parsers/generic_html.js';\nimport { parseWhoJson } from '../dist/parsers/who_dons.js';\nimport { parseNewslaundryHtml } from '../dist/parsers/newslaundry.js';\n\n// Test newly added sources\nconst NEW_SOURCE_IDS = [\n  // GLOBAL_BREAKING additions\n  'ap_world', 'ap_us', 'bloomberg_markets', 'china_daily',\n  // GLOBAL_CITIES additions\n  'japan_times', 'news_on_japan', 'emirates247', 'dubai_chronicle',\n  'local_berlin', 'beijinger', 'hongkong_fp', 'standard_hk',\n  'google_news_tokyo', 'google_news_dubai', 'google_news_paris',\n  'google_news_berlin', 'google_news_beijing', 'google_news_sydney',\n  // GLOBAL_COUNTRIES native sources\n  'moscow_times', 'rt_russia', 'rt_russia_section',\n  'mehr_news', 'tasnim_news', 'tehran_times', 'iran_news_daily',\n  'brazil_news', 'mercopress_brazil',",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/test_new_sources.ts",
+        "time": {
+          "start": 1777711835964,
+          "end": 1777711836104
+        }
+      },
+      "id": "prt_de7e1e858001uLuHcWEGyuKQ5H",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_06_8F5gldvxm2gFMNmPrT5m6RPZ",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/test_breaking_sources.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/test_breaking_sources.ts</path>\n<type>file</type>\n<content>\n1: import { loadSources, loadSettings, getUserConfigDir } from '../src/config/loader.js';\n2: import { HttpClient } from '../src/http/client.js';\n3: import { parseRss } from '../src/parsers/rss.js';\n4: import path from 'node:path';\n5: \n6: async function testSource(id: string) {\n7:   const settings = await loadSettings();\n8:   const baseCfg = getUserConfigDir();\n9:   const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n10:   const http = new HttpClient(settings.http, cacheDir);\n11:   const sf = await loadSources();\n12:   const src = sf.sources.find(s => s.id === id);\n13:   if (!src) {\n14:     console.log(`❌ Source ${id} not found`);\n15:     return;\n16:   }\n17:   console.log(`Testing source: ${src.name} (${src.url})`);\n18:   try {\n19:     const res = await http.fetch(src.url, src.headers || {}, 'bypass');\n20:     if ('response' in res) {\n21:       const items = await parseRss(src, res.response.bodyText, true);\n22:       console.log(`✅ ${id} returned ${items.length} items. Latest: ${items[0]?.title}`);\n23:     } else {\n24:       console.log(`❌ ${id} failed to fetch`);\n25:     }\n26:   } catch (e) {\n27:     console.log(`❌ ${id} error: ${e}`);\n28:   }\n29: }\n30: \n31: async function run() {\n32:   const breakingSources = ['ap_world', 'ap_us', 'nytimes', 'wsj', 'guardian_world'];\n33:   for (const id of breakingSources) {\n34:     await testSource(id);\n35:   }\n36: }\n37: \n38: run();\n\n(End of file - total 38 lines)\n</content>",
+        "metadata": {
+          "preview": "import { loadSources, loadSettings, getUserConfigDir } from '../src/config/loader.js';\nimport { HttpClient } from '../src/http/client.js';\nimport { parseRss } from '../src/parsers/rss.js';\nimport path from 'node:path';\n\nasync function testSource(id: string) {\n  const settings = await loadSettings();\n  const baseCfg = getUserConfigDir();\n  const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n  const http = new HttpClient(settings.http, cacheDir);\n  const sf = await loadSources();\n  const src = sf.sources.find(s => s.id === id);\n  if (!src) {\n    console.log(`❌ Source ${id} not found`);\n    return;\n  }\n  console.log(`Testing source: ${src.name} (${src.url})`);\n  try {\n    const res = await http.fetch(src.url, src.headers || {}, 'bypass');\n    if ('response' in res) {",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/test_breaking_sources.ts",
+        "time": {
+          "start": 1777711836477,
+          "end": 1777711836588
+        }
+      },
+      "id": "prt_de7e1eb3e001nCrP3F3gBL6WsH",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_07_CoCgVvqDpBw8MuiMxgLSLTXt",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/test_news_cache_behavior.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/test_news_cache_behavior.ts</path>\n<type>file</type>\n<content>\n1: import assert from 'node:assert/strict';\n2: import { buildQueryKeyForNews, resolveNewsCacheDependencyUrl, resolveNewsQueryTtlMs } from '../src/tools/news.js';\n3: \n4: const baseKey = buildQueryKeyForNews({\n5:   pools: ['GLOBAL_BREAKING'],\n6:   sources: ['reuters'],\n7:   start: '2026-04-25',\n8:   end: '2026-04-26',\n9:   limit: 50,\n10:   keywords: ['assassination'],\n11:   matchAll: false,\n12: });\n13: \n14: assert.notEqual(\n15:   baseKey,\n16:   buildQueryKeyForNews({\n17:     pools: ['GLOBAL_BREAKING'],\n18:     sources: ['reuters'],\n19:     start: '2026-04-25',\n20:     end: '2026-04-26',\n21:     limit: 50,\n22:     keywords: ['assassination'],\n23:     excludeKeywords: ['white house'],\n24:     matchAll: false,\n25:   }),\n26:   'excludeKeywords must affect the cache key'\n27: );\n28: \n29: assert.notEqual(\n30:   baseKey,\n31:   buildQueryKeyForNews({\n32:     pools: ['GLOBAL_BREAKING'],\n33:     sources: ['reuters'],\n34:     start: '2026-04-25',\n35:     end: '2026-04-26',\n36:     limit: 50,\n37:     keywords: ['assassination'],\n38:     matchAll: false,\n39:     discoveryMode: true,\n40:   }),\n41:   'discoveryMode must affect the cache key'\n42: );\n43: \n44: assert.equal(\n45:   resolveNewsCacheDependencyUrl('https://news.google.com/rss/search?q=site%3Areuters.com', {\n46:     start: '2026-04-25',\n47:     end: '2026-04-26',\n48:     keywords: ['assassination'],\n49:   }),\n50:   'https://news.google.com/rss/search?q=site%3Areuters.com+after%3A2026-04-25+before%3A2026-04-26+assassination'\n51: );\n52: \n53: assert.equal(\n54:   resolveNewsQueryTtlMs(600000, { discoveryMode: true }),\n55:   60000,\n56:   'discovery mode should clamp query TTL to 60s'\n57: );\n58: \n59: console.log('news cache behavior checks passed');\n\n(End of file - total 59 lines)\n</content>",
+        "metadata": {
+          "preview": "import assert from 'node:assert/strict';\nimport { buildQueryKeyForNews, resolveNewsCacheDependencyUrl, resolveNewsQueryTtlMs } from '../src/tools/news.js';\n\nconst baseKey = buildQueryKeyForNews({\n  pools: ['GLOBAL_BREAKING'],\n  sources: ['reuters'],\n  start: '2026-04-25',\n  end: '2026-04-26',\n  limit: 50,\n  keywords: ['assassination'],\n  matchAll: false,\n});\n\nassert.notEqual(\n  baseKey,\n  buildQueryKeyForNews({\n    pools: ['GLOBAL_BREAKING'],\n    sources: ['reuters'],\n    start: '2026-04-25',\n    end: '2026-04-26',",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/test_news_cache_behavior.ts",
+        "time": {
+          "start": 1777711837101,
+          "end": 1777711837144
+        }
+      },
+      "id": "prt_de7e1ed3f00193gfYGAWNY9m6y",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_08_oOTDYDhUvKCs0vvoUnFwf53A",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/verify_sources.mjs"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/verify_sources.mjs</path>\n<type>file</type>\n<content>\n1: import path from 'node:path';\n2: import { loadSettings, loadSources, getUserConfigDir } from '../dist/config/loader.js';\n3: import { HttpClient } from '../dist/http/client.js';\n4: import { parseRss } from '../dist/parsers/rss.js';\n5: import { parseJsonFeed } from '../dist/parsers/json_feed.js';\n6: \n7: // Sample one source per major pool category (RSS-only to keep verification simple)\n8: const TEST_IDS = [\n9:   'bbc_world',            // GLOBAL_BREAKING\n10:   'the_diplomat',         // GLOBAL_GEOECON\n11:   'mit_tech_review',      // GLOBAL_TECH_CYBER\n12:   'aeon',                 // GLOBAL_CULT_SOC\n13:   'the_hindu',            // INDIA_NATIONAL_BASE\n14:   'scroll_in',            // INDIA_NATIONAL_BASE + WATCHDOG\n15:   'altnews',              // INDIA_FACTCHECK_DATA\n16:   'the_hindu_delhi',      // INDIA_CITIES\n17:   'ie_national',          // INDIA_NATIONAL_BASE\n18: ];\n19: \n20: async function run() {\n21:   const settings = await loadSettings();\n22:   const baseCfg = getUserConfigDir();\n23:   const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n24:   const http = new HttpClient(settings.http, cacheDir);\n25:   const sf = await loadSources();\n26: \n27:   let passed = 0, failed = 0;\n28: \n29:   for (const id of TEST_IDS) {\n30:     const src = sf.sources.find(s => s.id === id);\n31:     if (!src) { console.log(`⚠ ${id}: not found in user config`); failed++; continue; }\n32: \n33:     try {\n34:       const res = await http.fetch(src.url, src.headers || {}, 'bypass');\n35:       if (!('response' in res)) { console.log(`⚠ ${id}: no response`); failed++; continue; }\n36: \n37:       const ctype = (res.response.headers['content-type'] || '').toLowerCase();\n38:       const body = res.response.bodyText;\n39: \n40:       let items;\n41:       if (ctype.includes('json') || /^[\\[{]/.test(body.trim())) {\n42:         items = parseJsonFeed(src, body);\n43:       } else {\n44:         items = await parseRss(src, body, true);\n45:       }\n46: \n47:       if (items && items.length > 0) {\n48:         console.log(`✓ ${src.name}: ${items.length} items [${src.pools.join(', ')}]`);\n49:         passed++;\n50:       } else {\n51:         console.log(`✗ ${src.name}: 0 items [${src.pools.join(', ')}]`);\n52:         failed++;\n53:       }\n54:     } catch (e) {\n55:       console.log(`✗ ${src.name}: ${e.message}`);\n56:       failed++;\n57:     }\n58:   }\n59: \n60:   console.log(`\\nResults: ${passed} passed, ${failed} failed, ${TEST_IDS.length} total`);\n61: }\n62: \n63: run().catch(e => { console.error(e); process.exit(1); });\n\n(End of file - total 63 lines)\n</content>",
+        "metadata": {
+          "preview": "import path from 'node:path';\nimport { loadSettings, loadSources, getUserConfigDir } from '../dist/config/loader.js';\nimport { HttpClient } from '../dist/http/client.js';\nimport { parseRss } from '../dist/parsers/rss.js';\nimport { parseJsonFeed } from '../dist/parsers/json_feed.js';\n\n// Sample one source per major pool category (RSS-only to keep verification simple)\nconst TEST_IDS = [\n  'bbc_world',            // GLOBAL_BREAKING\n  'the_diplomat',         // GLOBAL_GEOECON\n  'mit_tech_review',      // GLOBAL_TECH_CYBER\n  'aeon',                 // GLOBAL_CULT_SOC\n  'the_hindu',            // INDIA_NATIONAL_BASE\n  'scroll_in',            // INDIA_NATIONAL_BASE + WATCHDOG\n  'altnews',              // INDIA_FACTCHECK_DATA\n  'the_hindu_delhi',      // INDIA_CITIES\n  'ie_national',          // INDIA_NATIONAL_BASE\n];\n\nasync function run() {",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/verify_sources.mjs",
+        "time": {
+          "start": 1777711837587,
+          "end": 1777711837778
+        }
+      },
+      "id": "prt_de7e1efb0001oZU0bI6lJ06lgR",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_09_fsaq5P5b7rTWV8JSI15OPjSW",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/verify_all_pools.mjs"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/verify_all_pools.mjs</path>\n<type>file</type>\n<content>\n1: import path from 'node:path';\n2: import { loadSettings, loadSources, getUserConfigDir } from '../dist/config/loader.js';\n3: import { HttpClient } from '../dist/http/client.js';\n4: import { parseRss } from '../dist/parsers/rss.js';\n5: import { parseJsonFeed } from '../dist/parsers/json_feed.js';\n6: import { autoParseHtml } from '../dist/parsers/generic_html.js';\n7: import { parseOfacHtml } from '../dist/parsers/ofac.js';\n8: import { parseWhoJson } from '../dist/parsers/who_dons.js';\n9: import { parseNewslaundryHtml } from '../dist/parsers/newslaundry.js';\n10: \n11: // Sample 1-2 from each pool to keep test manageable\n12: const TEST_IDS = [\n13:   // GLOBAL_BREAKING\n14:   'bbc_world', 'aljazeera', 'reuters_india',\n15:   // GLOBAL_GEOECON\n16:   'the_diplomat', 'rand', 'brookings', 'india_geoecon',\n17:   // GLOBAL_LAW_REG\n18:   'et_legal', 'scotusblog', 'india_law_news', 'global_sanctions',\n19:   // GLOBAL_TECH_CYBER\n20:   'techcrunch', 'the_verge', 'darkreading', 'medianama', 'hackernews',\n21:   // GLOBAL_ENV_HEALTH\n22:   'nature_news', 'science_mag', 'mongabay',\n23:   // GLOBAL_CULT_SOC\n24:   'aeon', 'noema',\n25:   // INDIA_NATIONAL_BASE\n26:   'the_hindu', 'ie_national', 'india_national_gn', 'mint_politics',\n27:   // INDIA_WATCHDOG\n28:   'scroll_in', 'the_wire', 'newslaundry',\n29:   // INDIA_FACTCHECK_DATA\n30:   'altnews', 'indiaspend',\n31:   // INDIA_BUSINESS_REG\n32:   'moneycontrol', 'livemint', 'mint_markets', 'india_business_news',\n33:   // INDIA_REGION\n34:   'ie_south', 'the_hindu_tamil_nadu',\n35:   // INDIA_CITIES\n36:   'the_hindu_delhi', 'ie_mumbai',\n37: ];\n38: \n39: async function run() {\n40:   const settings = await loadSettings();\n41:   const baseCfg = getUserConfigDir();\n42:   const cacheDir = path.isAbsolute(settings.cache.dir) ? settings.cache.dir : path.join(baseCfg, settings.cache.dir);\n43:   const http = new HttpClient(settings.http, cacheDir);\n44:   const sf = await loadSources();\n45: \n46:   let passed = 0, failed = 0;\n47:   const failures = [];\n48: \n49:   for (const id of TEST_IDS) {\n50:     const src = sf.sources.find(s => s.id === id);\n51:     if (!src) { console.log(`⚠ ${id}: not found in config`); failed++; failures.push(id); continue; }\n52: \n53:     try {\n54:       const res = await http.fetch(src.url, src.headers || {}, 'bypass');\n55:       if (!('response' in res)) { console.log(`⚠ ${id}: no response`); failed++; failures.push(id); continue; }\n56: \n57:       const ctype = (res.response.headers['content-type'] || '').toLowerCase();\n58:       const body = res.response.bodyText;\n59:       let items;\n60: \n61:       switch (src.parser) {\n62:         case 'ofac': items = parseOfacHtml(src, body); break;\n63:         case 'who_dons': items = parseWhoJson(src, body); break;\n64:         case 'newslaundry': items = parseNewslaundryHtml(src, body); break;\n65:         case 'generic_html': {\n66:           const auto = await autoParseHtml(src, body);\n67:           items = auto.items;\n68:           break;\n69:         }\n70:         default:\n71:           if (ctype.includes('json') || /^[\\[{]/.test(body.trim())) {\n72:             items = parseJsonFeed(src, body);\n73:           } else {\n74:             items = await parseRss(src, body, true);\n75:           }\n76:       }\n77: \n78:       if (items && items.length > 0) {\n79:         console.log(`✓ ${src.name}: ${items.length} items [${src.pools.join(', ')}]`);\n80:         passed++;\n81:       } else {\n82:         console.log(`✗ ${src.name}: 0 items [${src.pools.join(', ')}]`);\n83:         failed++;\n84:         failures.push(id);\n85:       }\n86:     } catch (e) {\n87:       console.log(`✗ ${src.name}: ${e.message.slice(0, 80)}`);\n88:       failed++;\n89:       failures.push(id);\n90:     }\n91:   }\n92: \n93:   console.log(`\\n${'═'.repeat(50)}`);\n94:   console.log(`Results: ${passed} passed, ${failed} failed, ${TEST_IDS.length} tested`);\n95:   if (failures.length) console.log(`Failed IDs: ${failures.join(', ')}`);\n96: }\n97: \n98: run().catch(e => { console.error(e); process.exit(1); });\n\n(End of file - total 98 lines)\n</content>",
+        "metadata": {
+          "preview": "import path from 'node:path';\nimport { loadSettings, loadSources, getUserConfigDir } from '../dist/config/loader.js';\nimport { HttpClient } from '../dist/http/client.js';\nimport { parseRss } from '../dist/parsers/rss.js';\nimport { parseJsonFeed } from '../dist/parsers/json_feed.js';\nimport { autoParseHtml } from '../dist/parsers/generic_html.js';\nimport { parseOfacHtml } from '../dist/parsers/ofac.js';\nimport { parseWhoJson } from '../dist/parsers/who_dons.js';\nimport { parseNewslaundryHtml } from '../dist/parsers/newslaundry.js';\n\n// Sample 1-2 from each pool to keep test manageable\nconst TEST_IDS = [\n  // GLOBAL_BREAKING\n  'bbc_world', 'aljazeera', 'reuters_india',\n  // GLOBAL_GEOECON\n  'the_diplomat', 'rand', 'brookings', 'india_geoecon',\n  // GLOBAL_LAW_REG\n  'et_legal', 'scotusblog', 'india_law_news', 'global_sanctions',\n  // GLOBAL_TECH_CYBER\n  'techcrunch', 'the_verge', 'darkreading', 'medianama', 'hackernews',",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/verify_all_pools.mjs",
+        "time": {
+          "start": 1777711838309,
+          "end": 1777711838369
+        }
+      },
+      "id": "prt_de7e1f196001xWBlpfBuDXoj64",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_10_qCCLDUf2UgzGb07bjPAV83kS",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details.ts</path>\n<type>file</type>\n<content>\n1: import fs from 'node:fs/promises';\n2: import yaml from 'js-yaml';\n3: \n4: async function run() {\n5:   const sourcesFile = 'config/sources.yml';\n6:   const sourcesDoc = yaml.load(await fs.readFile(sourcesFile, 'utf8'));\n7:   const sources = sourcesDoc.sources;\n8: \n9:   console.log('--- GLOBAL_CITIES Sources ---');\n10:   sources.filter(s => s.pools.includes('GLOBAL_CITIES')).forEach(s => {\n11:     console.log(`- ${s.name} (${s.url})`);\n12:   });\n13: \n14:   console.log('\\n--- INDIA_FACTCHECK_DATA Sources ---');\n15:   sources.filter(s => s.pools.includes('INDIA_FACTCHECK_DATA')).forEach(s => {\n16:     console.log(`- ${s.name} (${s.url})`);\n17:   });\n18: \n19:   console.log('\\n--- GLOBAL_CULT_SOC Sources ---');\n20:   sources.filter(s => s.pools.includes('GLOBAL_CULT_SOC')).forEach(s => {\n21:     console.log(`- ${s.name} (${s.url})`);\n22:   });\n23: \n24:   // Check country distribution in GLOBAL_COUNTRIES\n25:   const countries = {};\n26:   sources.filter(s => s.pools.includes('GLOBAL_COUNTRIES')).forEach(s => {\n27:     (s.countries || []).forEach(c => {\n28:       countries[c] = (countries[c] || 0) + 1;\n29:     });\n30:   });\n31: \n32:   console.log('\\n--- GLOBAL_COUNTRIES Distribution (Top 20) ---');\n33:   Object.entries(countries)\n34:     .sort((a, b) => b[1] - a[1])\n35:     .slice(0, 20)\n36:     .forEach(([c, count]) => {\n37:       console.log(`${c.padEnd(10)}: ${count}`);\n38:     });\n39: }\n40: \n41: run().catch(console.error);\n\n(End of file - total 41 lines)\n</content>",
+        "metadata": {
+          "preview": "import fs from 'node:fs/promises';\nimport yaml from 'js-yaml';\n\nasync function run() {\n  const sourcesFile = 'config/sources.yml';\n  const sourcesDoc = yaml.load(await fs.readFile(sourcesFile, 'utf8'));\n  const sources = sourcesDoc.sources;\n\n  console.log('--- GLOBAL_CITIES Sources ---');\n  sources.filter(s => s.pools.includes('GLOBAL_CITIES')).forEach(s => {\n    console.log(`- ${s.name} (${s.url})`);\n  });\n\n  console.log('\\n--- INDIA_FACTCHECK_DATA Sources ---');\n  sources.filter(s => s.pools.includes('INDIA_FACTCHECK_DATA')).forEach(s => {\n    console.log(`- ${s.name} (${s.url})`);\n  });\n\n  console.log('\\n--- GLOBAL_CULT_SOC Sources ---');\n  sources.filter(s => s.pools.includes('GLOBAL_CULT_SOC')).forEach(s => {",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/check_pool_details.ts",
+        "time": {
+          "start": 1777711839071,
+          "end": 1777711839191
+        }
+      },
+      "id": "prt_de7e1f467001O3An6AN9a8qXGr",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1cf7b001BrUkNN21Lzvfc5"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_00_PPVnZdimfERzJwVRvDtBMWj4",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts</path>\n<type>directory</type>\n<entries>\nadd_sources.mjs\nanalyze_source_gaps.ts\nautodiscover_sites.mjs\nbuild_global_feeds.mjs\ncheck_pool_details_2.ts\ncheck_pool_details.ts\nclean_unreliable_sources.mjs\nfill_pool_gaps.mjs\nfix_broken_feeds.mjs\nfix_haaretz_yaml.mjs\nforce_sync_defaults.mjs\nfull_system_test.ts\nmigrate_pools.mjs\nseed_priority_countries.mjs\nsync_user_config.ts\ntest_breaking_sources.ts\ntest_config_loader_merge.ts\ntest_fetch.mjs\ntest_fetch.ts\ntest_new_sources.ts\ntest_news_cache_behavior.ts\nverify_all_pools.mjs\nverify_countries.mjs\nverify_sources.mjs\n\n(24 entries)\n</entries>",
+        "metadata": {
+          "preview": "add_sources.mjs\nanalyze_source_gaps.ts\nautodiscover_sites.mjs\nbuild_global_feeds.mjs\ncheck_pool_details_2.ts\ncheck_pool_details.ts\nclean_unreliable_sources.mjs\nfill_pool_gaps.mjs\nfix_broken_feeds.mjs\nfix_haaretz_yaml.mjs\nforce_sync_defaults.mjs\nfull_system_test.ts\nmigrate_pools.mjs\nseed_priority_countries.mjs\nsync_user_config.ts\ntest_breaking_sources.ts\ntest_config_loader_merge.ts\ntest_fetch.mjs\ntest_fetch.ts\ntest_new_sources.ts",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts",
+        "time": {
+          "start": 1777711843512,
+          "end": 1777711843531
+        }
+      },
+      "id": "prt_de7e20727001iHkMBO6QNcgOq3",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_01_am5CEJh2QDkrwE5aLatW97kM",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/src"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/src</path>\n<type>directory</type>\n<entries>\nconfig/\nhttp/\nnlp/\nnormalize/\nparsers/\nserver.ts\nstorage/\ntools/\ntypes/\nutils/\n\n(10 entries)\n</entries>",
+        "metadata": {
+          "preview": "config/\nhttp/\nnlp/\nnormalize/\nparsers/\nserver.ts\nstorage/\ntools/\ntypes/\nutils/",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "src",
+        "time": {
+          "start": 1777711844049,
+          "end": 1777711844117
+        }
+      },
+      "id": "prt_de7e209270010S0jyveSE5HIc5",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "grep",
+      "callID": "call_02_vvuzhXChThc9pIisSCjgKZGf",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "INDIA_CITIES|GLOBAL_CITIES",
+          "include": "*.yml",
+          "path": "/home/ishanp/Documents/GitHub/IGS/config",
+          "output_mode": "content"
+        },
+        "output": "Found 99 match(es) in 2 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/config/sources.yml\n  1480: - INDIA_CITIES\n  1495: - INDIA_CITIES\n  1510: - INDIA_CITIES\n  1525: - INDIA_CITIES\n  1540: - INDIA_CITIES\n  1555: - INDIA_CITIES\n  1570: - INDIA_CITIES\n  1585: - INDIA_CITIES\n  1600: - INDIA_CITIES\n  1615: - INDIA_CITIES\n  1630: - INDIA_CITIES\n  1645: - INDIA_CITIES\n  1660: - INDIA_CITIES\n  1675: - INDIA_CITIES\n  1690: - INDIA_CITIES\n  1705: - INDIA_CITIES\n  1720: - INDIA_CITIES\n  1735: - INDIA_CITIES\n  1750: - INDIA_CITIES\n  1765: - INDIA_CITIES\n  1780: - INDIA_CITIES\n  1795: - INDIA_CITIES\n  1810: - INDIA_CITIES\n  1825: - INDIA_CITIES\n  1840: - INDIA_CITIES\n  1855: - INDIA_CITIES\n  1870: - INDIA_CITIES\n  1885: - INDIA_CITIES\n  1900: - INDIA_CITIES\n  1915: - INDIA_CITIES\n  1930: - INDIA_CITIES\n  1945: - INDIA_CITIES\n  1960: - INDIA_CITIES\n  1975: - INDIA_CITIES\n  1990: - INDIA_CITIES\n  2005: - INDIA_CITIES\n  2020: - INDIA_CITIES\n  2035: - INDIA_CITIES\n  2050: - INDIA_CITIES\n  2065: - INDIA_CITIES\n  2080: - INDIA_CITIES\n  2095: - INDIA_CITIES\n  2110: - INDIA_CITIES\n  2125: - INDIA_CITIES\n  2140: - INDIA_CITIES\n  2155: - INDIA_CITIES\n  2170: - INDIA_CITIES\n  2185: - INDIA_CITIES\n  2200: - INDIA_CITIES\n  2215: - INDIA_CITIES\n  2230: - INDIA_CITIES\n  2245: - INDIA_CITIES\n  2260: - INDIA_CITIES\n  2275: - INDIA_CITIES\n  2290: - INDIA_CITIES\n  2305: - INDIA_CITIES\n  2320: - INDIA_CITIES\n  2335: - INDIA_CITIES\n  2350: - INDIA_CITIES\n  2365: - INDIA_CITIES\n  2380: - GLOBAL_CITIES\n  2395: - GLOBAL_CITIES\n  2410: - GLOBAL_CITIES\n  2425: - GLOBAL_CITIES\n  2440: - GLOBAL_CITIES\n  2455: - GLOBAL_CITIES\n  2470: - GLOBAL_CITIES\n  2485: - GLOBAL_CITIES\n  2500: - GLOBAL_CITIES\n  2515: - GLOBAL_CITIES\n  2530: - GLOBAL_CITIES\n  2545: - GLOBAL_CITIES\n  2560: - GLOBAL_CITIES\n  2575: - GLOBAL_CITIES\n  2590: - GLOBAL_CITIES\n  2605: - GLOBAL_CITIES\n  2620: - GLOBAL_CITIES\n  2635: - GLOBAL_CITIES\n  2650: - GLOBAL_CITIES\n  2665: - GLOBAL_CITIES\n  2680: - GLOBAL_CITIES\n  2695: - GLOBAL_CITIES\n  2710: - GLOBAL_CITIES\n  2725: - GLOBAL_CITIES\n  2740: - GLOBAL_CITIES\n  2755: - GLOBAL_CITIES\n  2770: - GLOBAL_CITIES\n  2785: - GLOBAL_CITIES\n  2800: - GLOBAL_CITIES\n  2815: - GLOBAL_CITIES\n  2830: - GLOBAL_CITIES\n  2845: - GLOBAL_CITIES\n  2860: - GLOBAL_CITIES\n  2875: - GLOBAL_CITIES\n  2890: - GLOBAL_CITIES\n  2905: - GLOBAL_CITIES\n  2920: - GLOBAL_CITIES\n\n/home/ishanp/Documents/GitHub/IGS/config/pools.yml\n  59: - id: INDIA_CITIES\n  69: - id: GLOBAL_CITIES\n",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711845154,
+          "end": 1777711845242
+        }
+      },
+      "id": "prt_de7e20b370015cae4Yha9UJ5l9",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "glob",
+      "callID": "call_03_sT3999lRfgCmR0sSP5u0WF1u",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "config/**/*.yml",
+          "path": "/home/ishanp/Documents/GitHub/IGS"
+        },
+        "output": "Found 4 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/config/sources.yml\n/home/ishanp/Documents/GitHub/IGS/config/settings.yml\n/home/ishanp/Documents/GitHub/IGS/config/pools.yml\n/home/ishanp/Documents/GitHub/IGS/config/countries.yml",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711845848,
+          "end": 1777711845880
+        }
+      },
+      "id": "prt_de7e21068001P7iaz3HzZvhlzc",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_04_nuKEqMQ4MCU8j10EkmYwUkPx",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/test_config_loader_merge.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/test_config_loader_merge.ts</path>\n<type>file</type>\n<content>\n1: import assert from 'node:assert/strict';\n2: import fs from 'node:fs/promises';\n3: import os from 'node:os';\n4: import path from 'node:path';\n5: \n6: const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'igs-config-'));\n7: await fs.writeFile(\n8:   path.join(tmpDir, 'sources.yml'),\n9:   `sources:\\n  - id: reuters\\n    name: Reuters (via Google News)\\n    type: rss\\n    url: https://news.google.com/rss/search?q=site%3Areuters.com&hl=en-US&gl=US&ceid=US%3Aen\\n    parser: rss\\n    pools: [GLOBAL_BREAKING]\\n    countries: [ALL]\\n    domains: [breaking, geopolitics, business, finance]\\n    is_active: true\\n`,\n10:   'utf8'\n11: );\n12: \n13: process.env.IGS_CONFIG_DIR = tmpDir;\n14: \n15: const { loadSources } = await import('../src/config/loader.js');\n16: \n17: const loaded = await loadSources();\n18: \n19: assert(loaded.sources.length > 1, 'default sources should be merged into stale user config');\n20: assert(loaded.sources.some(s => s.id === 'bbc_world'), 'merged config should include default sources like BBC World News');\n21: \n22: console.log('config loader merge checks passed');\n\n(End of file - total 22 lines)\n</content>",
+        "metadata": {
+          "preview": "import assert from 'node:assert/strict';\nimport fs from 'node:fs/promises';\nimport os from 'node:os';\nimport path from 'node:path';\n\nconst tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'igs-config-'));\nawait fs.writeFile(\n  path.join(tmpDir, 'sources.yml'),\n  `sources:\\n  - id: reuters\\n    name: Reuters (via Google News)\\n    type: rss\\n    url: https://news.google.com/rss/search?q=site%3Areuters.com&hl=en-US&gl=US&ceid=US%3Aen\\n    parser: rss\\n    pools: [GLOBAL_BREAKING]\\n    countries: [ALL]\\n    domains: [breaking, geopolitics, business, finance]\\n    is_active: true\\n`,\n  'utf8'\n);\n\nprocess.env.IGS_CONFIG_DIR = tmpDir;\n\nconst { loadSources } = await import('../src/config/loader.js');\n\nconst loaded = await loadSources();\n\nassert(loaded.sources.length > 1, 'default sources should be merged into stale user config');\nassert(loaded.sources.some(s => s.id === 'bbc_world'), 'merged config should include default sources like BBC World News');",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/test_config_loader_merge.ts",
+        "time": {
+          "start": 1777711846435,
+          "end": 1777711846480
+        }
+      },
+      "id": "prt_de7e2125d001NiYI7aA7u2RpdY",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_05_G1qmcM5KHDmJycZWGheme9zg",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details_2.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details_2.ts</path>\n<type>file</type>\n<content>\n1: import fs from 'node:fs/promises';\n2: import yaml from 'js-yaml';\n3: \n4: async function run() {\n5:   const sourcesFile = 'config/sources.yml';\n6:   const sourcesDoc = yaml.load(await fs.readFile(sourcesFile, 'utf8'));\n7:   const sources = sourcesDoc.sources;\n8: \n9:   console.log('--- GLOBAL_TECH_CYBER Sources ---');\n10:   sources.filter(s => s.pools.includes('GLOBAL_TECH_CYBER')).forEach(s => {\n11:     console.log(`- ${s.name} (${s.url})`);\n12:   });\n13: \n14:   const countries = {};\n15:   sources.filter(s => s.pools.includes('GLOBAL_COUNTRIES')).forEach(s => {\n16:     (s.countries || []).forEach(c => {\n17:       countries[c] = (countries[c] || 0) + 1;\n18:     });\n19:   });\n20: \n21:   console.log('\\n--- Countries with only 1 Source ---');\n22:   const onlyOne = Object.entries(countries)\n23:     .filter(([c, count]) => count === 1)\n24:     .map(([c]) => c);\n25:   console.log(onlyOne.join(', '));\n26: }\n27: \n28: run().catch(console.error);\n\n(End of file - total 28 lines)\n</content>",
+        "metadata": {
+          "preview": "import fs from 'node:fs/promises';\nimport yaml from 'js-yaml';\n\nasync function run() {\n  const sourcesFile = 'config/sources.yml';\n  const sourcesDoc = yaml.load(await fs.readFile(sourcesFile, 'utf8'));\n  const sources = sourcesDoc.sources;\n\n  console.log('--- GLOBAL_TECH_CYBER Sources ---');\n  sources.filter(s => s.pools.includes('GLOBAL_TECH_CYBER')).forEach(s => {\n    console.log(`- ${s.name} (${s.url})`);\n  });\n\n  const countries = {};\n  sources.filter(s => s.pools.includes('GLOBAL_COUNTRIES')).forEach(s => {\n    (s.countries || []).forEach(c => {\n      countries[c] = (countries[c] || 0) + 1;\n    });\n  });\n",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/check_pool_details_2.ts",
+        "time": {
+          "start": 1777711847030,
+          "end": 1777711847049
+        }
+      },
+      "id": "prt_de7e214b2001Y4Eass2Zkjf8HQ",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_06_UKQanJbgvGduO3Qdf0BBaXVY",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/fix_broken_feeds.mjs"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/fix_broken_feeds.mjs</path>\n<type>file</type>\n<content>\n1: import fs from 'node:fs/promises';\n2: import path from 'node:path';\n3: import { fileURLToPath } from 'node:url';\n4: \n5: const __dirname = path.dirname(fileURLToPath(import.meta.url));\n6: const defaultDir = path.resolve(__dirname, '..', 'config');\n7: \n8: async function readYaml(f) { return (await import('js-yaml')).default.load(await fs.readFile(f, 'utf8')); }\n9: async function writeYaml(f, obj) {\n10:   const yaml = (await import('js-yaml')).default;\n11:   await fs.mkdir(path.dirname(f), { recursive: true });\n12:   await fs.writeFile(f, yaml.dump(obj, { noRefs: true, lineWidth: 120 }), 'utf8');\n13: }\n14: \n15: // Fixes for broken sources\n16: const FIXES = [\n17:   { id: 'rand', url: 'https://news.google.com/rss/search?q=site:rand.org+defense+security+geopolitics&hl=en-US&gl=US&ceid=US:en', parser: 'rss', note: 'replaced broken direct RSS with Google News site search' },\n18:   { id: 'brookings', url: 'https://news.google.com/rss/search?q=site:brookings.edu+international+geopolitics&hl=en-US&gl=US&ceid=US:en', parser: 'rss', note: 'replaced broken direct RSS with Google News site search' },\n19:   { id: 'the_wire', url: 'https://news.google.com/rss/search?q=site:thewire.in&hl=en-IN&gl=IN&ceid=IN:en', parser: 'rss', note: 'replaced broken RSS with Google News site search' },\n20:   { id: 'moneycontrol', url: 'https://news.google.com/rss/search?q=site:moneycontrol.com+markets+business&hl=en-IN&gl=IN&ceid=IN:en', parser: 'rss', note: 'replaced broken RSS with Google News site search' },\n21:   { id: 'ie_south', url: 'https://news.google.com/rss/search?q=site:indianexpress.com+south+india&hl=en-IN&gl=IN&ceid=IN:en', parser: 'rss', note: 'replaced broken section RSS with Google News site search' },\n22:   { id: 'scroll_in', url: 'https://news.google.com/rss/search?q=site:scroll.in&hl=en-IN&gl=IN&ceid=IN:en', parser: 'rss', note: 'replaced broken feedburner with Google News site search' },\n23: ];\n24: \n25: async function main() {\n26:   const file = path.join(defaultDir, 'sources.yml');\n27:   const doc = await readYaml(file);\n28:   const sources = doc.sources || [];\n29:   let fixed = 0;\n30: \n31:   for (const fix of FIXES) {\n32:     const idx = sources.findIndex(s => s.id === fix.id);\n33:     if (idx >= 0) {\n34:       sources[idx].url = fix.url;\n35:       sources[idx].parser = fix.parser || sources[idx].parser;\n36:       // Remove parserConfig if switching to RSS\n37:       if (fix.parser === 'rss' && sources[idx].parserConfig) delete sources[idx].parserConfig;\n38:       console.log(`✓ Fixed ${fix.id}: ${fix.note}`);\n39:       fixed++;\n40:     }\n41:   }\n42: \n43:   doc.sources = sources;\n44:   await writeYaml(file, doc);\n45:   console.log(`\\nFixed ${fixed} sources. Total: ${sources.length}`);\n46: }\n47: \n48: main().catch(e => { console.error(e); process.exit(1); });\n\n(End of file - total 48 lines)\n</content>",
+        "metadata": {
+          "preview": "import fs from 'node:fs/promises';\nimport path from 'node:path';\nimport { fileURLToPath } from 'node:url';\n\nconst __dirname = path.dirname(fileURLToPath(import.meta.url));\nconst defaultDir = path.resolve(__dirname, '..', 'config');\n\nasync function readYaml(f) { return (await import('js-yaml')).default.load(await fs.readFile(f, 'utf8')); }\nasync function writeYaml(f, obj) {\n  const yaml = (await import('js-yaml')).default;\n  await fs.mkdir(path.dirname(f), { recursive: true });\n  await fs.writeFile(f, yaml.dump(obj, { noRefs: true, lineWidth: 120 }), 'utf8');\n}\n\n// Fixes for broken sources\nconst FIXES = [\n  { id: 'rand', url: 'https://news.google.com/rss/search?q=site:rand.org+defense+security+geopolitics&hl=en-US&gl=US&ceid=US:en', parser: 'rss', note: 'replaced broken direct RSS with Google News site search' },\n  { id: 'brookings', url: 'https://news.google.com/rss/search?q=site:brookings.edu+international+geopolitics&hl=en-US&gl=US&ceid=US:en', parser: 'rss', note: 'replaced broken direct RSS with Google News site search' },\n  { id: 'the_wire', url: 'https://news.google.com/rss/search?q=site:thewire.in&hl=en-IN&gl=IN&ceid=IN:en', parser: 'rss', note: 'replaced broken RSS with Google News site search' },\n  { id: 'moneycontrol', url: 'https://news.google.com/rss/search?q=site:moneycontrol.com+markets+business&hl=en-IN&gl=IN&ceid=IN:en', parser: 'rss', note: 'replaced broken RSS with Google News site search' },",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/fix_broken_feeds.mjs",
+        "time": {
+          "start": 1777711847642,
+          "end": 1777711847879
+        }
+      },
+      "id": "prt_de7e216fc001R2NzuKo20res4Z",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_07_8PldDh29DyDL2Un9F2q5pehl",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/analyze_source_gaps.ts"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/analyze_source_gaps.ts</path>\n<type>file</type>\n<content>\n1: import fs from 'node:fs/promises';\n2: import path from 'node:path';\n3: import yaml from 'js-yaml';\n4: \n5: async function run() {\n6:   const poolsFile = 'config/pools.yml';\n7:   const sourcesFile = 'config/sources.yml';\n8: \n9:   const poolsDoc = yaml.load(await fs.readFile(poolsFile, 'utf8'));\n10:   const sourcesDoc = yaml.load(await fs.readFile(sourcesFile, 'utf8'));\n11: \n12:   const pools = poolsDoc.pools;\n13:   const sources = sourcesDoc.sources;\n14: \n15:   const poolCounts = {};\n16:   for (const pool of pools) {\n17:     poolCounts[pool.id] = {\n18:       name: pool.name,\n19:       count: 0,\n20:       activeCount: 0,\n21:       sources: []\n22:     };\n23:   }\n24: \n25:   const sourcesByPool = {};\n26:   const sourcesWithNoPool = [];\n27: \n28:   for (const src of sources) {\n29:     if (!src.pools || src.pools.length === 0) {\n30:       sourcesWithNoPool.push(src.id);\n31:       continue;\n32:     }\n33:     for (const poolId of src.pools) {\n34:       if (poolCounts[poolId]) {\n35:         poolCounts[poolId].count++;\n36:         if (src.is_active !== false) {\n37:           poolCounts[poolId].activeCount++;\n38:         }\n39:         poolCounts[poolId].sources.push(src.id);\n40:       } else {\n41:         if (!sourcesByPool[poolId]) sourcesByPool[poolId] = 0;\n42:         sourcesByPool[poolId]++;\n43:       }\n44:     }\n45:   }\n46: \n47:   console.log('--- Pool Coverage Summary ---');\n48:   for (const poolId in poolCounts) {\n49:     const p = poolCounts[poolId];\n50:     const flag = p.activeCount === 0 ? '!!! EMPTY !!!' : p.activeCount < 5 ? '!! LOW !!' : '';\n51:     console.log(`${poolId.padEnd(25)} | Total: ${String(p.count).padStart(3)} | Active: ${String(p.activeCount).padStart(3)} | ${flag}`);\n52:   }\n53: \n54:   console.log('\\n--- Undefined Pools (referenced in sources but not in pools.yml) ---');\n55:   for (const poolId in sourcesByPool) {\n56:     console.log(`${poolId.padEnd(25)} | Sources: ${sourcesByPool[poolId]}`);\n57:   }\n58: \n59:   if (sourcesWithNoPool.length > 0) {\n60:     console.log(`\\n--- Sources with No Pools (${sourcesWithNoPool.length}) ---`);\n61:     console.log(sourcesWithNoPool.slice(0, 10).join(', ') + (sourcesWithNoPool.length > 10 ? '...' : ''));\n62:   }\n63: }\n64: \n65: run().catch(console.error);\n\n(End of file - total 65 lines)\n</content>",
+        "metadata": {
+          "preview": "import fs from 'node:fs/promises';\nimport path from 'node:path';\nimport yaml from 'js-yaml';\n\nasync function run() {\n  const poolsFile = 'config/pools.yml';\n  const sourcesFile = 'config/sources.yml';\n\n  const poolsDoc = yaml.load(await fs.readFile(poolsFile, 'utf8'));\n  const sourcesDoc = yaml.load(await fs.readFile(sourcesFile, 'utf8'));\n\n  const pools = poolsDoc.pools;\n  const sources = sourcesDoc.sources;\n\n  const poolCounts = {};\n  for (const pool of pools) {\n    poolCounts[pool.id] = {\n      name: pool.name,\n      count: 0,\n      activeCount: 0,",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/analyze_source_gaps.ts",
+        "time": {
+          "start": 1777711848293,
+          "end": 1777711848316
+        }
+      },
+      "id": "prt_de7e21973001dcAQdI0p51UE2Y",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e1f83b001tXwZpsQWaL4NvP"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_00_Nah4Mad1suTaVRAOt9Yx8ZUo",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/config/pools.yml",
+          "offset": 55,
+          "limit": 30
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/config/pools.yml</path>\n<type>file</type>\n<content>\n55:     name: India Regional\n56:     description: State-level and zonal reporting\n57:     is_active: true\n58: \n59:   - id: INDIA_CITIES\n60:     name: India Cities\n61:     description: City-level feeds (Delhi, Mumbai, Bengaluru, etc.)\n62:     is_active: true\n63:   \n64:   # ─── Global Country & City (New) ───────────────\n65:   - id: GLOBAL_COUNTRIES\n66:     name: Global Countries\n67:     description: Country-specific international news feeds (Guardian, France24, etc.)\n68:     is_active: true\n69:   - id: GLOBAL_CITIES\n70:     name: Global Cities\n71:     description: City-specific feeds where available; fallback to curated or GN feeds\n72:     is_active: true\n73: \n\n(End of file - total 73 lines)\n</content>",
+        "metadata": {
+          "preview": "    name: India Regional\n    description: State-level and zonal reporting\n    is_active: true\n\n  - id: INDIA_CITIES\n    name: India Cities\n    description: City-level feeds (Delhi, Mumbai, Bengaluru, etc.)\n    is_active: true\n  \n  # ─── Global Country & City (New) ───────────────\n  - id: GLOBAL_COUNTRIES\n    name: Global Countries\n    description: Country-specific international news feeds (Guardian, France24, etc.)\n    is_active: true\n  - id: GLOBAL_CITIES\n    name: Global Cities\n    description: City-specific feeds where available; fallback to curated or GN feeds\n    is_active: true\n",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "config/pools.yml",
+        "time": {
+          "start": 1777711852146,
+          "end": 1777711852173
+        }
+      },
+      "id": "prt_de7e227c50011Km4ixuuCGA1rw",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e21c300015meGkg2VCQVqsf"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_01_zbt9p0AtAosPDP7Zom82Ngyg",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/src/tools"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/src/tools</path>\n<type>directory</type>\n<entries>\nautodiscover.ts\ncountries.ts\nenrich.ts\ninsights.ts\nnews.ts\nparsers.ts\npools.ts\nresearch.ts\nsources.ts\nweb.ts\n\n(10 entries)\n</entries>",
+        "metadata": {
+          "preview": "autodiscover.ts\ncountries.ts\nenrich.ts\ninsights.ts\nnews.ts\nparsers.ts\npools.ts\nresearch.ts\nsources.ts\nweb.ts",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "src/tools",
+        "time": {
+          "start": 1777711852656,
+          "end": 1777711852691
+        }
+      },
+      "id": "prt_de7e22ae10016GwJme2OI5kGQU",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e21c300015meGkg2VCQVqsf"
+    },
+    {
+      "type": "tool",
+      "tool": "grep",
+      "callID": "call_02_mM0Bk5oTYvDFUccqcYsGOSMP",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "testSource",
+          "path": "/home/ishanp/Documents/GitHub/IGS/src",
+          "output_mode": "files_with_matches"
+        },
+        "output": "Found 1 match(es) in 1 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/src/tools/news.ts\n",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711853551,
+          "end": 1777711853570
+        }
+      },
+      "id": "prt_de7e22ceb001WYkp9QbCtYp1De",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e21c300015meGkg2VCQVqsf"
+    },
+    {
+      "type": "tool",
+      "tool": "grep",
+      "callID": "call_03_AOQCNIB1iQYklxwPiKO1Y6CA",
+      "state": {
+        "status": "completed",
+        "input": {
+          "pattern": "async function.*run|main\\(\\)|\\.catch\\(",
+          "include": "**/scripts/*.ts",
+          "path": "/home/ishanp/Documents/GitHub/IGS",
+          "output_mode": "content"
+        },
+        "output": "Found 14 match(es) in 8 file(s)\n\n/home/ishanp/Documents/GitHub/IGS/scripts/test_breaking_sources.ts\n  31: async function run() {\n\n/home/ishanp/Documents/GitHub/IGS/scripts/full_system_test.ts\n  111: async function runAll() {\n\n/home/ishanp/Documents/GitHub/IGS/scripts/test_new_sources.ts\n  31: async function run() {\n  96: run().catch(e => { console.error(e); process.exit(1); });\n\n/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details_2.ts\n  4: async function run() {\n  28: run().catch(console.error);\n\n/home/ishanp/Documents/GitHub/IGS/scripts/check_pool_details.ts\n  4: async function run() {\n  41: run().catch(console.error);\n\n/home/ishanp/Documents/GitHub/IGS/scripts/analyze_source_gaps.ts\n  5: async function run() {\n  65: run().catch(console.error);\n\n/home/ishanp/Documents/GitHub/IGS/scripts/sync_user_config.ts\n  22: async function main() {\n  47: main().catch(error => {\n\n/home/ishanp/Documents/GitHub/IGS/scripts/test_fetch.ts\n  45: async function run() {\n  88: run().catch((e) => { console.error(e); process.exit(1); });\n",
+        "metadata": {
+          "truncated": false
+        },
+        "title": "",
+        "time": {
+          "start": 1777711854805,
+          "end": 1777711854824
+        }
+      },
+      "id": "prt_de7e23073001lCK4wDqZHTg2eg",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e21c300015meGkg2VCQVqsf"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_04_Ko4Zq9hG0N866pRiOUH2uNi1",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/build_global_feeds.mjs"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/build_global_feeds.mjs</path>\n<type>file</type>\n<content>\n1: import fs from 'node:fs/promises';\n2: import path from 'node:path';\n3: import { fileURLToPath } from 'node:url';\n4: \n5: const __dirname = path.dirname(fileURLToPath(import.meta.url));\n6: const cfgDir = path.resolve(__dirname, '..', 'config');\n7: \n8: async function readYaml(f) { return (await import('js-yaml')).default.load(await fs.readFile(f, 'utf8')); }\n9: async function writeYaml(f, obj) { const y=(await import('js-yaml')).default; await fs.writeFile(f, y.dump(obj, { noRefs:true, lineWidth:120 }), 'utf8'); }\n10: \n11: function guardianCountrySource(slug, code, name) {\n12:   return {\n13:     id: `guardian_${slug}`,\n14:     name: `Guardian (${name})`,\n15:     type: 'rss',\n16:     url: `https://www.theguardian.com/world/${slug}/rss`,\n17:     parser: 'rss',\n18:     pools: ['GLOBAL_COUNTRIES'],\n19:     is_active: true,\n20:   };\n21: }\n22: \n23: function france24CountrySource(slug, code, name) {\n24:   return {\n25:     id: `france24_${slug}`,\n26:     name: `France24 (${name})`,\n27:     type: 'rss',\n28:     url: `https://www.france24.com/en/tag/${slug}/rss`,\n29:     parser: 'rss',\n30:     pools: ['GLOBAL_COUNTRIES'],\n31:     is_active: true,\n32:   };\n33: }\n34: \n35: async function main() {\n36:   const countries = await readYaml(path.join(cfgDir, 'countries.yml'));\n37:   const sourcesFile = path.join(cfgDir, 'sources.yml');\n38:   const doc = await readYaml(sourcesFile);\n39:   const existing = doc.sources || [];\n40: \n41:   let added = 0, updated = 0;\n42: \n43:   for (const c of countries.countries) {\n44:     if (c.guardian_slug) {\n45:       const s = guardianCountrySource(c.guardian_slug, c.code, c.name);\n46:       const idx = existing.findIndex(x => x.id === s.id);\n47:       if (idx >= 0) { existing[idx] = { ...existing[idx], ...s }; updated++; } else { existing.push(s); added++; }\n48:     }\n49:     if (c.france24_slug) {\n50:       const s = france24CountrySource(c.france24_slug, c.code, c.name);\n51:       const idx = existing.findIndex(x => x.id === s.id);\n52:       if (idx >= 0) { existing[idx] = { ...existing[idx], ...s }; updated++; } else { existing.push(s); added++; }\n53:     }\n54:   }\n55: \n56:   doc.sources = existing;\n57:   await writeYaml(sourcesFile, doc);\n58:   console.log(`Added ${added}, updated ${updated}. Total sources: ${existing.length}`);\n59: }\n60: \n61: main().catch(e => { console.error(e); process.exit(1); });\n\n(End of file - total 61 lines)\n</content>",
+        "metadata": {
+          "preview": "import fs from 'node:fs/promises';\nimport path from 'node:path';\nimport { fileURLToPath } from 'node:url';\n\nconst __dirname = path.dirname(fileURLToPath(import.meta.url));\nconst cfgDir = path.resolve(__dirname, '..', 'config');\n\nasync function readYaml(f) { return (await import('js-yaml')).default.load(await fs.readFile(f, 'utf8')); }\nasync function writeYaml(f, obj) { const y=(await import('js-yaml')).default; await fs.writeFile(f, y.dump(obj, { noRefs:true, lineWidth:120 }), 'utf8'); }\n\nfunction guardianCountrySource(slug, code, name) {\n  return {\n    id: `guardian_${slug}`,\n    name: `Guardian (${name})`,\n    type: 'rss',\n    url: `https://www.theguardian.com/world/${slug}/rss`,\n    parser: 'rss',\n    pools: ['GLOBAL_COUNTRIES'],\n    is_active: true,\n  };",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/build_global_feeds.mjs",
+        "time": {
+          "start": 1777711855399,
+          "end": 1777711855492
+        }
+      },
+      "id": "prt_de7e23541001QWO5jJIbvKHmMo",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e21c300015meGkg2VCQVqsf"
+    },
+    {
+      "type": "tool",
+      "tool": "read",
+      "callID": "call_05_0KnoPZTtEU18Nf7c7Jb1OXVA",
+      "state": {
+        "status": "completed",
+        "input": {
+          "filePath": "/home/ishanp/Documents/GitHub/IGS/scripts/seed_priority_countries.mjs"
+        },
+        "output": "<path>/home/ishanp/Documents/GitHub/IGS/scripts/seed_priority_countries.mjs</path>\n<type>file</type>\n<content>\n1: import fs from 'node:fs/promises';\n2: import path from 'node:path';\n3: import { fileURLToPath } from 'node:url';\n4: \n5: const __dirname = path.dirname(fileURLToPath(import.meta.url));\n6: const cfgDir = path.resolve(__dirname, '..', 'config');\n7: \n8: async function readYaml(f) { return (await import('js-yaml')).default.load(await fs.readFile(f, 'utf8')); }\n9: async function writeYaml(f, obj) { const y=(await import('js-yaml')).default; await fs.writeFile(f, y.dump(obj, { noRefs:true, lineWidth:120 }), 'utf8'); }\n10: \n11: const curated = [\n12:   // United States\n13:   { id: 'guardian_us', name: 'Guardian (US News)', url: 'https://www.theguardian.com/us-news/rss' },\n14:   { id: 'npr_top', name: 'NPR Top News', url: 'https://feeds.npr.org/1001/rss.xml' },\n15: \n16:   // United Kingdom\n17:   { id: 'bbc_uk', name: 'BBC UK', url: 'https://feeds.bbci.co.uk/news/uk/rss.xml' },\n18:   { id: 'guardian_uk', name: 'Guardian (UK)', url: 'https://www.theguardian.com/uk-news/rss' },\n19: \n20:   // France\n21:   { id: 'france24_fr', name: 'France24 (France)', url: 'https://www.france24.com/en/tag/france/rss' },\n22: \n23:   // Germany / Europe\n24:   { id: 'bbc_europe', name: 'BBC Europe', url: 'https://feeds.bbci.co.uk/news/world/europe/rss.xml' },\n25:   { id: 'politico_europe', name: 'Politico Europe', url: 'https://www.politico.eu/feed/' },\n26: \n27:   // Japan\n28:   { id: 'guardian_japan', name: 'Guardian (Japan)', url: 'https://www.theguardian.com/world/japan/rss' },\n29: \n30:   // Australia\n31:   { id: 'abc_au_top', name: 'ABC Australia (Top Stories)', url: 'https://www.abc.net.au/news/feed/51120/rss.xml' },\n32: \n33:   // Canada\n34:   { id: 'guardian_canada', name: 'Guardian (Canada)', url: 'https://www.theguardian.com/world/canada/rss' },\n35: \n36:   // China\n37:   { id: 'guardian_china', name: 'Guardian (China)', url: 'https://www.theguardian.com/world/china/rss' },\n38: \n39:   // Russia\n40:   { id: 'moscow_times', name: 'The Moscow Times (News)', url: 'https://www.themoscowtimes.com/rss/news' },\n41: \n42:   // Africa\n43:   { id: 'bbc_africa', name: 'BBC Africa', url: 'https://feeds.bbci.co.uk/news/world/africa/rss.xml' },\n44: \n45:   // Middle East\n46:   { id: 'france24_me', name: 'France24 (Middle East)', url: 'https://www.france24.com/en/middle-east/rss' },\n47: ];\n48: \n49: async function main() {\n50:   const sourcesFile = path.join(cfgDir, 'sources.yml');\n51:   const doc = await readYaml(sourcesFile);\n52:   const existing = doc.sources || [];\n53:   let added = 0, updated = 0;\n54:   for (const c of curated) {\n55:     const src = {\n56:       id: c.id,\n57:       name: c.name,\n58:       type: 'rss',\n59:       url: c.url,\n60:       parser: 'rss',\n61:       pools: ['GLOBAL_COUNTRIES'],\n62:       is_active: true,\n63:     };\n64:     const idx = existing.findIndex(s => s.id === c.id);\n65:     if (idx >= 0) { existing[idx] = { ...existing[idx], ...src }; updated++; } else { existing.push(src); added++; }\n66:   }\n67:   doc.sources = existing;\n68:   await writeYaml(sourcesFile, doc);\n69:   console.log(`Priority countries: added ${added}, updated ${updated}. Total: ${existing.length}`);\n70: }\n71: \n72: main().catch(e => { console.error(e); process.exit(1); });\n\n(End of file - total 72 lines)\n</content>",
+        "metadata": {
+          "preview": "import fs from 'node:fs/promises';\nimport path from 'node:path';\nimport { fileURLToPath } from 'node:url';\n\nconst __dirname = path.dirname(fileURLToPath(import.meta.url));\nconst cfgDir = path.resolve(__dirname, '..', 'config');\n\nasync function readYaml(f) { return (await import('js-yaml')).default.load(await fs.readFile(f, 'utf8')); }\nasync function writeYaml(f, obj) { const y=(await import('js-yaml')).default; await fs.writeFile(f, y.dump(obj, { noRefs:true, lineWidth:120 }), 'utf8'); }\n\nconst curated = [\n  // United States\n  { id: 'guardian_us', name: 'Guardian (US News)', url: 'https://www.theguardian.com/us-news/rss' },\n  { id: 'npr_top', name: 'NPR Top News', url: 'https://feeds.npr.org/1001/rss.xml' },\n\n  // United Kingdom\n  { id: 'bbc_uk', name: 'BBC UK', url: 'https://feeds.bbci.co.uk/news/uk/rss.xml' },\n  { id: 'guardian_uk', name: 'Guardian (UK)', url: 'https://www.theguardian.com/uk-news/rss' },\n\n  // France",
+          "truncated": false,
+          "loaded": []
+        },
+        "title": "scripts/seed_priority_countries.mjs",
+        "time": {
+          "start": 1777711856013,
+          "end": 1777711856238
+        }
+      },
+      "id": "prt_de7e237d60017lDux1tnadMGVI",
+      "sessionID": "ses_2181e6c3bffeUoe1VqUdxkUftG",
+      "messageID": "msg_de7e21c300015meGkg2VCQVqsf"
+    }
+  ]
+}
