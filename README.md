@@ -371,3 +371,7 @@ MIT License — See [LICENSE](LICENSE) file.
 
 - **Issues:** https://github.com/ishan-parihar/igs-mcp/issues
 - **Discussions:** https://github.com/ishan-parihar/igs-mcp/discussions
+
+---
+
+Developed by [Ishan Parihar](https://github.com/ishanparihar) — If you find this useful, [consider supporting](https://rzp.io/rzp/ishan-parihar)
